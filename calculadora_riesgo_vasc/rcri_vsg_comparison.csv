@@ -1,0 +1,11 @@
+Aspect,RCRI,VSG_CRI
+Primary Population,General non-cardiac surgery,Vascular surgery specific
+Number of Variables,6,10
+Age Consideration,Not included,"Stratified (60-69, 70-79, ≥80)"
+Smoking Factor,Not included,Included (+1 point)
+COPD Factor,Not included,Included (+2 points)
+Beta-blocker Use,Not included,Included (+1 point)
+Protective Factors,None,Prior revascularization (-1)
+Discrimination (AUC),0.60-0.70,0.71
+Validation in Vascular Surgery,Poor (underestimates risk),Excellent
+Online Calculator Available,Yes,Yes

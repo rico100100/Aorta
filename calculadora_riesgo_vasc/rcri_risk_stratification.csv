@@ -1,0 +1,5 @@
+RCRI_Score,Risk_of_MACE,Risk_Class,95%_CI
+0,0.4%,Class I (Very Low),0.05-1.5%
+1,0.9%,Class II (Low),0.3-2.1%
+2,6.6%,Class III (Intermediate),3.9-10.3%
+≥3,≥11.0%,Class IV (High),5.8-18.4%

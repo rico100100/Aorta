@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras de Riesgo Cardiovascular - Cirugía Vascular</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Calculadoras de Riesgo Cardiovascular</h1>
+            <p class="subtitle">Herramientas especializadas para cirugía vascular</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" data-tab="vsg-cri">VSG-CRI</button>
+            <button class="tab-button" data-tab="rcri">RCRI</button>
+            <button class="tab-button" data-tab="vsgne-aaa">VSGNE AAA</button>
+            <button class="tab-button" data-tab="comparison">Comparación</button>
+        </nav>
+
+        <!-- VSG-CRI Calculator -->
+        <div id="vsg-cri" class="tab-content active">
+            <div class="calculator-header">
+                <h2>VSG-CRI - Vascular Study Group Cardiac Risk Index</h2>
+                <p>Índice específico para cirugía vascular que predice complicaciones cardíacas mayores en cirugías electivas o urgentes.</p>
+            </div>
+
+            <div class="calculator-grid">
+                <div class="calculator-form">
+                    <h3>Variables del Paciente</h3>
+                    <form id="vsg-cri-form">
+                        <div class="variable-group">
+                            <h4>Edad</h4>
+                            <label class="checkbox-label">
+                                <input type="radio" name="age" value="60-69" data-points="2">
+                                <span class="checkmark"></span>
+                                Edad 60-69 años (+2 puntos)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="radio" name="age" value="70-79" data-points="3">
+                                <span class="checkmark"></span>
+                                Edad 70-79 años (+3 puntos)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="radio" name="age" value="80+" data-points="4">
+                                <span class="checkmark"></span>
+                                Edad ≥80 años (+4 puntos)
+                            </label>
+                        </div>
+
+                        <div class="variable-group">
+                            <h4>Comorbilidades</h4>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="coronary_disease" data-points="1">
+                                <span class="checkmark"></span>
+                                Enfermedad coronaria (+1 punto)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="heart_failure" data-points="2">
+                                <span class="checkmark"></span>
+                                Insuficiencia cardíaca congestiva (+2 puntos)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="copd" data-points="2">
+                                <span class="checkmark"></span>
+                                EPOC (+2 puntos)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="creatinine" data-points="2">
+                                <span class="checkmark"></span>
+                                Creatinina >1.8 mg/dL (+2 puntos)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="smoking" data-points="1">
+                                <span class="checkmark"></span>
+                                Fumador actual o previo (+1 punto)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="diabetes" data-points="1">
+                                <span class="checkmark"></span>
+                                Diabetes insulino-dependiente (+1 punto)
+                            </label>
+                        </div>
+
+                        <div class="variable-group">
+                            <h4>Tratamiento y Procedimientos</h4>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="beta_blockers" data-points="1">
+                                <span class="checkmark"></span>
+                                Betabloqueadores >1 mes (+1 punto)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="revascularization" data-points="-1">
+                                <span class="checkmark"></span>
+                                Revascularización coronaria previa (-1 punto)
+                            </label>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="results-panel">
+                    <div class="score-display">
+                        <h3>Resultado</h3>
+                        <div class="score-value" id="vsg-cri-score">0</div>
+                        <div class="score-label">Puntuación Total</div>
+                    </div>
+                    
+                    <div class="risk-interpretation" id="vsg-cri-interpretation">
+                        <div class="risk-category">Muy Bajo</div>
+                        <div class="risk-percentage">2.6%</div>
+                        <div class="risk-description">Riesgo de complicaciones cardíacas mayores</div>
+                    </div>
+
+                    <div class="clinical-notes">
+                        <h4>Interpretación Clínica</h4>
+                        <p id="vsg-cri-notes">Basado en la puntuación VSG-CRI, se estima un riesgo muy bajo de complicaciones cardíacas perioperatorias. Considere estrategias de optimización estándar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Información del Score</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Validación</h4>
+                        <p>Derivado y validado en >10,000 pacientes de cirugía vascular, AUC 0.71</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Outcomes</h4>
+                        <p>Infarto de miocardio, arritmias clínicamente significativas, insuficiencia cardíaca congestiva hospitalaria</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RCRI Calculator -->
+        <div id="rcri" class="tab-content">
+            <div class="calculator-header">
+                <h2>RCRI - Revised Cardiac Risk Index</h2>
+                <p>Índice ampliamente usado para predecir eventos cardíacos después de cirugía no cardíaca en general.</p>
+            </div>
+
+            <div class="calculator-grid">
+                <div class="calculator-form">
+                    <h3>Variables del Paciente</h3>
+                    <form id="rcri-form">
+                        <div class="variable-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="high_risk_surgery" data-points="1">
+                                <span class="checkmark"></span>
+                                Cirugía de alto riesgo (+1 punto)
+                                <span class="variable-detail">Intraperitoneal, intratorácica, vascular suprainguinal</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="ischemic_disease" data-points="1">
+                                <span class="checkmark"></span>
+                                Historia de cardiopatía isquémica (+1 punto)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="heart_failure" data-points="1">
+                                <span class="checkmark"></span>
+                                Historia de insuficiencia cardíaca (+1 punto)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cerebrovascular" data-points="1">
+                                <span class="checkmark"></span>
+                                Historia de enfermedad cerebrovascular (+1 punto)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="diabetes_insulin" data-points="1">
+                                <span class="checkmark"></span>
+                                Diabetes mellitus con insulina (+1 punto)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="creatinine_2" data-points="1">
+                                <span class="checkmark"></span>
+                                Creatinina preoperatoria >2.0 mg/dL (+1 punto)
+                            </label>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="results-panel">
+                    <div class="score-display">
+                        <h3>Resultado</h3>
+                        <div class="score-value" id="rcri-score">0</div>
+                        <div class="score-label">Puntuación Total</div>
+                    </div>
+                    
+                    <div class="risk-interpretation" id="rcri-interpretation">
+                        <div class="risk-category">Clase I (Muy Bajo)</div>
+                        <div class="risk-percentage">0.4%</div>
+                        <div class="risk-description">Riesgo de eventos cardíacos mayores</div>
+                    </div>
+
+                    <div class="clinical-notes">
+                        <h4>Interpretación Clínica</h4>
+                        <p id="rcri-notes">Clasificación de riesgo Clase I según RCRI. Riesgo muy bajo de eventos cardíacos perioperatorios. No requiere evaluación cardíaca adicional rutinaria.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Información del Score</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Validación</h4>
+                        <p>Derivado en 2,893 pacientes, validado en 1,422 pacientes ≥50 años</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Outcomes</h4>
+                        <p>Muerte cardíaca, infarto de miocardio no fatal, paro cardíaco no fatal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VSGNE AAA Calculator -->
+        <div id="vsgne-aaa" class="tab-content">
+            <div class="calculator-header">
+                <h2>VSGNE AAA - Ruptured AAA Risk Score</h2>
+                <p>Score específico para aneurisma aórtico abdominal roto, predice mortalidad perioperatoria.</p>
+            </div>
+
+            <div class="calculator-grid">
+                <div class="calculator-form">
+                    <h3>Variables del Paciente</h3>
+                    <form id="vsgne-aaa-form">
+                        <div class="variable-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="age_76" data-points="2">
+                                <span class="checkmark"></span>
+                                Edad >76 años (+2 puntos)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="cardiac_arrest" data-points="2">
+                                <span class="checkmark"></span>
+                                Paro cardíaco (+2 puntos)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="loss_consciousness" data-points="1">
+                                <span class="checkmark"></span>
+                                Pérdida de conciencia (+1 punto)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="suprarenal_clamp" data-points="1">
+                                <span class="checkmark"></span>
+                                Clampaje suprarrenal (+1 punto)
+                            </label>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="results-panel">
+                    <div class="score-display">
+                        <h3>Resultado</h3>
+                        <div class="score-value" id="vsgne-aaa-score">0</div>
+                        <div class="score-label">Puntuación Total</div>
+                    </div>
+                    
+                    <div class="risk-interpretation" id="vsgne-aaa-interpretation">
+                        <div class="risk-category">Bajo</div>
+                        <div class="risk-percentage">8%</div>
+                        <div class="risk-description">Riesgo de mortalidad hospitalaria</div>
+                    </div>
+
+                    <div class="clinical-notes">
+                        <h4>Interpretación Clínica</h4>
+                        <p id="vsgne-aaa-notes">Riesgo bajo de mortalidad hospitalaria en reparación de AAA roto. Considere abordaje endovascular si es anatómicamente factible.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>Información del Score</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Validación</h4>
+                        <p>Derivado en 231 pacientes, AUC 0.79</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Outcomes</h4>
+                        <p>Mortalidad hospitalaria después de reparación de AAA roto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Tab -->
+        <div id="comparison" class="tab-content">
+            <div class="calculator-header">
+                <h2>Comparación de Calculadoras</h2>
+                <p>Análisis comparativo de los diferentes índices de riesgo cardiovascular en cirugía vascular.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>VSG-CRI</h3>
+                    <div class="comparison-item">
+                        <strong>Aplicación:</strong> Cirugía vascular general
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Variables:</strong> 11 variables clínicas
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Outcome:</strong> Complicaciones cardíacas mayores
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Discriminación:</strong> AUC 0.71
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <h3>RCRI</h3>
+                    <div class="comparison-item">
+                        <strong>Aplicación:</strong> Cirugía no cardíaca general
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Variables:</strong> 6 variables clínicas
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Outcome:</strong> Eventos cardíacos mayores
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Discriminación:</strong> AUC 0.64-0.70
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <h3>VSGNE AAA</h3>
+                    <div class="comparison-item">
+                        <strong>Aplicación:</strong> AAA roto específicamente
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Variables:</strong> 4 variables específicas
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Outcome:</strong> Mortalidad hospitalaria
+                    </div>
+                    <div class="comparison-item">
+                        <strong>Discriminación:</strong> AUC 0.79
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommendations">
+                <h3>Recomendaciones Clínicas</h3>
+                <div class="recommendation-item">
+                    <h4>Para cirugía vascular electiva:</h4>
+                    <p>Use VSG-CRI como primera opción por su especificidad en población vascular. RCRI puede usarse como comparación.</p>
+                </div>
+                <div class="recommendation-item">
+                    <h4>Para AAA roto:</h4>
+                    <p>Use VSGNE AAA como herramienta específica para evaluar mortalidad y guiar decisiones de tratamiento.</p>
+                </div>
+                <div class="recommendation-item">
+                    <h4>Para cirugía de emergencia:</h4>
+                    <p>VSG-CRI incluye pacientes de emergencia en su derivación, por lo que es apropiado en estos escenarios.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Desarrollado para especialistas en cirugía vascular. Estas calculadoras son herramientas de apoyo clínico y no reemplazan el juicio médico profesional.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

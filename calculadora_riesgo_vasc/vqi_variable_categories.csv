@@ -1,0 +1,7 @@
+Variable_Category,Examples,Weighting
+Demographics,Age (continuous variable),Variable by age groups
+Cardiac History,"Coronary artery disease, congestive heart failure",Different OR per condition
+Comorbidities,"Diabetes, COPD, renal insufficiency",Procedure-specific impact
+Laboratory Values,"Creatinine levels, stress test results",Threshold-based scoring
+Procedure Type,"CEA, EVAR, INFRA, SUPRA, OAAA",Built into model
+Previous Interventions,"Prior vascular procedures, coronary revascularization",Protective or risk factor

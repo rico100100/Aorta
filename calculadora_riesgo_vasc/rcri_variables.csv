@@ -1,0 +1,7 @@
+Variable,Points,Description
+"High-risk surgery (intraperitoneal, intrathoracic, suprainguinal vascular)",1,Surgery type with high cardiovascular stress
+History of ischemic heart disease,1,"Previous MI, positive stress test, chest pain, nitrates, pathological Q waves"
+History of congestive heart failure,1,"Pulmonary edema, bilateral rales, S3 gallop, PND, X-ray changes"
+History of cerebrovascular disease (stroke/TIA),1,Prior transient ischemic attack or cerebrovascular accident
+Diabetes mellitus requiring insulin therapy,1,Type 1 or insulin-dependent Type 2 diabetes
+Preoperative serum creatinine >2.0 mg/dL (>176.8 μmol/L),1,Chronic kidney disease with elevated creatinine
