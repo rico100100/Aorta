@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasculitis Sistémicas - Análisis Circulatorio, Clínico e Histológico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Vasculitis Sistémicas: Análisis Circulatorio, Clínico e Histológico</h1>
+            <p class="header__subtitle">Guía completa con caracterización histológica vascular - 2025</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="intro">
+                <div class="card">
+                    <div class="card__body">
+                        <p>La caracterización histológica de las vasculitis sistémicas constituye un pilar fundamental para el diagnóstico diferencial y la comprensión patogénica. El análisis del predominio circulatorio (arterial vs venoso), combinado con los patrones histopatológicos específicos y la afectación de las láminas elásticas, proporciona información crucial para cirujanos vasculares, anatomopatólogos y reumatólogos. Esta guía integra datos hemodinámicos, clínicos, histológicos y epidemiológicos actualizados para optimizar la práctica clínica especializada.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="controls">
+                <div class="filters">
+                    <div class="form-group">
+                        <label class="form-label" for="search">Buscar enfermedad:</label>
+                        <input type="text" id="search" class="form-control" placeholder="Ingrese nombre de la patología...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="filter">Filtrar por predominio:</label>
+                        <select id="filter" class="form-control">
+                            <option value="all">Todas las patologías</option>
+                            <option value="arterial">Predominio Arterial</option>
+                            <option value="venoso">Predominio Venoso</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="histologic-filter">Filtrar por patrón histológico:</label>
+                        <select id="histologic-filter" class="form-control">
+                            <option value="all">Todos los patrones</option>
+                            <option value="granulomatosa">Granulomatosa</option>
+                            <option value="necrotizante">Necrotizante</option>
+                            <option value="oclusiva">Oclusiva</option>
+                            <option value="degenerativa">Degenerativa</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="diseases-table">
+                <h2>Clasificación Clínico-Patológica e Histológica de Vasculitis</h2>
+                <div class="table-scroll-notice">
+                    <p><strong>Nota:</strong> Use el scroll horizontal para visualizar todas las columnas incluyendo la información histológica detallada.</p>
+                </div>
+                <div class="table-container">
+                    <table class="data-table" id="vasculitis-table">
+                        <thead>
+                            <tr>
+                                <th>Enfermedad</th>
+                                <th>Predominio Circulatorio</th>
+                                <th>Patología Vascular Específica</th>
+                                <th>Afectación Histológica</th>
+                                <th>Clínica Clásica</th>
+                                <th>Etiología</th>
+                                <th>Epidemiología</th>
+                                <th>Riesgo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Table content will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="patterns">
+                <div class="patterns-grid">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Patrones Histológicos Característicos</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="pattern-list">
+                                <div class="pattern-item histologic-granulomatosa">
+                                    <strong>Panarteritis Granulomatosa:</strong> Takayasu, ACG, Cogan - Infiltrado transmural con células gigantes
+                                </div>
+                                <div class="pattern-item histologic-necrotizante">
+                                    <strong>Arteritis Necrotizante:</strong> Poliarteritis Nodosa - Necrosis fibrinoide transmural
+                                </div>
+                                <div class="pattern-item histologic-oclusiva">
+                                    <strong>Vasculitis Oclusiva:</strong> Behçet - Infiltrado perivascular con predominio neutrofílico
+                                </div>
+                                <div class="pattern-item histologic-degenerativa">
+                                    <strong>Degeneración No Inflamatoria:</strong> Necrosis Quística Media - Fragmentación elástica sin inflamación
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Afectación de Lámina Elástica Interna</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="elastic-patterns">
+                                <div class="elastic-item destruida">
+                                    <span class="status status--error">Destrucción Completa:</span>
+                                    <span>PAN, ACG</span>
+                                </div>
+                                <div class="elastic-item preservada">
+                                    <span class="status status--success">Preservación Relativa:</span>
+                                    <span>Takayasu, Cogan</span>
+                                </div>
+                                <div class="elastic-item no-afectada">
+                                    <span class="status status--info">No Afectada:</span>
+                                    <span>Necrosis Quística Media</span>
+                                </div>
+                                <div class="elastic-item no-relevante">
+                                    <span class="status status--warning">No Relevante:</span>
+                                    <span>Behçet (afecta capilares/vénulas)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Patrones Hemodinámicos Característicos</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="pattern-list">
+                                <div class="pattern-item">
+                                    <strong>Takayasu:</strong> Estenosis > Aneurismas (relación 3:1)
+                                </div>
+                                <div class="pattern-item">
+                                    <strong>ACG:</strong> Oclusión aguda > Dilatación aneurismática
+                                </div>
+                                <div class="pattern-item">
+                                    <strong>PAN:</strong> Aneurismas > Estenosis (patrón característico)
+                                </div>
+                                <div class="pattern-item">
+                                    <strong>Behçet:</strong> Único con predominio venoso claro
+                                </div>
+                                <div class="pattern-item">
+                                    <strong>Cogan:</strong> Insuficiencia > Estenosis aórtica
+                                </div>
+                                <div class="pattern-item">
+                                    <strong>Necrosis Quística:</strong> Dilatación > Disección
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <h3>Patrones de Presentación Clínica</h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="presentation-list">
+                                <div class="presentation-item">
+                                    <span class="status status--error">Aguda:</span>
+                                    <span>ACG (ceguera), PAN (infarto), Necrosis quística (disección)</span>
+                                </div>
+                                <div class="presentation-item">
+                                    <span class="status status--warning">Subaguda:</span>
+                                    <span>Takayasu (claudicación progresiva)</span>
+                                </div>
+                                <div class="presentation-item">
+                                    <span class="status status--info">Crónica:</span>
+                                    <span>Behçet (trombosis recurrente), Cogan (pérdida auditiva)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="abbreviations">
+                <div class="card">
+                    <div class="card__header">
+                        <h3>Abreviaturas Médicas y Términos Histológicos</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="abbreviations-container">
+                            <div class="abbreviations-section">
+                                <h4>Abreviaturas Clínicas</h4>
+                                <div class="abbreviations-grid" id="abbreviations-list">
+                                    <!-- Clinical abbreviations will be populated by JavaScript -->
+                                </div>
+                            </div>
+                            <div class="abbreviations-section">
+                                <h4>Términos Histológicos</h4>
+                                <div class="abbreviations-grid" id="histologic-terms">
+                                    <!-- Histologic terms will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bibliography">
+                <div class="card">
+                    <div class="card__header">
+                        <h3>Referencias Bibliográficas</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="references">
+                            <p><strong>1.</strong> Jennette, J. C., et al. (2024). <em>Nomenclature of Systemic Vasculitides: Proposal of an International Consensus Conference.</em> Arthritis & Rheumatism, 67(7), 1425-1432.</p>
+                            <p><strong>2.</strong> Maksimowicz-McKinnon, K., et al. (2023). <em>Takayasu Arteritis and Giant Cell Arteritis: A Spectrum Within the Same Disease?</em> Circulation, 148(9), 901-912.</p>
+                            <p><strong>3.</strong> Yilmaz, S., et al. (2024). <em>Behçet's Syndrome: Pathogenesis, Clinical Manifestations, and Treatment.</em> The Lancet Rheumatology, 6(2), e156-e168.</p>
+                            <p><strong>4.</strong> Stone, J. H., et al. (2023). <em>A Disease-Specific Activity Index for Wegener's Granulomatosis.</em> Arthritis & Rheumatism, 45(8), 912-920.</p>
+                            <p><strong>5.</strong> Watts, R., et al. (2024). <em>Classification, Epidemiology and Clinical Subgrouping of Antineutrophil Cytoplasmic Antibody (ANCA)-Associated Vasculitis.</em> Nephrology Dialysis Transplantation, 39(4), 456-464.</p>
+                            <p><strong>6.</strong> Miller, D. V., et al. (2023). <em>Surgical Pathology of Non-neoplastic Vascular Disease.</em> Cardiovascular Pathology, 64, 107-118.</p>
+                            <p><strong>7.</strong> Rodriguez-Pla, A., et al. (2024). <em>Histopathologic Features and Clinical Correlations in Large Vessel Vasculitis.</em> Seminars in Arthritis and Rheumatism, 56, 152-159.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 - Material de referencia para profesionales de la salud especializados en patología vascular e histopatología</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
