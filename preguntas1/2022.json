@@ -1,0 +1,1164 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Según la Ley Orgánica 9/1982, de 10 de agosto, del Estatuto de Autonomía de Castilla-La Mancha, las competencias de la Junta de Comunidades de Castilla-La Mancha en materia de sanidad e higiene; promoción, prevención y restauración de la salud; coordinación hospitalaria en general, incluida la de la Seguridad Social, son:",
+      "options": {
+        "A": "Exclusivas.",
+        "B": "De desarrollo normativo y ejecución.",
+        "C": "Ejecutivas.",
+        "D": "La Junta de Comunidades de Castilla-La Mancha no tiene competencias en esas materias."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 2,
+      "question": "El artículo 15 de la Ley 8/2000, de 30 de noviembre, de Ordenación Sanitaria de Castilla-La Mancha, define el Plan de Salud como:",
+      "options": {
+        "A": "El instrumento de coordinación del Sistema Sanitario de Castilla - La Mancha.",
+        "B": "El instrumento de planificación estratégica, dirección y ordenación del Sistema Sanitario de Castilla-La Mancha.",
+        "C": "El instrumento de planificación del Sistema Nacional de Salud.",
+        "D": "El instrumento de ordenación del Sistema Nacional de Salud."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 3,
+      "question": "Conforme al artículo 3.2 de la Ley 3/2014 de garantía de la atención sanitaria y del ejercicio de la libre elección en las prestaciones del Servicio de Salud de Castilla • La Mancha, el Servicio de Salud de Castilla-La Mancha, para la adecuada priorización de los pacientes que están en lista de espera para patología programada y no urgente, establecerá los siguientes criterios:",
+      "options": {
+        "A": "Gravedad de las patologías, eficacia de la intervención, oportunidad de la intervención y carácter invalidante de la enfermedad.",
+        "B": "Eficiencia de la intervención.",
+        "C": "Dificultad de la intervención.",
+        "D": "Beneficios de la intervención."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 4,
+      "question": "De conformidad con el artículo 39.3 del Estatuto Marco:",
+      "options": {
+        "A": "El personal estatutario podrá ser destinado en comisión de servicios, con carácter definitivo.",
+        "B": "Quien se encuentre en comisión de servicios tendrá derecho a la reserva de su plaza o puesto de trabajo de origen.",
+        "C": "Una plaza cubierta por su titular, podrá ser ocupada en comisión de servicios.",
+        "D": "Una plaza vacante, podrá ser cubierta en comisión de servicios por personal estatutario de distinta categoría a la de la plaza."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 5,
+      "question": "De conformidad con el artículo 31.2 la Ley 5/2010, de 24 de junio, sobre derechos y deberes en materia de salud en Castilla - La Mancha, la historia clínica se conservará como mínimo durante:",
+      "options": {
+        "A": "Un plazo de 2 años, contados desde la fecha del alta del último proceso asistencial.",
+        "B": "Un plazo de 3 años, contados desde la fecha del alta del último proceso asistencial.",
+        "C": "Un plazo de 5 años, contados desde la fecha del alta del último proceso asistencial.",
+        "D": "Un plazo de 7 años, contados desde la fecha del alta del último proceso asistencial."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 6,
+      "question": "Conforme al artículo 1 de la Orden de 04/12/2015, de la Consejería de Sanidad, por la que se regula la estructura, organización y funcionamiento de las Redes de Expertos y Profesionales del Sistema Sanitario de Castilla-La Mancha, se denomina red de expertos:",
+      "options": {
+        "A": "A la unidad funcional sin personalidad jurídica propia, de carácter consultivo y composición multidisciplinar, constituida para la definición de criterios homogéneos en la gestión de las distintas políticas sanitarias, así como para la valoración y toma de decisiones que afecten al conjunto de la organización.",
+        "B": "A la unidad funcional con personalidad jurídica propia que tiene por objeto definir criterios para la gestión de las distintas políticas sanitarias.",
+        "C": "A la unidad funcional con personalidad jurídica propia de carácter multidisciplinar que tiene por objeto la valoración y toma de decisiones del conjunto de la organización.",
+        "D": "A la unidad funcional con personalidad jurídica propia de carácter consultivo."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 7,
+      "question": "Sobre el Tratamiento endovascular de la isquemia mesentérica crónica todas las respuestas son correctas excepto:",
+      "options": {
+        "A": "En el tratamiento endovascular de la isquemia mesentérica crónica el acceso femoral da menos complicaciones que la vía braquial.",
+        "B": "Se recomienda doble antiagregación durante un mes y simple de por vida, por extrapolación del tratamiento en el territorio coronario y encuestas a pacientes.",
+        "C": "Hay evidencia en la literatura contemporánea de la eficacia del stent con drogas frente al stent descubierto.",
+        "D": "En caso de revascularización simple en enfermedad multivaso, la mesentérica superior es la primera elección."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 8,
+      "question": "Elija la respuesta correcta respecto al tratamiento de la Hipertensión Arterial (HTA):",
+      "options": {
+        "A": "Actualmente un diagnóstico de HTA secundaria a estenosis renal obliga al abordaje de la estenosis, asociado al tratamiento farmacológico.",
+        "B": "En HTA renovascular el stent en la estenosis ostia! de la arteria renal disminuye escasamente el porcentaje de reestenosis frente a la angioplastia simple, pero aumenta mucho el éxito inicial del procedimiento.",
+        "C": "La denervación renal por radiofrecuencia está enfocada para pacientes con HTA vasculorrenal sin nefroangioesclerosis.",
+        "D": "Estudios aleatorizados como el ASTRAL (Angioplasty and Stenting for Renal f'.rtery Lesions) o el CORAL (Cardiovascular Outcomes in Renal Atherosclerotic Lesions) sobre pacientes con estenosis de arteria renal, no han demostrado claro beneficio de la revascularización sobre el tratamiento médico en cuanto a control de la tensión arterial, función renal, morbilidad cardiovascular o mortalidad."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 9,
+      "question": "Respecto a la anatomía del opérculo torácico superior elija la respuesta falsa.",
+      "options": {
+        "A": "El triángulo interescaleno es cruzado por la arteria subclavia y los tres troncos del plexo braquial. (C5-C6; C7; C8-T1), pero no por la vena subclavia.",
+        "B": "En el espacio costoclavicular está limitado anteriormente por el músculo subclavio.",
+        "C": "El espacio retropectoral menor es el más lateral de los tres espacios y donde se localiza con más frecuencia la compresión del nervio en el síndrome de salida del tórax.",
+        "D": "La elevación del brazo no induce cambios en el triángulo interescaleno en voluntarios sanos pero sí en el costoclavicular y retropectoral menor."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 10,
+      "question": "La entidad patológica principal, responsable de la enfermedad del sistema cerebrovascular extracraneal es:",
+      "options": {
+        "A": "la aterosclerosis, que justifica un 80% de las lesiones del sistema extracraneal en el mundo occidental.",
+        "B": "la aterosclerosis, que justifica un 90% de las lesiones del sistema extracraneal en el mundo occidental.",
+        "C": "la aterosclerosis, que justifica un 70% de las lesiones del sistema extracraneal en el mundo occidental.",
+        "D": "la aterosclerosis, que justifica un 50% de las lesiones del sistema extracraneal en el mundo occidental."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 11,
+      "question": "En pacientes con estenosis carotidea asintomática, en relación al tratamiento médico se consideran las siguientes recomendaciones:",
+      "options": {
+        "A": "Fumar.",
+        "B": "Dosis altas de aspirina como prevención de eventos cardiovasculares.",
+        "C": "Combinación de aspirina más clopidogrel en aquellos pacientes que vayan a ser intervenidos con stent carotideo.",
+        "D": "No se considera el uso de estatinas como prevención de eventos cardiovasculares."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 12,
+      "question": "En pacientes con estenosis sintomática de la arteria carótida interna se considera indicación de stent carotideo:",
+      "options": {
+        "A": "Pacientes de bajo riesgo quirúrgico.",
+        "B": "Lesiones carotideas de fácil acceso quirúrgico.",
+        "C": "Reestenosis tras endartectomía carotidea.",
+        "D": "Estenosis carotídea<60%."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 13,
+      "question": "En base a la Guía del 2023 de la European Society for Vascular Surgery (ESVS) en pacientes con estenosis carotidea sintomática se considera con nivel de evidencia A las siguientes recomendaciones:",
+      "options": {
+        "A": "En pacientes con estenosis carotidea entre un 50-99% en los que se considera candidatos a tratamiento quirúrgico, éste debe realizarse en la medida de lo posible en las primeras 3 semanas tras la aparición de los síntomas.",
+        "B": "En pacientes >=70 años con estenosis carotídea entre un 50-99% se recomienda la endarterectomía carotidea en vez del stent carotideo.",
+        "C": "En pacientes sometidos a revascularización dentro de los primeros 14 días tras la aparición de los síntomas se recomienda el uso de stent carotideo.",
+        "D": "En pacientes con estenosis carotidea entre un 50-99% con accidente isquémico transitorio de repetición se debe valorar la endarterectomía carotidea urgente, preferiblemente en las primeras 24 horas."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 14,
+      "question": "En pacientes sometidos a stent carotídeo se recomienda:",
+      "options": {
+        "A": "Uso de atropina intravenosa previa a la predilatación con balón para evitar la hipotensión, bradicardia y asistolia.",
+        "B": "Predilatación con un balón >6 mm.",
+        "C": "Uso de aspirina sin combinación con el clopidogrel.",
+        "D": "Postdilatación con balón siempre."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 15,
+      "question": "En relación al manejo de la reestenosis tras el tratamiento quirúrgico de la estenosis carotidea se recomienda:",
+      "options": {
+        "A": "Tratamiento médico en pacientes con clinica de isquemia ipsilateral y reestenosis >50%.",
+        "B": "Tratamiento médico en pacientes asintomáticos con reestenosis poststenting >70%.",
+        "C": "Los criterios diagnósticos del dúplex carotideo son iguales en el diagnóstico de la estenosis primaria por aterosclerosis y de la reestenosis tras stent carotideo.",
+        "D": "Tratamiento quirúrgico independientemente del grado de estenosis carotidea."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 16,
+      "question": "En relación a la isquemia vertebrobasilar es cierto:",
+      "options": {
+        "A": "En el origen de la isquemia vertebrobasilar se reconoce un solo mecanismo que es el flujo reducido.",
+        "B": "Para el estudio de los pacientes con isquemia vertebrobasilar se prefiere la resonancia a la tomografía a fin de descartar un tumor cerebral y evaluar la integridad del encéfalo.",
+        "C": "Está indicada la revascularización de la arteria vertebral en pacientes asintomáticos.",
+        "D": "La arteria vertebral se divide en 3 segmentos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 17,
+      "question": "En relación al tratamiento de los paragangliomas carotideos:",
+      "options": {
+        "A": "La embolización es obligatoria previa a la extirpación",
+        "B": "La quimioterapia se ha demostrado beneficiosa en el tratamiento de los paragangliomas y sus metástasis",
+        "C": "La mortalidad tras la intervención quirúrgica es casi nula",
+        "D": "El riesgo de sufrir complicaciones perioperatorias no depende del tamaño y de la extensión del tumor"
+      },
+      "correct": "C"
+    },
+    {
+      "id": 18,
+      "question": "¿Qué alteración analítica no suele encontrarse en la primera fase del fenómeno isquemia-reperfusión?",
+      "options": {
+        "A": "Hiperpotasemia",
+        "B": "Hiperuricemia",
+        "C": "Hipercalcemia",
+        "D": "Acidosis metabólica"
+      },
+      "correct": null,
+      "_comentario":"ANULADA. C Correcta pero B parcialmente también"
+    },
+    {
+      "id": 19,
+      "question": "¿Cuál de los siguientes fármacos procinéticos no suele utilizarse en el tratamiento médico del síndrome compartimental abdominal?",
+      "options": {
+        "A": "Eritromicina",
+        "B": "Prostigmina",
+        "C": "Metoclopramida",
+        "D": "Neostigmina"
+      },
+      "correct": "B"
+    },
+    {
+      "id": 20,
+      "question": "Señale la definición correcta del síndrome compartimental abdominal según la WSACS (World Society of the Abdominal Compartment Syndrome):",
+      "options": {
+        "A": "Síndrome en el cual 2 o más compartimentos anatómicos cuentan con una PIA>20mmHg (grados III y IV de HIA) en la cavidad abdominal, con o sin PPA<60mmHg, y asociado a una disfunción o falla orgánica.",
+        "B": "Síndrome en el cual 2 o más compartimentos anatómicos cuentan con una PIA>20mmHg (grados III y IV de HIA) en la cavidad abdominal, y asociado a una disfunción o falla orgánica.",
+        "C": "Síndrome en el cual 2 o más compartimentos anatómicos cuentan con una PIA>20mmHg (grados III y IV de HIA) en la cavidad abdominal, con una PPA<60mmHg, y asociado a una disfunción o falla orgánica.",
+        "D": "Síndrome en el cual 2 o más compartimentos anatómicos cuentan con una PIA>20mmHg (grados III y IV de HIA) en la cavidad abdominal, con una PPA>60mmHg, y asociado a una disfunción o falla orgánica."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 21,
+      "question": "Señale lo falso respecto a la etiopatogenia aneurismática:",
+      "options": {
+        "A": "Existen estudios que muestran una posible asociación entre los aneurismas y determinados alelos del complejo mayor de histocompatibilidad humana de clase l.",
+        "B": "Se han visto niveles elevados de factor de necrosis tumoral en pacientes con AAA",
+        "C": "Se han visto niveles elevados de interleucina IL-6 en pacientes con AAA",
+        "D": "Se han visto niveles elevados de interleucina IL-1B."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 22,
+      "question": "¿Qué tipo de colágeno se encuentra más frecuentemente formando parte de la matriz aórtica?",
+      "options": {
+        "A": "Tipo l.",
+        "B": "Tipo ll.",
+        "C": "Tipo IV.",
+        "D": "Tipo V."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 23,
+      "question": "¿Cuál es la localización más frecuente de la rotura de los aneurismas torácicos y tóraco-abdominales?",
+      "options": {
+        "A": "Pulmón.",
+        "B": "Cavidad pleural.",
+        "C": "Mediastino.",
+        "D": "Retroperitoneo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 24,
+      "question": "De las siguientes, ¿Cuál es la complicación más frecuente del drenaje del líquido céfalo-raquideo (LCR)?",
+      "options": {
+        "A": "Cefalea medular espinal sin fuga de LCR.",
+        "B": "Fuga LCR sin cefalea medular espinal.",
+        "C": "Hemorragia intracraneal.",
+        "D": "Meningitis."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 25,
+      "question": "Un hombre de 65 años con un aneurisma aórtico tóraco-abdominal tipo IV tiene una creatinina sérica de 0,8 mg/dl con una filtración glomerular (FG) estimada de 90 ml/min/1,73 m2. El riesgo de disfunción renal postoperatoria de la reparación abierta es:",
+      "options": {
+        "A": "5%.",
+        "B": "10-15%.",
+        "C": "15-20%.",
+        "D": "Más del 25%."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 26,
+      "question": "Respecto a las complicaciones digestivas postoperatorias tras la cirugía abierta de los aneurismas tóraco-abdominales, ¿cuál de las siguientes considera que es el indicador más fiable del riesgo de mortalidad?",
+      "options": {
+        "A": "Isquemia intestinal.",
+        "B": "Colecistitis alitiásica.",
+        "C": "Pancreatitis.",
+        "D": "Disfunción hepática."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 27,
+      "question": "Respecto a los aneurismas aislados de arteria iliaca, señale lo incorrecto:",
+      "options": {
+        "A": "Representan menos del 1% de todos los aneurismas aortoiliacos.",
+        "B": "Clásicamente se ha considerado que hasta en un 50% de los casos son sintomáticos.",
+        "C": "Se localizan más frecuentemente en el lado izdo.",
+        "D": "Según la clasificación de Sandhu et al, el tipo C afecta exclusivamente a la hipogástrica."
+      },
+      "correct": null,
+      "_comentario": "La pregunta fue anulada por posibles ambigüedades en la prevalencia exacta y definición de sintomatología, variabilidad en la localización predominante y confusión sobre la clasificación de Sandhu tipo C, que no afecta exclusivamente a la arteria hipogástrica. Estos aspectos generan dudas razonables para la evaluación."
+    },
+    {
+      "id": 28,
+      "question": "Con respecto a los factores implicados en la expansión y ruptura de los aneurismas de aorta abdominal, una es incorrecta:",
+      "options": {
+        "A": "El tabaquismo activo aumenta el riesgo de ruptura.",
+        "B": "La ausencia de trombo intraaórtico se ha asociado con menor velocidad progresión del diámetro del AAA",
+        "C": "El tabaquismo activo se ha asociado a mayor velocidad en la progresión del AAA.",
+        "D": "Los antecedentes familiares de AAA se han asociado con mayor riesgo de rotura de los AAA."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 29,
+      "question": "¿En el caso de la cirugía abierta del AAA, en qué situación de las siguientes NO se ha sugerido que el abordaje retroperitoneal sea mejor que la vía anterior?",
+      "options": {
+        "A": "Paciente con AAA y riñón en herradura.",
+        "B": "Paciente con AAA inflamatorio",
+        "C": "Paciente EPOC portador de AAA .",
+        "D": "Paciente con AAA micótico."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 30,
+      "question": "Con respecto a los aneurismas del tronco celíaco y de la arteria mesentérica superior (AMS), una de las siguientes es incorrecta:",
+      "options": {
+        "A": "A diferencia de otros aneurismas de arterias viscerales, se recomienda la reparación quirúrgica de los aneurismas hepáticos si son mayores de 2 cm en pacientes asintomáticos.",
+        "B": "En cirugía electiva y pacientes asintomáticos con aneurisma hepático o de AMS con anatomía favorable, se aconseja tratamiento endovascular como primera elección.",
+        "C": "A la hora de planificar el tratamiento de los aneurismas hepáticos, es importante evaluar la colateralidad de la arteria mesentérica superior.",
+        "D": "Se recomienda la reparación quirúrgica de los aneurismas de la mesentérica superior si son mayores de 2cm."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 31,
+      "question": "Una de las siguientes es incorrecta con respecto al tratamiento de los aneurismas y pseudoaneurismas de la arteria esplénica:",
+      "options": {
+        "A": "Se recomienda la reparación de los pseudoaneurismas de la arteria esplénica si son mayores de 2 cm.",
+        "B": "Según las guías actuales, los aneurismas verdaderos en las mujeres en edad fértil deben ser reparados independientemente de su diámetro.",
+        "C": "En pacientes con buen riesgo quirúrgico, debe plantearse la probabilidad de tratamiento si son mayores de 3 cm",
+        "D": "Si es factible, el tratamiento endovascular se considera de primera elección en el tratamiento electivo de estos aneurismas."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 32,
+      "question": "Señale cuál de los siguientes abordajes no es apropiado en el tratamiento de un paciente con un aneurisma poplíteo:",
+      "options": {
+        "A": "Abordaje quirúrgico abierto, medial, si se extiende el aneurisma a arteria femoral superficial.",
+        "B": "Abordaje quirúrgico posterior, si se comprueba trombosis del aneurisma localizado en la 2ª porción.",
+        "C": "Stent cubierto si hay zona de sellado proximal y distal",
+        "D": "By-pass venoso si se dispone de vena, en el caso de cirugía abierta."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 33,
+      "question": "Con respecto a la epidemiología de los aneurismas poplíteos, señale la incorrecta:",
+      "options": {
+        "A": "Suponen más del 70% de los aneurismas de las extremidades inferiores.",
+        "B": "Afectan casi exclusivamente a varones.",
+        "C": "El 70% de las ocasiones, es bilateral.",
+        "D": "Aproximadamente 1 de cada 3 pacientes con aneurisma poplíteo, presentan también aneurisma de aorta abdominal."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 34,
+      "question": "¿Qué es cierto sobre la fístula aorta-entérica?:",
+      "options": {
+        "A": "No está descrito el dolor de espalda como síntoma de presentación",
+        "B": "Una presentación clínica no puede ser la hemorragia menor autolimitada",
+        "C": "La panendoscopia oral es la prueba que ofrece la mejor tasa de detección.",
+        "D": "La triada clínica clásica descrita por Astley Cooper es: hemorragia digestiva, dolor abdominal y masa abdominal pulsátil"
+      },
+      "correct": "D"
+    },
+    {
+      "id": 35,
+      "question": "Es falso sobre la fístula aorto-entérica secundaria:",
+      "options": {
+        "A": "Es el estadio inicial del espectro de infección del injerto aórtico.",
+        "B": "Puede aparecer tras el tratamiento endovascular de un pseudoaneurisma anastomótico aórtico.",
+        "C": "Puede ocurrir tras la reparación de un aneurisma aórtico previo.",
+        "D": "Ante un paciente estable con sospecha de FAE, está indicada la realización de una esófagogastroduodenoscopia ."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 36,
+      "question": "Respecto a la úlcera penetrante aórtica, señale la verdadera:",
+      "options": {
+        "A": "La úlcera penetrante (UPA) es una lesión ulcerativa focal que se desarrolla en la región de una placa ateromatosa que atraviesa la lámina elástica interna.",
+        "B": "La UPA no puede evolucionar a la formación de un hematoma intramural o de un pseudoaneurisma.",
+        "C": "El riesgo de rotura de una UPA localizada a nivel de aorta abdominal es mayor que el de una UPA localizada a nivel de la aorta torácica.",
+        "D": "El tratamiento de los pacientes asintomáticos con UPA es conservador, independientemente del diámetro de la úlcera."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 37,
+      "question": "Los pacientes con hematoma intramural, señale la falsa:",
+      "options": {
+        "A": "Inicialmente son tratados con tratamiento médico y monitorización intensiva.",
+        "B": "El tratamiento endovascular está indicado en pacientes sintomáticos o que presenten complicaciones.",
+        "C": "La regresión del hematoma intramural agudo ocurre aproximadamente en el 60% de los pacientes.",
+        "D": "No existe suficiente bibliografía para establecer recomendaciones con alto nivel de evidencia acerca de las indicaciones del tratamiento endovascular en pacientes con hematoma intramural y en general se siguen las recomendaciones establecidas para el tratamiento de la disección aórtica."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 38,
+      "question": "Respecto a las técnicas de imagen en el diagnóstico del síndrome aórtico agudo, señale la verdadera:",
+      "options": {
+        "A": "Una radiografía de tórax sin alteraciones excluye el diagnóstico de síndrome aórtico.",
+        "B": "El ecocardiograma transesofágico puede visualizar la aorta torácica descendente desde la salida de la arteria subclavia izquierda hasta el tronco celiaco.",
+        "C": "La angio-tomografía computarizada helicoidal multicorte aún no ha sustituido a la arteriografía como el estándar de oro para el diagnóstico de imagen del síndrome aórtico agudo.",
+        "D": "La resonancia magnética no permite obtener información dinámica acerca de la dirección del flujo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 39,
+      "question": "En relación a la anatomía patológica de la disección aórtica todas las siguientes son ciertas excepto una, cuál?:",
+      "options": {
+        "A": "El flap intimal se origina en la aorta ascendente en el 65% de las ocasiones.",
+        "B": "En la aorta descendente el desgarro intimo-medial típicamente se origina a pocos centímetros de la arteria subclavia izquierda.",
+        "C": "En la disección tipo B el plano de clivaje progresa por la pared posterolateral izquierda de la aorta.",
+        "D": "La arteria renal derecha típicamente se origina en la falsa luz."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 40,
+      "question": "Respecto al síndrome de malperfusión, señale la falsa:",
+      "options": {
+        "A": "Puede presentarse hasta en el 31% de los pacientes con disección aguda.",
+        "B": "La presentación de este síndrome en los pacientes con disección aguda no se relaciona con mayor mortalidad temprana.",
+        "C": "En el mecanismo de obstrucción dinámica el flap de disección prolapsa en el ostium del vaso.",
+        "D": "En el mecanismo de obstrucción estático la isquemia se debe a la progresión de la disección por el propio vaso."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 41,
+      "question": "En el tratamiento de la disección tipo B aguda es falso que:",
+      "options": {
+        "A": "El tratamiento inicial consiste en el control exhaustivo de la tensión arterial con fármacos intravenosos y monitorización en UCI.",
+        "B": "Para el control de la tensión arterial, el tratamiento con beta-bloqueante debe iniciarse después del vasodilatador directo.",
+        "C": "Debe hacerse control radiológico con TAC, siendo aconsejable uno antes del alta y después cada 6 meses.",
+        "D": "Puede considerarse el tratamiento mediante TEVAR en la fase subaguda en aquellos pacientes con puerta de entrada>10 mm, diámetro aórtico >40 mm y diámetro de la luz falsa>20 mm."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 42,
+      "question": "Entre las consideraciones del tratamiento endovascular de la disección crónica tipo B es falso que:",
+      "options": {
+        "A": "El ultrasonido intravascular (IVUs) es muy útil para la identificación correcta de la luz verdadera.",
+        "B": "En caso de ser necesarias, las ramas se prefieren sobre las fenestraciones en el caso de que exista compresión significativa de la luz verdadera.",
+        "C": "Las endoprótesis conificadas pueden ser empleadas en el tratamiento endovascular en los casos en que la luz verdadera se encuentre comprimida.",
+        "D": "La identificación de los desgarros intimales en el flap a nivel de los segmentos viscerales de la aorta en el TAC preoperatorio es fundamental para la cateterización de los vasos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 43,
+      "question": "En el tratamiento de los pacientes con disección aórtica crónica señale la falsa:",
+      "options": {
+        "A": "El tratamiento antihipertensivo efectivo reduce el riesgo de muerte relacionada con la patología aórtica.",
+        "B": "El tratamiento antiagregante, hipolipemiante y el abandono del tabaco reducen el riesgo de muerte por causa cardiovascular.",
+        "C": "El tratamiento a largo plazo con beta-bloqueantes ha demostrado reducir el riesgo de mortalidad en ensayos clínicos aleatorizados.",
+        "D": "En pacientes con disección crónica un diámetro de aorta torácica mayor de 60 mm puede considerarse una indicación para reparación en pacientes con riesgo quirúrgico aceptable."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 44,
+      "question": "En las complicaciones postpunción arterial, señale la falsa:",
+      "options": {
+        "A": "Las fístulas arteria-venosas inguinales postpunción suelen ser asintomáticas y se detectan en la exploración física por la presencia de thrill palpable o soplo.",
+        "B": "La incidencia de pseudoaneurismas (PSA) tras procedimientos percutáneos descrita en las series contemporáneas es menor del 1%.",
+        "C": "Los PSA ocurren más frecuentemente en la punción alta de la arteria femoral común.",
+        "D": "En los PSA de pequeño tamaño se puede optar por tratamiento conservador."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 45,
+      "question": "Señale la verdadera:",
+      "options": {
+        "A": "No es necesario identificar a los pacientes con riesgo hemorrágico elevado de forma preoperatoria, dado el avance actual de las técnicas hemostáticas.",
+        "B": "La hipotermia producida por insuficiente temperatura ambiente, la administración de fluidos fríos y cirugías prolongadas puede favorecer la hemorragia intraoperatoria.",
+        "C": "En el sangrado venoso de pequeña cuantía se pueden emplear agentes hemostáticos como la celulosa regenerada oxidad, teniendo en cuenta que requiere ser reconstituida previamente.",
+        "D": "En el sangrado postoperatorio se pueden descartar las causas médicas de sangrado."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 46,
+      "question": "En las re-estenosis es falso que:",
+      "options": {
+        "A": "Los balones recubiertos de droga utilizan la presión y el contacto de un balón de angioplastia para liberar una droga citotóxica que reduce la hiperplasia intima! y la re-estenosis.",
+        "B": "Los stents liberadores de fármaco inhiben la proliferación de las células de músculo liso.",
+        "C": "Los segmentos enfermos de vena en un bypass venoso pueden desarrollar áreas de hiperplasia intima! y llevar a la re-estenosis.",
+        "D": "La preparación quirúrgica de la vena usada como conducto no influye en el desarrollo de la hiperplasia intimal y re-estenosis."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 47,
+      "question": "Respecto a los pseudoaneurismas anastomóticos (PSAA) es cierto que:",
+      "options": {
+        "A": "La localización más frecuente de PSAA es la arteria carótida.",
+        "B": "Entre los factores locales asociados con el desarrollo de los PSM no se encuentran los errores técnicos.",
+        "C": "La detección de un PSAA en una localización, particularmente si es femoral, requiere la evaluación del resto de anastomosis dado el riesgo de presentar PSM sincrónicos hasta en el 36% de los pacientes.",
+        "D": "Los pseudoaneurismas femorales pueden ser seguidos estrechamente hasta alcanzar 3-3.5 cm de diámetro o hasta que producen síntomas."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 48,
+      "question": "Señalar la falsa respecto a las pruebas de diagnóstico del síndrome de congestión pélvica:",
+      "options": {
+        "A": "El Eco-doppfer transvaginal permite valorar la dilatación de venas gonadales y la existencia de varices útero­ ováricas.",
+        "B": "El Eco-doppler abdominal es esencial en el estudio de la vena renal izquierda y aporta información del flujo en las venas ilíacas.",
+        "C": "La angioRM no es útil en el estudio del síndrome de congestión pélvica, dado que la flebografía es el \"gold standard\".",
+        "D": "Un gradiente reno-cavo >5 mm de Hg se considera indicativo de estenosis hemodinámica significativa en la vena renal izquierda."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 49,
+      "question": "Entre las causas del síndrome de congestión pélvica no se encuentran:",
+      "options": {
+        "A": "Compresión de la vena renal izquierda entre la aorta y la arteria mesentérica superior (Síndrome de Nutcracker);",
+        "B": "Compresión de una vena renal izquierda en posición retroaórtica entre la aorta y la columna lumbar.",
+        "C": "Compresión venosa adquirida por un mioma.",
+        "D": "Compresión de la vena ilíaca común derecha por la arteria ilíaca común derecha (Síndrome de May-Thurner)"
+      },
+      "correct": "D"
+    },
+    {
+      "id": 50,
+      "question": "Señalar la verdadera en lo referente a las técnicas endovasculares del síndrome de congestión pélvica:",
+      "options": {
+        "A": "Las técnicas endovasculares no se han mostrado eficaces en la insuficiencia venosa pélvica por embarazos múltiples.",
+        "B": "El implante de stent en la vena renal izquierda en el síndrome de Nutcracker se realiza preferentemente por vena femoral, dado que el trayecto rectilíneo lo hace más fácil.",
+        "C": "En el síndrome de May-Thurner, la angioplastia simple de la vena ilíaca izquierda es el tratamiento de elección, no siendo necesario el uso de stents.",
+        "D": "Entre los dispositivos metálicos para oclusión de los ejes gonadales son útiles los coils y los tapones Amplatzer."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 51,
+      "question": "Señalar la respuesta falsa respecto a la utilidad y hallazgos de la ecografía en el diagnóstico del linfedema.",
+      "options": {
+        "A": "La Ecografía modo-B evalúa la existencia, forma y tamaño de los ganglios linfáticos en sus localizaciones habituales.",
+        "B": "La Ecografía doppler es fundamental para descartar enfermedad venosa y algunas malformaciones vasculares.",
+        "C": "La disminución del grosor de la dermis en la Ecografía modo-B es un hallazgo presente en el linfedema.",
+        "D": "La pérdida de delimitación de la unión dermo-hipodérmica en la Ecografía modo-B no aparece en pacientes con fipedema no evolucionado y sí en el linfedema."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 52,
+      "question": "El conjunto de hemangioma plano en la zona correspondiente al trigémino, anomalías vasculares meníngeas y oculares, e hipertrofia facial homolateral, se denomina:",
+      "options": {
+        "A": "Síndrome de Kfippel - Trenaunay .",
+        "B": "Síndrome de Servelle - Martorell.",
+        "C": "Síndrome de Sturge - Weber.",
+        "D": "Enfermedad de Rendu - Osler - Weber ."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 53,
+      "question": "Señalar la respuesta falsa respecto a la utilización de los accesos vasculares con prótesis:",
+      "options": {
+        "A": "En pacientes que requieran hemodiálisis urgente puede recomendarse como primera opción la fístula arterio­ venosa con prótesis de punción inmediata.",
+        "B": "En pacientes sin venas anatómicamente adecuadas en brazo o antebrazo, se recomienda la fístula arterio­ venosa con prótesis como primera opción.",
+        "C": "El dispositivo prótesis-catéter tunelizado es una técnica de recurso con unas tasas de complicaciones sin diferencias significativas respecto a las fístulas arteria-venosas protésicas de miembros inferiores.",
+        "D": "En el paciente de edad avanzada se recomienda realizar de inicio una fístula arteria-venosa protésica dado que se acorta el proceso de maduración en estos pacientes con baja esperanza de vida."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 54,
+      "question": "Según la clasificación anatómica de Attigah de los aneurismas carotídeos extracraneales:",
+      "options": {
+        "A": "Tipo III son aneurismas de la ACI proximal y la bifurcación carotídea.",
+        "B": "Tipo IV constituyen el 65% de los aneurismas carotídeos.",
+        "C": "Tipo V son aneurismas aislados de la ACC.",
+        "D": "Tipo II son aneurismas aislados y cortos de la arteria carótida interna por encima del bulbo carotídeo."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 55,
+      "question": "En relación a los aneurismas de TSA señale la respuesta falsa:",
+      "options": {
+        "A": "Los aneurismas verdaderos, aislados y proximales de TSA son raros.",
+        "B": "Pueden acompañarse de síntomas compresivos como disnea, disfonía, disfagia, tos, radiculopatía cervical/plexopatía braquial.",
+        "C": "La tromboembolia sintomática es el síntoma de presentación más frecuente.",
+        "D": "La oclusión proximal de la subclavia derecha mediante plug y endoprótesis aórtica (TEVAR) con revascularización quirúrgica cervical no estaría aconsejada en casos de aneurismas de arteria aberrante ."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 56,
+      "question": "Señale la respuesta falsa en relación a las lesiones vasculares por explosiones:",
+      "options": {
+        "A": "Incluyen una combinación de fuerza contundente , lesiones por fragmentos penetrantes y lesiones ténnicas.",
+        "B": "Los efectos de las explosiones se clasifican en primarios, secundarios, terciarios y cuaternarios.",
+        "C": "La mayoría de las lesiones vasculares se deben al efecto primario y secundario de las explosiones.",
+        "D": "La distribución relativa de cada uno de los efectos varía en función del tipo de explosivo, de si se trata de un lugar cerrado o al aire libre y de la presencia de equipos de protección."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 57,
+      "question": "En el estudio con eco-doppler de una FAV post-traumática nos podemos encontrar todo lo siguiente salvo:",
+      "options": {
+        "A": "Pérdida de ondas arteriales trifásicas proximales a la fístula.",
+        "B": "Flujo continuo de baja velocidad en la vena cefálica a la fístula.",
+        "C": "Disminución o inversión del flujo en la arteria distal.",
+        "D": "En ocasiones podemos encontrarnos con un componente pulsátil en la vena cercana a la fístula."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 58,
+      "question": "En los traumatismos de extremidades inferiores una de las siguientes afirmaciones es falsa:",
+      "options": {
+        "A": "Deben evitarse las embolizaciones de las lesiones aisladas de arteria tibial por el elevado riesgo de isquemia.",
+        "B": "En las lesiones poplíteas, la duración de la isquemia predice sistemáticamente la amputación.",
+        "C": "Las lesiones poplíteas focales por encima o por debajo de la rodilla son infrecuentes.",
+        "D": "La escala de MESS no es útil para predecir con exactitud los resultados funcionales en traumatismos graves de las extremidades."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 59,
+      "question": "Señale la respuesta correcta a propósito de las fasciotomías:",
+      "options": {
+        "A": "La fasciotomía debe evitarse en aquellos pacientes con restablecimiento de la perfusión distal tras una isquemia resultante de un traumatismo, especialmente si hay múltiples fracturas y lesiones vasculares por el elevado riesgo de infección.",
+        "B": "La fasciotomía del muslo debe considerarse para las lesiones arteriales distales, especialmente si existe una oclusión venosa proximal y el flujo de salida no se restablece con la reconstrucción venosa.",
+        "C": "Su realización concomitante o poco después de la revascularización de la extremidad inferior se asocia con una reducción de la tasa de amputación .",
+        "D": "No ha demostrado beneficio en cuanto a reducción de secuelas neurológicas en el miembro."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 60,
+      "question": "En un paciente con un traumatismo torácico por accidente de tráfico una de las siguientes afirmaciones es falsa:",
+      "options": {
+        "A": "El angioTC en el protocolo de evaluación inicial permite una valoración precisa de la aorta y otras estructuras vasculares del tórax .",
+        "B": "Hallazgos como un ensanchamiento mediastinínico, taponamiento apical izquierdo, borramiento del botón aórtico, desviación traqueal o hemotórax izquierdo importante en la radiografía de torax confirman la sospecha de lesión aórtica.",
+        "C": "La ecografía intravascular (IVUS) es una herramienta útil especialmente en casos de hematomas periaórticos en ausencia de un signo directo de lesión aórtica.",
+        "D": "La angiografía sigue siendo una modalidad de imagen valiosa en el tratamiento de los pacientes con traumatismo vascular torácico."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 61,
+      "question": "En un traumatismo contuso con lesión de arterias ilíacas, señale la respuesta incorrecta:",
+      "options": {
+        "A": "En la mayoría de los casos suele ser necesaria la reconstrucción mediante interposición o by-pass.",
+        "B": "La presencia de contaminación entérica no contraindica el uso de injertos sintéticos.",
+        "C": "En caso de necesitar procedimiento de control de daños, la ligadura de arteria iliaca es bien tolerada, pudiendo realizarse un by-pass una vez estabilizado el paciente.",
+        "D": "Si la lesión es pequeña puede realizarse una sutura directa o cierre con parche."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 62,
+      "question": "Respecto a las lesiones traumáticas de vena cava inferior, que afirmación es incorrecta:",
+      "options": {
+        "A": "La VCI infrarrenal y yuxtarrenal se expone mejor mediante la movilización y rotación visceral medial izquierda.",
+        "B": "La ligadura de la VCI debe considerarse en pacientes hemodinámicamente inestables con lesiones infrarrenales graves o cuando la reparación produce una estenosis importante.",
+        "C": "Muchas lesiones que afectan a la VCI infrarrenal, se presentan con hematomas estables.",
+        "D": "Por regla general, los hematomas debidos a traumatismos penetrantes deben explorarse salvo cuando se trata de un hematoma estable en zona 4."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 63,
+      "question": "En cuanto a la técnica de exploración con doppler continuo, señale la falsa:",
+      "options": {
+        "A": "Cuando medimos el índice tobillo brazo (ITB), debemos tener en cuenta el ancho del manguito con el que realizamos la medición, sobre todo en pacientes obesos, donde los valores de presión pueden estar falsamente elevados. Se recomienda una anchura del manguito un 10% mayor del diámetro de la extremidad en el punto de medición.",
+        "B": "La calcificación de la media, que ocurre en pacientes diabéticos y en pacientes con enfermedad renal, puede dar valores elevados de presión al no colapsar la pared. Un ITB > 1.3 puede hacernos sospechar una calcificación de la pared arterial.",
+        "C": "Se aconseja valorar la forma de la curva doppler y diferenciar una señal trifásica de una señal amortiguada y monofásica.",
+        "D": "Podemos medir la presión del tobillo, evitando falsos valores por calificación de la pared arterial, usando el pole test. Con el paciente en supino, elevamos la pierna hasta el punto donde se deje de escuchar la señal doppler, y multiplicamos los cm de elevación de la pierna x 0.74, obteniendo así la presión en mmHg."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 64,
+      "question": "En relación al flujo turbulento, señale la respuesta falsa:",
+      "options": {
+        "A": "Para una misma estenosis, cuando aumenta la velocidad del flujo sanguíneo por encima de un determinado valor (velocidad crítica), se produce una mayor caída de presión.",
+        "B": "Para una misma estenosis, el flujo sanguíneo puede ser laminar o turbulento en función de la velocidad de flujo.",
+        "C": "El punto de transición a flujo turbulento se produce cuando se alcanza un número de Reynolds de 1500.",
+        "D": "Los factores de los que depende el desarrollo de turbulencias son el diámetro del vaso, la velocidad de flujo y la viscosidad y densidad de la sangre."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 65,
+      "question": "Paciente de 72 años con antecedentes de infarto agudo de miocardio hace 6 meses. Fuma 20 cigarrillos al día, tiene sobrepeso y tiene hábitos sedentarios. En tratamiento con atorvastatina 80 mg/día, ramipril 5 mg/día y ácido acetil salicílico 100 mg/día. La analítica muestra un colesterol LDL 60 mg/dl, glucemia 105 mg/dL, Hb1Ac 5,6 %, no microalbuminuria. En la consulta medimos una presión arterial de 140/80 mmHg. De las siguientes, ¿cuál es la medida más eficaz para evitar un nuevo evento cardiovascular?:",
+      "options": {
+        "A": "Optimizar el tratamiento de la hipertensión arterial, ya que está mal controlado.",
+        "B": "Optimizar el tratamiento hipolipemiante, ya que está mal controlado.",
+        "C": "Añadir un fármaco para la diabetes.",
+        "D": "Abandonar el hábito tabáquico, caminar a diario y perder peso."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 66,
+      "question": "En relación a una placa de ateroma, señale la incorrecta:",
+      "options": {
+        "A": "No existen procedimientos radiológicos capaces de identificar una placa con signos inflamatorios.",
+        "B": "Una placa inestable se caracteriza por tener una cubierta fibrosa fina, amplio núcleo lipídico y gran contenido de células inflamatorias.",
+        "C": "La ruptura de una placa puede producirse por motivos mecánicos y/o biológicos, y condiciona una posterior trombosis.",
+        "D": "Una hemorragia intraplaca puede transformar una placa carotídea asintomática en sintomática"
+      },
+      "correct": "A"
+    },
+    {
+      "id": 67,
+      "question": "En el ateroembolismo, es cierto que:",
+      "options": {
+        "A": "La causa fundamental es el vasoespasmo .",
+        "B": "Su presentación clásica es la de un dedo cianótico no doloroso con pulsos distales, conocido con síndrome del dedo azul.",
+        "C": "Puede ocurrir en cualquier territorio excepto las arterias coronarias",
+        "D": "Las lesiones cianóticas iniciales en la piel, pueden progresar a ulceración, necrosis y gangrena franca."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 68,
+      "question": "Señale la fase incorrecta. En relación con el Ateroembolismo ...",
+      "options": {
+        "A": "Se produce cuando un una placa ateromatosa se desprende y se moviliza por el árbol arterial de una zona proximal a una zona distal .",
+        "B": "El principal riesgo de formación de microémbolos se encuentra en los aneurismas",
+        "C": "Las placas inestables pueden llevar a la formación de microémbolos por ulceración de la placa.",
+        "D": "Los microémbolos se pueden producir por manipulación yatrogénica, lo que se conoce como ateroembolismo traumático ."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 69,
+      "question": "En la enfermedad de Behçet, señale la incorrecta:",
+      "options": {
+        "A": "Se trata de una vasculitis sistémica con presencia de úlceras genitales, úlceras orales, uveítis, lesiones cutáneas y manifestaciones vasculares como síntomas.",
+        "B": "Las alteraciones vasculares pueden ser arteriales y venosas, siendo más frecuentes las arteriales.",
+        "C": "Se han descrito casos con trombosis de venas hepáticas, causante del síndrome de Budd - Chiari",
+        "D": "En el caso de presentar aneurismas arteriales, éstos son frecuentemente múltiples, saculares y con mayor riesgo de complicación que los aneurismas de etiología ateroesclerótica."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 70,
+      "question": "Señale lo incorrecto en relación con la arteritis de células gigantes o arteritis de la temporal o enfermedad de Horton:",
+      "options": {
+        "A": "El desarrollo de diplopía en ancianos es muy sugestivo de arteritis de Horton.",
+        "B": "La elevación de VSG es uno de los 5 criterios que presenta el American College of Rheumatology de 1990",
+        "C": "La claudicación mandibular aparece en el 80% de los casos.",
+        "D": "La arteritis de la temporal explica el 15% de los pacientes cursan con fiebre de origen desconocido."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 71,
+      "question": "En relación con los acrosíndromes, señale la incorrecta:",
+      "options": {
+        "A": "Los acrosíndromes son un conjunto de alteraciones reversibles de la vasomotricidad del lecho vascular distal de las extremidades. Se manifiestan por modificaciones del color y la temperatura",
+        "B": "Los acrosíndromes vasculares paroxísticos, como la eritromelalgia, cursan son períodos sintomáticos que alternan con períodos de normalidad",
+        "C": "Los acrosíndromes vasculares permanentes son la livedo reticulares, el eritema pernio, el pie de inmersión, entre otros",
+        "D": "La acrocianosis es un acrosíndrome paroxístico, con clínica de cianosis en invierno y sin sintomatología en verano."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 72,
+      "question": "Con respecto a los acrosíndromes, señale la incorrecta:",
+      "options": {
+        "A": "La eritromelalgia es un trastorno vascular paroxístico caracterizado por un aumento de la temperatura local, con eritema o eritrocianosis de pies y manos, con escaso dolor local.",
+        "B": "El síndrome de Raynaud es un trastorno vascular paroxístico que se caracteriza por fases de palidez, cianosis y rubor, y que se puede acompañar de ulceras isquémicas digitales.",
+        "C": "Se han descrito lesiones cutáneas típicas de livedo reticulares Uaspeado reticulado color rojo azulado) ligada a la ingestión de algunos fármacos como la amantadina.",
+        "D": "Conocemos como \"sabañón\" a la forma crónica de eritema pernio."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 73,
+      "question": "Respecto a la Displasia Fibromuscular(DFM), señale la respuesta correcta:",
+      "options": {
+        "A": "La displasia fibromuscular es una forma de arteriosclerosis que afecta fundamentalmente a mujeres jóvenes.",
+        "B": "Histológicamente, igual que en la arteriosclerosis clásica, afecta fundamentalmente a la íntima, respetando completamente la media y la adventicia.",
+        "C": "Con frecuencia la enfermedad se manifiesta como patología aneurismática, disecciones y tortuosidad de los vasos afectados.",
+        "D": "La presentación más típica es la clínica neurológica por lesión del origen de los troncos supraórticos."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 74,
+      "question": "Respecto a la Displasia Fibromuscular (DFM) cerebrovascular, es falso:",
+      "options": {
+        "A": "La afectación de las arterias carótida y vertebral es casi tan frecuente como la renal y aparece mayoritariamente en mujeres jóvenes.",
+        "B": "En los pacientes con DFM carotídea, entre el 35% y el 85% de los casos es bilateral y hasta en el 75% de los casos se puede observar disecciones carotideas.",
+        "C": "Con frecuencia se asocia a aneurismas cerebrales y coexiste con la DFM renal",
+        "D": "La localización más frecuente es la carótida externa y suele mostrar un patrón de estenosis focal."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 75,
+      "question": "Etiología de la IA, señale la respuesta incorrecta:",
+      "options": {
+        "A": "El atrapamiento poplíteo es típico de gente joven y activa, sin factores de riesgo para arteriosclerosis.",
+        "B": "En las vasculitis la clínica con frecuencia es bilateral, se acompaña de sintomatología sistémica y aparece en el seno de colagenopatías.",
+        "C": "La causa más frecuente en la actualidad es el embolismo en pacientes con cardiopatía reumática.",
+        "D": "En el diagnóstico diferencial hay que incluir la patología maligna, las trombofilias y el embolismo paradójico."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 76,
+      "question": "En la Isquemia aguda, es cierto:",
+      "options": {
+        "A": "Se caracteriza por una repentina interrupción del flujo arterial de la extremidad, que la pone en riesgo y requiere evaluación y tratamiento urgente",
+        "B": "Hoy dia no es aceptable una amputación mayor de entrada en estos casos, como tampoco lo es el no proporcionar ningún tratamiento",
+        "C": "El enfoque etiopatogénico, diagnóstico y terapéutico es independiente del tiempo de evolución: una isquemia aguda es una isquemia aguda",
+        "D": "Si se revasculariza la extremidad , el riesgo de amputación y muerte es muy bajo."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 77,
+      "question": "En el tratamiento de la isquemia aguda por trombosis de un aneurisma poplíteo, es falso:",
+      "options": {
+        "A": "Se debe considerar la reparación mediante bypass con vena safena.",
+        "B": "Se debe plantear la trombolísis pre o intraoperatoria.",
+        "C": "Los stents recubiertos son considerados un tratamiento de primera elección hoy en día.",
+        "D": "En estos pacientes la isquemia aguda puede deberse tato a trombosis del aneurisma como a embolización distal."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 78,
+      "question": "No participa en el síndrome de reperfusión:",
+      "options": {
+        "A": "Radicales libres del oxígeno.",
+        "B": "Infiltración por neutrófilos del tejido reperfundido.",
+        "C": "Vasodilatación masiva y edema de la extremidad.",
+        "D": "Niveles preoperatorios de colesterol LDL."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 79,
+      "question": "Referente al tratamiento no revascularizador de los pacientes con isquemia crónica de los miembros inferiores, es cierto:",
+      "options": {
+        "A": "Aunque la simpatectomía lumbar está actualmente en desuso , ha demostrado un beneficio significativo en cierto tipo de pacientes con isquemia critica.",
+        "B": "El tratamiento con oxígeno hiperbárico, no consigue una mayor curación de las ulceras, pero si disminuye el riesgo de amputación.",
+        "C": "Todos los pacientes diagnosticados de isquemia crónica de los miembros inferiores deben ser tratados con antiagregantes y estatinas.",
+        "D": "Una vez controlados los factores de riesgo e iniciado el tratamiento con ejercicio, no es preciso administrar analgésicos a los pacientes con isquemia crónica."
+      },
+      "correct": null,
+      "_comentario":"ANULADA. C Correcta pero B parcialmente también"
+    },
+    {
+      "id": 80,
+      "question": "Clasificación en la isquemia crónica de MMll, es falso:",
+      "options": {
+        "A": "La clasificación de Fontaine es la más utilizada ya que es lo suficientemente completa en cuanto a parámetros hemodinámicos, isquémicos y hemodinámicos.",
+        "B": "Las clasificaciones TASC 1 y 11 se centran sobre todo en patrones anatómicos sin tener en cuenta el estado de la extremidad.",
+        "C": "Los sistemas Meggit-Warner, PEDIS, universidad de Texas, SAO e IDSA están diseñados, fundamentalmente para valorar el pie diabético.",
+        "D": "La clasificación wifi tiene en consideración tanto la arteriopatía como la diabetes y valora tanto la lesión como la perfusión y la infección."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 81,
+      "question": "En la oclusión aórtica aguda, es falso:",
+      "options": {
+        "A": "Es más grave para la vida del paciente que para las extremidades.",
+        "B": "Se puede producir por oclusión embolica, por trombosis arteriosclerótica , por oclusión de un bypass previo o por una disección de aorta.",
+        "C": "A pesar de ser una situación de la máxima urgencia, la solución suele ser sencilla debido a que el diagnóstico es fácil y a las múltiples técnicas abiertas, endovasculares o híbridas, de que disponemos actualmente.",
+        "D": "El síndrome de reperfusión puede ser especialmente grave en estos pacientes, por lo que exige un estrecho contacto con anestesia e intensivos."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 82,
+      "question": "En la reconstrucción quirúrgica abierta del sector aortoilíaco, es falso:",
+      "options": {
+        "A": "El bypass aortobifemoral tiene una elevada permeabilidad a medio y largo plazo, por lo que no es preciso un seguimiento instrumental, únicamente clínico.",
+        "B": "La cirugía abdominal previa apoya una elección de técnicas endovasculares o extraanatómicas.",
+        "C": "En pacientes obesos, la reconstrucción abierta conlleva un aumento significativo de las complicaciones de herida quirúrgica y, por tanto, de la permeabilidad y supervivencia del paciente.",
+        "D": "Los pacientes con isquemia crítica tienen una supervivencia muy limitada, por lo que es lícito plantearles una reconstrucción endovascular o extraanatómica a pesar de una menor permeabilidad."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 83,
+      "question": "En relación a la clasificación WIFi (SVS Lower Extremity Threatened Limb Classification System-risk stratification based on Wound, lschemia and Foot infection), señale la respuesta falsa:",
+      "options": {
+        "A": "Esta clasificación está basada en tres puntos básicos: presencia o no de lesiones, presencia o no de isquemia y presencia o no de infección, con sus respectivos estadios.",
+        "B": "Se correlaciona con el riesgo de amputación a 1 año.",
+        "C": "Puede identificar aquellos pacientes que se beneficiarán de tratamiento revascularizador.",
+        "D": "No es necesaria la reevaluación periódica de la situación de isquemia, lesiones e infección de los pacientes mediante esta clasificación, después de la intervención terapéutica realizada (tratamiento conservador, tratamiento endovascular, tratamiento quirúrgico abierto)."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 84,
+      "question": "En las guías publicadas en 2019 acerca del manejo de la isquemia crónica, señale la respuesta falsa respecto al papel del Eco-Doppler en el diagnóstico de la entidad:",
+      "options": {
+        "A": "Aporta información anatómica y hemodinámica del sector estudiado.",
+        "B": "En el sector infrapoplíteo, la sensibilidad diagnóstica es menor debido a la posible presencia de calcificación arterial, lesiones cutáneas y la imposibilidad de ofrecer información de toda la longitud del vaso estudiado.",
+        "C": "Sus principales ventajas son: no invasivo, bajo coste, ausencia de radiación ionizante y no utilización de contrastes yodados.",
+        "D": "La utilización de eco-contrastes mejora la eficiencia diagnóstica en el sector infrapoplíteo."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 85,
+      "question": "Señale la respuesta falsa de las siguientes afirmaciones respecto a la afectación aterosclerótica infrapoplítea:",
+      "options": {
+        "A": "En los pacientes con afectación infrapoplítea, 2/3 tienen afectación fémoro-poplítea asociada y sólo 1/3 tienen afectación exclusivamente infrapoplítea.",
+        "B": "La afectación infrapoplítea se asocia a mayor incidencia de pérdida de extremidad debido a peor lecho vascular de salida y que se presenta en pacientes con mayor comorbilidad.",
+        "C": "La afectación infrapoplítea muestra un índice de calcificación más severa que la afectación en sectores más proximales.",
+        "D": "La calcificación a nivel infrapoplíteo se localiza preferentemente en la íntima vascular."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 86,
+      "question": "Respecto a la disección post-dilatación en el sector infrapoplíteo, señale la afirmación falsa:",
+      "options": {
+        "A": "En algunos estudios un mayor tiempo de inflado del balón y un inflado gradual de éste, se asocian a menores tasas de disecciones post-dilatación.",
+        "B": "La disección post-dilatación se puede prevenir con balones de mayor longitud, que sobrepasen la longitud de la lesión a tratar.",
+        "C": "La longitud de las lesiones y el pequeño calibre de los vasos tibiales limita el uso de stents.",
+        "D": "Actualmente está descartado el uso de stents en el sector infrapoplíteo y no existen estudios de su implantación a dicho nivel."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 87,
+      "question": "Señale la forma inadecuada en la toma de muestras de las lesiones infecciosas del Pie Diabético:",
+      "options": {
+        "A": "Raspado post-desbridamiento.",
+        "B": "Aspiración de secreción purulenta.",
+        "C": "Biopsia.",
+        "D": "Torunda sobre úlcera no desbridada."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 88,
+      "question": "En el seguimiento de revascularización arterial infrainguinal con injerto venoso. Señalar la respuesta falsa .",
+      "options": {
+        "A": "Una estenosis del 70%, detectada con eco doppler , es una indicación de revisión del bypass dada la historia natural adversa. Con Eco doppler, a parte de la visión directa de la lesión, el diagnóstico se asocia con Velocidad Pico Sistólica > 300cm/s en la lesión, ratio de Velocidad PS >3,5 o velocidad en el trayecto del bypass < 45 cm/seg.",
+        "B": "La caída del índice T/B > 0.20 también es indicativo de bypass en riesgo y se debe considerar su revisión",
+        "C": "La mayoría de los fallos hemodinámicos en los bypass venosos se producen como consecuencia de lesiones focales a lo largo del bypass, en sus anastomosis o progresión de la enfermedad en la arteria de salida.",
+        "D": "Aunque un bypass con injerto venoso no está nunca exento del riesgo de desarrollar una estenosis \"intra­ injerto\" o anastomótica, la mayoría se presentan en los dos primeros años."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 89,
+      "question": "En relación con el seguimiento con Eco-Doppler (ED) del EVAR, aunque está reconocido que es explorador y paciente dependiente. Señalar la respuesta falsa:",
+      "options": {
+        "A": "Permite realizar seguimientos repetidos y fiables de diámetro (evolución del saco), aunque las medidas no son comparables directamente a TAC.",
+        "B": "Permite detectar Endofugas gracias al color (dirección y tipo de onda) con una sensibilidad del 0.77 y especificidad del 0.97.",
+        "C": "La adición de microburbujas al ED aumenta la sensibilidad a 0,97 y la especificidad a 0,98 .",
+        "D": "No ofrece la posibilidad, con fiabilidad , de determinar la longitud de zonas de sellado, el solapado de stents y migración de la endoprótesis."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 90,
+      "question": "Tras la realización de un bypass arterial infrainguinal con injerto venoso que no presenta lesiones durante el seguimiento, en la exploración con eco-doppler típicamente se objetiva:",
+      "options": {
+        "A": "Nada más realizar el bypass una curva bifásica",
+        "B": "A partir de las 24 horas la curva adquiere morfología trifásica",
+        "C": "Hasta el primer año no se objetiva la típica curva trifásica",
+        "D": "Una vez aparece la morfología trifásica, ésta presenta un ligero aumento de la amplitud de la curva, inferior al 30%."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 91,
+      "question": "Independientemente de su financiación, ¿Cuál de los siguientes anticoagulantes es de elección en la Trombosis Venosa Profunda durante el Embarazo, permite un parto normal y se puede mantener en el postparto?",
+      "options": {
+        "A": "Antivitamina K (Sintrom ®).",
+        "B": "Heparina No Fraccionada .",
+        "C": "Heparina de Bajo Peso Molecular.",
+        "D": "Anticoagulantes Orales Directos (ACODs)."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 92,
+      "question": "En relación con la anticoagulación en un paciente con Trombosis Venosa Superficial (TVS) de los MMll a distancia ;::3 cm de la unión con el sistema venoso profundo y afectación ::: 5cm, Señalar la respuesta falsa:",
+      "options": {
+        "A": "Fondaparinux 2,5 mg s.c./24h de al menos 45 días es el tratamiento recomendado (Reducción 85% del riesgo de mortalidad y eventos sintomáticos tromboembólicos , comparado con placebo en estudio CALISTO)",
+        "B": "Una dosis intermedia de Heparina Fraccionada (HBPM) puede ser considerada como alternativa",
+        "C": "Rivaroxabán (Anticoagulante oral directo anti Xa) ha demostrado no inferioridad a Fondaparinux (estudio SURPRISE) y es una alternativa aprobada.",
+        "D": "Fondaparinux aporta la ventaja de no necesidad de test para TIP (Trombopenia Inducida por Heparina)."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 93,
+      "question": "EHIT (Endovenouos lnduced Heat Thrombosis), es una complicación trombótica de las técnicas de ablación térmica de las insuficiencia de Safenas . Señalar la respuesta falsa:",
+      "options": {
+        "A": "Describe la presencia de trombo a nivel de la unión safena-femoral o safena-poplítea",
+        "B": "El American venous Forum lo clasifica en cuatro clases (1-IV) en relación la localización y al grado de propagación del trombo en la vena femoral,",
+        "C": "Es típica la apariencia hipoecogénica del trombo en la exploración ecográfica.",
+        "D": "Aunque puede provocar Trombosis Venosa Profunda la embolización es rara y frecuentemente regresa espontáneamente o con un tratamiento corto con Heparina No Fraccionada."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 94,
+      "question": "El síndrome aórtico agudo (señale la falsa):",
+      "options": {
+        "A": "Afecta a un grupo heterogéneo de pacientes con un perfil clínico similar: dolor torácico intenso, agudo, lancinante.",
+        "B": "Incluye la úlcera penetrante aórtica, el hematoma intramural y la disección aórtica clásica.",
+        "C": "En la disección aórtica clásica encontramos una puerta de entrada y un colgajo o flap, compuesto por la capa íntima.",
+        "D": "El hematoma intramural aórtico es una variante de disección aórtica caracterizada por la ausencia de puerta de entrada identificable en las pruebas de imagen."
+      },
+      "correct": null,
+      "_comentario":"ANULADA. Todas son verdaderas"
+    },
+    {
+      "id": 95,
+      "question": "En el tratamiento endovascular de la disección tipo B señale la falsa :",
+      "options": {
+        "A": "La técnica PEITICOAT consiste en implantar un stent aórtico no recubierto distal en continuación a un TEVAR estándar.",
+        "B": "El estudio ADSORB no mostró mayores tasas de trombosis de la falsa luz en aquellos pacientes randomizados a TEVAR.",
+        "C": "El riesgo de disección retrógrada tipo A parece aumentar con el uso de balones de dilatación proximal y stents no recubiertos a nivel proximal.",
+        "D": "Los pacientes con síndrome de malperfusión pueden requerir fenestraciones del flap o implantación de stent en las ramas afectadas."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 96,
+      "question": "Respecto al riesgo de isquemia medular en la reparación aórtica, señale la falsa:",
+      "options": {
+        "A": "El uso de drenaje de líquido cefalorraquídeo (LCR) debería considerarse en la reparación extensa de la aorta torácica descendente.",
+        "B": "En la reparación quirúrgica abierta de los aneurismas toracoabdominales tipos 1 y 11, la circulación extracorpórea parcial (bypass izquierdo) puede considerarse para reducir el riesgo de isquemia medular.",
+        "C": "La hipotermia sistémica (<32ºC) en combinación con el drenaje de LCR está recomendada durante la reparación abierta de la aorta torácica descendente.",
+        "D": "Los pacientes en los que se realiza una cobertura extensa de la aorta en la reparación endovascular u oclusión de la arteria subclavia izquierda y/o las hipogástricas tienen un riesgo más elevado de isquemia medular."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 97,
+      "question": "En el síndrome de reperfusión se deben monitorizar los siguientes, excepto:",
+      "options": {
+        "A": "Niveles de creatín-fosfoquinasa (CPK).",
+        "B": "Estado ácido-base.",
+        "C": "Hemoglobinuria o mioglobinuria en caso de oliguria o coluria.",
+        "D": "Niveles de glucosa en orina."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 98,
+      "question": "Respecto a la epidemiologia de la Isquemia Aguda, es falso:",
+      "options": {
+        "A": "Incidencia real desconocida debido a que las formas de diagnóstico y tratamiento son heterogéneas y existen amplias variaciones geográficas.",
+        "B": "Si bien es cierto que pone en riesgo la extremidad , en ningún caso amenaza a la vida.",
+        "C": "La clasificación de Rutherford de la isquemia aguda incluye la valoración de la sensibilidad y la motilidad, así como la exploración con Doppler.",
+        "D": "En la clasificación de Rutherford, la categoría llB es aquella en la que la extremidad está amenazada de manera inmediata, con déficit sensorial y motor, pero es salvable si se revasculariza de manera urgente."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 99,
+      "question": "En el diagnóstico de la isquemia aguda, es correcto:",
+      "options": {
+        "A": "El cuadro clínico típico es de dolor, palidez, ausencia de pulsos, parestesias y parálisis. La ausencia de cualquiera de ellos excluye el diagnóstico.",
+        "B": "La elección de cualquier método diagnóstico debe basarse en la disponibilidad y en la capacidad de llegar a una orientación de tratamiento sin retrasarlo.",
+        "C": "El método diagnóstico de elección es el Eco-Doppler por su disponibilidad y fiabilidad en manos de cirujanos vasculares.",
+        "D": "En los pacientes con isquemia aguda, se recomienda determinar los niveles de mioglobina y creatin kinasa para decidir si revascularizar o amputar."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 100,
+      "question": "La reconstrucción endovascular aortoilíaaca, es cierto:",
+      "options": {
+        "A": "Los stents cubiertos han demostrado ser mejores en cuanto a permeabilidad y ausencia de complicaciones que los stents no cubiertos .",
+        "B": "La técnica CERAS es, actualmente, de elección en la reconstrucción de la bifurcación aórtica.",
+        "C": "La reconstrucción endovascular de la bifurcación aórtica requiere disponer de múltiples accesos vasculares, tanto en miembros inferiores como superiores.",
+        "D": "En general, suele ser un técnica rápida que requiere materiales que suelen estar disponibles en todos los servicios de Angiología y Cirugía Vascular."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 101,
+      "question": "A los efectos de la Ley 12/2010, de 18 de noviembre, para la Igualdad entre Mujeres y Hombres de Castilla-La Mancha, se entenderá por participación equilibrada en las instituciones y en los órganos públicos de la Junta de Comunidades de Castilla-La Mancha, la presencia de mujeres y hombres de forma que, en el conjunto a que se refiera, las personas de cada sexo:",
+      "options": {
+        "A": "Supongan al menos el 30%.",
+        "B": "No superen el 60% ni sean menos del 40%.",
+        "C": "Supongan el 50%.",
+        "D": "Superen los 2/3."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 102,
+      "question": "Desde el punto de vista de la etiopatogenia de las malformaciones vasculares ... señalar la falsa:",
+      "options": {
+        "A": "La falta de maduración de las etapas plexiforme y reticular del desarrollo embrionario determina la aparición de las malformaciones vasculares.",
+        "B": "Los hemangiomas que forman parte de una malformación vascular no se consideran tumores, ya que no presentan proliferación ni apenas malignización.",
+        "C": "Los defectos venosos son predominantes más frecuentemente, pero menos significativos clínicamente.",
+        "D": "Los estudios inmunohistoquímicos demuestran la existencia de proteínas angiogénicas y factores de crecimiento en las malformaciones vasculares."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 103,
+      "question": "En el estudio randomizado BEST-CLI (Best Endovascular versus Best Surgical Therapy in Patients with CLTI} se han presentado datos respecto a la indicación quirúrgica a tomar según la disponibilidad de vena safena interna. Seña le respuesta falsa:",
+      "options": {
+        "A": "En pacientes con vena safena interna de buena calidad, los resultados del tratamiento quirúrgico se asocian a una disminución del 32% de riesgo de amputación mayor y/o muerte, respecto al grupo de tratamiento endovascular, excepto en pacientes mayores de 80 años y la existencia de insuficiencia renal.",
+        "B": "En pacientes sin vena safena interna disponible, no hay diferencia respecto a amputaciones mayores y/o muerte perioperatoria, entre el tratamiento quirúrgico y el tratamiento endovascular.",
+        "C": "Tanto en pacientes con vena safena interna disponible como en aquellos que carecen de ella, los procedimientos endovasculares tienen una mayor tasa de fallo técnico que las técnicas quirúrgicas .",
+        "D": "En el estudio preoperatorio de los pacientes con isquemia crítica de miembros inferiores NO es necesario incluir el mapeo venoso."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 104,
+      "question": "Aunque la progresión de la Enfermedad Venosa Crónica (EVS) es muy importante, pocos estudios epidemiológicos han estudiado su historia natural. En el \"Edimburgh Vein Study\" (población general, 1566 adultos de 18 a 64 años incluidos en el inicio). 880 fueron seguidos hasta 13 años con clínica y dúplex del sistema venoso superficial y profundo. De los pacientes con varices no complicadas al comienzo ¿qué proporción desarrolló alteraciones cutáneas?",
+      "options": {
+        "A": "1/10",
+        "B": "1/5",
+        "C": "1/4",
+        "D": "1/3"
+      },
+      "correct": "D"
+    },
+    {
+      "id": 105,
+      "question": "En la estenosis asintomática de la arteria subclavia, la revascularización:",
+      "options": {
+        "A": "Se debe considerar en caso de estenosis proximal para pacientes sometidos a cirugía de revascularización coronaria utilizando la mamaria interna homolateral. Clase de recomendación lla.",
+        "B": "Se debe considerar en caso de estenosis de la arteria subclavia y fistula arteriovenosa homolateral para hemodiálisis. Clase de recomendación llb.",
+        "C": "Se puede considerar en caso de estenosis bilateral para monitorizar la presión arterial con precisión. Clase de recomendación lla.",
+        "D": "Se debe considerar la revascularización de los pacientes sintomáticos con estenosis/oclusión de la arteria subclavia. Clase de recomendación llb"
+      },
+      "correct": null,
+      "_comentario": "ANULADA. A Correcta pero B parcialmente también"
+    }
+  ]
+}

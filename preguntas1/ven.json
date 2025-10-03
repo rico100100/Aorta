@@ -1,0 +1,1599 @@
+{
+  "questions": [
+    {
+      "id": 291,
+      "question": "Un paciente se presenta con una infección activa y no tratada adecuadamente en la zona de la arteria femoral, lo que requiere un procedimiento de bypass extra-anatómico. Si no existe otra alternativa de revascularización y la infección es extensa, ¿cuál de las siguientes opciones de conducto se debería considerar, según la fuente?",
+      "options": {
+        "A": "Un injerto protésico de poliéster estándar.",
+        "B": "Un injerto protésico de ePTFE con unión de heparina.",
+        "C": "Un conducto autólogo, como la vena safena mayor o la vena femoral, o un aloinjerto venoso humano, o posiblemente un injerto protésico impregnado de antibióticos.",
+        "D": "Un injerto protésico de cualquier tipo, ya que no hay evidencia convincente de superioridad de uno sobre otro en patencia."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 292,
+      "question": "El bypass femorofemoral se basa en un concepto hemodinámico fundamental. ¿Cuál es ese concepto?",
+      "options": {
+        "A": "La capacidad de una arteria ilíaca enferma para compensar el flujo de la pierna contralateral.",
+        "B": "La capacidad de una arteria ilíaca sana para suministrar flujo adecuado tanto a la pierna donante ipsilateral como a la pierna receptora contralateral.",
+        "C": "La necesidad de un bypass infrainguinal simultáneo en el lado receptor para asegurar la perfusión distal.",
+        "D": "La derivación de sangre de la arteria femoral profunda a la superficial femoral de la misma pierna."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 293,
+      "question": "En el contexto actual de la cirugía vascular, el bypass femorofemoral ha encontrado una nueva aplicación principal. ¿Cuál es esta aplicación, donde parece tener un rendimiento superior en comparación con su uso para la enfermedad oclusiva arterial crónica?",
+      "options": {
+        "A": "Como tratamiento primario para la claudicación intermitente unilateral.",
+        "B": "Como parte de la reparación endovascular de aneurismas aórticos aortounilíacos.",
+        "C": "Como procedimiento de salvamento para la trombosis del injerto axilofemoral.",
+        "D": "En combinación con angioplastia y stent ilíaco bilateral para la enfermedad ilíaca dominante."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 294,
+      "question": "Antes de realizar un bypass femorofemoral, si hay dudas sobre la adecuación del flujo de entrada (inflow) debido a la enfermedad en el sistema arterial ilíaco, ¿qué medida debería considerarse si el plan para el bypass femorofemoral no se abandona?",
+      "options": {
+        "A": "La adición sistemática de un bypass infrainguinal simultáneo en el lado receptor.",
+        "B": "Un test de estrés fisiológico farmacológico del inflow.",
+        "C": "La colocación directa del injerto en la arteria poplítea del lado receptor.",
+        "D": "La realización de una fístula arteriovenosa en el lado donante para aumentar el flujo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 295,
+      "question": "Respecto a la técnica de tunelización en un bypass femorofemoral, ¿cuál de las siguientes afirmaciones es la más precisa según el texto?",
+      "options": {
+        "A": "El túnel se crea siempre en el espacio retrofascial para mayor protección.",
+        "B": "El túnel debe tener una configuración en 'U' invertida, generalmente en el área subcutánea anterior a la fascia de la pared abdominal.",
+        "C": "El túnel se crea siempre con un tunelador especializado para evitar lesiones viscerales.",
+        "D": "Se debe evitar la creación de un arco de radio más grande, ya que aumenta el riesgo de acodamiento."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 296,
+      "question": "En relación con los materiales de injerto protésico para el bypass femorofemoral, ¿qué concluye el texto sobre la superioridad de un tipo sobre otro?",
+      "options": {
+        "A": "Los injertos de ePTFE con soporte son claramente superiores en patencia a los de poliéster.",
+        "B": "No existe evidencia convincente de que un tipo de injerto protésico (poliéster, ePTFE, con unión de heparina, etc.) tenga mejor rendimiento hemodinámico o de patencia.",
+        "C": "Los injertos de poliéster fabricado han demostrado ser superiores debido a su flexibilidad.",
+        "D": "Los conductos venosos autólogos han demostrado una patencia inferior a los protésicos en la experiencia de la mayoría de los autores."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 297,
+      "question": "Para prevenir el acodamiento del injerto en el plano coronal durante un bypass femorofemoral, ¿qué técnica se recomienda específicamente?",
+      "options": {
+        "A": "Colocar la anastomosis más distalmente para incluir las arterias femorales profundas o superficiales.",
+        "B": "Acortar la anastomosis para crear un ángulo menos agudo en el talón.",
+        "C": "Crear el túnel subcutáneo con un arco de radio más uniforme y grande, generalmente bien superior al pubis.",
+        "D": "Usar un injerto de menor diámetro para aumentar la velocidad del flujo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 298,
+      "question": "Una vez completadas las anastomosis en un bypass femorofemoral, ¿qué herramienta de evaluación intraoperatoria se debe utilizar para confirmar la mejora del flujo en el lado receptor y asegurar que no haya deterioro del flujo en el lado donante?",
+      "options": {
+        "A": "Angiografía intraoperatoria con contraste.",
+        "B": "Monitorización continua de la presión arterial en el tobillo.",
+        "C": "Una sonda Doppler estéril de onda continua.",
+        "D": "Un estudio de dúplex arterial del injerto en la sala de operaciones."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 299,
+      "question": "En el contexto de un bypass femorofemoral, para asegurar una patencia adecuada del injerto en el lado receptor, además de asegurar un flujo de salida a la arteria femoral profunda o superficial, ¿qué técnica adjunta se menciona para mejorar el flujo de salida?",
+      "options": {
+        "A": "Añadir sistemáticamente un bypass infrainguinal simultáneo.",
+        "B": "Usar la capucha anastomótica del injerto para realizar una 'angioplastia en parche'.",
+        "C": "Aumentar el diámetro del injerto en el sitio de la anastomosis.",
+        "D": "Ligar la arteria femoral superficial del lado donante."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 300,
+      "question": "Según las publicaciones pertinentes recientes, ¿cuál es la patencia primaria predicha a 5 años para el bypass femorofemoral cuando la indicación es enfermedad oclusiva aterosclerótica?",
+      "options": {
+        "A": "Aproximadamente el 50-60%.",
+        "B": "Menos del 50%.",
+        "C": "Aproximadamente el 70%.",
+        "D": "Superior al 90%."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 301,
+      "question": "Un paciente sometido a un bypass femorofemoral comienza a mostrar signos de disminución del flujo en el injerto años después de la cirugía. ¿Cuál de las siguientes es una causa específica de fallo del injerto de bypass femorofemoral mencionada en el texto?",
+      "options": {
+        "A": "Trombosis de la arteria axilar.",
+        "B": "Progresión de la enfermedad de entrada o de salida.",
+        "C": "Lesión visceral por el túnel subcutáneo.",
+        "D": "Ruptura del aneurisma aórtico."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 302,
+      "question": "En un paciente con enfermedad oclusiva arterial aórtica y/o bi-ilíaca sintomática, considerado de riesgo fisiológico excesivamente alto para una reparación aórtica directa, ¿cuál de los siguientes procedimientos de bypass extra-anatómico representa una de las tres indicaciones primarias?",
+      "options": {
+        "A": "Bypass femoropoplíteo.",
+        "B": "Bypass axilofemoral.",
+        "C": "Bypass común ilíaco a femoral.",
+        "D": "Bypass obturador."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 303,
+      "question": "La elección entre un bypass axilounifemoral y un axilobifemoral en pacientes con enfermedad oclusiva aórtica y/o bi-ilíaca sintomática debe basarse en:",
+      "options": {
+        "A": "La disponibilidad de injertos pre-construidos.",
+        "B": "La extensión de la enfermedad arterial en la extremidad superior.",
+        "C": "Si una o ambas piernas se beneficiarían de un flujo mejorado.",
+        "D": "La preferencia histórica del cirujano por una configuración bifemoral para mejorar el flujo de salida."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 304,
+      "question": "En la selección del lado del donante para un bypass axilofemoral, ¿cuál es una condición pre-procedimiento en el brazo propuesto que se recomienda encarecidamente que NO sea la sede del injerto?",
+      "options": {
+        "A": "La presencia de una presión arterial sistólica 5 mmHg más baja que el brazo contralateral.",
+        "B": "Un patrón de onda Doppler trifásico en la arteria braquial.",
+        "C": "Una fístula arteriovenosa de hemoacceso existente.",
+        "D": "El lado en el que el paciente prefiere dormir."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 305,
+      "question": "Un cirujano vascular está planeando un bypass axilofemoral para un paciente de alto riesgo. Considerando la complejidad del procedimiento, especialmente la creación del túnel, ¿qué tipo de anestesia es casi siempre requerida para esta operación en la práctica?",
+      "options": {
+        "A": "Anestesia local con sedación consciente.",
+        "B": "Anestesia regional espinal o epidural.",
+        "C": "Anestesia general.",
+        "D": "Anestesia local combinada con bloqueo de plexo braquial."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 306,
+      "question": "Al exponer la arteria axilar para un bypass axilofemoral, el cirujano debe tener un cuidado extremo. ¿Qué característica específica de la arteria axilar se menciona que la hace más susceptible a lesiones durante la disección y la colocación de las pinzas?",
+      "options": {
+        "A": "Su proximidad al plexo braquial.",
+        "B": "Su fragilidad en comparación con la arteria femoral común.",
+        "C": "Su pequeño diámetro, que dificulta la canulación.",
+        "D": "La presencia de venas concomitantes de gran calibre."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 307,
+      "question": "Respecto a la creación del túnel subcutáneo para un bypass axilofemoral, ¿cuál de las siguientes afirmaciones sobre la técnica es correcta según el texto?",
+      "options": {
+        "A": "Debe crearse un túnel con una incisión de flanco separada a mitad de camino entre la axila y la ingle.",
+        "B": "El túnel debe mantenerse en la línea axilar media para minimizar los cambios en la longitud del trayecto con el movimiento del torso y evitar la compresión en el margen costal.",
+        "C": "Se debe tunelizar siempre anterior al músculo pectoral menor para facilitar la exposición.",
+        "D": "Es aceptable entrar en la cavidad torácica durante la tunelización si es necesario para acceder a la arteria axilar."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 308,
+      "question": "Para evitar la tensión en la anastomosis entre la arteria axilar y el injerto cuando el brazo está abducido durante un bypass axilofemoral, ¿qué concepto técnico se recomienda emplear?",
+      "options": {
+        "A": "Colocar la anastomosis lo más lateral posible en la arteria axilar.",
+        "B": "Dejar una cierta redundancia del injerto y permitir un cierto arqueamiento del injerto en la axila posterior al músculo pectoral menor.",
+        "C": "Dividir el músculo pectoral menor para liberar el espacio.",
+        "D": "Asegurar que el injerto esté tenso para evitar acodamientos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 309,
+      "question": "Cuando se realiza una anastomosis entre dos componentes de injerto protésico en un bypass axilobifemoral, por ejemplo, conectando el componente axilofemoral al femorofemoral, ¿qué técnica es necesaria para crear una apertura adecuada en el injerto protésico?",
+      "options": {
+        "A": "Una simple arteriotomía longitudinal en el injerto.",
+        "B": "Una excisión de un óvalo de material de injerto en el punto donde se va a crear la anastomosis.",
+        "C": "Un parche de Dacron cosido sobre una hendidura longitudinal.",
+        "D": "La dilatación forzada del injerto protésico para crear la apertura."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 310,
+      "question": "Respecto a la comparación de resultados hemodinámicos entre el bypass axilofemoral y el bypass aortofemoral directo, ¿qué indican los resultados en términos del índice tobillo-brazo (ITB) con un flujo de salida infrainguinal normal no enfermo?",
+      "options": {
+        "A": "El ITB después del bypass axilofemoral es ligeramente superior a 1.0, similar al aortofemoral directo.",
+        "B": "El ITB después del bypass axilofemoral es inferior a 0.7, mientras que después del aortofemoral directo es ligeramente superior a 1.0.",
+        "C": "El ITB después de ambos procedimientos es generalmente idéntico, indicando una perfusión comparable.",
+        "D": "El ITB después del bypass axilofemoral es superior al aortofemoral directo debido a la mayor proximidad al corazón."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 311,
+      "question": "Un paciente que ha sido sometido a un bypass axilofemoral presenta súbitamente dolor y frialdad en el brazo del lado donante, con pulsos distales ausentes. ¿Cuál de las siguientes es una complicación específica del bypass axilofemoral mencionada en el texto que podría explicar estos síntomas?",
+      "options": {
+        "A": "Una estenosis perianastomótica debido a hiperplasia intimal en la ingle.",
+        "B": "Una lesión vesical durante el procedimiento.",
+        "C": "Complicaciones tromboembólicas en las arterias nativas después de la trombosis del injerto axilofemoral.",
+        "D": "Isquemia crítica del miembro inferior receptor."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 312,
+      "question": "Un paciente presenta una infección arterial extensa en el área femoral, secundario a un aneurisma micótico por el uso de drogas recreativas. La infección impide una revascularización convencional. ¿Cuál es el procedimiento de bypass extra-anatómico cuya indicación principal aborda esta situación clínica?",
+      "options": {
+        "A": "Bypass axilofemoral.",
+        "B": "Bypass femorofemoral.",
+        "C": "Bypass obturador.",
+        "D": "Bypass iliofemoral directo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 313,
+      "question": "Durante la creación del túnel para un bypass obturador, el cirujano debe perforar la membrana obturatriz. ¿Qué característica de esta membrana requiere un enfoque técnico específico para su perforación, a diferencia de la disección roma?",
+      "options": {
+        "A": "Es muy delgada y elástica, lo que facilita el desgarro accidental.",
+        "B": "Es muy fuerte y no puede perforarse de forma roma, requiriendo incisión con instrumentos cortantes.",
+        "C": "Es una estructura altamente vascularizada, lo que requiere ligadura extensiva antes de la incisión.",
+        "D": "Es una estructura nerviosa importante, que debe ser manipulada con gran delicadeza para evitar neuropatía."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 314,
+      "question": "Para un bypass obturador realizado en el contexto de una infección arterial, especialmente para un aneurisma micótico, ¿cuál es el tipo de injerto que el autor del capítulo recomienda encarecidamente utilizar siempre que sea posible?",
+      "options": {
+        "A": "Injerto protésico de poliéster textil.",
+        "B": "Injerto protésico de ePTFE con soporte.",
+        "C": "Injerto venoso autólogo.",
+        "D": "Cualquier injerto protésico impregnado de antibióticos."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 315,
+      "question": "En la evaluación del rendimiento del bypass obturador, ¿cómo se compara su patencia a 5 años con la de un bypass femoropoplíteo convencional?",
+      "options": {
+        "A": "El bypass obturador tiene una patencia significativamente superior al femoropoplíteo convencional.",
+        "B": "El bypass obturador probablemente no tiene un rendimiento tan bueno como el femoropoplíteo convencional en cuanto a patencia.",
+        "C": "La patencia del bypass obturador es idéntica a la del femoropoplíteo convencional.",
+        "D": "El bypass obturador tiene una patencia primaria estimada del 70-80% a los 5 años, que es superior a la del femoropoplíteo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 316,
+      "question": "Un paciente varón de 68 años con antecedentes de diabetes e hipertensión, presenta dolor en reposo isquémico y pérdida de tejido en la extremidad inferior. Se le diagnostica enfermedad oclusiva aortoilíaca (EOAI) multinivel. ¿Cuál de las siguientes afirmaciones es más probable que sea cierta con respecto a este paciente?",
+      "options": {
+        "A": "Es probable que tenga una expectativa de vida normal en comparación con sus pares de edad.",
+        "B": "Su enfermedad es más común en pacientes más jóvenes con alta prevalencia de tabaquismo.",
+        "C": "La enfermedad es difusa y multisegmentaria, lo que indica una reducción significativa en la expectativa de vida.",
+        "D": "Es casi tan probable que sea mujer como hombre con esta presentación de enfermedad."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 317,
+      "question": "Un paciente masculino de 55 años se presenta con claudicación en muslo, cadera y glúteo, atrofia de los músculos de las piernas e impotencia. Al examen físico, se documentan pulsos femorales reducidos. ¿Qué síndrome se describe con esta constelación de síntomas y signos?",
+      "options": {
+        "A": "Síndrome de la arteria mesentérica superior.",
+        "B": "Síndrome de la arteria subclavia robada.",
+        "C": "Síndrome de Leriche.",
+        "D": "Síndrome de la arteria poplítea atrapada."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 318,
+      "question": "En el contexto de la enfermedad aterosclerótica aortoilíaca (EOAI) grave, se desarrollan varias redes colaterales primarias para reconstituir el sistema infrainguinal. ¿Cuál de las siguientes conexiones NO es una red colateral primaria mencionada en el contexto de EOAI?",
+      "options": {
+        "A": "Arterias lumbares a vasos hipogástricos y receptores femorales/profundos.",
+        "B": "Arteria mamaria interna a conexión epigástrica inferior.",
+        "C": "Arteria mesentérica superior a arteria mesentérica inferior y vía de la arteria hemorroidal (arco de Riolan).",
+        "D": "Arteria poplítea a arterias tibiales distales."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 319,
+      "question": "Una mujer joven, fumadora intensa, es diagnosticada con enfermedad oclusiva aortoilíaca que en la imagen radiográfica revela una vasculatura atrésica y estrecha con cambios ateroscleróticos difusamente calcificados, y una estenosis focal en la bifurcación aórtica. ¿Qué consideraciones son cruciales respecto a la durabilidad del tratamiento en este perfil de paciente?",
+      "options": {
+        "A": "La intervención endovascular ofrece una durabilidad superior en comparación con el bypass aortobifemoral.",
+        "B": "La endarterectomía local es el tratamiento de elección debido a la ausencia de material protésico y su excelente durabilidad a largo plazo.",
+        "C": "La durabilidad tanto de la intervención endovascular como de la endarterectomía local es generalmente pobre, especialmente si se mantiene el tabaquismo.",
+        "D": "Estos pacientes rara vez requieren intervención quirúrgica debido a una progresión lenta de la enfermedad."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 320,
+      "question": "En la era actual de proliferación de técnicas endovasculares, ¿cuál de las siguientes situaciones representa una indicación creciente para el bypass aortobifemoral (BABF) abierto para la enfermedad oclusiva aortoilíaca (EOAI)?",
+      "options": {
+        "A": "Lesiones ilíacas tipo A o B del TASC.",
+        "B": "Claudicación intermitente leve a moderada sin impacto en la calidad de vida.",
+        "C": "Fallo de tratamiento endovascular previo para EOAI o enfermedad tan extensa que el abordaje endovascular se considera desaconsejable.",
+        "D": "Enfermedad oclusiva aortoilíaca aislada en pacientes jóvenes sin otros factores de riesgo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 321,
+      "question": "Respecto a la endarterectomía aortoilíaca, ¿cuál de las siguientes afirmaciones describe la selección de pacientes más adecuada para esta técnica?",
+      "options": {
+        "A": "Es ideal para enfermedad de segmento largo que se extiende a las arterias ilíacas externas.",
+        "B": "Se prefiere en pacientes con alto riesgo quirúrgico y comorbilidades cardíacas severas.",
+        "C": "Es más factible y duradera en lesiones estenóticas focales en vasos de gran calibre y alto flujo, especialmente si se limitan a la aorta distal o arterias ilíacas comunes proximales.",
+        "D": "Está contraindicada en pacientes con disfunción eréctil atribuible a enfermedad oclusiva hipogástrica proximal."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 322,
+      "question": "Un paciente se presenta con oclusión aórtica total que se extiende hasta el nivel de las arterias renales, lo que requiere un bypass aortobifemoral. Durante la cirugía, ¿cuál es la estrategia recomendada para el control proximal en esta situación específica?",
+      "options": {
+        "A": "Colocar una pinza aórtica proximal infrarrenal para asegurar el control inmediato.",
+        "B": "Controlar las arterias renales, trombectomizar el manguito infrarrenal sin una pinza proximal infrarrenal, y usar presión aórtica para limpiar, seguido de un breve control suprarrenal.",
+        "C": "Obtener el control supracelíaco a través del ligamento gastrohepático antes de cualquier manipulación aórtica.",
+        "D": "La colocación de la pinza proximal no es crítica siempre que se garantice un sangrado posterior adecuado de las arterias distales."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 323,
+      "question": "En un paciente con arterias ilíacas externas ocluidas o gravemente enfermas, pero con arterias ilíacas comunes e internas permeables, ¿qué tipo de anastomosis proximal para un bypass aortobifemoral es ventajosa para preservar la perfusión pélvica crítica?",
+      "options": {
+        "A": "Anastomosis terminoterminal (end-to-end) debido a su patrón de flujo en línea.",
+        "B": "Anastomosis terminolateral (end-to-side) para mantener el flujo anterógrado en la aorta nativa.",
+        "C": "Cualquier tipo de anastomosis, ya que la perfusión pélvica se mantiene por colaterales distales.",
+        "D": "La anastomosis proximal no influye en la perfusión pélvica en presencia de enfermedad ilíaca externa."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 324,
+      "question": "Durante un bypass aortobifemoral, se observa hemorragia en la línea de sutura anastomótica después de una liberación de prueba de las pinzas aórticas. ¿Cuál es la acción más apropiada para manejar esta complicación, según los principios quirúrgicos descritos?",
+      "options": {
+        "A": "Aplicar un agente hemostático tópico y observar la hemostasia espontánea.",
+        "B": "Colocar suturas de reparación reforzadas con pledgets de fieltro después de reemplazar la pinza.",
+        "C": "Administrar protamina para revertir los efectos de la heparina inmediatamente.",
+        "D": "Realizar un intento rápido de sutura bajo tensión para minimizar el tiempo de isquemia."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 325,
+      "question": "Un paciente que se sometió a un bypass aortobifemoral hace 7 años presenta trombosis de una de las ramas del injerto. ¿Cuál es la causa más común de este escenario, es decir, trombosis unilateral de la rama del injerto?",
+      "options": {
+        "A": "La colocación inapropiada de la anastomosis proximal demasiado baja en relación con las arterias renales.",
+        "B": "La progresión de la aterosclerosis en la aorta proximal remanente.",
+        "C": "La hiperplasia intimal progresiva en la anastomosis distal o la progresión de la enfermedad de salida.",
+        "D": "Una infección sistémica que se disemina al injerto protésico."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 326,
+      "question": "En el contexto de un bypass aortobifemoral para enfermedad oclusiva aortoilíaca (EOAI), ¿cuándo se considera más indicada una profundaplastia adjunta?",
+      "options": {
+        "A": "Solo cuando hay enfermedad oclusiva de la arteria femoral superficial (AFS) y ausencia de enfermedad orificial de la profunda.",
+        "B": "En casi todos los casos de enfermedad significativa de la arteria femoral común (AFC) o placa orificial de la arteria femoral profunda (AFP), especialmente si la AFS está ocluida o gravemente enferma.",
+        "C": "Únicamente en pacientes con claudicación leve donde la revascularización distal no es una opción.",
+        "D": "Como una alternativa a la revascularización de entrada en pacientes con isquemia crítica de la extremidad."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 327,
+      "question": "En la selección de injertos para el bypass aortobifemoral, ¿cuál de los siguientes tipos de injerto es el más comúnmente utilizado y por qué, según las fuentes?",
+      "options": {
+        "A": "Injertos de politetrafluoroetileno (PTFE), por su resistencia a la dilatación a largo plazo.",
+        "B": "Injertos de poliéster tejido (Dacron), debido a su pseudointima más estable y menor tendencia a dilatarse.",
+        "C": "Injertos de poliéster tejido (Dacron), por sus excelentes propiedades de manejo y hemostáticas, y su probado historial de durabilidad, a pesar de la tendencia a dilatarse con el tiempo.",
+        "D": "Injertos autólogos de vena safena, por su menor riesgo de infección y mayor patencia a largo plazo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 328,
+      "question": "En el contexto de los resultados del bypass aortobifemoral (BABF), ¿cómo influye la edad del paciente en las tasas de patencia a largo plazo?",
+      "options": {
+        "A": "Los pacientes más jóvenes (menores de 50 años) tienen consistentemente tasas de patencia a 5 años superiores al 95%.",
+        "B": "No se ha encontrado una correlación significativa entre la edad y las tasas de patencia del injerto.",
+        "C": "Los pacientes mayores de 60 años muestran tasas de patencia primaria a 5 años consistentemente más altas, mientras que los menores de 50 años tienen tasas significativamente inferiores.",
+        "D": "La patencia del injerto disminuye con la edad debido a la progresión acelerada de la aterosclerosis en los pacientes de mayor edad."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 329,
+      "question": "En relación con el abordaje retroperitoneal para la aorta infrarrenal en la enfermedad oclusiva, ¿cuál de las siguientes es una ventaja reconocida, aunque no siempre consistentemente respaldada por la literatura, que lo hace una opción preferida para algunos cirujanos en pacientes seleccionados?",
+      "options": {
+        "A": "Acceso facilitado a las arterias renales y ilíacas derechas en pacientes obesos.",
+        "B": "Reducción de la morbilidad pulmonar y menores tasas de íleo postoperatorio.",
+        "C": "Mejor visualización del plexo nervioso autonómico que regula la erección y la eyaculación.",
+        "D": "Tiempo operatorio significativamente más corto en comparación con el abordaje transperitoneal."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 330,
+      "question": "Un paciente desarrolla isquemia intestinal postoperatoria, específicamente del rectosigmoides, después de un bypass aortobifemoral con anastomosis terminoterminal. Si la perfusión comprometida del intestino se reconoce intraoperatoriamente, ¿qué intervención está indicada para mitigar este riesgo?",
+      "options": {
+        "A": "Administración de antibióticos de amplio espectro para prevenir la perforación.",
+        "B": "Reimplantación de la arteria mesentérica inferior (AMI).",
+        "C": "Observación estrecha, ya que la isquemia suele ser transitoria y autolimitada.",
+        "D": "Realización de una sigmoidoscopia postoperatoria temprana para evaluar la extensión del daño."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 331,
+      "question": "La profundaplastia aislada, aunque menos común en la era actual, juega un papel importante en situaciones específicas. ¿Cuál de las siguientes es una indicación apropiada para una profundaplastia aislada?",
+      "options": {
+        "A": "Tratamiento de primera línea para la claudicación intermitente causada por enfermedad aortoilíaca aislada.",
+        "B": "Cuando los injertos infrainguinales infectados requieren extracción o en casos de injertos de bypass fallidos sin conducto autólogo adecuado.",
+        "C": "Revascularización de rutina en pacientes diabéticos con enfermedad difusa de la arteria femoral profunda y colaterales distales mínimas.",
+        "D": "Como procedimiento único para el salvamento de extremidades en pacientes con oclusión extensa de la arteria femoral superficial y de la arteria femoral profunda."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 332,
+      "question": "Un paciente presenta un aneurisma aórtico abdominal infrarrenal coexistente con enfermedad oclusiva aortoilíaca (EOAI) que requiere un bypass aortobifemoral. Con respecto a los resultados de este abordaje combinado, ¿qué ha demostrado la experiencia institucional reciente?",
+      "options": {
+        "A": "Un aumento significativo en la mortalidad a corto y largo plazo justificado por la complejidad de la reparación.",
+        "B": "Tasas de mortalidad a 30 días similares a las reparaciones estándar de aneurisma aórtico, pero mayores tasas de morbilidad postoperatoria y reintervención.",
+        "C": "Mejoría en la supervivencia a 5 años en comparación con la reparación estándar del aneurisma aórtico solo.",
+        "D": "Que los pacientes con esta combinación de enfermedades no son candidatos adecuados para el bypass aortobifemoral."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 333,
+      "question": "Con respecto a los abordajes mínimamente invasivos para el bypass aortobifemoral (BABF), como las técnicas laparoscópicas y robóticas, ¿cuál de las siguientes afirmaciones es CORRECTA?",
+      "options": {
+        "A": "La principal ventaja es la reducción de los tiempos operatorios en comparación con la cirugía abierta tradicional.",
+        "B": "La morbilidad y mortalidad para el bypass aórtico laparoscópico se aproximan a las de la reconstrucción aórtica abierta, con tasas más bajas de complicaciones gastrointestinales y pulmonares.",
+        "C": "Existen datos a largo plazo ampliamente establecidos que apoyan la durabilidad superior de estas técnicas.",
+        "D": "La curva de aprendizaje no es un factor limitante, lo que ha llevado a una popularidad generalizada."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 334,
+      "question": "Según la caracterización de Haimovici, en la endarterectomía para aterosclerosis, ¿cuáles de los siguientes planos de clivaje son preferibles para evitar la trombosis subsiguiente?",
+      "options": {
+        "A": "Subintimal y transmedial.",
+        "B": "Subadventicial y subintimal.",
+        "C": "Transmedial y subadventicial.",
+        "D": "Solo el plano subintimal, ya que permite una escisión más completa de la placa."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 335,
+      "question": "En la exposición y tunelización durante un bypass aortobifemoral, ¿qué estructura debe preservarse con especial cuidado para evitar disfunción sexual neurogénica iatrogénica en hombres?",
+      "options": {
+        "A": "El plexo nervioso autonómico que se extiende sobre la aorta en la región de la bifurcación y las arterias ilíacas proximales.",
+        "B": "La arteria mesentérica inferior (AMI) cuando se realiza una anastomosis terminoterminal.",
+        "C": "La vena renal izquierda, ya que su división es siempre necesaria para una exposición adecuada.",
+        "D": "La arteria circunfleja femoral, para prevenir hemorragias problemáticas."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 336,
+      "question": "En la evaluación hemodinámica no invasiva para el diagnóstico de enfermedad aortoilíaca (EOAI), ¿qué diferencia de presión sistólica entre la arteria braquial y el muslo proximal es indicativa de una estenosis significativa en la aorta o las arterias ilíacas?",
+      "options": {
+        "A": "Una diferencia de 10 mmHg o más.",
+        "B": "Una diferencia de 20 mmHg o más.",
+        "C": "Una diferencia de 30 mmHg o más.",
+        "D": "Una diferencia de 50 mmHg o más."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 337,
+      "question": "Según la evidencia más reciente sobre el bypass aortobifemoral, ¿cuáles de los siguientes factores se han identificado como predictores de una mayor mortalidad perioperatoria?",
+      "options": {
+        "A": "Edad avanzada, enfermedad pulmonar crónica y un entorno hospitalario de bajo volumen.",
+        "B": "Sexo femenino, hipertensión y enfermedad coronaria concomitante.",
+        "C": "Diabetes mellitus, tabaquismo activo y claudicación aislada.",
+        "D": "Anastomosis terminolateral y uso de injertos de PTFE."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 338,
+      "question": "Un cirujano vascular está considerando la revascularización simultánea de la enfermedad oclusiva renal o mesentérica en el momento de la reconstrucción aórtica. ¿Cuál de las siguientes es una indicación bien establecida para la reparación simultánea de la estenosis de la arteria renal?",
+      "options": {
+        "A": "Estenosis de la arteria renal clínicamente silente.",
+        "B": "Hipertensión resistente a múltiples fármacos o nefropatía isquémica con un componente funcional potencialmente reversible.",
+        "C": "La necesidad de una derivación esplenorrenal o hepatorenal extra-anatómica.",
+        "D": "La presencia de cualquier estenosis de la arteria renal, independientemente de su significado funcional."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 339,
+      "question": "La isquemia de la médula espinal es una complicación rara pero devastadora de la cirugía aórtica infrarrenal. ¿Cuál es el componente central de la profilaxis para esta complicación?",
+      "options": {
+        "A": "La administración rutinaria de manitol y furosemida antes del clampeo aórtico.",
+        "B": "La preservación cuidadosa de la perfusión hipogástrica.",
+        "C": "La realización de una tomografía computarizada postoperatoria para detectar isquemia temprana.",
+        "D": "El uso de la derivación cardiopulmonar para mantener la perfusión espinal durante la oclusión aórtica."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 340,
+      "question": "Históricamente, la anastomosis distal de los injertos de bypass aórticos se colocaba a nivel ilíaco. Sin embargo, con el tiempo, ¿cuál ha sido la apreciación creciente sobre la ubicación de la anastomosis distal en un bypass aortobifemoral?",
+      "options": {
+        "A": "Que es técnicamente más sencilla a nivel ilíaco y proporciona una mayor durabilidad del injerto.",
+        "B": "Que extender la anastomosis distal al nivel femoral mejora notablemente las tasas de patencia a largo plazo y es técnicamente más fácil a nivel de la ingle.",
+        "C": "Que el riesgo de infección del injerto aumenta significativamente al mover la disección distal al nivel femoral, lo que lo hace menos deseable.",
+        "D": "Que las tasas de patencia son equivalentes independientemente de si la anastomosis distal se realiza a nivel ilíaco o femoral."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 341,
+      "question": "Previo a la oclusión vascular en una cirugía de bypass aortobifemoral, se administra una bolus intravenoso estándar de heparina sódica. ¿Cuál es el rango de dosis inicial típico de heparina y el tiempo de coagulación activado (TCA) adecuado para operaciones vasculares periféricas?",
+      "options": {
+        "A": "50-70 unidades/kg, con un TCA de 180-220 segundos.",
+        "B": "70-100 unidades/kg, con un TCA en el rango de 250-350 segundos.",
+        "C": "100-120 unidades/kg, con un TCA de más de 400 segundos.",
+        "D": "La dosis de heparina se determina exclusivamente por el peso del paciente, sin un TCA objetivo específico."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 342,
+      "question": "En la era endovascular moderna, se ha cuestionado la validez de los resultados históricamente excelentes del bypass aórtico. ¿Cuál de los siguientes hallazgos describe la tendencia observada en la patencia de los injertos aortobifemorales en las últimas décadas?",
+      "options": {
+        "A": "Un aumento en las tasas de patencia debido a la mejora de los materiales de injerto y las técnicas quirúrgicas.",
+        "B": "Un descenso en las tasas de patencia, atribuido a una mayor complejidad operativa y a una disminución en la experiencia de los cirujanos recién formados en reconstrucción aórtica abierta.",
+        "C": "Tasas de patencia estables a lo largo del tiempo, sin cambios significativos en la complejidad de los casos.",
+        "D": "Una patencia superior en pacientes más jóvenes, en contraste con la experiencia anterior."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 343,
+      "question": "Un paciente que se sometió a un bypass aortobifemoral hace 10 años desarrolla una masa pulsátil asintomática en la ingle. La investigación revela un falso aneurisma anastomótico. ¿Cuál es el diámetro de tamaño que generalmente recomienda su reparación quirúrgica en la ingle?",
+      "options": {
+        "A": "Cualquier tamaño debido al riesgo de ruptura.",
+        "B": "Mayor de 1 cm.",
+        "C": "Mayor de 2 cm.",
+        "D": "Mayor de 5 cm."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 344,
+      "question": "Durante la cirugía de reemplazo aórtico, se enfatiza la importancia de mantener la normotermia. ¿Cuál es la razón principal de esta medida perioperatoria?",
+      "options": {
+        "A": "Reducir el riesgo de hemorragia intraoperatoria.",
+        "B": "Disminuir la disfunción orgánica significativa y la mortalidad operatoria asociada a la hipotermia intraoperatoria.",
+        "C": "Prevenir la trombosis del injerto y mejorar las tasas de patencia a largo plazo.",
+        "D": "Mejorar el confort del paciente durante el procedimiento prolongado."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 345,
+      "question": "Un paciente presenta claudicación debido a enfermedad oclusiva aortoilíaca (EOAI). ¿Cuál es la principal consideración con respecto a la indicación de intervención para la claudicación en comparación con la isquemia crónica de las extremidades que amenaza la viabilidad (ICETV)?",
+      "options": {
+        "A": "La claudicación es una indicación absoluta para la revascularización, similar a la ICETV.",
+        "B": "La claudicación es una indicación relativa debido a la historia natural benigna de la enfermedad y el bajo riesgo general de pérdida de la extremidad asociada.",
+        "C": "La claudicación por EOAI es más propensa a progresar a pérdida de la extremidad que la claudicación por enfermedad infrainguinal, por lo que siempre requiere intervención temprana.",
+        "D": "La terapia médica y el ejercicio no son efectivos para la claudicación, lo que justifica una intervención quirúrgica temprana en todos los casos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 346,
+      "question": "Un paciente de 68 años se presenta con dolor en las pantorrillas al caminar, que se alivia con el reposo. Tras la evaluación diagnóstica, se confirma una enfermedad arterial periférica (EAP). Considerando las tendencias epidemiológicas y la definición moderna de EAP, ¿cuál de las siguientes afirmaciones es **INCORRECTA**?",
+      "options": {
+        "A": "La prevalencia global de EAP fue de 202 millones de personas en 2010.",
+        "B": "La definición comúnmente aceptada de EAP para fines de investigación se basa en un índice tobillo-brazo (ITB) ≤ 0.9.",
+        "C": "Se espera que la prevalencia de EAP disminuya globalmente debido a la reducción en las tasas de tabaquismo y diabetes mellitus.",
+        "D": "Entre 2000 y 2010, se observó un aumento dramático en la prevalencia de EAP en países de ingresos bajos y medianos."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 347,
+      "question": "En la toma de decisiones para el manejo de la enfermedad arterial periférica (EAP) de miembros inferiores, es crucial distinguir entre claudicación intermitente (CI) y la isquemia crónica con amenaza de extremidad (ICAE, anteriormente isquemia crítica de la extremidad). Dada la historia natural de ambas condiciones, ¿cuál de las siguientes afirmaciones es la más precisa?",
+      "options": {
+        "A": "El riesgo de amputación mayor a 5 años para pacientes con CI es aproximadamente el mismo que el riesgo de amputación a 1 año para pacientes con ICAE.",
+        "B": "La mortalidad por todas las causas a 5 años en pacientes con CI es significativamente mayor que en pacientes con ICAE.",
+        "C": "La indicación principal para intervenir en la CI es la limitación del estilo de vida, mientras que para la ICAE es el riesgo de pérdida de la extremidad.",
+        "D": "Los pacientes con CI a menudo aceptan estrategias de revascularización de alto riesgo debido al alto riesgo de pérdida de la extremidad."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 348,
+      "question": "Un paciente con EAP asintomática, diagnosticada por un ITB anormal (<0.90), es evaluado para manejo. ¿Cuál de las siguientes es la piedra angular del manejo médico para este paciente, independientemente de su estado sintomático, según las guías?",
+      "options": {
+        "A": "Administración de un inhibidor de la enzima convertidora de angiotensina (IECA) y control agresivo de la glucosa como medidas iniciales y únicas.",
+        "B": "Terapia antiplaquetaria diaria y terapia con estatinas para alcanzar un objetivo de LDL de <70 mg/dL, solo si es sintomático.",
+        "C": "Terapia antiplaquetaria diaria y terapia con estatinas para un objetivo de LDL de <100 mg/dL o <70 mg/dL en individuos de muy alto riesgo, junto con intervenciones de cesación tabáquica.",
+        "D": "La revascularización temprana para prevenir eventos cardiovasculares y cerebrovasculares es el valor principal del cribado."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 349,
+      "question": "Una mujer de 55 años con claudicación intermitente (CI) inhabilitante ha sido remitida para terapia de ejercicio supervisada. Según las pautas actuales del American College of Cardiology/American Heart Association (ACC/AHA) y la evidencia, ¿cuál de las siguientes instrucciones sobre la terapia de ejercicio es la **MENOS** precisa o la que presenta una limitación conocida?",
+      "options": {
+        "A": "Las sesiones de ejercicio, preferiblemente caminata en cinta o pista, deben realizarse un mínimo de 30 a 45 minutos por sesión, 3 a 4 veces por semana, durante no menos de 12 semanas.",
+        "B": "La paciente debe caminar hasta el límite de la tolerancia al dolor de la extremidad inferior, seguido de un breve período de reposo hasta que se alivie el dolor, y luego reanudar el ejercicio.",
+        "C": "Aunque efectiva, la adherencia a la terapia de ejercicio es a menudo limitada por el mal cumplimiento del paciente, y hasta un 34% no puede participar debido a comorbilidades médicas.",
+        "D": "Los programas de ejercicio basados en el hogar han demostrado consistentemente ser superiores a los programas basados en clínicas en cuanto a efectividad y cumplimiento a largo plazo."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 350,
+      "question": "En el tratamiento farmacológico de la claudicación intermitente (CI), el cilostazol es el único fármaco de uso actual aprobado por la FDA en los Estados Unidos. Respecto al cilostazol, ¿cuál de las siguientes afirmaciones es correcta?",
+      "options": {
+        "A": "Es un inhibidor de la fosfodiesterasa V, que provoca vasoconstricción y aumento de la agregación plaquetaria.",
+        "B": "Su uso está contraindicado en pacientes con hipertensión no controlada.",
+        "C": "En un ensayo controlado aleatorizado, aumentó significativamente la distancia máxima de marcha en un 54% (107 m), superando al pentoxifilina.",
+        "D": "Su mecanismo preciso de acción para mejorar los síntomas de CI se atribuye exclusivamente a su efecto vasodilatador."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 351,
+      "question": "Un cirujano vascular está evaluando el 'éxito del tratamiento' después de una revascularización en un paciente con claudicación intermitente severa (CI). Según las directrices actuales y los resultados centrados en el paciente, ¿cuál de los siguientes criterios sería el más apropiado para definir el éxito en este caso?",
+      "options": {
+        "A": "La permeabilidad del injerto o stent, según las definiciones tradicionales de éxito técnico.",
+        "B": "La supervivencia libre de amputación (SLA) a un año.",
+        "C": "La mejora significativa en la función física y la calidad de vida (QoL) relacionada con la salud del paciente.",
+        "D": "La reducción del riesgo de pérdida de la extremidad, ya que es la principal preocupación para todos los pacientes con EAP."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 352,
+      "question": "Un paciente con claudicación inhabilitante debido a enfermedad oclusiva aortoilíaca está considerando opciones de tratamiento. Se debate entre la terapia médica supervisada y la angioplastia primaria con stent. Según los resultados del ensayo CLEVER, ¿cuál de las siguientes afirmaciones sobre el cambio en el tiempo máximo de caminata y la calidad de vida (QoL) a los 6 meses es correcta?",
+      "options": {
+        "A": "El cambio en el tiempo máximo de caminata fue mayor con la terapia farmacológica, seguido por el stent y luego el ejercicio supervisado.",
+        "B": "El ejercicio supervisado mostró el mayor cambio en el tiempo máximo de caminata, siendo superior al stenting y a la terapia farmacológica.",
+        "C": "La evaluación de la QoL reveló mejoras significativas solo en el grupo de ejercicio supervisado en comparación con la terapia farmacológica.",
+        "D": "No hubo diferencias significativas en el tiempo máximo de caminata ni en la QoL entre el stenting y el ejercicio supervisado."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 353,
+      "question": "Un cirujano vascular se enfrenta a un paciente con isquemia crónica con amenaza de extremidad (ICAE) que previamente ha tenido una intervención endovascular ipsilateral fallida. Si se decide realizar un bypass de extremidad inferior, ¿cuál de las siguientes es una observación reportada sobre el resultado de este bypass?",
+      "options": {
+        "A": "El concepto de 'no quemar puentes' con un enfoque endovascular primero ha sido ampliamente validado, mejorando los resultados del bypass posterior.",
+        "B": "El análisis de los datos del ensayo BASIL mostró que la supervivencia libre de amputación (SLA) a 1 año fue del 70% para el bypass después de una intervención endovascular fallida.",
+        "C": "Estudios han correlacionado una mayor incidencia de amputación mayor y oclusión del injerto a 1 año en pacientes con ICAE que se sometieron a bypass después de una intervención endovascular fallida ipsilateral previa.",
+        "D": "Los cirujanos no se sienten obligados a realizar una revascularización abierta si un enfoque endovascular previo ha fallado en resolver los síntomas."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 354,
+      "question": "Para un paciente con claudicación intermitente que limita significativamente el estilo de vida, se está considerando la revascularización. Dada la historia natural relativamente benigna de la claudicación vasculogénica y las consideraciones anatómicas, ¿cuál de las siguientes lesiones arteriales es la más adecuada para un enfoque endovascular primario, con altas tasas de permeabilidad a largo plazo?",
+      "options": {
+        "A": "Una oclusión larga de la arteria femoral superficial (AFS).",
+        "B": "Enfermedad multisegmentaria difusa, común en la ICAE.",
+        "C": "Lesiones arteriales focales en vasos de gran diámetro con buen flujo de salida, como la arteria ilíaca común.",
+        "D": "Lesiones con patencia a 5 años generalmente inferior al 70% después de la angioplastia."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 355,
+      "question": "Un paciente de 72 años se presenta con una úlcera isquémica no curativa en el pie, compatible con isquemia crónica con amenaza de extremidad (ICAE). No presenta una infección abrumadora, y es un candidato funcional para la intervención. ¿Cuál es el componente esencial en el alivio de la ICAE para este paciente?",
+      "options": {
+        "A": "Un ensayo de cuidados intensivos de heridas en un centro de atención de heridas dedicado, ya que las tasas de curación de úlceras isquémicas son del 55%.",
+        "B": "El uso rutinario de prostanoides y vasodilatadores, que han demostrado avances significativos en la farmacoterapia para la ICAE.",
+        "C": "La revascularización, ya que la farmacoterapia ha fallado en producir avances importantes y el pronóstico de las extremidades no revascularizadas es sombrío.",
+        "D": "La modificación agresiva de los factores de riesgo cardiovascular como terapia primaria, para ralentizar la progresión de la enfermedad aterosclerótica sistémica."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 356,
+      "question": "Un cirujano vascular está discutiendo opciones de tratamiento con un paciente con isquemia crónica con amenaza de extremidad (ICAE) y comorbilidades significativas. En ciertos escenarios, la amputación primaria puede considerarse una opción preferible a la revascularización. ¿En cuál de los siguientes casos la amputación primaria, potencialmente con rehabilitación protésica, se considera una estrategia razonable o incluso superior para el paciente?",
+      "options": {
+        "A": "Pacientes jóvenes y de bajo riesgo con ICAE, con el objetivo de preservar la funcionalidad a largo plazo.",
+        "B": "Pacientes con pérdida tisular importante que están demasiado enfermos o débiles para beneficiarse de la revascularización, especialmente si son no-ambulantes o tienen contracturas de rodilla.",
+        "C": "Cuando la enfermedad vascular es 'verdaderamente no reconstructible' y el paciente es capaz de someterse a rehabilitación intensiva.",
+        "D": "Para mantener la permeabilidad del injerto a largo plazo en casos de fracaso de revascularizaciones previas."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 357,
+      "question": "El estudio Bypass versus Angioplasty in Severe Ischaemia of the Leg (BASIL) es un ensayo fundamental que comparó la angioplastia con la cirugía abierta para la isquemia severa de la extremidad. ¿Cuál fue una de las conclusiones clave del ensayo BASIL?",
+      "options": {
+        "A": "El estudio no encontró diferencias en la supervivencia libre de amputación (SLA) a largo plazo (después de 2 años) entre la angioplastia y el bypass.",
+        "B": "La cirugía se asoció con una menor morbilidad perioperatoria en comparación con la angioplastia.",
+        "C": "La SLA y la supervivencia global favorecieron una estrategia de bypass primero después de 2 años, aunque los resultados tempranos a 6 meses fueron comparables.",
+        "D": "El ensayo demostró que la angioplastia y la cirugía abierta son terapias 'o una o la otra' y no complementarias."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 358,
+      "question": "En la planificación de un bypass abierto para la revascularización de la extremidad inferior en un paciente con isquemia crónica con amenaza de extremidad (ICAE), la disponibilidad de un conducto adecuado es un factor crítico. ¿Cuál de las siguientes afirmaciones describe con mayor precisión la preferencia y el rendimiento del conducto en esta situación?",
+      "options": {
+        "A": "La vena safena corta es el conducto de elección debido a su durabilidad superior en comparación con la vena safena mayor.",
+        "B": "La vena safena mayor de calibre adecuado, incluso si se cosecha de la pierna contralateral, sigue siendo el conducto de elección y ha demostrado una durabilidad superior a todas las demás opciones.",
+        "C": "Los injertos protésicos ofrecen una durabilidad comparable a la vena safena mayor y son una opción preferida cuando la vena safena mayor no está disponible.",
+        "D": "En ausencia de una vena safena mayor de buen calibre, la revascularización endovascular se vuelve menos atractiva."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 359,
+      "question": "Las Guías Vasculares Globales para el Manejo de la Isquemia Crónica con Amenaza de Extremidad (ICAE) proponen una estrategia centrada en el paciente que evalúa tres aspectos independientes: Estimación del Riesgo del Paciente, Estadificación de la Extremidad y Patrón ANatómico de la enfermedad (PLAN). Dentro de esta estructura PLAN, ¿cuál de los siguientes factores se considera el 'factor más importante' en la toma de decisiones?",
+      "options": {
+        "A": "El grado de isquemia de la extremidad según la clasificación WIfI.",
+        "B": "El patrón anatómico de la enfermedad según el sistema GLASS.",
+        "C": "La estimación del riesgo del paciente, que incluye la candidatura para el salvamento de la extremidad, el riesgo periprocedural y la esperanza de vida.",
+        "D": "La gravedad de la infección del pie según la clasificación WIfI."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 360,
+      "question": "Al considerar las implicaciones de los costos en el tratamiento de la EAP de extremidades inferiores, la elección entre revascularización y amputación primaria puede variar. ¿Qué factor, según las fuentes, influye significativamente en la determinación de si la revascularización es más rentable que la amputación primaria?",
+      "options": {
+        "A": "La disponibilidad de nuevas tecnologías endovasculares, que siempre reducen los costos totales.",
+        "B": "La duración de la estancia hospitalaria después de cada procedimiento.",
+        "C": "El potencial de rehabilitación postoperatoria del paciente, que a menudo depende del estado funcional preoperatorio.",
+        "D": "El uso de modelos de predicción de riesgo, que permiten identificar el procedimiento más seguro independientemente del costo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 361,
+      "question": "Según los datos epidemiológicos recientes, ¿en qué porcentaje aproximado se ha incrementado la prevalencia global de la enfermedad arterial periférica (EAP) durante la última década?",
+      "options": {
+        "A": "10%",
+        "B": "25%",
+        "C": "50%",
+        "D": "75%"
+      },
+      "correct": "B"
+    },
+    {
+      "id": 362,
+      "question": "Con respecto a la prevalencia de la enfermedad arterial periférica (EAP) en función del sexo y la edad, ¿cuál de las siguientes afirmaciones es correcta según los datos epidemiológicos?",
+      "options": {
+        "A": "En los países de altos ingresos (HICs), las tasas específicas por edad son consistentemente más altas en hombres que en mujeres.",
+        "B": "En los países de bajos y medianos ingresos (LMICs), las tasas específicas por edad parecen ser más altas en mujeres en comparación con los hombres.",
+        "C": "En ambos HICs y LMICs, la prevalencia de EAP en individuos menores de 50 años supera el 10%.",
+        "D": "La razón principal de la menor ABI en mujeres es una mayor prevalencia de factores de riesgo tradicionales en comparación con los hombres."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 363,
+      "question": "¿Cuál es la prevalencia estimada de la enfermedad arterial periférica (EAP) en individuos mayores de 80 años en los Estados Unidos?",
+      "options": {
+        "A": "Menos del 5%",
+        "B": "Aproximadamente el 10%",
+        "C": "Mayor del 20%",
+        "D": "Alrededor del 15%"
+      },
+      "correct": "C"
+    },
+    {
+      "id": 364,
+      "question": "¿Cuál es la prevalencia estimada de la claudicación intermitente (CI) en individuos mayores de 65 años en los países occidentales?",
+      "options": {
+        "A": "Hasta el 2%",
+        "B": "Entre el 3% y el 4%",
+        "C": "Hasta el 6%",
+        "D": "Más del 10%"
+      },
+      "correct": "C"
+    },
+    {
+      "id": 365,
+      "question": "Según las estimaciones disponibles, ¿cuál es el rango de prevalencia de la isquemia crónica con amenaza de la extremidad (CLTI) en estudios de poblaciones adultas dispares?",
+      "options": {
+        "A": "0.01% a 0.1%",
+        "B": "0.3% a 2%",
+        "C": "2% a 5%",
+        "D": "5% a 10%"
+      },
+      "correct": "B"
+    },
+    {
+      "id": 366,
+      "question": "Entre los factores de riesgo modificables para la enfermedad arterial periférica (EAP), ¿cuáles dos presentan consistentemente los 'odds ratios' más altos, en el rango de dos a cuatro veces, en múltiples estudios epidemiológicos?",
+      "options": {
+        "A": "Hipertensión y dislipidemia.",
+        "B": "Obesidad e inflamación.",
+        "C": "Tabaquismo y diabetes.",
+        "D": "Homocisteína elevada y estatus socioeconómico bajo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 367,
+      "question": "En pacientes con enfermedad arterial periférica (EAP), ¿cuál de las siguientes afirmaciones sobre la combinación de diabetes y tabaquismo es más precisa?",
+      "options": {
+        "A": "La combinación de diabetes y tabaquismo no ha demostrado un riesgo significativamente mayor que la diabetes por sí sola en cuanto a la gravedad de la EAP.",
+        "B": "Esta combinación es la más insidiosa, conllevando un alto riesgo de gravedad de la EAP, amputación y mortalidad.",
+        "C": "Aunque aumenta el riesgo de amputación, no tiene un impacto significativo en la supervivencia a largo plazo de los pacientes con EAP.",
+        "D": "El riesgo de pérdida de extremidad se duplica en presencia de diabetes y tabaquismo combinados."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 368,
+      "question": "¿Cuál de los siguientes parámetros lipídicos ha mostrado una relación menos consistente con la enfermedad arterial periférica (EAP), sin que se hayan desarrollado valores objetivo de LDL específicos para su terapia?",
+      "options": {
+        "A": "Colesterol total elevado.",
+        "B": "Niveles reducidos de HDL.",
+        "C": "Relación colesterol total/HDL.",
+        "D": "Niveles de lipoproteínas de baja densidad (LDL)."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 369,
+      "question": "En el contexto de la distribución anatómica de la enfermedad arterial periférica (EAP), ¿cuál de las siguientes asociaciones es más precisa?",
+      "options": {
+        "A": "El tabaquismo se asocia principalmente con la enfermedad tibiopedal (TBP), mientras que la diabetes se asocia con la enfermedad aorto-ilíaca (AI).",
+        "B": "La claudicación intermitente (CI) generalmente se presenta con enfermedad tibiopedal (TBP) oclusiva severa.",
+        "C": "Los fumadores tienen una alta frecuencia de enfermedad aorto-ilíaca (AI) y femoropoplítea (FP), mientras que la diabetes se asocia más típicamente con la afectación TBP y FP.",
+        "D": "La enfermedad proximal (AI) se asocia con la edad avanzada y el sexo femenino, mientras que la enfermedad TBP se asocia con la juventud."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 370,
+      "question": "Según el estudio de Rueda et al. sobre los patrones de enfermedad en pacientes sometidos a angiografía y revascularización por isquemia crítica de la extremidad (CLI), ¿cuál fue la afectación predominante observada?",
+      "options": {
+        "A": "Más del 70% de los pacientes presentaban oclusiones aisladas en el segmento aorto-ilíaco.",
+        "B": "La mayoría de los pacientes tenían afectación combinada femoropoplítea y aorto-ilíaca sin implicación distal.",
+        "C": "Más de la mitad de dichos pacientes presentaban oclusiones en los segmentos poplíteo o tibiopedal, y otro 30% tenía oclusiones combinadas femoropoplíteas y tibiopedal.",
+        "D": "Las oclusiones solo en el segmento tibiopedal eran raras y no se asociaban con diabetes o enfermedad renal terminal."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 371,
+      "question": "Según el estudio de Criqui de 1992, ¿cuál fue el riesgo relativo estimado de mortalidad por todas las causas para individuos con enfermedad arterial periférica (EAP) asintomática?",
+      "options": {
+        "A": "1.40 veces mayor.",
+        "B": "2.70 veces mayor.",
+        "C": "5.60 veces mayor.",
+        "D": "1.66 veces mayor."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 372,
+      "question": "El trabajo de McDermott ha destacado que los individuos con enfermedad arterial periférica (EAP) asintomática experimentan un deterioro físico significativo con el tiempo. ¿Cuáles son algunas de las manifestaciones correlacionadas con estos hallazgos?",
+      "options": {
+        "A": "Aumento de la masa muscular de la pantorrilla y mejora de la función nerviosa periférica.",
+        "B": "Reducciones en la actividad física diaria, velocidad de marcha y distancia de caminata de 6 minutos.",
+        "C": "Disminución de la fatiga muscular solo durante actividades de alta intensidad.",
+        "D": "No se han encontrado correlaciones con cambios en la composición muscular o función nerviosa."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 373,
+      "question": "Una meta-análisis ha estimado que, en un periodo de 5 años, ¿qué porcentaje de pacientes asintomáticos con enfermedad arterial periférica (EAP) deteriora a claudicación intermitente (CI)?",
+      "options": {
+        "A": "2%",
+        "B": "7%",
+        "C": "15%",
+        "D": "21%"
+      },
+      "correct": "B"
+    },
+    {
+      "id": 374,
+      "question": "En la evaluación de la claudicación intermitente (CI), los pacientes con CI severa generalmente no pueden completar un protocolo de cinta rodante estándar. ¿Cuáles son los parámetros de este protocolo?",
+      "options": {
+        "A": "10 minutos a 1.5 mph con 5% de inclinación.",
+        "B": "5 minutos a 2 mph con 12% de inclinación.",
+        "C": "3 minutos a 2.5 mph con 10% de inclinación.",
+        "D": "7 minutos a 1.8 mph sin inclinación."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 375,
+      "question": "Aunque el pronóstico de la extremidad para pacientes con claudicación intermitente (CI) se considera generalmente benigno, ¿qué porcentaje de pacientes con CI experimenta un deterioro del estado de la extremidad en un período de 5 años, según una revisión sistemática reciente?",
+      "options": {
+        "A": "Menos del 5%.",
+        "B": "Aproximadamente el 10%.",
+        "C": "El 21%.",
+        "D": "Más del 30%."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 376,
+      "question": "La isquemia aguda de la extremidad (ALI) se define por una duración de los síntomas inferior a 2 semanas. ¿Cuál es el rango estimado de mortalidad a 1 año asociado con la ALI?",
+      "options": {
+        "A": "Menos del 5%.",
+        "B": "5% al 10%.",
+        "C": "10% al 15%.",
+        "D": "15% al 40%."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 377,
+      "question": "Según los criterios hemodinámicos históricos asociados con la isquemia crónica con amenaza de la extremidad (CLTI), ¿cuáles son los valores típicos para la presión arterial del tobillo (AP) y la presión del dedo (TP) asociados con el dolor isquémico en reposo?",
+      "options": {
+        "A": "AP < 70 mmHg, TP < 50 mmHg.",
+        "B": "AP < 50-70 mmHg, TP < 40-50 mmHg.",
+        "C": "AP < 40-50 mmHg, TP < 30 mmHg.",
+        "D": "AP < 30 mmHg, TP < 20 mmHg."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 378,
+      "question": "En el contexto de la isquemia crónica con amenaza de la extremidad (CLTI), ¿cuáles son los valores típicos de presión del tobillo (AP) y presión del dedo (TP) para definir la pérdida de tejido en pacientes no diabéticos?",
+      "options": {
+        "A": "AP < 40 mmHg y TP < 30 mmHg.",
+        "B": "AP < 50 mmHg y TP < 40 mmHg.",
+        "C": "AP < 50-70 mmHg y TP < 40 mmHg.",
+        "D": "AP < 70 mmHg y TP < 50 mmHg."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 379,
+      "question": "Según una revisión sistemática que examinó la historia natural de la isquemia crónica con amenaza de la extremidad (CLTI) en pacientes que no recibieron revascularización, ¿cuáles fueron las tasas estimadas de mortalidad y amputación mayor a 1 año?",
+      "options": {
+        "A": "Mortalidad 10%, Amputación 10%.",
+        "B": "Mortalidad 22%, Amputación 22%.",
+        "C": "Mortalidad 5%, Amputación 15%.",
+        "D": "Mortalidad 30%, Amputación 50%."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 380,
+      "question": "¿Cuál de las siguientes medidas funcionales ha sido identificada recientemente como de clara importancia para predecir los resultados en la población de pacientes con isquemia crónica con amenaza de la extremidad (CLTI)?",
+      "options": {
+        "A": "Velocidad de la onda de pulso.",
+        "B": "Grasa intramuscular de la pantorrilla.",
+        "C": "Fragilidad (Frailty).",
+        "D": "Niveles de dímero D."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 381,
+      "question": "En el sistema de clasificación WIfI (Wound, Ischemia, foot Infection) de la Society for Vascular Surgery, ¿qué describe un puntaje de herida (W) de 2?",
+      "options": {
+        "A": "Sin úlcera (dolor isquémico en reposo).",
+        "B": "Úlcera pequeña y superficial en la pierna distal o el pie sin gangrena.",
+        "C": "Úlcera profunda con hueso, articulación o tendón expuesto ± cambios gangrenosos limitados a los dedos.",
+        "D": "Úlcera extensa y profunda, úlcera de talón de espesor total ± afectación calcánea ± gangrena extensa."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 382,
+      "question": "Según la clasificación de Isquemia (I) del sistema WIfI, ¿qué combinación de valores define un puntaje de Isquemia de 3?",
+      "options": {
+        "A": "ABI ≥ 0.80, Presión del tobillo > 100 mmHg, TcPO2 ≥ 60 mmHg.",
+        "B": "ABI 0.60–0.79, Presión del tobillo 70–100 mmHg, TcPO2 40–59 mmHg.",
+        "C": "ABI 0.40–0.59, Presión del tobillo 50–70 mmHg, TcPO2 30–39 mmHg.",
+        "D": "ABI < 0.40, Presión del tobillo < 50 mmHg, TcPO2 < 30 mmHg."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 383,
+      "question": "El sistema de clasificación clínica WIfI de la SVS estratifica el riesgo de amputación. ¿Cuál es la tasa de amputaciones mayores a 1 año estimada para una extremidad clasificada como Etapa Clínica 4 (alto riesgo)?",
+      "options": {
+        "A": "0.75%",
+        "B": "5.9%",
+        "C": "8.4%",
+        "D": "25%"
+      },
+      "correct": "D"
+    },
+    {
+      "id": 384,
+      "question": "Con respecto al cribado de la enfermedad arterial periférica (EAP), ¿cuál es la recomendación actual de las guías de la Society for Vascular Surgery (SVS)?",
+      "options": {
+        "A": "Recomiendan el cribado poblacional universal para todos los adultos mayores de 50 años.",
+        "B": "Recomiendan el cribado poblacional en individuos con al menos un factor de riesgo cardiovascular.",
+        "C": "Recomiendan en contra del cribado poblacional para EAP, pero sugieren que el cribado dirigido puede ser razonable en individuos de alto riesgo.",
+        "D": "Sugieren el cribado de rutina con índice tobillo-brazo (ITB) para todos los pacientes con diabetes, independientemente de la edad."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 385,
+      "question": "Según las guías de la AHA/ACC de 2016, ¿cuál de los siguientes grupos de individuos asintomáticos se recomienda para el cribado dirigido con prueba de índice tobillo-brazo (ITB)?",
+      "options": {
+        "A": "Cualquier individuo menor de 50 años sin factores de riesgo.",
+        "B": "Individuos de 50 a 64 años con factores de riesgo de aterosclerosis o antecedentes familiares de EAP.",
+        "C": "Individuos mayores de 70 años solo si presentan síntomas atípicos.",
+        "D": "Cualquier individuo con hipertensión aislada sin otros factores de riesgo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 386,
+      "question": "En el seguimiento de pacientes con EAP que han sido revascularizados, ¿qué tipo de vigilancia se recomienda específicamente para promover la permeabilidad a largo plazo de los injertos de bypass venosos, a pesar de la falta de evidencia de Nivel 1?",
+      "options": {
+        "A": "Vigilancia por angio-TC anual.",
+        "B": "Vigilancia por dúplex ultrasonido.",
+        "C": "Vigilancia por angio-RM cada dos años.",
+        "D": "Ninguna vigilancia es necesaria si el paciente permanece asintomático."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 387,
+      "question": "Múltiples estudios han demostrado tasas más altas de enfermedad arterial periférica (EAP) y peores resultados para ciertas poblaciones étnicas. ¿Cuál de las siguientes afirmaciones es correcta con respecto a estas disparidades?",
+      "options": {
+        "A": "Estas disparidades se explican completamente por un desequilibrio de factores de riesgo tradicionales como la edad y el tabaquismo.",
+        "B": "Las poblaciones asiáticas americanas tienen las tasas más altas de EAP en comparación con otros grupos étnicos en los EE. UU.",
+        "C": "Se han demostrado tasas más altas de EAP y peores resultados para las poblaciones negras en comparación con las poblaciones blancas no hispanas o hispanas, y las razones siguen siendo inciertas.",
+        "D": "El estatus socioeconómico bajo es el único factor que explica las diferencias en la prevalencia de EAP entre grupos étnicos."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 388,
+      "question": "Se ha demostrado que los biomarcadores elevados de inflamación sistémica se asocian consistentemente con la aterosclerosis y la EAP. ¿Qué grupo de pacientes con EAP presenta el fenotipo proinflamatorio más pronunciado en todo el espectro de síndromes clínicos de aterosclerosis?",
+      "options": {
+        "A": "Pacientes asintomáticos con EAP.",
+        "B": "Pacientes con claudicación intermitente leve.",
+        "C": "Pacientes con isquemia aguda de la extremidad (ALI).",
+        "D": "Pacientes con isquemia crónica con amenaza de la extremidad (CLTI)."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 389,
+      "question": "Respecto a la relación entre los niveles plasmáticos elevados de homocisteína y la enfermedad arterial periférica (EAP), ¿cuál de las siguientes afirmaciones es precisa?",
+      "options": {
+        "A": "Existe una fuerte asociación independiente, y la suplementación con folato ha demostrado consistentemente efectos beneficiosos en la EAP.",
+        "B": "La asociación es fuerte y ha sido claramente vinculada con la progresión y gravedad de la EAP.",
+        "C": "Existe una relación estadística, pero la fuerza de la asociación es moderada cuando se controla por otros factores de riesgo, y los estudios de suplementación con folato no han mostrado efectos consistentes.",
+        "D": "La homocisteína es un biomarcador predictivo de uso clínico rutinario en la EAP."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 390,
+      "question": "Mientras que los sistemas de clasificación de Fontaine y Rutherford han sido ampliamente adoptados para la EAP, ¿cuál es el objetivo principal y la mejora que ofrece el sistema WIfI (Wound, Ischemia, foot Infection) de la Society for Vascular Surgery, especialmente en relación con la enfermedad con amenaza de la extremidad?",
+      "options": {
+        "A": "Proporcionar una clasificación más sencilla y menos detallada para el manejo de la claudicación intermitente.",
+        "B": "Mejorar la estratificación de la enfermedad con amenaza de la extremidad para una mayor predicción del valor para los puntos finales como la amputación.",
+        "C": "Reducir la necesidad de pruebas no invasivas para el diagnóstico inicial de la EAP.",
+        "D": "Establecer una correlación directa entre la ubicación anatómica de la enfermedad y el riesgo cardiovascular global."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 391,
+      "question": "Un paciente es diagnosticado con isquemia aguda de la extremidad inferior (ALI). Según las guías de manejo inicial, ¿cuál de las siguientes opciones describe el protocolo de anticoagulación sistémica con heparina no fraccionada en ausencia de un plan de intervención emergente inmediato?",
+      "options": {
+        "A": "Un bolo inicial de 70-100 unidades/kg seguido de una infusión continua de 500 unidades/h, titulada para mantener un tiempo de tromboplastina parcial activada (aPTT) de 1.5 a 2 veces el rango normal.",
+        "B": "Un bolo inicial de 70-100 unidades/kg seguido de una infusión continua de 1000 unidades/h, titulada para mantener un aPTT de dos a tres veces el rango normal o un nivel de anti-factor Xa en rango terapéutico.",
+        "C": "Un bolo inicial de 50 unidades/kg seguido de una infusión continua de 750 unidades/h, con objetivo de aPTT de 1.5 a 2.5 veces el control.",
+        "D": "Infusión continua de 1000 unidades/h sin bolo, monitoreando únicamente el tiempo de protrombina (PT)."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 392,
+      "question": "En la evaluación preoperatoria de un paciente con isquemia aguda de la extremidad inferior (ALI), ¿cuál de los siguientes parámetros de laboratorio es considerado un adjunto valioso para monitorizar la lesión por isquemia-reperfusión?",
+      "options": {
+        "A": "Nivel de fibrinógeno sérico basal.",
+        "B": "Panel metabólico completo.",
+        "C": "Gasometría arterial.",
+        "D": "Nivel basal de creatina fosfocinasa (CPK)."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 393,
+      "question": "Un paciente con isquemia aguda de la extremidad inferior (ALI) presenta una afectación profunda e irreversible de la función sensorial y motora del nervio, junto con rigidez muscular y parálisis de la extremidad. Según la clasificación de Rutherford, ¿a qué clase corresponde esta condición y cuál es la terapia definitiva recomendada?",
+      "options": {
+        "A": "Clase IIb; revascularización emergente por vía abierta.",
+        "B": "Clase IIa; consideración de un enfoque endovascular.",
+        "C": "Clase I; optimización médica y estudios diagnósticos.",
+        "D": "Clase III; amputación primaria de la extremidad."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 394,
+      "question": "En la trombectomía con catéter Fogarty para la isquemia aguda de la extremidad, ¿cuál es la técnica estándar para confirmar la patencia de los vasos tratados después de la extracción del trombo?",
+      "options": {
+        "A": "Evaluación clínica de pulsos distales y sangrado retrógrado.",
+        "B": "Realización de una ecografía Doppler intraoperatoria.",
+        "C": "Angiografía intraoperatoria para confirmar la patencia y ausencia de trombo residual.",
+        "D": "Medición de presiones segmentarias para asegurar el flujo adecuado."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 395,
+      "question": "Un estudio retrospectivo del Vascular Study Group of New England analizó los resultados de la cirugía de bypass de la extremidad inferior realizada por isquemia aguda (ALI) en comparación con bypass por otras indicaciones. ¿Cuál fue un hallazgo clave en relación con los pacientes sometidos a bypass por ALI a 1 año?",
+      "options": {
+        "A": "Mayor probabilidad de estar en tratamiento con aspirina o estatinas.",
+        "B": "Tasas de permeabilidad del injerto de bypass significativamente superiores.",
+        "C": "Tasas de pérdida mayor de la extremidad y mortalidad significativamente aumentadas.",
+        "D": "Menor duración del procedimiento y menor pérdida de sangre."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 396,
+      "question": "En el contexto de la isquemia aguda de la extremidad, la tromboendarterectomía arterial es raramente una intervención aislada. ¿En qué escenario clínico es más probable que la endarterectomía sea el único procedimiento requerido, o dónde se utiliza con frecuencia?",
+      "options": {
+        "A": "Como procedimiento primario para la oclusión embólica aguda de la arteria poplítea.",
+        "B": "En casos de trombosis in situ aguda de la arteria femoral común debido a enfermedad aterosclerótica crónica.",
+        "C": "Para mejorar el flujo arterial a las extremidades distales después de una trombectomía fallida.",
+        "D": "Como parte de una trombectomía farmacomecánica para disolver trombos residuales."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 397,
+      "question": "A pesar de los avances diagnósticos y terapéuticos, los resultados a largo plazo de la revascularización quirúrgica para la isquemia aguda de la extremidad (ALI) siguen siendo subóptimos. Un estudio que analizó a 23,268 pacientes con diagnóstico de embolia y trombosis aguda de las extremidades inferiores (1992-2000) reportó tasas de amputación mayor y mortalidad que reflejan este desafío. ¿Cuáles fueron las tasas aproximadas de amputación mayor y mortalidad reportadas en este grupo?",
+      "options": {
+        "A": "Amputación mayor del 5-7% y mortalidad del 3-5%.",
+        "B": "Amputación mayor del 12.7% y mortalidad del 9.3%.",
+        "C": "Amputación mayor del 22.4% y mortalidad del 20.9%.",
+        "D": "Amputación mayor del 8% y mortalidad del 15%."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 398,
+      "question": "En la trombólisis dirigida por catéter (CDT) para la isquemia aguda de la extremidad, existen contraindicaciones que buscan minimizar el riesgo de complicaciones hemorrágicas. ¿Cuál de las siguientes condiciones representa una contraindicación MAYOR para el uso de agentes trombolíticos?",
+      "options": {
+        "A": "Cirugía mayor o trauma en los últimos 10 días.",
+        "B": "Hipertensión (sistólica >180 mmHg o diastólica >110 mmHg).",
+        "C": "Accidente cerebrovascular en los últimos 6 meses.",
+        "D": "Retinopatía diabética hemorrágica."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 399,
+      "question": "Para el acceso arterial en las terapias endovasculares, incluyendo la trombólisis dirigida por catéter (CDT), se prefiere un enfoque retrógrado contralateral femoral. ¿Cuál es la razón principal de esta preferencia?",
+      "options": {
+        "A": "Permite un mejor control del trombo para evitar la embolización distal.",
+        "B": "Facilita la colocación de catéteres diagnósticos en vasos permeables proximales al trombo.",
+        "C": "Reduce el riesgo de disección arterial en el sitio de acceso.",
+        "D": "Es anatómicamente menos exigente y siempre evita la interrupción del trombo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 400,
+      "question": "En la trombólisis dirigida por catéter (CDT), la facilidad con la que una guía atraviesa una oclusión tromboembólica (prueba de 'traversal de guía') se correlaciona con el éxito técnico de la CDT. ¿Qué tipo de guía se utiliza rutinariamente como guía de tratamiento principal, según la preferencia mencionada en el texto?",
+      "options": {
+        "A": "Una guía Glidewire Advantage de 0.035 pulgadas.",
+        "B": "Una guía de Cook Medical de 0.018 o 0.014 pulgadas.",
+        "C": "Una guía Navicross de Terumo Interventional Systems.",
+        "D": "Cualquier guía con punta angulada de 0.035 pulgadas."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 401,
+      "question": "Para la trombólisis dirigida por catéter (CDT) en EE. UU., el activador tisular del plasminógeno recombinante (rtPA) es el agente lítico utilizado. ¿Cuál es el régimen de dosis baja protocolizado preferido mencionado en el texto?",
+      "options": {
+        "A": "Un bolo inicial de 10-15 mg, seguido de una infusión continua de 0.5 mg/h durante 24 horas.",
+        "B": "Un bolo inicial de 2-4 mg, seguido de una infusión continua de 1 mg/h durante un período de 10-12 horas.",
+        "C": "Un bolo inicial de 5 mg, seguido de una infusión continua de 2 mg/h hasta la lisis completa.",
+        "D": "Infusión directa de 0.5 mg/h sin bolo inicial, monitoreando cada 6 horas."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 402,
+      "question": "El ensayo de Rochester, uno de los primeros estudios aleatorizados en EE. UU. comparando CDT (urocinasa) con intervención quirúrgica para ALI de menos de 7 días, mostró equivalencia en las tasas de salvamento de la extremidad a los 12 meses. Sin embargo, ¿qué resultados favorecieron significativamente a la CDT?",
+      "options": {
+        "A": "Mayor éxito técnico inicial de la CDT y menor necesidad de procedimientos adicionales.",
+        "B": "Menores tasas de complicaciones hemorrágicas mayores.",
+        "C": "Mayor supervivencia general y supervivencia libre de amputación.",
+        "D": "Menor necesidad de revascularización abierta basada en lesiones culpables."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 403,
+      "question": "El estudio STILE analizó el efecto de la duración de los síntomas de isquemia en los resultados de la trombólisis vs. cirugía. Para la isquemia aguda (menos de 14 días), ¿qué resultados fueron favorecidos por la trombólisis?",
+      "options": {
+        "A": "Menores tasas de amputación mayor y mejor supervivencia libre de amputación.",
+        "B": "Mayor supervivencia general, aunque sin diferencia en la amputación mayor.",
+        "C": "Mayor incidencia de hemorragia potencialmente mortal pero con menor tasa de reintervención.",
+        "D": "Reducción significativa en la extensión de la revascularización requerida, pero con mayor riesgo de isquemia recurrente."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 404,
+      "question": "El ensayo TOPAS Fase II comparó urocinasa recombinante a 4000 UI/min con cirugía para ALI de 14 días o menos. Aunque la supervivencia libre de amputación y la mortalidad fueron similares entre los grupos, ¿qué riesgo fue significativamente mayor en el grupo de urocinasa?",
+      "options": {
+        "A": "Riesgo de embolización distal.",
+        "B": "Riesgo de sangrado intracraneal.",
+        "C": "Riesgo de complicaciones hemorrágicas mayores.",
+        "D": "Riesgo de reoclusión temprana del vaso."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 405,
+      "question": "La trombectomía farmacomecánica (PMT) combina la terapia trombolítica con la extracción mecánica del coágulo. ¿Cuál es la ventaja principal atribuida a esta combinación?",
+      "options": {
+        "A": "Eliminación completa del trombo en una sola sesión sin necesidad de trombolíticos.",
+        "B": "Disminución de la dosis total de lítico y de la duración de la trombólisis.",
+        "C": "Mayor éxito técnico inicial en comparación con la trombólisis dirigida por catéter (CDT) sola.",
+        "D": "Menor riesgo de complicaciones por isquemia-reperfusión."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 406,
+      "question": "El sistema AngioJet de trombectomía utiliza un mecanismo único para la extracción del trombo. ¿Qué principio físico se emplea para la disrupción, aspiración y extracción del coágulo?",
+      "options": {
+        "A": "Fuerzas de corte rotacionales de alta velocidad.",
+        "B": "Ultrasonido de alta frecuencia para fragmentación in situ.",
+        "C": "Inyección de salina a alta velocidad creando una zona de baja presión (principio de Bernoulli).",
+        "D": "Aspiración continua mediante un vacío de alto flujo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 407,
+      "question": "El registro PEARL evaluó el uso contemporáneo del sistema AngioJet para la isquemia aguda de la extremidad (ALI). En cohortes emparejadas, ¿qué resultados a 1 año se observaron en el grupo tratado con PMT solo en comparación con PMT más CDT?",
+      "options": {
+        "A": "Menor éxito procedimental pero mayor supervivencia libre de amputación.",
+        "B": "Mayor éxito procedimental, mayor supervivencia libre de amputación y mayor libertad de amputación.",
+        "C": "Mayor dosis total de lítico y sesiones de tratamiento más prolongadas.",
+        "D": "Tasas de hemorragia mayores significativamente más altas."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 408,
+      "question": "El catéter EKOS (Eko-Sonic Endovascular System) es un dispositivo de PMT que incorpora una tecnología específica para mejorar la trombolisis. ¿Cuál es el mecanismo principal de acción que distingue al catéter EKOS y su efecto sobre el agente lítico?",
+      "options": {
+        "A": "Fragmentación mecánica del trombo mediante rotación de alta velocidad.",
+        "B": "Generación de ondas de ultrasonido que impulsan el agente lítico más profundamente en el trombo.",
+        "C": "Aspiración continua de grandes volúmenes de trombo y sangre.",
+        "D": "Pulso-spray de salina presurizada para romper el coágulo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 409,
+      "question": "El ensayo DUET comparó la trombolisis acelerada por ultrasonido (UST) con la trombolisis dirigida por catéter estándar (ST) para la enfermedad tromboembólica infrainguinal arterial. ¿Cuál fue el hallazgo principal en relación con la velocidad de la lisis y la cantidad de urocinasa requerida?",
+      "options": {
+        "A": "No hubo diferencia significativa en el tiempo hasta la reperfusión o la dosis de urocinasa.",
+        "B": "La UST fue más lenta en lograr la reperfusión, pero requirió menos urocinasa.",
+        "C": "La UST fue más rápida en lograr la reperfusión y requirió menos urocinasa.",
+        "D": "La ST fue más efectiva en el éxito técnico, con menor necesidad de urocinasa."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 410,
+      "question": "Los catéteres de aspiración Indigo (Penumbra, Inc.) son un tipo de trombectomía mecánica. ¿Cuál es su principal modo de operación y para qué tipo de trombo están indicados?",
+      "options": {
+        "A": "Fragmentación rotacional y aspiración de trombo crónico aterosclerótico.",
+        "B": "Aspiración continua mecánica de trombo y émbolos frescos y blandos.",
+        "C": "Inyección pulsada de salina con extracción del coágulo en vasos grandes.",
+        "D": "Liberación de ultrasonido para disolver trombos en arterias coronarias."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 411,
+      "question": "El dispositivo Rotarex-S es una herramienta de trombectomía mecánica que ha sido aprobada recientemente para su uso en EE. UU. ¿Qué característica distintiva lo hace capaz de eliminar tanto trombo agudo como ateroma crónico?",
+      "options": {
+        "A": "Utiliza un sistema de inyección de salina a alta velocidad que crea el efecto Bernoulli.",
+        "B": "Emplea un alambre guía ultrasónico que disuelve el trombo y fragmenta la placa.",
+        "C": "Está compuesto por dos cilindros metálicos, uno interno y uno externo con una hélice giratoria, que rotan a 40,000-60,000 rpm para disrupción y aspiración.",
+        "D": "Es un catéter de aspiración continua de gran calibre con capacidad para eliminar obstrucciones fibrinosas."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 412,
+      "question": "Un estudio prospectivo de brazo único que evaluó el Rotarex-S como terapia inicial para la isquemia aguda y subaguda de la extremidad (ALI y SLI) reportó resultados a 30 días y 12 meses. ¿Cuál fue la tasa de supervivencia libre de amputación (AFS) global a los 30 días y a los 12 meses en el seguimiento?",
+      "options": {
+        "A": "AFS del 100% a 30 días y 95% a 12 meses.",
+        "B": "AFS del 94.9% a 30 días y 87.4% a 12 meses.",
+        "C": "AFS del 80% a 30 días y 70% a 12 meses.",
+        "D": "AFS del 68.7% a 30 días y 50% a 12 meses."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 413,
+      "question": "Revisiones retrospectivas de grandes bases de datos de salud en EE. UU. (Medicare, Veterans Affairs) han documentado tendencias en el manejo de la isquemia aguda de la extremidad (ALI) entre 1998 y 2009. A pesar de un cambio significativo hacia las terapias endovasculares, ¿qué se observó respecto a las tasas de mortalidad y supervivencia libre de amputación?",
+      "options": {
+        "A": "Una mejora sustancial en las tasas de mortalidad y supervivencia libre de amputación.",
+        "B": "Un deterioro en la supervivencia debido a un aumento de las complicaciones procedimentales.",
+        "C": "Las tasas ajustadas por riesgo de mortalidad y supervivencia libre de amputación permanecieron sin mejorar.",
+        "D": "Una disminución de la incidencia de ALI atribuida únicamente al cambio de manejo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 414,
+      "question": "La disminución en la incidencia de ingresos por isquemia aguda de la extremidad (ALI), según un análisis de datos de Medicare, se ha atribuido a varios factores. ¿Cuál de los siguientes es uno de los principales factores mencionados?",
+      "options": {
+        "A": "Mayor uso de trombectomía mecánica de primera línea.",
+        "B": "Mejora de las estrategias de prevención primaria y secundaria de los factores de riesgo cardiovascular.",
+        "C": "Un aumento en el número de cirujanos vasculares con experiencia en procedimientos híbridos.",
+        "D": "Diagnóstico más temprano de la enfermedad arterial periférica."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 415,
+      "question": "Tras la revascularización exitosa de una isquemia aguda de la extremidad (ALI), ¿cuál de los siguientes análisis de laboratorio debe monitorizarse de forma basal y en vigilancia para la detección temprana de la lesión por isquemia-reperfusión, específicamente en relación con la rhabdomiólisis?",
+      "options": {
+        "A": "Nivel sérico de procalcitonina.",
+        "B": "Creatina fosfocinasa (CPK).",
+        "C": "Lactato deshidrogenasa (LDH).",
+        "D": "Recuento de glóbulos blancos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 416,
+      "question": "La fasciotomía profiláctica es una consideración importante en el manejo de la isquemia aguda de la extremidad (ALI) para mitigar el síndrome compartimental. Según la práctica descrita en el texto, ¿cuáles son las indicaciones para realizar una fasciotomía profiláctica?",
+      "options": {
+        "A": "Todos los pacientes con isquemia de Clase IIb o III.",
+        "B": "Pacientes con más de 3 horas de tiempo de isquemia o cualquier déficit sensorial.",
+        "C": "Todos los pacientes con más de 6 horas de tiempo de isquemia, así como cualquier paciente que presente déficit motor neurológico.",
+        "D": "Solo pacientes que desarrollan signos clínicos de síndrome compartimental post-revascularización."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 417,
+      "question": "Según el algoritmo de tratamiento para la isquemia aguda de la extremidad (ALI) presentado, ¿cuál es el primer paso crucial después de la presentación del paciente?",
+      "options": {
+        "A": "Inicio inmediato de anticoagulación sistémica.",
+        "B": "Evaluación del grado de isquemia (clasificación de Rutherford).",
+        "C": "Realización de angiografía para localizar la oclusión.",
+        "D": "Confirmación de la etiología de la isquemia."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 418,
+      "question": "Un paciente presenta isquemia de la extremidad inferior clasificada como IIa (marginalmente amenazada). ¿Qué consideración es mayor en la toma de decisiones para la revascularización, especialmente en relación con un enfoque endovascular?",
+      "options": {
+        "A": "La necesidad de una revascularización inmediata y abierta debido a la inminencia de la pérdida de la extremidad.",
+        "B": "La mayor consideración para un enfoque endovascular de primera línea, evaluando la idoneidad del paciente y la anatomía.",
+        "C": "La indicación directa para trombectomía mecánica sin lisis.",
+        "D": "Amputación primaria debido al riesgo de progresión rápida."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 419,
+      "question": "Los procedimientos de revascularización híbrida, que combinan técnicas quirúrgicas abiertas y endovasculares, son útiles en el manejo de la isquemia de la extremidad. ¿Cuál es la indicación principal para considerar un abordaje híbrido?",
+      "options": {
+        "A": "Cuando se anticipa una oclusión crónica de larga duración que no responderá a la terapia endovascular aislada.",
+        "B": "En casos de fallo de un componente endovascular que explica al menos parte de los síntomas isquémicos.",
+        "C": "Para pacientes con alto riesgo quirúrgico que requieren revascularización completa.",
+        "D": "Cuando la isquemia se clasifica como Rutherford Clase I y se busca minimizar la invasividad."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 420,
+      "question": "Recientes metaanálisis y grandes revisiones han confirmado la persistencia de tasas de mortalidad y de salvamento de la extremidad sin mejorar, a pesar del aumento del uso de técnicas menos invasivas para la isquemia aguda de la extremidad (ALI). ¿Qué conclusión fundamental deben tener en cuenta los cirujanos vasculares al seleccionar los métodos de atención?",
+      "options": {
+        "A": "La superioridad definitiva de las terapias endovasculares sobre la cirugía abierta para todos los casos.",
+        "B": "La necesidad de estandarizar la trombectomía mecánica como terapia de primera línea.",
+        "C": "La importancia de la 'equipoise' clínica en los resultados de mortalidad y salvamento de la extremidad, priorizando métodos duraderos y rentables.",
+        "D": "El abandono de la cirugía abierta en favor de enfoques exclusivamente endovasculares."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 421,
+      "question": "Un paciente varón de 45 años, previamente sano, es admitido tras un accidente de tráfico con una fractura tibial abierta. Se sospecha síndrome compartimental agudo en la pierna. Tras la revascularización exitosa de una lesión arterial traumática, la monitorización continua de la presión intracompartimental (PIC) muestra una PIC de 35 mmHg y una presión arterial media (PAM) de 70 mmHg. La presión diastólica es de 50 mmHg. ¿Cuál de los siguientes criterios justifica una fasciotomía en este caso?",
+      "options": {
+        "A": "Una diferencia entre la PAM y la PIC de 35 mmHg.",
+        "B": "Una diferencia entre la presión diastólica y la PIC de 15 mmHg.",
+        "C": "Una PIC absoluta superior a 30 mmHg, considerando una isquemia de más de 6 horas.",
+        "D": "Una diferencia entre la PAM y la PIC inferior a 40 mmHg o entre la presión diastólica y la PIC inferior a 10 mmHg."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 422,
+      "question": "En el contexto de un síndrome compartimental de la pierna, ¿cuál de los siguientes enunciados sobre la anatomía y las consideraciones técnicas de la fasciotomía doble incisión es CORRECTO?",
+      "options": {
+        "A": "La incisión lateral se coloca directamente sobre el septo intermuscular entre los compartimentos anterior y lateral, a unos 4 cm medial a la cresta de la tibia.",
+        "B": "Los nervios peroneo común, superficial y profundo están más en riesgo de lesión cerca de la cabeza del peroné, por lo que las incisiones fasciales proximales deben terminarse de 4 a 5 cm distales a la cabeza del peroné.",
+        "C": "La descompresión del compartimento posterior profundo se logra dividiendo las inserciones del músculo gastrocnemio al peroné.",
+        "D": "La ventaja principal de la técnica de doble incisión es que permite la descompresión de los cuatro compartimentos a través de una única incisión cutánea, reduciendo la morbilidad de la herida."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 423,
+      "question": "Un cirujano vascular está evaluando a un paciente con una lesión por aplastamiento grave en el muslo. A pesar de una adecuada reanimación con cristaloides, el paciente desarrolla un síndrome compartimental del muslo. En este escenario, ¿cuál de las siguientes afirmaciones sobre la etiología y el manejo es más precisa?",
+      "options": {
+        "A": "El síndrome compartimental post-aplastamiento resulta principalmente de la oclusión venosa pura y no se ve exacerbado por la reanimación con grandes volúmenes de cristaloides.",
+        "B": "El compartimento posterior del muslo es el más comúnmente afectado y presenta dolor universalmente con el movimiento pasivo.",
+        "C": "La lesión por aplastamiento puede causar síndrome compartimental debido a una combinación de lesión muscular directa y lesión por isquemia-reperfusión, siendo la reanimación con grandes volúmenes de cristaloides un factor que puede exacerbar el aumento de la PIC.",
+        "D": "La fasciotomía está contraindicada en pacientes con lesiones por aplastamiento debido al riesgo elevado de síndrome de reperfusión mortal."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 424,
+      "question": "En un paciente con sospecha de síndrome compartimental agudo, la medición de la presión intracompartimental (PIC) es crucial en ciertas situaciones. ¿En cuál de los siguientes escenarios la medición de la PIC es MÁS necesaria?",
+      "options": {
+        "A": "Cuando el diagnóstico es evidente por la historia y el examen físico, con compartimento tenso y parestesias.",
+        "B": "En casos equívocos, pacientes inconscientes o pediátricos en los que se sospecha el síndrome compartimental.",
+        "C": "Como paso de rutina en todos los pacientes con fracturas tibiales para establecer un valor basal.",
+        "D": "Para confirmar el diagnóstico de síndrome compartimental crónico por esfuerzo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 425,
+      "question": "Un paciente desarrolla un síndrome compartimental del glúteo tras una artroplastia de cadera prolongada. ¿Cuál de las siguientes es una posible complicación asociada a esta condición?",
+      "options": {
+        "A": "Atrofia muscular del cuádriceps y debilidad de la extensión de la rodilla.",
+        "B": "Rhabdomiólisis, insuficiencia renal y parálisis del nervio ciático.",
+        "C": "Síndrome del túnel carpiano y parálisis del nervio mediano.",
+        "D": "Síndrome de compresión del nervio peroneo superficial y pérdida de la dorsiflexión del pie."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 426,
+      "question": "La patogénesis del síndrome compartimental implica un aumento de la presión intracompartimental (PIC) que deteriora la perfusión tisular. Según Poiseuille, ¿cómo afecta el aumento de la PIC al flujo sanguíneo capilar?",
+      "options": {
+        "A": "Disminuye la resistencia al flujo al aumentar el radio capilar (r) a la cuarta potencia.",
+        "B": "Aumenta el gradiente de presión arteriovenoso (ΔP) al elevar la presión venosa postcapilar.",
+        "C": "Aumenta la presión venosa postcapilar y disminuye el gradiente de presión arteriovenoso (ΔP), además de colapsar los capilares, disminuyendo su radio y aumentando la resistencia al flujo.",
+        "D": "No tiene un efecto significativo en el radio capilar, solo en la viscosidad de la sangre (η)."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 427,
+      "question": "Respecto a las etiologías vasculares del síndrome compartimental, ¿cuál de las siguientes afirmaciones es CORRECTA?",
+      "options": {
+        "A": "Las lesiones arteriales oclusivas rara vez inician el fenómeno de isquemia-reperfusión.",
+        "B": "Las tasas de fasciotomía son más bajas para las lesiones de la arteria poplítea en comparación con las lesiones por encima de la rodilla.",
+        "C": "La trombosis venosa profunda (TVP) no complicada suele aumentar la PIC lo suficiente como para causar síndrome compartimental.",
+        "D": "La extracción de vena profunda (deep vein harvest) puede producir hinchazón compartimental suficiente para requerir fasciotomía, especialmente si hay cosecha concurrente de la vena safena magna o isquemia-reperfusión en la misma extremidad."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 428,
+      "question": "Se ha diagnosticado un síndrome compartimental agudo en el antebrazo de un paciente. ¿Cuál de los siguientes métodos de fasciotomía es el más apropiado para descomprimir los compartimentos volar y lateral?",
+      "options": {
+        "A": "Una incisión dorsal larga desde el epicóndilo lateral hasta la muñeca.",
+        "B": "Una fasciotomía de Henry, que utiliza una única incisión curvilínea que comienza proximal a la fosa antecubital, medial al tendón del bíceps, cruza el pliegue antecubital y se extiende distalmente a lo largo del borde medial del braquiorradial.",
+        "C": "Múltiples incisiones transversales de 2-4 cm para cada compartimento afectado.",
+        "D": "Resección de una elipse de fascia de 2x6 cm sobre el compartimento extensor."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 429,
+      "question": "En la gestión de las secuelas sistémicas del síndrome compartimental, específicamente la mioglobinuria, ¿cuál es la recomendación clave para el manejo del paciente?",
+      "options": {
+        "A": "La hemodiálisis convencional es el método más eficaz para eliminar la mioglobina debido a su bajo peso molecular.",
+        "B": "La infusión agresiva de cristaloides, la diuresis forzada con manitol y la alcalinización de la orina con bicarbonato son los tratamientos de elección, con evidencia clínica sólida que apoya el manitol y el bicarbonato como superiores a la solución salina sola.",
+        "C": "La hidratación con un pH urinario objetivo superior a 6.5 es recomendada, a pesar de que la superioridad del bicarbonato de sodio sobre la diuresis salina no ha sido demostrada de manera concluyente.",
+        "D": "El manejo se centra exclusivamente en la prevención de la hiperpotasemia, ya que la mioglobinuria tiene un impacto mínimo en la función renal."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 430,
+      "question": "Respecto a los resultados a largo plazo de la fasciotomía de la pierna, ¿cuál de las siguientes complicaciones es una secuela bien documentada?",
+      "options": {
+        "A": "Atrofia ósea difusa en el sitio de la fasciotomía.",
+        "B": "Insuficiencia venosa crónica en un porcentaje significativo de pacientes, debido a la disfunción de la bomba muscular de la pantorrilla.",
+        "C": "Mayor incidencia de osteomielitis crónica debido a la herida abierta.",
+        "D": "Hipertrofia compensatoria de los músculos restantes, llevando a una función normal en la mayoría de los casos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 431,
+      "question": "Un paciente llega al servicio de urgencias con una fractura tibial que ha estado sin tratar durante 48 horas. Presenta signos clásicos de un síndrome compartimental de la pierna. ¿Cuál es la indicación más apropiada en este momento?",
+      "options": {
+        "A": "Realizar una fasciotomía de emergencia para descomprimir los compartimentos.",
+        "B": "Realizar una fasciotomía, ya que el riesgo de infección y necrosis muscular es prohibitivamente alto si se demora más de 36 horas.",
+        "C": "La descompresión del síndrome compartimental ya no está indicada debido a la prolongada demora, dado el alto riesgo de infección y necrosis muscular, y se debería considerar la amputación primaria.",
+        "D": "Iniciar terapia de hidratación intensiva y monitorización de la presión intracompartimental antes de cualquier intervención quirúrgica."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 432,
+      "question": "En la gestión de la herida de fasciotomía, ¿cuál de las siguientes afirmaciones sobre las técnicas de cierre es la más precisa?",
+      "options": {
+        "A": "El cierre primario diferido es siempre la opción preferida, independientemente de la hinchazón muscular residual.",
+        "B": "La terapia de cierre asistido por vacío (VAC) ha demostrado ser significativamente más rápida y menos costosa que la técnica de 'shoelace' para el cierre de la herida.",
+        "C": "Las diversas formas de aposición dérmica gradual, como los bucles de vaso de silicona o las suturas cutáneas progresivas, han documentado éxito anecdótico para acelerar el cierre.",
+        "D": "El injerto de piel de espesor parcial (STSG) debe reservarse únicamente para casos donde hay exposición ósea o de estructuras neurovasculares."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 433,
+      "question": "Un atleta joven de 25 años presenta dolor y opresión en la pierna que comienza aproximadamente 25 minutos después del inicio de la carrera y cede con 15 minutos de reposo. Los síntomas son bilaterales. La evaluación de la presión intracompartimental (PIC) es esencial para el diagnóstico. Según los criterios modificados de Pedowitz, ¿cuál de los siguientes resultados de PIC sería diagnóstico de síndrome compartimental crónico por esfuerzo (CECS)?",
+      "options": {
+        "A": "PIC en reposo de 10 mmHg.",
+        "B": "PIC de 25 mmHg, 1 minuto después de completar el ejercicio.",
+        "C": "PIC de 18 mmHg, 5 minutos después de completar el ejercicio.",
+        "D": "PIC de 35 mmHg, 2 minutos después de completar el ejercicio, o PIC de 22 mmHg, 5 minutos después de completar el ejercicio."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 434,
+      "question": "En el contexto del síndrome compartimental secundario, ¿cuál es la causa subyacente más aceptada para su desarrollo en un paciente traumatizado sin evidencia de trauma directo en la extremidad?",
+      "options": {
+        "A": "Una oclusión arterial aguda preexistente que se descompensa con el trauma sistémico.",
+        "B": "Una combinación de síndrome de respuesta inflamatoria sistémica inducido por el trauma y permeabilidad microvascular difusa, en concierto con una reanimación masiva de fluidos.",
+        "C": "La trombosis venosa profunda (TVP) extensa y multinivel que causa una obstrucción severa del flujo de salida venoso.",
+        "D": "La extravasación de medicamentos cáusticos o inyecciones arteriales inadvertidas durante la atención inicial."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 435,
+      "question": "Para la prevención del síndrome compartimental, ¿cuál de las siguientes medidas es parte del protocolo de 'primeros auxilios para células hipóxicas' propuesto por Mars?",
+      "options": {
+        "A": "Elevar la extremidad por encima del nivel del corazón para reducir la presión hidrostática y la hinchazón.",
+        "B": "Administrar altas dosis de diuréticos de asa para reducir el volumen de líquido intersticial.",
+        "C": "Mantener la presión arterial normal, retirar vendajes constrictivos, mantener la extremidad al nivel del corazón y suplementar oxígeno.",
+        "D": "Realizar una fasciotomía profiláctica de rutina en todas las lesiones de alto riesgo."
+      },
+      "correct": "C"
+    }
+  ]
+}

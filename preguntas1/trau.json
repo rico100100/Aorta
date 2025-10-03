@@ -1,0 +1,1654 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Un paciente de 45 años ingresa en la sala de urgencias tras un accidente automovilístico de alta velocidad. La radiografía de tórax inicial muestra un mediastino ensanchado de 9 cm y un casquete apical izquierdo. Ante la sospecha de lesión aórtica torácica contusa (LTAI), ¿cuál de las siguientes afirmaciones sobre el valor diagnóstico de estos hallazgos radiográficos es MÁS precisa según las guías actuales?",
+      "options": {
+        "A": "El mediastino ensanchado, a pesar de ser sugestivo, tiene una sensibilidad baja (aproximadamente 33%) para confirmar una LTAI.",
+        "B": "Estos hallazgos son patognomónicos de LTAI y no requieren imágenes avanzadas adicionales para el diagnóstico inicial.",
+        "C": "Un mediastino ensanchado es altamente específico para LTAI, con una tasa de falsos positivos inferior al 5%.",
+        "D": "La presencia de casquete apical izquierdo junto con un mediastino ensanchado eleva la sensibilidad a más del 90%, haciendo la TC de rutina innecesaria."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 2,
+      "question": "En el diagnóstico de la lesión aórtica torácica contusa (LTAI) en la era moderna, ¿cuál es la modalidad de imagen considerada el 'estándar de oro' debido a su alta sensibilidad (96%-100%) y especificidad (95%-99.8%)?",
+      "options": {
+        "A": "Angiografía convencional, por su capacidad para evaluar directamente la anatomía.",
+        "B": "Intravascular Ultrasound (IVUS), especialmente en casos con CTA equívoca.",
+        "C": "Radiografía de tórax simple, como herramienta de cribado inicial en ATLS.",
+        "D": "Tomografía computarizada con angiografía (CTA), con sensibilidades superiores al 95%."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 3,
+      "question": "Un paciente con politraumatismo estable hemodinámicamente es diagnosticado con una lesión aórtica torácica contusa (LTAI) de grado 1 (desgarro intimal sin contorno aórtico externo anormal) mediante CTA. ¿Cuál es el manejo inicial y definitivo recomendado para este paciente, según las guías actuales?",
+      "options": {
+        "A": "Reparación endovascular torácica (TEVAR) urgente en las primeras 24 horas, seguida de terapia antiagregante.",
+        "B": "Manejo médico agresivo de anti-impulso como única terapia definitiva, sin necesidad de intervención quirúrgica.",
+        "C": "Monitorización intensiva con preparación para cirugía abierta si hay progresión radiográfica.",
+        "D": "Administración de heparina sistémica a dosis terapéuticas para prevenir trombosis."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 4,
+      "question": "En el contexto del manejo de la lesión aórtica torácica contusa (LTAI), la reparación endovascular torácica (TEVAR) ha demostrado ventajas significativas sobre la reparación abierta (OR). ¿Cuál de las siguientes complicaciones se ha demostrado que es significativamente menor en pacientes tratados con TEVAR en comparación con OR?",
+      "options": {
+        "A": "Parálisis postoperatoria y accidente cerebrovascular.",
+        "B": "Endofuga tipo I y migración tardía del stent.",
+        "C": "Isquemia mesentérica y complicaciones de acceso femoral.",
+        "D": "Fallo de la terapia médica y progresión de la lesión."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 5,
+      "question": "Un paciente con lesión aórtica torácica contusa (LTAI) es también diagnosticado con una lesión cerebral traumática (LCT) moderada que requiere mantener una presión de perfusión cerebral (PPC) óptima. ¿Cómo debería abordarse la interacción entre el manejo de la LTAI y la LCT según las fuentes, considerando las controversias existentes?",
+      "options": {
+        "A": "Se debe priorizar el manejo médico anti-impulso para la LTAI, manteniendo una presión arterial sistólica (PAS) <120 mmHg, incluso si esto compromete la PPC.",
+        "B": "La TEVAR temprana debe considerarse para permitir presiones arteriales medias más altas para la PPC, aunque estudios han asociado la intervención aórtica temprana con empeoramiento de la LCT y mayor morbilidad/mortalidad aórtica.",
+        "C": "La intervención aórtica debe posponerse indefinidamente hasta la resolución completa de la LCT, dado que cualquier reparación temprana es perjudicial.",
+        "D": "La anticoagulación plena es fundamental para la TEVAR, lo que desaconseja su uso en presencia de LCT por el riesgo de hemorragia intracraneal."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 6,
+      "question": "En un paciente hemodinámicamente inestable con una lesión torácica penetrante que requiere exploración quirúrgica emergente, y donde existe la posibilidad de afectación de estructuras vasculares torácicas y/o abdominales, ¿cuál de los siguientes abordajes quirúrgicos abiertos es el más expeditivo y versátil?",
+      "options": {
+        "A": "Toracotomía posterolateral izquierda, que ofrece la mejor exposición de las estructuras posteriores.",
+        "B": "Esternotomía media con extensión cervical, ideal para el acceso a la aorta proximal y grandes vasos.",
+        "C": "Toracotomía anterolateral izquierda, que puede extenderse a través de la línea media (clamshell) y como celotomía, y es preferida en pacientes en shock.",
+        "D": "Incisión de 'puerta trampa' ('trap door'), por su excelente exposición unilateral."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 7,
+      "question": "Un paciente con trauma torácico contuso presenta un hemotórax masivo. La colocación de un tubo torácico drena inicialmente 1600 cc de sangre. Además, el paciente se encuentra en shock persistente a pesar de la reanimación inicial. ¿Cuál es la indicación de intervención quirúrgica emergente según las directrices mencionadas en las fuentes?",
+      "options": {
+        "A": "Taponamiento cardíaco progresivo no respondido a pericardiocentesis.",
+        "B": "Drenaje inicial por tubo torácico superior a 1500 cc.",
+        "C": "Necesidad de intubación para control de la vía aérea en un paciente estable.",
+        "D": "Mediastino ensanchado en la radiografía de tórax inicial."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 8,
+      "question": "En la reparación abierta de una lesión aórtica torácica contusa (LTAI), la protección de la médula espinal es una prioridad crítica. ¿Cuál de los siguientes factores se considera un contribuyente significativo a la isquemia medular y, por ende, a la paraplejia postoperatoria?",
+      "options": {
+        "A": "El uso de bypass cardíaco izquierdo, que garantiza una perfusión medular constante.",
+        "B": "La duración del pinzamiento cruzado aórtico y la oclusión de ramas arteriales segmentarias críticas de la médula espinal.",
+        "C": "La hipotermia localizada a menos de 28°C para la aorta distal, que aumenta la demanda metabólica de la médula.",
+        "D": "El mantenimiento de la presión arterial sistólica por debajo de 100 mmHg para reducir el riesgo de sangrado."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 9,
+      "question": "Un paciente con trauma torácico contuso presenta un hematoma periaórtico en la tomografía computarizada (TC) inicial, pero la CTA es equívoca para una lesión aórtica directa. Considerando las modalidades diagnósticas avanzadas, ¿cuál es la utilidad principal del Ultrasonido Intravascular (IVUS) en este escenario?",
+      "options": {
+        "A": "Determinar la necesidad de revascularización de la arteria subclavia izquierda post-TEVAR.",
+        "B": "Confirmar el diámetro aórtico y la ubicación exacta de la lesión, especialmente en casos con CTA equívoca o hematomas periaórticos sin signo directo de lesión.",
+        "C": "Sustituir completamente a la CTA como método de cribado inicial en pacientes estables.",
+        "D": "Evaluar la anatomía cerebrovascular en preparación para la cobertura de la arteria subclavia izquierda."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 10,
+      "question": "Respecto al manejo de la lesión aórtica torácica contusa (LTAI) de grado 2 (hematoma intramural sin contorno aórtico externo anormal), ¿cuál de las siguientes afirmaciones describe con mayor precisión la controversia actual y la evidencia reciente?",
+      "options": {
+        "A": "Las guías SVS recomiendan TEVAR urgente para todas las lesiones de grado 2, sin excepción.",
+        "B": "Estudios recientes y datos del registro ATF han demostrado que el manejo no quirúrgico con terapia médica es seguro para las lesiones de grado 2, con bajas tasas de progresión y mortalidad relacionada con la aorta.",
+        "C": "El manejo médico solo es apropiado para lesiones de grado 1, mientras que las de grado 2 siempre requieren intervención quirúrgica.",
+        "D": "La laparotomía exploratoria es el tratamiento de primera línea para lesiones de grado 2 en pacientes estables."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 11,
+      "question": "Durante una reparación abierta de lesión aórtica torácica contusa (LTAI) que requiere bypass cardiopulmonar (CPB) completo, ¿cuál es la dosis de heparina y el objetivo de tiempo de coagulación activado (TCA) recomendado según las fuentes?",
+      "options": {
+        "A": "100 U/kg de heparina para un TCA > 200 segundos.",
+        "B": "400 U/kg de heparina para un TCA > 480 segundos.",
+        "C": "50 U/kg de heparina para un TCA > 150 segundos.",
+        "D": "No se requiere anticoagulación sistémica si el tiempo de pinzamiento es inferior a 30 minutos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 12,
+      "question": "Un paciente presenta una lesión contusa en la base de la arteria innominada, diagnosticada mediante CTA. ¿Cuál es la técnica quirúrgica de reparación MÁS comúnmente recomendada y expedita para esta lesión, según las fuentes?",
+      "options": {
+        "A": "Reanastomosis término-terminal directa de la arteria innominada tras resección del segmento lesionado.",
+        "B": "Bypass desde la aorta ascendente a la arteria innominada distal, con sobrecostura del muñón proximal.",
+        "C": "Ligadura de la arteria innominada si el polígono de Willis es competente.",
+        "D": "Reparación endovascular con stent cubierto, como primera línea de tratamiento."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 13,
+      "question": "Durante la reparación endovascular torácica (TEVAR) de una lesión aórtica torácica contusa (LTAI), la cobertura de la arteria subclavia izquierda (ASI) es a menudo necesaria. ¿Cuál es una contraindicación absoluta para la cobertura de la ASI que requeriría revascularización urgente al momento de la TEVAR?",
+      "options": {
+        "A": "Un diámetro de la ASI inferior a 7 mm.",
+        "B": "Uso previo de la arteria mamaria interna izquierda para injerto de bypass coronario.",
+        "C": "La necesidad de una zona de aterrizaje proximal de más de 20 mm.",
+        "D": "La presencia de un pseudoaneurisma en la ASI distal."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 14,
+      "question": "Según la clasificación simplificada de Starnes y colegas, las 'lesiones aórticas mínimas' en el contexto de la lesión aórtica torácica contusa (LTAI) incluyen los grados 1 y 2 de la SVS. ¿Cuál es la definición clave de estas lesiones mínimas?",
+      "options": {
+        "A": "Cualquier anormalidad del contorno externo con un desgarro intimal >10 mm.",
+        "B": "Activa extravasación o ruptura contenida con hematoma subclavia izquierda >15 mm.",
+        "C": "Ausencia de anormalidad del contorno externo y desgarro intimal y/o trombo <10 mm.",
+        "D": "Pseudoaneurisma de más de 3 cm de diámetro."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 15,
+      "question": "En la reparación abierta de una lesión aórtica torácica contusa (LTAI) en la región del istmo aórtico, ¿dónde se debe aplicar típicamente la pinza aórtica proximal?",
+      "options": {
+        "A": "Proximal a la arteria subclavia izquierda, pero distal a la arteria carótida común izquierda.",
+        "B": "Distal a la arteria subclavia izquierda, directamente en la zona de la lesión.",
+        "C": "Entre la arteria carótida común izquierda y la arteria subclavia izquierda.",
+        "D": "En la aorta ascendente, requiriendo bypass cardiopulmonar completo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 16,
+      "question": "Tras una reparación endovascular torácica (TEVAR) exitosa por lesión aórtica torácica contusa (LTAI), ¿cuál es el régimen de seguimiento recomendado para la vigilancia postoperatoria, incluyendo imágenes, según la práctica descrita en la fuente?",
+      "options": {
+        "A": "Examen clínico y radiografía de tórax anual, con CTA solo si hay síntomas.",
+        "B": "CTA a los 3 y 5 años post-TEVAR, sin necesidad de seguimiento clínico intermedio.",
+        "C": "Examen clínico y CTA a 1, 6 y 12 meses, y anualmente a partir de entonces.",
+        "D": "Solo seguimiento clínico durante el primer año, con CTA realizada cada 2 años."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 17,
+      "question": "La lesión aórtica torácica contusa (LTAI) es el segundo motivo más frecuente de mortalidad tras un traumatismo contuso. ¿Cuál es la localización anatómica más comúnmente afectada por este tipo de lesión, debido a las fuerzas de desaceleración?",
+      "options": {
+        "A": "Aorta ascendente.",
+        "B": "Arco aórtico transverso.",
+        "C": "Istmo aórtico.",
+        "D": "Aorta torácica distal, cerca del diafragma."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 18,
+      "question": "Un paciente con trauma torácico contuso presenta una lesión aórtica torácica contusa (LTAI) de grado 4, caracterizada por extravasación activa y un hematoma periaórtico significativo. ¿Cuál es el manejo recomendado para este tipo de lesión?",
+      "options": {
+        "A": "Manejo médico con anti-impulso como terapia definitiva.",
+        "B": "Reparación endovascular torácica (TEVAR) diferida hasta la estabilización de otras lesiones.",
+        "C": "Reparación inmediata, ya sea abierta o endovascular si es anatómicamente adecuado.",
+        "D": "Monitorización estricta en UCI y revaluación con CTA en 24-48 horas."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 19,
+      "question": "A pesar de que la angiografía fue una vez el 'estándar de oro' para el diagnóstico de lesiones vasculares torácicas, su papel ha evolucionado con la adopción generalizada de la CTA. ¿Cuál de las siguientes es una desventaja clave de la angiografía puramente diagnóstica en el manejo moderno del trauma vascular torácico?",
+      "options": {
+        "A": "No puede identificar variantes anatómicas que imitan lesiones aórticas.",
+        "B": "Es una modalidad de imagen no invasiva sin exposición a la radiación.",
+        "C": "Requiere el transporte del paciente a una sala de angiografía o quirófano, es invasiva y costosa.",
+        "D": "Tiene una baja sensibilidad (menos del 50%) para detectar lesiones de grado 3 y 4."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 20,
+      "question": "Un paciente politraumatizado presenta ruptura de la aorta ascendente con taponamiento cardíaco, secundaria a un traumatismo contuso. ¿Cuál es el abordaje quirúrgico y las consideraciones esenciales para la reparación de esta lesión, según las fuentes?",
+      "options": {
+        "A": "Toracotomía anterolateral izquierda y pinzamiento cruzado sin necesidad de bypass cardiopulmonar.",
+        "B": "Esternotomía media, bypass cardiopulmonar (CPB) y heparinización sistémica.",
+        "C": "Reparación endovascular torácica (TEVAR) con dispositivo de rama para el arco.",
+        "D": "Abordaje posterolateral con reimplante de arterias intercostales bajo hipotermia superficial."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 21,
+      "question": "Según los datos epidemiológicos presentados, ¿cuál es el porcentaje aproximado de admisiones por trauma en los Estados Unidos que corresponden a lesiones torácicas contusas y cuál es el mecanismo más común?",
+      "options": {
+        "A": "16% de todas las admisiones por trauma; heridas por arma de fuego.",
+        "B": "8% de todas las admisiones por trauma; accidentes de vehículos de motor (>70%).",
+        "C": "7% de todas las admisiones por trauma; heridas por arma blanca.",
+        "D": "Entre 20-30% de todas las admisiones por trauma; caídas de altura."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 22,
+      "question": "En el contexto de las lesiones torácicas traumáticas, ¿cuál es la afirmación más precisa con respecto a la necesidad de intervención quirúrgica torácica?",
+      "options": {
+        "A": "La mayoría de los pacientes con lesiones torácicas traumáticas requerirán una intervención quirúrgica torácica.",
+        "B": "Aproximadamente el 50% de las heridas por arma de fuego en el tórax requieren cirugía.",
+        "C": "La mayoría de los pacientes con lesiones torácicas no requerirán intervención quirúrgica, siendo el manejo con tubo torácico y atención intrahospitalaria el tratamiento definitivo.",
+        "D": "Las lesiones penetrantes siempre requieren exploración quirúrgica, independientemente de la estabilidad del paciente."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 23,
+      "question": "En la terapia anti-impulso para el manejo inmediato de la lesión aórtica torácica contusa (LTAI), ya sea como terapia definitiva o como puente a la reparación, ¿cuál es el objetivo de presión arterial sistólica (PAS) más comúnmente adoptado?",
+      "options": {
+        "A": "PAS < 90 mmHg.",
+        "B": "PAS entre 120-140 mmHg.",
+        "C": "PAS < 120 mmHg.",
+        "D": "PAS > 150 mmHg para asegurar perfusión tisular."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 24,
+      "question": "Según el estudio retrospectivo multicéntrico de la ATF de 2015 sobre los resultados de la LTAI, ¿cuáles fueron los predictores independientes de mortalidad relacionada con la aorta?",
+      "options": {
+        "A": "Edad avanzada y sexo femenino.",
+        "B": "Necesidad de cobertura de la arteria subclavia izquierda y tiempo de isquemia prolongado.",
+        "C": "Una puntuación ISS (Injury Severity Score) general más alta y un grado de lesión LTAI más alto.",
+        "D": "Presencia de hipertensión arterial preexistente y diabetes mellitus."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 25,
+      "question": "Aunque la reparación endovascular ha demostrado resultados prometedores en el manejo de lesiones de los vasos del arco aórtico y la entrada torácica, ¿cuál es una limitación importante destacada por las fuentes respecto a esta modalidad de tratamiento?",
+      "options": {
+        "A": "La imposibilidad de realizar revascularización de la arteria subclavia en casos necesarios.",
+        "B": "La alta tasa de complicaciones relacionadas con el acceso y el dispositivo.",
+        "C": "La significativa escasez de datos sobre resultados a largo plazo en pacientes jóvenes con trauma.",
+        "D": "El requisito universal de anticoagulación plena post-procedimiento, que limita su aplicabilidad."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 26,
+      "question": "Un paciente con traumatismo contuso presenta un hallazgo en la CTA que podría ser una lesión aórtica, pero también es compatible con una variante anatómica. ¿Cuál de los siguientes es el factor MÁS CRÍTICO para diferenciar una lesión aórtica torácica contusa (LTAI) real de un 'falso positivo' como un divertículo de ductus, según las fuentes?",
+      "options": {
+        "A": "El tamaño exacto del lumen aórtico en la reconstrucción 3D.",
+        "B": "La presencia o ausencia de hallazgos radiográficos indicativos de trauma, como hematoma mediastínico o periaórtico, colgajo intimal adyacente o hematoma intramural.",
+        "C": "La velocidad del flujo sanguíneo a través de la anomalía detectada.",
+        "D": "La edad del paciente y la historia de tabaquismo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 27,
+      "question": "En el contexto de la exploración torácica emergente por trauma, las lesiones pulmonares son frecuentes. ¿Cuál es el tipo de resección pulmonar más comúnmente realizada en pacientes con trauma torácico grave que requieren resección pulmonar, y qué implicaciones tienen las lesiones hiliares?",
+      "options": {
+        "A": "La lobectomía es la más común (54.3%), y las lesiones hiliares tienen una mortalidad baja con las técnicas modernas.",
+        "B": "La neumonectomía es la más común (aproximadamente 38%), y las lesiones hiliares se abordan con un control vascular fácil.",
+        "C": "La resección en cuña es la más común (54.3%), mientras que las lesiones hiliares a menudo requieren neumonectomía, con una mortalidad prohibitiva.",
+        "D": "La tractotomía es el método preferido para todas las lesiones pulmonares centrales, evitando resecciones mayores."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 28,
+      "question": "Un paciente joven sufre un traumatismo cervical penetrante y desarrolla un déficit neurológico focal agudo. La angiografía por TC revela una lesión proximal de la arteria carótida común izquierda. Si el paciente es evaluado poco después de la lesión y presenta hipotensión, ¿cuál es la recomendación general para el manejo de la lesión carotídea según las fuentes?",
+      "options": {
+        "A": "Ligadura de la arteria carótida para controlar la hemorragia, priorizando la estabilidad hemodinámica.",
+        "B": "Manejo conservador y observación, ya que el déficit neurológico suele ser irreversible en este contexto.",
+        "C": "Revascularización de la arteria carótida, asumiendo que la hipotensión fue la principal causa de la morbilidad isquémica.",
+        "D": "Realizar una angioplastia con balón sin stent, para evitar la necesidad de antiagregación post-procedimiento."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 29,
+      "question": "A pesar de los avances significativos en el diagnóstico y tratamiento de la lesión aórtica torácica contusa (LTAI), las fuentes identifican varias controversias y direcciones futuras de investigación. ¿Cuál de los siguientes aspectos se menciona como una necesidad clave para futuras mejoras y estudios?",
+      "options": {
+        "A": "La validación de la radiografía de tórax como método de cribado primario para LTAI.",
+        "B": "La estandarización de las indicaciones para la cirugía abierta de emergencia en pacientes estables con LTAI.",
+        "C": "Un mayor refinamiento de los sistemas de clasificación de lesiones, la estandarización de la atención y el establecimiento de mecanismos de seguimiento a largo plazo.",
+        "D": "La eliminación total de la terapia anti-impulso en el manejo de LTAI de grado 1 y 2."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 30,
+      "question": "En el manejo de lesiones axilo-subclavias traumáticas, la evidencia reciente ha comparado los resultados de las reparaciones abiertas y endovasculares. ¿Cuál es el beneficio clave asociado al tratamiento endovascular en comparación con la reparación abierta para este tipo de lesiones?",
+      "options": {
+        "A": "Mayor necesidad de transfusiones sanguíneas y mayor tiempo de estancia hospitalaria.",
+        "B": "Menor mortalidad intrahospitalaria y menos infecciones del sitio quirúrgico.",
+        "C": "Mayor incidencia de paraplejia y accidente cerebrovascular.",
+        "D": "Mayor dificultad para obtener control vascular proximal y distal."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 31,
+      "question": "Un paciente hemodinámicamente estable con una lesión aórtica abdominal contusa, diagnosticada como un desgarro intimal limitado sin ruptura libre, según un análisis del National Trauma Data Bank, ¿cuál es la estrategia de manejo inicial más común?",
+      "options": {
+        "A": "Reparación quirúrgica abierta inmediata.",
+        "B": "Reparación endovascular con stent.",
+        "C": "Manejo no operatorio.",
+        "D": "Bypass extra-anatómico."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 32,
+      "question": "En el contexto de un trauma penetrante abdominal, un hematoma retroperitoneal en la Zona 1 (línea media), ¿cuál es la conducta quirúrgica recomendada?",
+      "options": {
+        "A": "Observación si es contenido y no expansivo.",
+        "B": "Exploración quirúrgica siempre, independientemente del tamaño.",
+        "C": "Solo exploración si hay inestabilidad hemodinámica.",
+        "D": "Evaluación con CT angiografía antes de decidir la exploración."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 33,
+      "question": "Respecto a las lesiones de la arteria celíaca, ¿cuál de las siguientes afirmaciones es correcta en cuanto a su manejo quirúrgico?",
+      "options": {
+        "A": "La ligadura de la arteria celíaca está absolutamente contraindicada debido al riesgo de isquemia visceral masiva.",
+        "B": "La ligadura de la arteria celíaca es generalmente bien tolerada gracias a la rica circulación colateral de los órganos que irriga.",
+        "C": "La ligadura del tronco celíaco siempre requiere una derivación (shunt) temporal para prevenir la isquemia hepática.",
+        "D": "La ligadura de la arteria hepática común no es tolerada si no se reconstruye, a pesar de la contribución de la vena porta."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 34,
+      "question": "En el contexto de una lesión de la arteria mesentérica superior (AMS), ¿cuál de las siguientes afirmaciones sobre la ligadura es la más precisa según las zonas de lesión?",
+      "options": {
+        "A": "La ligadura de la AMS en la Zona 1 siempre es bien tolerada debido a la amplia red colateral.",
+        "B": "La ligadura de la AMS distal a la arteria cólica media (Zona 3 o 4) siempre resulta en necrosis masiva del intestino delgado y colon derecho.",
+        "C": "La ligadura de la AMS proximal a la arteria pancreaticoduodenal inferior (Zona 1) puede preservar la circulación colateral crítica al yeyuno proximal.",
+        "D": "La ligadura de la AMS en la Zona 2 solo debe realizarse si la reconstrucción es inviable, con alto riesgo de isquemia localizada."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 35,
+      "question": "Un paciente presenta una lesión de la arteria renal por trauma contuso, diagnosticada 8 horas después del incidente. ¿Cuál es la indicación de revascularización renal en este escenario, asumiendo un riñón contralateral funcional?",
+      "options": {
+        "A": "Siempre se debe intentar la revascularización independientemente del tiempo de isquemia.",
+        "B": "La revascularización se evita generalmente después de 6 horas, a menos que sea una lesión bilateral o en riñón único.",
+        "C": "La revascularización está indicada si hay evidencia de flujo colateral significativo.",
+        "D": "La nefrectomía es el tratamiento de elección sin excepción después de 6 horas de isquemia."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 36,
+      "question": "En el manejo de lesiones de la arteria ilíaca común o externa en pacientes en estado crítico que requieren control de daños, ¿cuál es la recomendación explícita de los autores respecto a la ligadura?",
+      "options": {
+        "A": "La ligadura es una opción aceptable para el control de daños en situaciones extremas, siempre que se planifique una revascularización diferida.",
+        "B": "La ligadura de estas arterias nunca debe realizarse, incluso para el control de daños, debido al alto riesgo de pérdida de la extremidad y otras complicaciones.",
+        "C": "La ligadura es preferible a un shunt temporal si la contaminación entérica es significativa.",
+        "D": "La ligadura solo se considera si no se dispone de un shunt intraluminal temporal."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 37,
+      "question": "Un paciente con trauma penetrante presenta un hematoma retroperitoneal contenido en la Zona 4 (perihepática) que involucra la vena cava retrohepática, sin inestabilidad hemodinámica activa. ¿Cuál es la recomendación de manejo inicial?",
+      "options": {
+        "A": "Exploración quirúrgica inmediata debido al riesgo inminente de hemorragia incontrolable.",
+        "B": "Manejo no operatorio, ya que estas lesiones venosas contenidas a menudo evolucionan favorablemente.",
+        "C": "Colocación urgente de un shunt atriocaval profiláctico.",
+        "D": "Embolización endovascular del hematoma."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 38,
+      "question": "Según el consenso, ¿cuál es el rango de presión intraabdominal (PIA) que generalmente se considera un fuerte indicador para la descompresión quirúrgica del abdomen en el síndrome compartimental abdominal?",
+      "options": {
+        "A": "Mayor de 12 mm Hg.",
+        "B": "Mayor de 15 mm Hg con disfunción orgánica.",
+        "C": "Mayor de 20 a 30 mm Hg.",
+        "D": "Cualquier aumento de la PIA si hay acidosis metabólica persistente."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 39,
+      "question": "En el tratamiento prehospitalario del trauma vascular abdominal con hemorragia activa incontrolada, ¿cuál es el objetivo de presión arterial sistólica (PAS) que el trabajo experimental sugiere como óptimo para prevenir la exanguinación masiva mientras se evita el riesgo de paro cardíaco?",
+      "options": {
+        "A": "Mantener una PAS superior a 120 mm Hg mediante reanimación agresiva.",
+        "B": "Alcanzar una PAS de 80 a 90 mm Hg con hipotensión controlada.",
+        "C": "Evitar cualquier administración de líquidos intravenosos hasta el control quirúrgico de la hemorragia.",
+        "D": "Una PAS de 60 a 70 mm Hg para minimizar la pérdida de sangre."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 40,
+      "question": "Dentro de los principios de las cirugías de control de daños (Damage Control) para lesiones vasculares abdominales mayores, ¿cómo se manejan las lesiones venosas complejas y las lesiones arteriales, respectivamente?",
+      "options": {
+        "A": "Las lesiones venosas complejas se reparan con injertos de PTFE, mientras que las arteriales se ligan.",
+        "B": "Las lesiones venosas complejas se ligan, y las lesiones arteriales se manejan con un shunt temporal.",
+        "C": "Ambas, venosas y arteriales, se reparan con sutura lateral siempre que sea posible.",
+        "D": "Ambas se manejan con ligadura para minimizar el tiempo quirúrgico."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 41,
+      "question": "En el manejo de lesiones del sistema venoso portal, si se realiza la ligadura de la vena porta en presencia de una arteria hepática permeable, ¿cuál es la tasa de supervivencia reportada y qué consideraciones postoperatorias inmediatas son cruciales?",
+      "options": {
+        "A": "La ligadura de la vena porta es incompatible con la vida; la supervivencia es cercana al 0%.",
+        "B": "La supervivencia es del 55% al 85%; el abdomen debe cerrarse temporalmente y se debe planificar una laparotomía de segunda vista entre 24 y 72 horas.",
+        "C": "La supervivencia es del 55% al 85%; el abdomen puede cerrarse primariamente si no hay signos de edema intestinal inmediato.",
+        "D": "La supervivencia es inferior al 50%; la ligadura solo se realiza si hay daño concomitante de la arteria hepática."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 42,
+      "question": "En el contexto del trauma vascular abdominal penetrante con hemorragia activa grave, ¿cuál es el papel principal de las técnicas endovasculares?",
+      "options": {
+        "A": "Son la intervención terapéutica de primera línea para el control definitivo de la hemorragia activa.",
+        "B": "Su papel es limitado en la hemorragia activa, pero son útiles como adyuvante para el control aórtico proximal temporal durante la cirugía abierta.",
+        "C": "Son la opción preferida para la reparación primaria de todas las lesiones arteriales y venosas.",
+        "D": "Están contraindicadas en la mayoría de los casos de trauma penetrante debido a la contaminación y la inestabilidad del paciente."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 43,
+      "question": "En caso de una lesión traumática aislada de la arteria mesentérica inferior (AMI) diagnosticada intraoperatoriamente, ¿cuál es la opción de tratamiento más comúnmente aceptada?",
+      "options": {
+        "A": "Reconstrucción mediante anastomosis término-terminal.",
+        "B": "Reconstrucción con injerto protésico para prevenir isquemia colónica.",
+        "C": "Ligadura de la AMI, ya que es bien tolerada sin isquemia colorrectal reportada en trauma.",
+        "D": "Embolización endovascular si el paciente está estable."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 44,
+      "question": "Respecto a las lesiones de la arteria renal por trauma contuso, ¿cuál arteria renal es más propensa a lesionarse y cuál es la razón principal sugerida?",
+      "options": {
+        "A": "La arteria renal derecha, debido a su curso más corto y directo.",
+        "B": "La arteria renal izquierda, siendo 1.3 a 1.6 veces más probable, posiblemente porque la derecha está protegida por su curso debajo de la VCI.",
+        "C": "Ambas arterias tienen una incidencia de lesión similar, sin predilección significativa.",
+        "D": "La arteria renal derecha, ya que está más expuesta en el hilio renal."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 45,
+      "question": "Un paciente con trauma abdominal penetrante o fractura pélvica presenta un pulso femoral ausente o disminuido. ¿Qué lesión vascular es altamente sugestiva de este hallazgo clínico?",
+      "options": {
+        "A": "Lesión de la arteria mesentérica superior.",
+        "B": "Lesión de la vena cava inferior.",
+        "C": "Lesión de la arteria ilíaca común o externa.",
+        "D": "Lesión de la arteria renal."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 46,
+      "question": "En el manejo quirúrgico de las lesiones de la vena cava inferior (VCI), ¿cuál de las siguientes afirmaciones sobre la ligadura es correcta?",
+      "options": {
+        "A": "La ligadura de la VCI infrarenal es una opción inaceptable por el riesgo de trombosis y embolia pulmonar.",
+        "B": "La ligadura de la VCI suprarrenal es una opción aceptable en pacientes inestables, siempre que se planifique revascularización diferida.",
+        "C": "La ligadura de la VCI suprarrenal no es una opción aceptable porque resulta en insuficiencia renal.",
+        "D": "La ligadura de la VCI juxtarrenal es preferible a una reparación compleja que pueda prolongar el tiempo quirúrgico."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 47,
+      "question": "Un paciente con trauma contuso presenta un hematoma estable en la raíz del mesenterio, sin evidencia inicial de isquemia intestinal. ¿Cuál es el manejo inicial recomendado según la práctica de los autores?",
+      "options": {
+        "A": "Exploración quirúrgica inmediata debido al alto riesgo de lesión de la AMS.",
+        "B": "No explorar el hematoma y evaluar la AMS postoperatoriamente con angiografía o CT angiografía.",
+        "C": "Realizar una angiografía intraoperatoria antes de decidir la exploración del hematoma.",
+        "D": "Observación estricta con reevaluación clínica frecuente, reservando la exploración para signos de isquemia o expansión del hematoma."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 48,
+      "question": "En pacientes con lesiones aórticas abdominales por trauma penetrante, ¿cuál es la tasa de mortalidad reportada en series grandes, y qué subtipo de lesión tiene un pronóstico significativamente peor?",
+      "options": {
+        "A": "La mortalidad es del 30%; las lesiones infrarenales tienen peor pronóstico.",
+        "B": "La mortalidad varía entre 67% y 85%; las lesiones suprarrenales tienen un pronóstico significativamente peor.",
+        "C": "La mortalidad es del 50%; las lesiones por herida de arma blanca tienen un mejor pronóstico que las por proyectil de arma de fuego.",
+        "D": "La mortalidad es inferior al 20%; el pronóstico depende principalmente de las lesiones asociadas."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 49,
+      "question": "Un paciente con trauma abdominal penetrante llega al servicio de urgencias hemodinámicamente inestable y con signos de peritonitis. ¿Cuál es la conducta diagnóstica y terapéutica más apropiada?",
+      "options": {
+        "A": "Realizar una tomografía computarizada (TC) de abdomen con contraste para localizar la lesión vascular.",
+        "B": "Proceder directamente a laparotomía inmediata sin necesidad de investigaciones adicionales.",
+        "C": "Estabilizar hemodinámicamente al paciente antes de cualquier imagen o intervención quirúrgica.",
+        "D": "Realizar una ecografía FAST para descartar sangrado intraperitoneal significativo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 50,
+      "question": "En un paciente con una lesión vascular ilíaca combinada (arterial y venosa) que se encuentra en estado crítico, ¿cuál es la aproximación más recomendable para el manejo de la lesión venosa ilíaca?",
+      "options": {
+        "A": "Siempre se debe intentar la reconstrucción venosa compleja con injertos para evitar complicaciones a largo plazo.",
+        "B": "La ligadura de la vena ilíaca es generalmente preferible a una reparación que genere estenosis severa, especialmente en pacientes críticos, para evitar prolongar la operación y el sangrado.",
+        "C": "La reparación de la vena ilíaca con venorrafia lateral es la técnica de elección, incluso si produce una estenosis significativa.",
+        "D": "La ligadura de la vena ilíaca está contraindicada en todas las situaciones debido al alto riesgo de síndrome compartimental de la extremidad."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 51,
+      "question": "Según una revisión de 302 lesiones vasculares abdominales de un centro de trauma, ¿cuál fue el vaso abdominal más comúnmente lesionado?",
+      "options": {
+        "A": "Aorta abdominal.",
+        "B": "Arteria ilíaca común.",
+        "C": "Vena cava inferior (VCI).",
+        "D": "Arteria mesentérica superior (AMS)."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 52,
+      "question": "En el tratamiento quirúrgico de lesiones vasculares abdominales, ¿cuál es la temperatura recomendada para precalentar los líquidos intravenosos infundidos para mitigar la pérdida de calor y la hipotermia?",
+      "options": {
+        "A": "37°C.",
+        "B": "38°C–39°C.",
+        "C": "40°C–42°C.",
+        "D": "Temperatura ambiente."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 53,
+      "question": "En un paciente con trauma contuso, ¿cuál de las siguientes indicaciones NO justifica la exploración quirúrgica de un hematoma retroperitoneal en la Zona 2 (riñones, gotiera paracólica) o Zona 3 (retroperitoneo pélvico)?",
+      "options": {
+        "A": "Hematoma expansivo.",
+        "B": "Hematoma pulsátil.",
+        "C": "Hematoma estable en Zona 3 asociado a fracturas pélvicas, con pulsos femorales simétricos.",
+        "D": "Hematoma con extravasación activa."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 54,
+      "question": "Según la división convencional del retroperitoneo para fines de trauma vascular, ¿en qué zona se encuentran la arteria mesentérica superior (AMS) y las arterias renales?",
+      "options": {
+        "A": "Zona 2.",
+        "B": "Zona 3.",
+        "C": "Zona 1, específicamente en el área supramesocólica.",
+        "D": "Zona 4."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 55,
+      "question": "Después de la reconstrucción de una lesión de la arteria mesentérica superior (AMS), ¿cuál de los siguientes hallazgos postoperatorios debería llevar a una baja umbral para una laparotomía de segunda vista en las primeras 24 horas?",
+      "options": {
+        "A": "Leve aumento de los leucocitos sin fiebre.",
+        "B": "Necesidad continua de vasopresores a dosis bajas.",
+        "C": "Falla en la mejora postoperatoria y persistencia de acidosis metabólica a pesar de una reanimación adecuada.",
+        "D": "Edema de la pared abdominal que dificulta el cierre primario."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 56,
+      "question": "Al comparar el pronóstico de las lesiones aórticas abdominales por trauma contuso y penetrante, ¿cuál de las siguientes afirmaciones es correcta sobre la mortalidad?",
+      "options": {
+        "A": "La mortalidad por trauma contuso es comparable a la del trauma penetrante.",
+        "B": "La mortalidad por trauma contuso es significativamente peor que la del trauma penetrante.",
+        "C": "La mortalidad por trauma contuso es aproximadamente del 30%, mientras que por trauma penetrante puede oscilar entre el 67% y el 85%.",
+        "D": "La mortalidad por trauma penetrante es más baja debido a la contención retroperitoneal del sangrado."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 57,
+      "question": "En la reanimación en el departamento de emergencias para pacientes con sospecha de lesión vascular intraabdominal, especialmente en la pelvis, ¿cuál es una alternativa atractiva a la toracotomía de reanimación y cuáles son sus ventajas según el trabajo experimental?",
+      "options": {
+        "A": "La compresión aórtica manual; su ventaja es la simplicidad y la no invasividad.",
+        "B": "La oclusión aórtica endoluminal con balón (REBOA); se asocia con un aumento de las presiones de perfusión central y menor alteración fisiológica.",
+        "C": "La toracotomía de reanimación con clampeo aórtico supradiafragmático; permite un control más rápido y definitivo.",
+        "D": "La ligadura de la arteria femoral común para reducir la perfusión distal y el sangrado pélvico."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 58,
+      "question": "En pacientes con lesiones vasculares ilíacas, ¿cuál es la posición de los autores respecto a la fasciotomía profiláctica para el síndrome compartimental de la extremidad?",
+      "options": {
+        "A": "Se recomienda la fasciotomía profiláctica de rutina antes de la reconstrucción arterial en todos los casos.",
+        "B": "El papel de la fasciotomía profiláctica es controvertido, y se recomienda realizarla solo a los primeros signos de síndrome compartimental.",
+        "C": "La fasciotomía profiláctica es una medida esencial que reduce significativamente el riesgo de pérdida de la extremidad.",
+        "D": "La administración perioperatoria de manitol reemplaza la necesidad de fasciotomía en la mayoría de los casos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 59,
+      "question": "Durante el procedimiento de aislamiento vascular hepático para lesiones de la VCI, ¿cuál es el primer paso crítico de clampeo y por qué?",
+      "options": {
+        "A": "Clampear la VCI suprahepática para minimizar el sangrado directo del hígado.",
+        "B": "Clampear la aorta infradiafragmática para evitar hipotensión grave y paro cardíaco debido a la reducción del retorno venoso después de la oclusión de la VCI.",
+        "C": "Clampear el pedículo portal para controlar el flujo venoso portal al hígado.",
+        "D": "Clampear la VCI infrahepática para facilitar la exposición distal."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 60,
+      "question": "Respecto a los avances en el manejo de las lesiones vasculares abdominales, ¿qué oportunidades ofrecen las salas de operaciones híbridas con capacidades de radiología angiográfica y qué nueva tecnología de injertos es prometedora?",
+      "options": {
+        "A": "Permiten solo el control temporal de hemorragias con balón, y los injertos de dacron son la última innovación.",
+        "B": "Proporcionan control temporal o tratamiento definitivo con angioembolización/stenting, y los injertos-stent expandibles sin sutura colocados intraoperatoriamente son prometedores.",
+        "C": "Su uso se limita al diagnóstico por imagen avanzado, y la investigación se centra en nuevos agentes hemostáticos exclusivamente.",
+        "D": "Reemplazan completamente la necesidad de cirugía abierta, y los injertos autólogos son la única opción viable en todos los casos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 61,
+      "question": "En el contexto de la epidemiología del trauma vascular, ¿cuál de las siguientes afirmaciones sobre la mortalidad y la carga social es más precisa?",
+      "options": {
+        "A": "El trauma es la principal causa de muerte en la población general de EE. UU. y el hemorragia es el agente etiológico más común de muerte prevenible en tiempos de paz.",
+        "B": "La discapacidad a largo plazo por pérdida de extremidades y dolor crónico contribuye significativamente a la carga social, pero la incidencia y prevalencia de las lesiones vasculares han disminuido gracias a los avances tecnológicos.",
+        "C": "El trauma es la principal causa de muerte para el grupo de edad de 1 a 46 años en EE. UU., y la hemorragia es abrumadoramente el agente de muerte en la mayoría de las instancias de mortalidad por trauma, incluyendo la militar prevenible.",
+        "D": "Aunque los sistemas de trauma han madurado, la carga de lesiones traumáticas está disminuyendo, lo que reduce la necesidad de un enfoque epidemiológico detallado en las lesiones vasculares."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 62,
+      "question": "Un cirujano vascular está revisando un caso de trauma penetrante complejo. Según la información disponible, ¿cuál de las siguientes características de los proyectiles es, al menos, tan importante como la velocidad para determinar el daño vascular por transferencia de energía?",
+      "options": {
+        "A": "La masa del proyectil, ya que el impacto de la energía cinética es directamente proporcional a ella.",
+        "B": "El coeficiente balístico del proyectil y su trayectoria subsiguiente.",
+        "C": "La forma, deformidad, fragmentación, cabeceo y guiñada del proyectil.",
+        "D": "La distancia recorrida por el proyectil antes del impacto en el tejido vascular."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 63,
+      "question": "Con respecto a la evolución histórica del manejo de las lesiones vasculares en conflictos militares, ¿cuál fue el cambio de paradigma más significativo observado durante la Guerra de Corea en comparación con la Segunda Guerra Mundial?",
+      "options": {
+        "A": "Un aumento en el porcentaje de lesiones vasculares manejadas con ligadura debido a restricciones de recursos.",
+        "B": "La introducción del injerto de interposición con arteria femoral cadavérica como estándar de oro.",
+        "C": "Un cambio masivo hacia el intento de reparación primaria o injerto de interposición, reduciendo drásticamente la tasa de amputación.",
+        "D": "La estandarización del uso de torniquetes de campo de batalla como primera línea de tratamiento para todas las lesiones arteriales."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 64,
+      "question": "Un paciente con politrauma sufre una lesión vascular en la extremidad y se aplica un shunt intravascular temporal. Según los datos del Global War on Terror (GWOT) y la experiencia civil, ¿cuál es el beneficio principal y la limitación de esta técnica?",
+      "options": {
+        "A": "Los shunts tienen tasas de permeabilidad uniformemente altas, pero no influyen en las tasas de salvamento de extremidades.",
+        "B": "Permiten el control de daños, pero las tasas de permeabilidad varían significativamente entre lesiones proximales y distales, lo que afecta las tasas de salvamento de extremidades.",
+        "C": "Aseguran la viabilidad de la extremidad mientras se manejan lesiones que amenazan la vida, con tasas de salvamento de extremidades comparables en lesiones proximales y distales a pesar de la variabilidad en la permeabilidad del shunt.",
+        "D": "Reducen la necesidad de fasciotomías de forma rutinaria y garantizan la permeabilidad a largo plazo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 65,
+      "question": "En el análisis de las disparidades en los resultados del trauma vascular, ¿cuál de las siguientes afirmaciones se ha identificado como un factor de confusión potencial que desafía las explicaciones basadas en la raza y el estado del seguro?",
+      "options": {
+        "A": "La falta de datos suficientes sobre el uso de torniquetes prehospitalarios en poblaciones minoritarias.",
+        "B": "La heterogeneidad inherente dentro de la población de trauma en general.",
+        "C": "La sobre-representación de lesiones de aorta torácica contusa en poblaciones aseguradas.",
+        "D": "La prevalencia de la enfermedad vascular preexistente en pacientes jóvenes."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 66,
+      "question": "Un paciente de 48 años llega al servicio de urgencias con una lesión penetrante en el cuello. La evaluación inicial revela signos de lesión vascular. Según la epidemiología de las lesiones vasculares del cuello, ¿cuál es la arteria más comúnmente afectada en este escenario?",
+      "options": {
+        "A": "La arteria subclavia izquierda.",
+        "B": "La arteria vertebral, especialmente si hay fractura cervical asociada.",
+        "C": "La arteria carótida, con mayor frecuencia en su porción interna si es contusa.",
+        "D": "La arteria tiroidea superior, debido a su posición superficial."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 67,
+      "question": "Un paciente sufre un traumatismo abdominal penetrante y se encuentra hemodinámicamente inestable. Durante la laparotomía, se identifica una lesión de la vena cava inferior (VCI) infrarrenal y una lesión adicional de una vena mesentérica. Según los datos epidemiológicos, ¿cuál de las siguientes afirmaciones sobre este tipo de lesiones es más precisa?",
+      "options": {
+        "A": "La mayoría de las lesiones de la VCI son contusas y la mortalidad es baja si la lesión es aislada e infrarrenal.",
+        "B": "Las lesiones de la VCI representan una alta proporción de las lesiones vasculares abdominales mayores, y la mortalidad aumenta significativamente con lesiones venosas múltiples.",
+        "C": "La ligadura de la VCI infrarrenal tiene una tasa de supervivencia significativamente peor que la reparación quirúrgica en pacientes hemodinámicamente estables.",
+        "D": "Las lesiones asociadas más comunes con la VCI son las renales y pancreáticas, con una baja incidencia de lesiones duodenales."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 68,
+      "question": "Un paciente sufre un traumatismo cerrado de alta energía en el tórax. La tomografía computarizada (TC) de tórax revela una disección intimal de la aorta torácica descendente de 15 mm con anormalidad del contorno externo, clasificada como una lesión de grado II-III según el esquema antiguo. Si se aplica la nueva clasificación de tres niveles propuesta para la lesión aórtica contusa, ¿cuál sería la conducta terapéutica recomendada?",
+      "options": {
+        "A": "Reparación no necesaria, solo observación estrecha.",
+        "B": "Reparación semi-electiva debido a que presenta anormalidad del contorno externo e intimal mayor a 10 mm.",
+        "C": "Reparación inmediata urgente por evidencia de extravasación activa.",
+        "D": "Manejo no operativo debido a la ausencia de ruptura completa y hemorragia activa."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 69,
+      "question": "Un cirujano vascular se enfrenta a un caso de trauma vascular en un paciente pediátrico. Según la revisión del National Trauma Data Bank (NTDB), ¿cuál de las siguientes características es distintiva de las lesiones vasculares en la población pediátrica en comparación con los adultos?",
+      "options": {
+        "A": "Una incidencia global más alta de trauma vascular en niños (1.6%) en comparación con adultos (0.6%).",
+        "B": "Las lesiones penetrantes son más comunes en niños (51.2%) que en adultos (41.8%).",
+        "C": "La extremidad superior es la localización más frecuente de lesión vascular pediátrica, con las arterias radial o cubital siendo las más comúnmente afectadas.",
+        "D": "Las lesiones de vasos torácicos son aproximadamente siete veces más frecuentes en niños que en adultos."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 70,
+      "question": "En el contexto de las lesiones vasculares de la extremidad inferior, ¿cuál de las siguientes lesiones tiene el mayor riesgo de amputación y mortalidad, incluso después de ajustar por factores de confusión?",
+      "options": {
+        "A": "Lesión de los vasos tibioperoneos, especialmente si es de un solo vaso.",
+        "B": "Lesión arterial o venosa del muslo proximal (femoral común o superficial).",
+        "C": "Lesión de la arteria poplítea, ya sea por trauma penetrante o contuso.",
+        "D": "Lesiones distales de la arteria radial o cubital en la extremidad superior."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 71,
+      "question": "Se presenta un paciente con un traumatismo cerrado con sospecha de lesión de la arteria vertebral. Según los estudios, ¿cuál es el factor de riesgo más prevalente para la lesión de la arteria vertebral?",
+      "options": {
+        "A": "Lesión carotídea bilateral ipsilateral.",
+        "B": "Hiperflexión/hiperextensión del cuello sin evidencia de fractura de columna cervical.",
+        "C": "La presencia de una fractura de columna cervical, con una incidencia de lesión vertebral de hasta el 40%.",
+        "D": "Un mecanismo de lesión penetrante en la zona III del cuello."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 72,
+      "question": "Un soldado sufre una lesión por explosión por un dispositivo explosivo improvisado (IED) en el campo de batalla, resultando en fracturas de la extremidad inferior y lesión arterial. Según los datos contemporáneos de combate, ¿cuál es la tasa de amputación reportada para las lesiones vasculares de extremidades inducidas por explosión con fractura coexistente, incluso con intentos de salvamento de la extremidad?",
+      "options": {
+        "A": "5%",
+        "B": "25%",
+        "C": "50%",
+        "D": "77%"
+      },
+      "correct": "C"
+    },
+    {
+      "id": 73,
+      "question": "En el manejo de la hemorragia truncal no compresible (NCTH), ¿cuál de las siguientes estrategias no se considera una intervención crítica en la fase prehospitalaria o de urgencias?",
+      "options": {
+        "A": "Minimizar los retrasos en la transferencia de urgencias a quirófano.",
+        "B": "Hipotensión permisiva hasta obtener control vascular.",
+        "C": "Resucitación hemostática equilibrada con uso temprano de plasma.",
+        "D": "Uso de shunts intravasculares temporales en el contexto de un sistema de trauma militar avanzado."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 74,
+      "question": "Un paciente de 68 años sufre una caída y presenta una lesión vascular traumática. Según la epidemiología de las lesiones vasculares en la población geriátrica, ¿cuál de las siguientes afirmaciones es más probable?",
+      "options": {
+        "A": "La incidencia de lesión vascular en este grupo de edad es similar a la de los adultos jóvenes, con una marcada predominancia de lesiones penetrantes.",
+        "B": "Los mecanismos contusos (accidentes de tráfico y caídas) representan la inmensa mayoría de las lesiones, y la lesión aórtica torácica contusa es la más frecuente.",
+        "C": "Las tasas de mortalidad son más bajas en esta población en comparación con los adultos jóvenes debido a una mayor tolerancia a la hemorragia.",
+        "D": "Las lesiones de los vasos del antebrazo son las más comúnmente encontradas en lesiones contusas."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 75,
+      "question": "La PROspective Vascular Injury Treatment (PROOVIT) registry fue establecida para abordar limitaciones clave de la National Trauma Data Bank (NTDB). ¿Cuál es una ventaja específica del registro PROOVIT que supera una deficiencia conocida de la NTDB?",
+      "options": {
+        "A": "Captura de pacientes no admitidos que mueren en la escena del trauma, superando la subrepresentación de lesiones fatales rápidas en la NTDB.",
+        "B": "La inclusión de datos de seguimiento a largo plazo más allá de las complicaciones intrahospitalarias, una limitación de la NTDB.",
+        "C": "Registro de elementos clave de la atención prehospitalaria, como la aplicación de torniquetes, lo que no está uniformemente capturado en la NTDB.",
+        "D": "Asegura una representación de datos a nivel de población completa, ya que incluye todas las instituciones participantes y no participantes."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 76,
+      "question": "En el contexto de la gestión moderna del trauma vascular, ¿cuál de los siguientes avances ha contribuido más significativamente a la reducción de la mortalidad y la pérdida de extremidades en pacientes gravemente heridos, alterando la distribución trimodal clásica de la mortalidad por trauma hacia una bimodal?",
+      "options": {
+        "A": "La mejora en las técnicas de reanimación cardiopulmonar avanzada en el ámbito prehospitalario.",
+        "B": "El desarrollo de redes robustas de servicios médicos de emergencia que proporcionan un transporte rápido.",
+        "C": "La aplicación de técnicas de control de daños, incluyendo cirugía abreviada, técnicas endovasculares y reanimación balanceada.",
+        "D": "El uso rutinario de puntuaciones de gravedad de lesiones para identificar pacientes de alto riesgo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 77,
+      "question": "Un paciente presenta una lesión penetrante en el abdomen con múltiples vasos abdominales lesionados. Según los datos epidemiológicos, ¿cuál es el efecto más probable en la mortalidad al aumentar el número de vasos abdominales lesionados?",
+      "options": {
+        "A": "La mortalidad se mantiene constante, ya que el factor determinante es la presencia o ausencia de shock al ingreso.",
+        "B": "La mortalidad disminuye, ya que la distribución del flujo sanguíneo puede compensar una lesión de vaso único.",
+        "C": "La mortalidad aumenta progresivamente, de un 45% con un vaso lesionado a un 73% con tres vasos lesionados.",
+        "D": "La mortalidad es insignificante si las lesiones son predominantemente venosas en lugar de arteriales."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 78,
+      "question": "Con respecto a las lesiones de los grandes vasos del tórax (p. ej., arteria innominada, braquiocefálica, subclavia proximal), ¿cuál de las siguientes afirmaciones es la más precisa?",
+      "options": {
+        "A": "Son extremadamente comunes en el trauma contuso y rara vez fatales si se manejan quirúrgicamente de inmediato.",
+        "B": "A menudo son fatales en los primeros 30 minutos debido a hemorragia o lesiones asociadas del corazón o la vía aérea, y los déficits a largo plazo son predominantemente de origen vascular.",
+        "C": "La ligadura de la arteria subclavia está absolutamente contraindicada debido a la alta incidencia de isquemia del brazo izquierdo.",
+        "D": "La mayoría de los pacientes con lesiones penetrantes en estas estructuras sobreviven hasta la llegada al hospital gracias a los avances en la reanimación prehospitalaria."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 79,
+      "question": "Un paciente sufre una lesión de la arteria ilíaca externa en el contexto de un traumatismo pélvico complejo. En cuanto a las lesiones vasculares ilíacas, ¿cuál es el principal desafío en su manejo y qué estrategia ha demostrado reducir la mortalidad?",
+      "options": {
+        "A": "El principal desafío es la alta incidencia de lesiones bilaterales, y la embolización percutánea es el pilar del tratamiento definitivo.",
+        "B": "La dificultad de exposición y el control distal en la pelvis profunda son desafíos clave; el uso de técnicas de control de daños, incluyendo shunts intravasculares, se ha asociado con una disminución de la mortalidad.",
+        "C": "La mayoría de estas lesiones son contusas y la ligadura de la arteria ilíaca es siempre el procedimiento de elección para el control de la hemorragia.",
+        "D": "La principal complicación es la isquemia de la extremidad; la reparación venosa concomitante es siempre necesaria para preservar la viabilidad del miembro."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 80,
+      "question": "Un cirujano vascular está evaluando a un paciente con una lesión traumática de la extremidad superior que afecta los vasos braquiales. Según los datos contemporáneos militares y civiles, ¿cuál es el factor que más a menudo determina el resultado funcional a largo plazo en estas lesiones?",
+      "options": {
+        "A": "El grado de la lesión arterial o venosa, y si se realizó una reparación primaria o ligadura.",
+        "B": "La incidencia de síndrome compartimental, independientemente de la reparación vascular.",
+        "C": "Las lesiones asociadas del plexo braquial o los nervios cubital o mediano.",
+        "D": "La necesidad de una reconstrucción venosa concomitante para prevenir el edema crónico."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 81,
+      "question": "Un paciente presenta una lesión vascular oculta, caracterizada por un pequeño colgajo intimal (<10 mm) y sin evidencia de extravasación activa ni pseudoaneurisma. Según el historial natural de estas lesiones, ¿cuál es la probabilidad de que requiera una intervención quirúrgica?",
+      "options": {
+        "A": "Hasta el 86% de estos casos progresarán a lesiones más significativas si no se tratan quirúrgicamente de inmediato.",
+        "B": "La mayoría (86%) se resolverá espontáneamente sin necesidad de operación, y solo un 2% requerirá intervención.",
+        "C": "Se recomienda la reparación endovascular semi-electiva debido al riesgo inminente de embolización distal.",
+        "D": "Estas lesiones siempre deben ser monitoreadas con angiografía seriada debido a su alta tasa de ruptura espontánea."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 82,
+      "question": "Durante el Global War on Terror (GWOT), el uso generalizado de torniquetes en el campo de batalla generó cambios importantes. ¿Cuál fue uno de los efectos documentados de esta práctica en la epidemiología de las lesiones vasculares?",
+      "options": {
+        "A": "Una disminución en la tasa de lesiones vasculares de extremidades debido al control inmediato de la hemorragia.",
+        "B": "Un aumento significativo en la incidencia de lesiones vasculares (12%) debido a que más pacientes con estas lesiones sobrevivieron para llegar a un hospital de campaña.",
+        "C": "Una reducción de la incidencia de ligadura vascular debido a una mejor capacidad para reparar lesiones en el campo.",
+        "D": "Un aumento en las complicaciones asociadas con el uso prolongado de torniquetes, negando sus beneficios iniciales."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 83,
+      "question": "Un paciente presenta una lesión penetrante en el muslo con afectación de la arteria femoral superficial. En este contexto, ¿cuál de las siguientes afirmaciones sobre las lesiones de los vasos femorales y poplíteos es más precisa?",
+      "options": {
+        "A": "Las lesiones de la arteria femoral se deben predominantemente a trauma contuso, mientras que las de la poplítea son más a menudo penetrantes.",
+        "B": "Las luxaciones de rodilla se asocian con una baja incidencia de lesión de la arteria poplítea (<5%).",
+        "C": "Hasta el 46% de las lesiones de la arteria femoral común y superficial tienen una lesión asociada de la vena femoral.",
+        "D": "La isquemia del miembro es la complicación más temida para las lesiones femorales proximales, mientras que la hemorragia lo es para las poplíteas."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 84,
+      "question": "En el manejo de lesiones vasculares con técnicas endovasculares, ¿cuál de las siguientes afirmaciones sobre su aplicación y resultados es INCORRECTA?",
+      "options": {
+        "A": "Las técnicas endovasculares se aplican cada vez más en lesiones para las que la reparación abierta era altamente mórbida, como la aorta torácica.",
+        "B": "Un análisis nacional demostró un aumento de 27 veces en el uso de la terapia endovascular, asociada con una disminución de la morbilidad y la mortalidad.",
+        "C": "Las técnicas endovasculares han sido extendidas al ámbito de combate con bajas tasas de éxito técnico (aproximadamente 50-60%).",
+        "D": "Pueden aplicarse para el control temporal agudo de la hemorragia o como manejo definitivo en una amplia gama de patrones de lesión arterial y venosa."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 85,
+      "question": "Un paciente de 35 años sufre un accidente automovilístico con desaceleración severa. Se sospecha de lesión aórtica abdominal. ¿Cuál de las siguientes afirmaciones describe mejor la epidemiología y las características patológicas de la lesión contusa de la aorta abdominal?",
+      "options": {
+        "A": "Es una lesión común en el trauma contuso y la mayoría de los pacientes presentan contusión en la pared abdominal.",
+        "B": "La mayoría de estas lesiones ocurren en la aorta suprarrenal, y la trombosis es la lesión patológica más común.",
+        "C": "Es una lesión rara que a menudo resulta en muerte prehospitalaria, y si sobreviven, la lesión es casi siempre infrarrenal, con un colgajo intimal o disección distal como lesión patológica más común.",
+        "D": "La mortalidad es baja (<10%) y no aumenta con la edad avanzada."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 86,
+      "question": "Con respecto a las lesiones de los vasos tibioperoneos, ¿cuál de las siguientes afirmaciones es la más precisa en cuanto a su manejo y pronóstico?",
+      "options": {
+        "A": "La incidencia real es bien conocida, y son más comunes en el trauma penetrante de la pierna.",
+        "B": "La observación o la ligadura para la lesión de un solo vaso son universalmente bien toleradas, pero las lesiones de múltiples vasos se asocian con un riesgo de amputación significativamente mayor.",
+        "C": "La amputación es infrecuente (<5%) y más común en el trauma penetrante que en el contuso.",
+        "D": "La mortalidad es tres veces mayor que la de las lesiones arteriales proximales, independientemente del número de vasos afectados."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 87,
+      "question": "Un cirujano vascular está manejando un paciente con una lesión penetrante grave en la zona I del abdomen que involucra la vasculatura hepatoportal. ¿Cuál de las siguientes combinaciones de lesiones hepatoportales tiene la peor tasa de mortalidad reportada?",
+      "options": {
+        "A": "Lesión de la vena porta con lesión combinada de la vena cava inferior.",
+        "B": "Lesión aislada de las venas hepáticas sin afectación de la arteria hepática.",
+        "C": "Lesión de la vena porta con otras lesiones de la tríada portal.",
+        "D": "Lesión de la vena porta en combinación con una lesión de la arteria hepática."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 88,
+      "question": "En el contexto de las lesiones vasculares iatrogénicas o penetrantes, ¿cuál de las siguientes complicaciones puede esperarse en un pseudoaneurisma que no se trata?",
+      "options": {
+        "A": "Estenosis y trombosis progresiva con isquemia distal.",
+        "B": "Resolución espontánea en la mayoría de los casos si es de tamaño pequeño.",
+        "C": "Aumento de tamaño, ruptura y embolización distal.",
+        "D": "Formación de una fístula arteriovenosa con síndromes de 'robo'."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 89,
+      "question": "Considerando las diferencias en la epidemiología del trauma vascular civil y militar, ¿cuál de los siguientes factores ha influido en un cambio epidemiológico en los patrones de lesión durante el Global War on Terror (GWOT), resultando en una mayor incidencia de lesiones de extremidades?",
+      "options": {
+        "A": "La disminución general de la letalidad de las armas convencionales en el combate moderno.",
+        "B": "El aumento en el uso de chalecos antibalas junto con una mayor exposición a dispositivos explosivos improvisados (IED).",
+        "C": "La mejora en los sistemas de evacuación médica que permiten que más pacientes con lesiones leves lleguen al hospital.",
+        "D": "Un enfoque táctico que prioriza los traumatismos en la parte superior del tronco sobre las extremidades."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 90,
+      "question": "La American Association for the Surgery of Trauma Organ Injury Scaling (AAST-OIS) es un sistema de clasificación ampliamente utilizado, pero tiene limitaciones para el trauma vascular. ¿Cuál es la principal limitación de la AAST-OIS en este contexto?",
+      "options": {
+        "A": "No es validado para predecir la necesidad de intervención en lesiones de órganos sólidos.",
+        "B": "Está organizado principalmente alrededor de la identidad exacta del vaso, en lugar de la gravedad de la lesión vascular, el grado de hemorragia o la isquemia.",
+        "C": "Carece de correlación con la predicción de amputación en lesiones de extremidades mangled.",
+        "D": "Se basa en el Trauma and Injury Severity Score (TRISS), que subestima el impacto de las lesiones vasculares."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 91,
+      "question": "Un paciente presenta una lesión traumática penetrante en la extremidad superior derecha con una laceración activa pulsátil en la axila y signos de compromiso del plexo braquial. La evaluación inicial revela hipotensión transitoria que responde a la reanimación inicial. ¿Cuál es el siguiente paso diagnóstico y de manejo más apropiado, considerando la inestabilidad inicial y la sospecha de lesión arterial proximal?",
+      "options": {
+        "A": "Tras estabilización, realizar una angiotomografía computarizada (CTA) urgente para planificar la intervención quirúrgica.",
+        "B": "Proceder directamente a la exploración quirúrgica abierta para control vascular proximal dada la localización junctional y el sangrado activo.",
+        "C": "Colocar un torniquete en la parte superior del brazo y realizar una arteriografía convencional en quirófano.",
+        "D": "Considerar el manejo no operatorio con observación clínica estrecha, ya que la hipotensión fue transitoria."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 92,
+      "question": "En un paciente con una lesión por trauma contuso en la extremidad inferior que resulta en isquemia distal, se identifica una lesión de la arteria poplítea. ¿Cuál de las siguientes afirmaciones es la más precisa con respecto al riesgo de amputación y las lesiones concomitantes?",
+      "options": {
+        "A": "Las lesiones de la arteria poplítea por trauma penetrante tienen tasas de amputación más altas debido a la mayor energía del impacto.",
+        "B": "La duración de la isquemia es un predictor consistente de amputación en lesiones poplíteas, y su reparación es menos compleja que otras arterias.",
+        "C": "La lesión de la arteria poplítea por trauma contuso se asocia fuertemente con dislocaciones de rodilla y fracturas distales de fémur o meseta tibial, y una alta tasa de amputación del 20% al 50%.",
+        "D": "La preservación de los vasos geniculados no influye significativamente en las tasas de salvamento de la extremidad en lesiones poplíteas."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 93,
+      "question": "Un paciente con una lesión severa en la extremidad inferior, que incluye múltiples fracturas abiertas, importante disrupción de tejidos blandos y una lesión arterial con signos de isquemia prolongada, es evaluado para salvamento de la extremidad. ¿Qué papel juega la Escala de Severidad de Extremidad Mangled (MESS) en la decisión de amputación primaria en este escenario avanzado?",
+      "options": {
+        "A": "Un MESS de 7 o menos correlaciona perfectamente con el salvamento exitoso de la extremidad inferior, incluso en presencia de isquemia prolongada.",
+        "B": "La isquemia es el componente más determinante del MESS para la decisión de amputación primaria, independientemente de la pérdida ósea o disrupción de tejidos blandos.",
+        "C": "Ni el MESS ni cualquier otra puntuación de severidad de la lesión de la extremidad predicen con precisión los resultados funcionales a largo plazo en el trauma severo de la extremidad.",
+        "D": "Las guías actuales recomiendan la amputación primaria inmediata si el MESS es superior a 7, incluso antes de intentar la revascularización."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 94,
+      "question": "En el manejo de lesiones arteriales de la extremidad en pacientes traumatizados, ¿cuál de las siguientes opciones describe mejor la indicación y beneficio del uso de derivaciones vasculares temporales (shunts)?",
+      "options": {
+        "A": "Las derivaciones vasculares temporales se utilizan principalmente en vasos distales al codo y la rodilla para reducir el tiempo de isquemia en el quirófano.",
+        "B": "El shunt trombosis es un riesgo insignificante, y la anticoagulación sistémica se administra de forma rutinaria para mitigarlo, incluso en pacientes politraumatizados.",
+        "C": "La colocación de shunts temporales permite la restauración de la perfusión durante la manipulación ortopédica o para permitir la reanimación intensiva o el traslado del paciente antes de la reconstrucción vascular formal.",
+        "D": "En una lesión combinada de arteria y vena proximal, se debe shuntear primero la arteria para restaurar la perfusión distal rápidamente."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 95,
+      "question": "Un paciente sufre una lesión por arma de fuego en el muslo, resultando en una lesión de la arteria femoral superficial (SFA). Durante la exploración quirúrgica, se encuentra un defecto segmentario de la SFA. ¿Cuál es el método de reconstrucción más comúnmente empleado en este caso y por qué?",
+      "options": {
+        "A": "Anastomosis término-terminal, debido a la alta movilidad de la SFA.",
+        "B": "Parche de angioplastia, ya que permite preservar la longitud del vaso y es la reparación más sencilla.",
+        "C": "Injerto de interposición, ya que las lesiones de la SFA a menudo requieren un segmento de longitud para la reconstrucción.",
+        "D": "Ligadura arterial, si el paciente está inestable y presenta múltiples lesiones."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 96,
+      "question": "En el contexto de una lesión arterial de la extremidad inferior con signos isquémicos, ¿qué consideración es crucial respecto a la fasciotomía profiláctica?",
+      "options": {
+        "A": "La fasciotomía profiláctica solo es necesaria si se confirma un síndrome compartimental mediante medición de presiones.",
+        "B": "La realización de una fasciotomía concomitante o poco después de la revascularización de la extremidad inferior se asocia con una reducción cuádruple en la amputación y otras complicaciones, especialmente después de un intervalo isquémico prolongado y con lesión ortopédica.",
+        "C": "Las fasciotomías de muslo o brazo superior son preferibles a las de la pantorrilla o antebrazo en lesiones arteriales proximales, incluso si no hay oclusión venosa.",
+        "D": "La fasciotomía añade una carga considerable a la herida, por lo que su uso debe evitarse a menos que sea absolutamente indispensable para el salvamento de la extremidad."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 97,
+      "question": "Un cirujano vascular está evaluando a un paciente con una lesión penetrante en el antebrazo. El examen Doppler revela un déficit de pulso en la arteria cubital, mientras que la arteria radial está intacta. Se realiza una prueba de Allen Doppler, que confirma un arco palmar patente con la contribución de la arteria radial. ¿Cuál es la estrategia de manejo más adecuada en este escenario?",
+      "options": {
+        "A": "Reparación quirúrgica inmediata de la arteria cubital para restaurar el flujo, ya que es el principal contribuyente a la perfusión de la mano.",
+        "B": "Ligadura segura de la arteria cubital lesionada, dada la patente del arco palmar y la presencia de flujo adecuado a través de la arteria radial.",
+        "C": "Colocación de una derivación temporal en la arteria cubital, seguida de una reconstrucción diferida.",
+        "D": "Embolización endovascular de la arteria cubital para controlar el sangrado y evitar la necesidad de cirugía abierta."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 98,
+      "question": "Con respecto al manejo de las lesiones venosas mayores de la extremidad, ¿cuál de las siguientes afirmaciones es la más precisa según la literatura actual?",
+      "options": {
+        "A": "La ligadura de una lesión venosa mayor en la extremidad inferior es siempre preferible a la reparación para evitar complicaciones como el tromboembolismo venoso (VTE).",
+        "B": "La reparación de lesiones venosas mayores infrapatelares ha demostrado tener excelentes resultados a largo plazo y es la opción recomendada.",
+        "C": "La ligadura de venas principales de la extremidad superior distal a la vena axilar es generalmente segura debido a la robusta red de colaterales venosas.",
+        "D": "El desarrollo de edema significativo después de la ligadura de una lesión venosa mayor de la extremidad inferior es raro y transitorio en la mayoría de los casos."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 99,
+      "question": "En la evaluación de una lesión arterial de la extremidad mediante CTA, ¿cuál de las siguientes es una limitación reconocida de esta modalidad, especialmente en ciertos tipos de trauma?",
+      "options": {
+        "A": "La incapacidad de identificar simultáneamente lesiones óseas y de tejidos blandos.",
+        "B": "La sensibilidad y especificidad de la CTA en la detección de lesiones arteriales clínicamente ocultas son bajas, no llegando al 100%.",
+        "C": "Artefactos de imagen causados por fragmentos metálicos pueden limitar la utilidad diagnóstica, siendo la angiografía convencional superior en casos de heridas por escopeta.",
+        "D": "La CTA no puede asistir en el diagnóstico de lesiones venosas mayores, incluso con una fase de exploración tardía."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 100,
+      "question": "Un paciente con trauma por arma de fuego en el hombro presenta una disociación escapulotorácica con una extremidad superior izquierda sin pulso. La CTA revela una truncamiento abrupto de la arteria subclavia izquierda entrando en un gran hematoma. En la reconstrucción vascular, se considera el uso de un injerto de vena. ¿Cuál es la práctica convencional con respecto a la obtención de injertos de vena safena en estos casos?",
+      "options": {
+        "A": "Obtener siempre injertos de vena safena de la extremidad lesionada para minimizar la morbilidad de la extremidad contralateral.",
+        "B": "La práctica convencional es obtener injertos de vena safena de extremidades no lesionadas para preservar el drenaje venoso colateral.",
+        "C": "El uso de conductos protésicos es el estándar de oro en lesiones traumáticas debido a su disponibilidad y menor riesgo de infección.",
+        "D": "Solo se deben usar injertos de vena si la longitud requerida es mínima y la reparación es sencilla."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 101,
+      "question": "En el contexto de una lesión arterial de la extremidad superior, ¿cuál de las siguientes arterias es la más frecuentemente lesionada, independientemente del mecanismo de trauma?",
+      "options": {
+        "A": "Arteria axilar.",
+        "B": "Arteria braquial.",
+        "C": "Arterias radial y cubital.",
+        "D": "Arteria subclavia."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 102,
+      "question": "Un paciente traumatizado presenta una lesión arterial que no produce sangrado activo ni isquemia distal. Se identifica una pequeña laceración intimal. ¿Cuál es el manejo no operatorio más adecuado en este caso?",
+      "options": {
+        "A": "Observación clínica estrecha sin necesidad de seguimiento por imagen, ya que la lesión es pequeña.",
+        "B": "Seguimiento clínico estrecho con vigilancia seriada mediante una modalidad de imagen apropiada como CTA o DUS, manteniendo un alto índice de sospecha para el desarrollo de pseudoaneurisma o complicación isquémica.",
+        "C": "Intervención endovascular profiláctica con un stent recubierto para prevenir complicaciones futuras.",
+        "D": "Exploración quirúrgica abierta para reparación directa, ya que todas las lesiones arteriales traumáticas requieren intervención."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 103,
+      "question": "En pacientes con hipotensión sistémica debido a hemorragia junctional (axilar o femoral común) en la extremidad inferior, que no responde a la reanimación inicial, ¿cuál de las siguientes estrategias puede ser utilizada en la sala de trauma para el control rápido del flujo arterial?",
+      "options": {
+        "A": "La colocación de un torniquete proximal es siempre efectiva para el control de la hemorragia junctional.",
+        "B": "Compresión manual directa sobre el sitio de sangrado hasta que se pueda establecer un control formal en quirófano.",
+        "C": "Oclusión con balón endovascular reanimatoria de la aorta (REBOA) infrarenal para ocluir rápidamente el flujo arterial.",
+        "D": "La ligadura arterial proximal es la única opción rápida y efectiva en estos casos."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 104,
+      "question": "Respecto a las lesiones de la arteria poplítea, ¿cuál es el enfoque quirúrgico de elección para la exposición y reconstrucción en casi todos los casos?",
+      "options": {
+        "A": "Enfoque posterior directo para acceder a la arteria retrogeniculada.",
+        "B": "Abordaje anteromedial, que permite una exposición amplia de la arteria distal y proximal.",
+        "C": "Abordaje medial con incisiones separadas por encima y por debajo de la rodilla, permitiendo el control proximal y distal y la extensión si es necesario.",
+        "D": "Abordaje lateral, ideal para lesiones asociadas con fracturas de la meseta tibial."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 105,
+      "question": "Un cirujano vascular considera la reparación de una lesión arterial traumática con un injerto. ¿Qué factor es fundamental para prevenir la falla del injerto y las complicaciones infecciosas?",
+      "options": {
+        "A": "El uso rutinario de injertos de politetrafluoroetileno (PTFE) en vasos grandes, que ha demostrado una patencia a corto plazo superior a la vena autóloga en trauma.",
+        "B": "La administración de anticoagulación sistémica intensa durante el perioperatorio, incluso en pacientes con lesiones asociadas que aumentan el riesgo de sangrado.",
+        "C": "Un debridamiento amplio de tejidos contaminados y no viables y asegurar una cobertura adecuada de tejido sano sobre la reparación vascular.",
+        "D": "La realización de anastomosis de forma término-lateral para optimizar el flujo y reducir la turbulencia."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 106,
+      "question": "Un paciente es diagnosticado con frostbite severo en las extremidades distales con isquemia clínicamente evidente después del recalentamiento inicial. La angiografía diagnóstica revela defectos de perfusión distal que persisten tras un desafío vasodilatador. ¿Cuál es la intervención terapéutica más adecuada en este escenario?",
+      "options": {
+        "A": "Amputación digital inmediata debido a la necrosis tisular irreversible.",
+        "B": "Observación y manejo conservador con elevación de la extremidad y analgésicos.",
+        "C": "Trombolisis intraarterial dirigida por catéter con activador tisular del plasminógeno recombinante, iniciada tempranamente en el curso hospitalario.",
+        "D": "Fasciotomía de emergencia para prevenir el síndrome compartimental y mejorar el flujo sanguíneo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 107,
+      "question": "En el contexto de lesiones traumáticas complejas con compromiso vascular, ¿cuál de las siguientes condiciones predice una función más pobre de la extremidad superior a largo plazo, independientemente de la patencia del injerto?",
+      "options": {
+        "A": "Edad avanzada del paciente.",
+        "B": "Mecanismo de trauma penetrante.",
+        "C": "Tiempo de isquemia prolongado y neuropatía.",
+        "D": "Localización distal de la lesión arterial (radial/cubital)."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 108,
+      "question": "Un cirujano vascular está planeando una reconstrucción arterial compleja en un paciente con trauma. ¿Cuál de los siguientes principios de manejo quirúrgico abierto es fundamental para el éxito de la operación?",
+      "options": {
+        "A": "Priorizar la reparación con anastomosis término-terminal en todos los casos para minimizar el uso de injertos.",
+        "B": "Utilizar únicamente exposiciones transversales o limitadas para reducir el tamaño de la incisión.",
+        "C": "Establecer un control vascular proximal y distal expedito y restaurar el flujo en línea a un lecho de salida adecuado, utilizando exposiciones anatómicas longitudinales o extensivas.",
+        "D": "Evitar la anticoagulación local con heparina en pacientes con múltiples lesiones, incluso si la anticoagulación sistémica está contraindicada."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 109,
+      "question": "Las lesiones arteriales por trauma contuso, en comparación con las lesiones por trauma penetrante, tienen algunas características distintivas. ¿Cuál de las siguientes afirmaciones es CORRECTA?",
+      "options": {
+        "A": "Las lesiones arteriales de la extremidad superior ocurren con menos frecuencia en trauma contuso que en trauma penetrante.",
+        "B": "Las lesiones arteriales por trauma contuso se acompañan con mayor frecuencia de lesiones no vasculares en la extremidad y lesiones concomitantes no extremidades.",
+        "C": "En la extremidad inferior, el trauma contuso lesiona más frecuentemente la arteria femoral superficial (SFA).",
+        "D": "Las lesiones por trauma contuso en la extremidad superior tienen mayores tasas de amputación que las de la extremidad inferior."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 110,
+      "question": "Un paciente presenta una lesión penetrante en la ingle. Aunque no hay un déficit de pulso distal obvio, se observa un hematoma en expansión en el muslo. ¿Qué tipo de lesión arterial debe sospecharse y qué modalidad diagnóstica se recomienda con un umbral bajo?",
+      "options": {
+        "A": "Lesión de la arteria femoral común (CFA), con un alto umbral para la arteriografía convencional.",
+        "B": "Lesión de la arteria femoral superficial (SFA), con un umbral bajo para el examen Doppler.",
+        "C": "Lesión de la arteria femoral profunda (PFA), que puede no producir perfusión distal disminuida pero sí un hematoma en expansión o pseudoaneurisma oculto, requiriendo un umbral bajo para CTA.",
+        "D": "Pseudoaneurisma de una rama tibial, que se diagnostica mejor con ultrasonido en el punto de atención."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 111,
+      "question": "En el contexto de una lesión vascular traumática de la extremidad, ¿cuál es el objetivo principal del salvamento vascular de la extremidad después de una lesión arterial, asumiendo que la reconstrucción vascular no amenaza la vida del paciente?",
+      "options": {
+        "A": "La preservación de la función neurológica a largo plazo, incluso si esto retrasa la restauración de la perfusión.",
+        "B": "La restauración de la perfusión para prevenir la pérdida temprana de la extremidad.",
+        "C": "La reconstrucción de todos los vasos lesionados, incluyendo las venas, para evitar el edema.",
+        "D": "La amputación primaria en la mayoría de los casos para prevenir complicaciones."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 112,
+      "question": "En el manejo endovascular de lesiones arteriales traumáticas, ¿en qué situaciones es más apropiada esta terapia y qué consideraciones se deben tener?",
+      "options": {
+        "A": "Es ideal para lesiones en vasos pequeños como la poplítea y la braquial, con resultados a largo plazo bien documentados.",
+        "B": "Es más apropiada cuando la morbilidad entre los procedimientos abiertos y endovasculares es mayor, como en lesiones de vasos junctional (subclavia, axilar, ilíaca).",
+        "C": "La terapia endovascular no requiere terapia antiplaquetaria o anticoagulación terapéutica después del procedimiento.",
+        "D": "Los resultados endovasculares son predeciblemente mejores en vasos pequeños que en vasos grandes."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 113,
+      "question": "Un paciente sufre una lesión arterial que requiere reconstrucción. Se está considerando el tipo de conducto. ¿Cuál es el conducto preferido para la reparación en heridas traumáticas abiertas y contaminadas, y por qué?",
+      "options": {
+        "A": "Injertos de PTFE (politetrafluoroetileno), debido a su fácil disponibilidad y baja tasa de infección en ambientes contaminados.",
+        "B": "Vena safena autóloga, porque las infecciones que involucran injertos protésicos son difíciles de manejar y resultan en altas tasas de explantación y amputación.",
+        "C": "Arteria carótida bovina, debido a su resistencia y durabilidad a largo plazo.",
+        "D": "Injertos bioingenierizados, que han demostrado resultados superiores en grandes series."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 114,
+      "question": "Con respecto a las 'señales duras' y 'señales blandas' de lesión vascular, ¿cuál es la implicación clínica actual de su uso en el diagnóstico de trauma en extremidades?",
+      "options": {
+        "A": "Las 'señales duras' siempre mandan una exploración operativa inmediata, mientras que las 'señales blandas' sugieren una evaluación imaginológica con arteriografía convencional.",
+        "B": "Ambos conjuntos de señales han sido validados consistentemente tanto en trauma contuso como penetrante y con el uso rutinario de la CTA.",
+        "C": "Las 'señales duras y blandas' fueron desarrolladas hace más de 30 años para trauma penetrante y su utilidad clínica es limitada hoy en día, ya que no caracterizan adecuadamente la presentación de la extremidad, y la CTA es la modalidad preferida.",
+        "D": "La presencia de cualquier 'señal blanda' descarta una lesión arterial significativa y permite el manejo conservador."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 115,
+      "question": "Un paciente con una fractura conminuta de fémur y una lesión vascular asociada presenta signos de isquemia. ¿Cuál es una de las opciones de shunts vasculares temporales disponibles y una característica distintiva que lo hace adecuado para movimientos de la extremidad?",
+      "options": {
+        "A": "El dispositivo Argyle, que es un tubo rígido simple y debe permanecer completamente dentro del vaso, no siendo ideal para movimientos de la extremidad.",
+        "B": "Tubos de alimentación pediátricos, que ofrecen un diámetro luminal óptimo para el flujo a largo plazo.",
+        "C": "El dispositivo Sundt, un tubo de silicona flexible y reforzado con extremos acampanados que puede ser enlazado externamente para permitir un movimiento seguro del paciente y la extremidad.",
+        "D": "Cualquier tubo flexible con un lumen puede ser usado, sin necesidad de asegurar los extremos, siempre que el diámetro sea adecuado."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 116,
+      "question": "En el tratamiento de lesiones arteriales de la arteria axilar, especialmente aquellas en la porción proximal del vaso cerca de la salida torácica, en pacientes hemodinámicamente estables, ¿cuál es una opción terapéutica moderna que puede ser considerada?",
+      "options": {
+        "A": "Laringotraqueotomía de emergencia para asegurar la vía aérea antes de la exploración quirúrgica.",
+        "B": "Ligadura arterial primaria para control de hemorragia, seguida de revascularización tardía.",
+        "C": "Tratamiento con stent-graft si la lesión puede ser atravesada de forma segura con un alambre, realizado por abordaje femoral o braquial ipsilateral.",
+        "D": "Debridamiento y cierre primario de la arteria, sin necesidad de injerto de interposición debido a la alta movilidad del vaso."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 117,
+      "question": "La mortalidad por exanguinación en lesiones arteriales de la extremidad es rara, ocurriendo alrededor del 2% de los casos. ¿En qué tipo de mecanismo y localización de lesión es más probable que la mortalidad se atribuya a la lesión vascular misma?",
+      "options": {
+        "A": "Lesiones por trauma contuso en las arterias tibiales distales.",
+        "B": "Lesiones por trauma penetrante en los vasos proximales de la extremidad inferior.",
+        "C": "Lesiones por trauma contuso en la arteria braquial.",
+        "D": "Lesiones por trauma penetrante en las arterias radial y cubital."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 118,
+      "question": "En un paciente con múltiples lesiones tibiales arteriales y una extremidad clínicamente isquémica, se decide la reconstrucción. ¿Cuál de las siguientes afirmaciones es la más adecuada para este escenario?",
+      "options": {
+        "A": "La ligadura de uno o incluso dos vasos tibiales no tiene impacto significativo en las tasas de amputación.",
+        "B": "La reconstrucción de al menos un vaso tibial debe realizarse en casos de lesiones múltiples o isquemia clínica.",
+        "C": "Las exposiciones de las fasciotomías de la pantorrilla no pueden ser utilizadas para acceder a los vasos tibiales.",
+        "D": "Las derivaciones tibio-tibiales son comunes y el origen del flujo (inflow) es siempre de la arteria femoral superficial."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 119,
+      "question": "Un paciente presenta una lesión de la arteria braquial asociada con una fractura de húmero y una dislocación de codo. ¿Cuál es la característica distintiva de la reparación quirúrgica de la arteria braquial?",
+      "options": {
+        "A": "Debido a su curso tortuoso, la arteria braquial casi siempre requiere un injerto de interposición.",
+        "B": "La arteria braquial puede movilizarse extensamente y repararse con una anastomosis término-terminal en hasta el 50% de los casos.",
+        "C": "La ligadura de la arteria braquial es una opción segura si las arterias colaterales están intactas.",
+        "D": "Las lesiones de la arteria braquial son raramente asociadas con síndrome compartimental, incluso si son proximales al codo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 120,
+      "question": "Las lesiones arteriales de las extremidades son responsables de una parte desproporcionadamente alta de morbilidad, mortalidad y utilización de recursos. ¿Qué porcentaje de todas las lesiones vasculares representan los vasos principales de las extremidades?",
+      "options": {
+        "A": "Menos del 10%.",
+        "B": "20% a 50%.",
+        "C": "50% a 70%.",
+        "D": "Más del 75%."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 121,
+      "question": "Un hombre de 45 años se presenta con una lesión penetrante en la Zona I del cuello, manifestándose con hipotensión refractaria y sangrado pulsátil. La evaluación inicial sugiere un compromiso vascular significativo. ¿Cuál de las siguientes es la aproximación quirúrgica inicial más apropiada para obtener el control vascular proximal en este paciente?",
+      "options": {
+        "A": "Incisión cervical con visualización directa y pinzamiento del vaso lesionado.",
+        "B": "Esternotomía media para obtener control proximal de los grandes vasos.",
+        "C": "Abordaje femoral para oclusión con balón de los grandes vasos en el quirófano.",
+        "D": "Toracotomía anterolateral alta para control proximal de la arteria subclavia."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 122,
+      "question": "Un paciente traumatizado de 30 años es sospechoso de sufrir una Lesión Cerebrovascular Cerrada (BCVI) basándose en los criterios de cribado. La institución utiliza tecnología de imagen avanzada. ¿Qué modalidad diagnóstica se considera actualmente el \"estándar de oro\" para la evaluación de BCVI, particularmente con equipos modernos?",
+      "options": {
+        "A": "Angiografía por sustracción digital (DSA) debido a su papel histórico y visualización luminal detallada.",
+        "B": "Ecografía dúplex por su no invasividad y capacidades de evaluación en tiempo real.",
+        "C": "Angiografía por resonancia magnética (ARM) dada su excelente resolución de tejidos blandos y ausencia de radiación ionizante.",
+        "D": "Angiografía por tomografía computarizada (Angio-TC) utilizando un escáner de 16 cortes o superior, debido a su velocidad, no invasividad y capacidades de imagen 3D."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 123,
+      "question": "Un paciente presenta una lesión carotídea penetrante complicada con un ictus hemisférico denso y trombosis carotídea documentada en la imagen inicial. ¿Cuál es el pilar actual de la filosofía de tratamiento para este patrón específico de lesión?",
+      "options": {
+        "A": "Ligadura rutinaria de la arteria carótida interna distal al trombo, basada en preocupaciones históricas de ictus hemorrágico después de la revascularización.",
+        "B": "Revascularización temprana para mejorar o estabilizar los síntomas neurológicos, incluso en pacientes obnubilados.",
+        "C": "Observación y manejo médico con control estricto de la presión arterial para prevenir la lesión por reperfusión.",
+        "D": "Embolización endovascular inmediata del segmento trombosado para prevenir nuevos eventos embólicos."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 124,
+      "question": "Respecto a las lesiones cerradas de la arteria vertebral, ¿qué afirmación refleja con precisión la relación entre el grado de lesión y el riesgo de ictus según la escala de clasificación proporcionada?",
+      "options": {
+        "A": "El riesgo de ictus se correlaciona directamente con el aumento del grado de lesión, similar a las lesiones carotídeas cerradas.",
+        "B": "El riesgo de ictus es aproximadamente del 20% independientemente del grado de lesión.",
+        "C": "Las lesiones de Grado I tienen un riesgo de ictus del 0%, mientras que las lesiones de Grado V conllevan un riesgo de ictus del 100%.",
+        "D": "Las lesiones cerradas de la arteria vertebral no tienen una escala de clasificación específica, y el riesgo de ictus es muy variable."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 125,
+      "question": "Un paciente hemodinámicamente estable presenta una transección cerrada de la arteria subclavia tras un accidente de motocicleta de alta velocidad, complicada por un gran hematoma supraclavicular con compresión del plexo braquial. ¿Qué afirmación describe mejor el papel del tratamiento endovascular en este escenario específico?",
+      "options": {
+        "A": "La reparación endovascular está contraindicada debido al gran hematoma y la compresión del plexo braquial.",
+        "B": "La reparación endovascular ofrece beneficios al evitar la lesión nerviosa, y el hematoma puede ser evacuado después de la colocación del stent en un campo controlado.",
+        "C": "La reparación quirúrgica abierta es obligatoria debido a la naturaleza extensa de la lesión y la compresión nerviosa asociada.",
+        "D": "La observación médica es el tratamiento principal, ya que las transecciones de la arteria subclavia rara vez causan morbilidad a largo plazo."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 126,
+      "question": "Un paciente se somete a una reparación quirúrgica por una lesión penetrante en la arteria carótida común. Durante el procedimiento, también se identifica una lesión significativa del tracto aerodigestivo, lo que resulta en un campo quirúrgico claramente contaminado. ¿Qué material de injerto es el más apropiado para la reconstrucción arterial en este contexto?",
+      "options": {
+        "A": "Politetrafluoroetileno (PTFE) porque ofrece un buen ajuste de tamaño y altas tasas de permeabilidad en la arteria carótida común.",
+        "B": "Injerto de Dacron debido a su resistencia y capacidad para resistir infecciones en campos contaminados.",
+        "C": "Vena safena mayor (VSM) debido a su naturaleza autógena y riesgo infeccioso limitado en lesiones aerodigestivas asociadas.",
+        "D": "Arteria femoral superficial (AFS), ya que proporciona un mejor ajuste de tamaño que la VSM en la arteria carótida común sin reconstrucción adicional."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 127,
+      "question": "Un paciente diagnosticado con una disección carotídea cerrada Grado II está siendo considerado para manejo médico. Múltiples estudios han comparado la terapia anticoagulante (heparina con transición a cumadina) con la terapia antiplaquetaria (aspirina o clopidogrel). ¿Cuál es el consenso actual con respecto a su eficacia en la prevención del ictus?",
+      "options": {
+        "A": "La anticoagulación (heparina a cumadina) ha demostrado consistentemente ser superior a la terapia antiplaquetaria en la reducción de las tasas de ictus.",
+        "B": "La terapia antiplaquetaria ha demostrado una eficacia superior en comparación con la anticoagulación, especialmente considerando las complicaciones hemorrágicas.",
+        "C": "Los estudios de seguimiento no han logrado confirmar el hallazgo inicial de superioridad de la anticoagulación, sugiriendo tasas de ictus similares para ambas terapias.",
+        "D": "No existen estudios comparativos prospectivos, lo que imposibilita recomendar uno sobre el otro de forma definitiva."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 128,
+      "question": "Durante la exploración quirúrgica por una lesión penetrante de la arteria vertebral, el cirujano necesita obtener control del segmento V2. ¿Cuál de las siguientes describe la estrategia quirúrgica más común y a menudo apropiada para manejar la hemorragia de este segmento?",
+      "options": {
+        "A": "Apertura longitudinal del ligamento longitudinal anterior y los músculos paravertebrales para visualizar y reparar directamente el segmento V2.",
+        "B": "Reparación primaria del segmento V2 debido a su contribución crítica a la circulación posterior.",
+        "C": "Ligadura del segmento V1 proximal, empaquetamiento de cera ósea en el canal óseo y consideración de embolización endoluminal postoperatoria del V2 distal.",
+        "D": "Extensión de la incisión posteriormente detrás de la oreja hasta el proceso mastoideo para exponer y ligar el segmento V3, lo que proporciona un mejor acceso."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 129,
+      "question": "Un paciente sufre un traumatismo penetrante grave en el cuello, que requiere una exploración quirúrgica de emergencia donde se encuentra una lesión significativa de la vena yugular interna (VYI). Debido a la extremidad del paciente y la complejidad de la lesión, se realiza la ligadura de la VYI. ¿Qué complicación postoperatoria debe monitorear principalmente el cirujano?",
+      "options": {
+        "A": "Estasis venosa a largo plazo y edema de la extremidad superior.",
+        "B": "Alto riesgo de edema cerebral, especialmente si se realiza una ligadura bilateral.",
+        "C": "Aumento del riesgo de formación tardía de fístula carotídeo-cavernosa.",
+        "D": "Desarrollo de síndrome de respuesta inflamatoria sistémica grave."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 130,
+      "question": "La escala de clasificación angiográfica de Denver para BCVI (Tabla 180.2) se ha convertido en un estándar. ¿Cuál es su valor pronóstico más importante para los pacientes?",
+      "options": {
+        "A": "Dicta la necesidad inmediata de intervención quirúrgica frente a endovascular.",
+        "B": "Predice con precisión el tiempo hasta la aparición de los síntomas después de la lesión.",
+        "C": "Tiene valor pronóstico para el riesgo futuro del paciente de sufrir un ictus posterior.",
+        "D": "Determina la duración óptima de la terapia antitrombótica."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 131,
+      "question": "Un paciente se presenta en el servicio de urgencias tras una lesión penetrante en el cuello. Tras el examen físico, ¿cuál de los siguientes hallazgos se considera un \"signo duro\" de lesión vascular, que exige exploración quirúrgica?",
+      "options": {
+        "A": "Antecedentes de sangrado en el lugar de la lesión.",
+        "B": "Hematoma estable en el cuello.",
+        "C": "Medidas desiguales de la presión arterial en las extremidades superiores.",
+        "D": "Sangrado pulsátil de la herida."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 132,
+      "question": "Un paciente requiere reparación quirúrgica abierta por una lesión de la arteria subclavia izquierda. ¿Qué abordaje se requiere típicamente para obtener el control proximal de este vaso?",
+      "options": {
+        "A": "Esternotomía media.",
+        "B": "Toracotomía anterolateral alta izquierda con posible resección clavicular.",
+        "C": "Incisión supraclavicular que se extiende hasta la escotadura esternal.",
+        "D": "Abordaje transfemoral para oclusión remota con balón como método principal."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 133,
+      "question": "Entre los criterios de cribado establecidos para la lesión cerebrovascular cerrada (BCVI), ¿qué factor se asocia de forma independiente con las lesiones cerradas de la arteria vertebral con la razón de probabilidades más alta?",
+      "options": {
+        "A": "Patrón de fractura Le Fort II o III.",
+        "B": "Fractura de la base del cráneo con afectación del canal carotídeo.",
+        "C": "Fractura de la columna cervical.",
+        "D": "Puntuación de la Escala de Coma de Glasgow (GCS) <6 con lesión axonal difusa."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 134,
+      "question": "Un paciente hemodinámicamente estable presenta una lesión penetrante en el cuello confinada a la Zona II, sin signos duros de lesión vascular o aerodigestiva. ¿Cuál de las siguientes estrategias de manejo es la más apropiada según el \"algoritmo de lesión penetrante de cuello del HMC\" y la guía textual?",
+      "options": {
+        "A": "Se exige una exploración quirúrgica inmediata debido a la alta probabilidad de lesión oculta en la Zona II.",
+        "B": "La angiotomografía computarizada (Angio-TC) del cuello debe ser el paso diagnóstico inicial.",
+        "C": "La ecografía dúplex es la modalidad de imagen inicial preferida para las lesiones de la Zona II.",
+        "D": "La observación con exámenes físicos seriados es suficiente dada la ausencia de signos duros."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 135,
+      "question": "A un paciente se le ha diagnosticado una lesión cerrada de la arteria carótida de Grado III (pseudoaneurisma). Está bajo manejo médico y se le programan imágenes de seguimiento a los 3 meses. Basándose en la historia natural descrita en la fuente, ¿cuál es el resultado más probable para esta lesión a los 3 meses de seguimiento?",
+      "options": {
+        "A": "Curación completa en aproximadamente el 72% de los casos.",
+        "B": "Mejora a un grado inferior o apariencia estable en proporciones iguales.",
+        "C": "La lesión lo más probable es que permanezca inalterada o aumente de tamaño.",
+        "D": "Progresión universal a la oclusión completa del vaso."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 136,
+      "question": "Un paciente con un pseudoaneurisma carotídeo cerrado de Grado III está siendo sometido a colocación de stent endovascular después de que el manejo médico fallara. Basándose en la experiencia reportada en la fuente, ¿cuál es una preocupación significativa con respecto a los resultados a largo plazo y las posibles complicaciones de la colocación de stent carotídeo para BCVI?",
+      "options": {
+        "A": "Una tasa consistentemente alta de reestenosis que requiere reintervención.",
+        "B": "Complicaciones a largo plazo mínimas con la colocación de stent.",
+        "C": "Una tasa alta documentada de oclusión de la arteria carótida durante el seguimiento, particularmente de algunas series tempranas.",
+        "D": "Riesgo predominante de ictus hemorrágico inmediatamente después del procedimiento."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 137,
+      "question": "Las lesiones vasculares cervicales son conocidas por su dificultad de evaluación y manejo. ¿Cuál de los siguientes factores contribuye más significativamente a la evaluación inicial oscurecida de estos pacientes?",
+      "options": {
+        "A": "El espacio anatómico relativamente amplio y superficial, lo que hace que las lesiones sean visualmente sutiles.",
+        "B": "La frecuente ausencia de signos de isquemia cerebral, déficits de nervios craneales o compresión de nervios cervicales en la evaluación inicial.",
+        "C": "Falta de tecnologías avanzadas de imagen no invasiva para una evaluación rápida.",
+        "D": "Uniformidad en la presentación, lo que lleva a una falsa sensación de seguridad durante la evaluación inicial."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 138,
+      "question": "Para las lesiones penetrantes de la arteria carótida interna, ¿cuándo debe considerarse la ligadura como una opción de manejo principal?",
+      "options": {
+        "A": "Cuando la lesión es una laceración de base limpia por una herida por arma blanca.",
+        "B": "Cuando la lesión es causada por una herida por arma de fuego que requiere un desbridamiento extenso.",
+        "C": "Solo para lesiones en la base del cráneo que no son susceptibles de reconstrucción.",
+        "D": "En todos los casos en los que no se pueda colocar un shunt fácilmente, para prevenir una mayor pérdida de sangre."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 139,
+      "question": "Un paciente sufre una lesión penetrante en la vena subclavia, con una laceración simple que afecta menos del 50% de la pared del vaso. ¿Qué técnica de reparación quirúrgica es la más apropiada para este tipo de lesión?",
+      "options": {
+        "A": "Ligadura de la vena subclavia, seguida de elevación y compresión de la extremidad superior.",
+        "B": "Reparación venosa extensa mediante anastomosis término-terminal o injerto de interposición.",
+        "C": "Venorrafia lateral.",
+        "D": "Colocación inmediata de stent endovascular con injerto cubierto."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 140,
+      "question": "Un paciente joven presenta una lesión carotídea cerrada después de un accidente automovilístico a alta velocidad. ¿Cuál es el mecanismo más común que causa una lesión carotídea cerrada en este tipo de escenario?",
+      "options": {
+        "A": "Un golpe directo al vaso, típicamente por un cinturón de seguridad mal colocado.",
+        "B": "Fracturas de la base del cráneo que involucran las porciones petrosa o esfenoidal del canal carotídeo.",
+        "C": "Hiperextensión extrema de los vasos carotídeos sobre los procesos articulares laterales de C1-3 en la base del cráneo.",
+        "D": "Giro rápido de la cabeza durante el ejercicio, lo que lleva a la laceración del vaso."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 141,
+      "question": "A un paciente asintomático se le diagnostica una lesión cerrada de la arteria vertebral durante un estudio de trauma. ¿Cuál es la estrategia de tratamiento médico recomendada para este paciente, según la evidencia actual?",
+      "options": {
+        "A": "No es necesario ningún tratamiento para las lesiones unilaterales asintomáticas de la arteria vertebral debido a la rica circulación colateral.",
+        "B": "Exploración quirúrgica inmediata y reparación o ligadura del segmento lesionado.",
+        "C": "Tratamiento con anticoagulación o terapia antiplaquetaria dual durante 3 a 6 meses, ya que los datos son insuficientes para recomendar uno sobre el otro.",
+        "D": "Terapia antiplaquetaria a largo plazo (aspirina de por vida) sin seguimiento radiográfico."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 142,
+      "question": "Los abordajes endoluminales ofrecen beneficios para tratar ciertas lesiones del cuello. ¿Para qué zona específica de lesión cervical penetrante no es generalmente el abordaje endovascular el preferido, favoreciendo en su lugar la reparación quirúrgica?",
+      "options": {
+        "A": "Lesiones de la Zona I, debido a la dificultad de obtener control proximal.",
+        "B": "Lesiones de la Zona II, particularmente en situaciones de emergencia, donde se favorece la reparación quirúrgica y el examen del tracto aerodigestivo.",
+        "C": "Lesiones de la Zona III, donde el control distal es difícil de obtener quirúrgicamente.",
+        "D": "Cualquier zona con un pseudoaneurisma susceptible de exclusión con stent."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 143,
+      "question": "La angiotomografía computarizada (Angio-TC) es la herramienta moderna fundamental para evaluar las lesiones penetrantes del cuello en pacientes estables. Sin embargo, ¿en qué circunstancia específica podría estar limitada la Angio-TC, haciendo necesario el uso de la arteriografía como estudio confirmatorio?",
+      "options": {
+        "A": "Cuando se sospecha que la lesión afecta el tracto aerodigestivo.",
+        "B": "En presencia de fracturas espinales asociadas o afectación medular.",
+        "C": "Si fragmentos de misiles (especialmente en lesiones por escopeta) o fragmentos óseos oscurecen la vasculatura cervical.",
+        "D": "Al evaluar la extensión de la lesión hacia la cabeza o el tórax."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 144,
+      "question": "La angiografía por resonancia magnética (ARM) es una modalidad no invasiva atractiva para la imagen vascular. Sin embargo, ¿cuáles son las principales limitaciones que la hacen poco práctica en la evaluación inicial de un paciente traumatizado con sospecha de BCVI?",
+      "options": {
+        "A": "Alto costo y falta de disponibilidad en la mayoría de los centros de trauma.",
+        "B": "Resolución de imagen inferior en comparación con la Angio-TC, especialmente para pequeñas desgarros intimales.",
+        "C": "Disponibilidad y el tiempo requerido para la adquisición de imágenes, especialmente con múltiples lesiones concurrentes.",
+        "D": "Alta tasa de falsos positivos para identificar lesiones de Grado I."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 145,
+      "question": "En el caso de lesiones de la arteria subclavia, ¿cuál constituye la principal morbilidad a largo plazo, considerando que la isquemia de la extremidad superior es rara debido a la circulación colateral?",
+      "options": {
+        "A": "Dolor y rigidez persistentes en la articulación del hombro.",
+        "B": "Secuelas a largo plazo de las lesiones del plexo braquial.",
+        "C": "Insuficiencia venosa crónica en la extremidad superior afectada.",
+        "D": "Formación recurrente de pseudoaneurismas que requieren intervenciones repetidas."
+      },
+      "correct": "B"
+    },
+    {
+      "id": 146,
+      "question": "Una evaluación clínica enfocada y detallada es crucial para los pacientes con lesiones penetrantes del cuello. ¿Cuál es el valor predictivo negativo de un examen físico con hallazgos normales para las lesiones vasculares, según las fuentes?",
+      "options": {
+        "A": "Menos del 50%, lo que indica una alta incertidumbre.",
+        "B": "Aproximadamente el 75%, lo que sugiere que siempre se necesitan más imágenes.",
+        "C": "90% a 100%, identificando de manera confiable a los pacientes sin lesiones vasculares que requieren tratamiento.",
+        "D": "Variable, dependiendo de la zona de la lesión y el mecanismo."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 147,
+      "question": "Cuando se inicia la terapia de anticoagulación completa para BCVI en la población traumatizada, ¿cuál es la complicación más preocupante, según lo destacado en la fuente?",
+      "options": {
+        "A": "Hemorragias gastrointestinales.",
+        "B": "Hemorragia retroperitoneal.",
+        "C": "Hemorragia intracraneal.",
+        "D": "Resangrado de heridas quirúrgicas."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 148,
+      "question": "Un paciente presenta una lesión penetrante en el cuello, shock refractario y signos duros de lesión vascular. Se sospecha una lesión de la arteria vertebral. ¿Cómo debe realizarse típicamente el diagnóstico de esta lesión en un paciente tan inestable?",
+      "options": {
+        "A": "Mediante Angio-TC urgente del cuello, la cabeza y el tórax.",
+        "B": "Principalmente mediante angiografía por sustracción digital (DSA) en la sala de angiografía.",
+        "C": "La lesión debe diagnosticarse directamente en el quirófano durante la exploración inmediata.",
+        "D": "Mediante ecografía dúplex, si el segmento V1 es accesible."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 149,
+      "question": "Durante la evaluación de una lesión cervical penetrante, se encuentra en un paciente estable un pequeño pseudoaneurisma aislado (una lesión oculta). ¿Cómo debe manejarse típicamente esta lesión específica según la fuente?",
+      "options": {
+        "A": "Intervención quirúrgica inmediata debido al alto riesgo de ruptura.",
+        "B": "Considerado para una intervención temprana independientemente del tamaño, debido al alto riesgo de eventos embólicos.",
+        "C": "Tratado con terapia antitrombótica e imágenes de seguimiento tempranas.",
+        "D": "Manejado con exclusión endovascular mediante un stent cubierto, que es el enfoque preferido para los pseudoaneurismas."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 150,
+      "question": "En 2009, una institución inició un programa de cribado y diagnóstico basado en Angio-TC para BCVI, junto con directrices de tratamiento estandarizadas interdisciplinarias. ¿Cuál fue el impacto observado de este programa en los resultados de los pacientes?",
+      "options": {
+        "A": "Un aumento significativo en la incidencia de BCVI debido al exceso de cribado, sin cambios en las tasas de ictus.",
+        "B": "Una reducción de 12 veces en el tiempo hasta el diagnóstico de BCVI y una reducción de 4 veces en la tasa institucional de ictus debido a BCVI.",
+        "C": "Ningún cambio significativo en el tiempo de diagnóstico o las tasas de ictus, pero una reducción en el costo general del cribado.",
+        "D": "Un aumento en las tasas de intervención quirúrgica debido a la detección temprana de lesiones."
+      },
+      "correct": "B"
+    }
+  ]
+}

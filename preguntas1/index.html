@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Test Interactivo Completo con Historial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: auto;
+    padding: 1em;
+    background-color: #f9f9f9;
+    color: #222;
+  }
+  h1 {
+  font-family: 'Montserrat', sans-serif; /* Ya lo pusimos, pero lo repetimos para asegurar */
+  font-size: 2.5em; /* Un poco más grande */
+  font-weight: 700; /* El grosor que importamos de Google Fonts */
+  text-transform: uppercase; /* Pone el texto en mayúsculas */
+  letter-spacing: 1.5px; /* Añade un poco de aire entre las letras */
+  
+  /* Efecto de gradiente para el color del texto */
+  background: linear-gradient(45deg, #004080, #0059b3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  padding-bottom: 10px; /* Espacio para la línea inferior */
+  border-bottom: 2px solid #004080; /* Una línea divisoria elegante */
+  margin-bottom: 1em;
+  }
+  h2 {
+  font-family: 'Montserrat', sans-serif; /* <-- AÑADE ESTO */
+  text-align: center;
+  color: #004080;
+  }
+  button {
+    font-size: 1.1em;
+    padding: 0.6em;
+    margin-bottom: 0.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  button:hover:not(:disabled) {
+    background-color: #0059b3;
+    color: white;
+  }
+  .options button {
+    width: 100%;
+    text-align: left;
+  }
+  #quiz-container, #summary-container, #main-menu, #history-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1em 1.5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2em;
+  }
+  #temas-lista {
+    margin-top: 1em;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+  }
+  .correct {
+    background-color: #4caf50; 
+    color: white;
+  }
+  .incorrect {
+    background-color: #f44336; 
+    color: white;
+  }
+  nav {
+    margin-top: 1em;
+  }
+  @media (max-width: 480px) {
+    body {
+      padding: 0.5em;
+    }
+    button {
+      font-size: 1em;
+      padding: 0.8em;
+    }
+    h1 {
+      font-size: 1.5em;
+    }
+  }
+
+  /* Efecto visual inmediato al tocar un botón */
+  button:active {
+    transform: scale(0.98); /* Ligeramente más pequeño al presionarlo */
+    opacity: 0.9;         /* Un poco más transparente */
+  }
+
+  /* Aumentar el tamaño de los elementos de la lista de temas para que sean más fáciles de tocar */
+  #temas-lista div {
+    padding: 0.5em 0; /* Añade más espacio vertical a cada tema */
+    font-size: 1.1em; /* Texto un poco más grande */
+  }
+
+  /* Hacer que las etiquetas de los checkboxes también sean clickables, aumentando el área táctil */
+  #temas-lista label {
+    cursor: pointer;
+    display: inline-block; /* Permite que la etiqueta ocupe más espacio */
+    padding: 5px;
+  }
+  
+  /* Transiciones suaves entre contenedores */
+  #quiz-container, #summary-container, #main-menu, #history-container {
+    /* ... tu CSS existente ... */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  /* Clase para ocultar los contenedores con una animación */
+  .hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none; /* Evita interacciones con elementos ocultos */
+    position: absolute; /* Evita que ocupe espacio cuando está oculto */
+  }
+
+  /* Animación de "shake" para respuestas incorrectas */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .incorrect {
+    background-color: #f44336; 
+    color: white;
+    animation: shake 0.3s; /* Aplicar la animación */
+  }
+  /* --- ESTILOS PARA EL NUEVO SELECTOR DE PREGUNTAS --- */
+.questions-selector-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Para que se ajuste bien en pantallas pequeñas */
+  margin-bottom: 1em;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+
+.questions-selector-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.preset-buttons button {
+  margin-right: 5px;
+  background-color: #e9ecef;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.preset-buttons button.selected {
+  background-color: #004080; /* Color principal de la app */
+  color: white;
+  border-color: #004080;
+}
+
+#total-questions-input {
+    font-size: 1em;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 70px;
+}
+/* --- ESTILOS PARA EL NUEVO CARGADOR DE ARCHIVOS --- */
+.file-uploader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+  background-color: #004080; /* Color principal */
+  color: white;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0; /* Evita que el botón se encoja */
+}
+
+.custom-file-upload:hover {
+  background-color: #0059b3; /* Un tono más oscuro al pasar el ratón */
+}
+
+.file-names-display {
+  margin-left: 15px;
+  font-style: italic;
+  color: #555;
+  /* Para manejar textos largos */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* --- ESTILOS PARA LA EXPLICACIÓN CON IA --- */
+#explain-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+#explain-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+.explanation-box {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #f0f8ff; /* Un azul claro */
+  border-left: 5px solid #007bff;
+  border-radius: 5px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Spinner de carga */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 4px solid #007bff;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 1em auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+/* --- ESTILOS PARA LAS NOTAS PERSONALES --- */
+.notes-textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  box-sizing: border-box; /* Asegura que el padding no afecte al ancho total */
+}
+
+.save-note-button {
+  background-color: #28a745; /* Un verde para guardar */
+  color: white;
+  margin-top: 0.5em;
+  float: right; /* Alinea el botón a la derecha */
+}
+
+.save-note-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+/* --- ESTILOS PARA LA SECCIÓN DE NOTAS DESPLEGABLE --- */
+.toggle-notes-button {
+  width: 100%;
+  background-color: #f0f0f0; /* Un color neutro */
+  color: #333;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.toggle-notes-button:hover {
+  background-color: #e9e9e9;
+  color: #000;
+}
+
+/* El contenedor del contenido que se oculta/muestra */
+.notes-content {
+  overflow: hidden; /* Muy importante para la animación */
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+  max-height: 200px; /* Altura máxima que puede tener cuando está abierto */
+  opacity: 1;
+}
+
+/* El estado "colapsado" o cerrado */
+.notes-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+  /* Eliminamos el padding para que no ocupe espacio al cerrarse */
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+}
+/* --- ESTILOS PARA LA LISTA DE PREGUNTAS DEL RESUMEN --- */
+
+/* Estilo para el texto de la pregunta: más grande y en negrita */
+.summary-question {
+  font-size: 1.2em; /* Un 20% más grande que el texto normal */
+  font-weight: bold;
+  color: #004080; /* Color principal de la app */
+  margin-bottom: 0.5em;
+}
+
+/* Estilo base para ambas respuestas: un poco más pequeñas y con sangría */
+.summary-answer {
+  font-size: 0.95em; /* Ligeramente más pequeño */
+  padding-left: 1em; /* Añade una sangría para separarlas de la pregunta */
+  margin: 0.2em 0; /* Menos espacio vertical entre ellas */
+  border-left: 3px solid #ccc; /* Una línea vertical para agruparlas */
+}
+
+/* Colores específicos para la respuesta del usuario (rojo) y la correcta (verde) */
+.user-answer {
+  border-left-color: #f44336;
+}
+.user-answer::before {
+  content: '❌ ';
+}
+
+.correct-answer {
+  border-left-color: #4caf50;
+  font-weight: bold;
+}
+.correct-answer::before {
+  content: '✔️ ';
+}
+/* --- ESTILOS PARA BOTONES DE ACCIÓN DEL MENÚ --- */
+
+/* Estilo para el botón principal: grande, llamativo y a todo lo ancho */
+#start-test-btn {
+  width: 100%;
+  background-color: #004080; /* Color principal de la app */
+  color: white;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding: 1em;
+  margin-bottom: 1em; /* Más espacio debajo */
+}
+#start-test-btn:hover:not(:disabled) {
+  background-color: #0059b3;
+}
+
+/* Contenedor para los botones secundarios */
+.secondary-actions {
+  display: flex; /* Pone los botones uno al lado del otro */
+  gap: 10px; /* Crea un espacio de 10px entre ellos */
+  margin-top: 1.5em; /* Espacio extra arriba */
+}
+
+/* Estilo para los botones secundarios: más discretos */
+.secondary-actions button {
+  flex: 1; /* Hace que ambos botones ocupen el mismo espacio */
+  background-color: #f0f0f0; /* Un fondo gris claro */
+  color: #333;
+  border: 1px solid #ddd;
+  font-size: 0.9em; /* Un poco más pequeños */
+}
+.secondary-actions button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  color: #000;
+}
+/* --- ESTILOS PARA LA BARRA DE NAVEGACIÓN --- */
+
+/* Estilo principal de la barra */
+.main-navbar {
+  position: fixed; /* La deja fija en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #004080; /* Color principal de la app */
+  color: white;
+  padding: 0.5em 1em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos a los extremos */
+  align-items: center;
+  z-index: 1000; /* Se asegura de que esté por encima de todo */
+  box-sizing: border-box;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out; /* Animación de entrada/salida */
+}
+
+/* Estilo para el título en la barra */
+.navbar-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Estilo para el botón dentro de la barra */
+.navbar-button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.4em 0.8em;
+  font-size: 0.9em;
+}
+.navbar-button:hover {
+  background-color: white;
+  color: #004080;
+}
+
+/* Ajuste para que el contenido principal no quede oculto debajo de la navbar */
+body {
+  padding-top: 60px; /* Añade un espacio superior al cuerpo de la página */
+}
+
+/* La clase 'hidden' que ya teníamos funciona, pero vamos a asegurarnos de que la transición sea hacia arriba */
+.main-navbar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+/* Estilo para el nuevo título de la sección de ponderación */
+#temas-lista h3 {
+  margin: 0 0 10px 0;
+  text-align: center;
+  color: #333;
+  font-size: 1.1em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+/* --- ESTILOS PARA EL BOTÓN DE PASAR PREGUNTA --- */
+#skip-btn {
+  background-color: transparent;
+  color: #6c757d;
+  border: 1px solid #6c757d;
+}
+
+#skip-btn:hover:not(:disabled) {
+  background-color: #6c757d;
+  color: white;
+}
+/* --- ESTILO PARA EL TEMPORIZADOR DE LA NAVBAR --- */
+.navbar-timer {
+  font-size: 1.3em;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada para que los números no "salten" */
+}
+/* --- ESTILOS PARA IMPRESIÓN Y PDF --- */
+@media print {
+  /* Ocultamos todo lo que no queremos en el PDF */
+  body > *:not(#summary-container) {
+    display: none;
+  }
+  .main-navbar, #restart-btn, #export-pdf-btn, #home-btn {
+    display: none !important;
+  }
+
+  /* Hacemos que el contenedor del resumen ocupe toda la página */
+  #summary-container {
+    display: block !important;
+    position: static !important;
+    box-shadow: none;
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Quitamos la clase 'hidden' si la tuviera, para asegurarnos de que se vea */
+  .hidden {
+      display: block !important;
+      opacity: 1 !important;
+      transform: none !important;
+      position: static !important;
+  }
+  
+  /* Forzamos que los colores de fondo se impriman (importante) */
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    padding-top: 0; /* Quitamos el padding que pusimos para la navbar */
+  }
+
+  /* Mejoramos los saltos de página */
+  .incorrect-question {
+    page-break-inside: avoid;
+  }
+}
+/* --- ESTILOS PARA EL SELECTOR DE MODO DE TEST --- */
+.mode-selector-container {
+  margin-bottom: 1em;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+}
+.mode-label {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  display: block;
+}
+.mode-buttons {
+  display: flex;
+}
+/* Ocultamos el radio button real */
+.mode-buttons input[type="radio"] {
+  display: none;
+}
+/* Estilizamos la etiqueta para que parezca un botón */
+.mode-buttons .mode-button {
+  flex: 1;
+  text-align: center;
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f0f0f0;
+  color: #333;
+}
+.mode-buttons .mode-button:first-of-type {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.mode-buttons .mode-button:last-of-type {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+/* Estilo para el botón activo */
+.mode-buttons .mode-button.active {
+  background-color: #004080;
+  color: white;
+  border-color: #004080;
+}
+</style>
+
+</head>
+<body>
+  <header id="main-navbar" class="main-navbar hidden">
+  <span class="navbar-title">Test APP</span>
+  <span id="timer" class="navbar-timer">00:00</span>
+  <button id="home-btn" class="navbar-button">🏠 Volver al Menú</button>
+</header>
+ 
+<h1>✅ Test APP</h1>
+
+<div id="main-menu">
+  <h2>Menú Principal</h2>
+  <div class="file-uploader">
+    <input type="file" id="file-multiple" accept=".json" multiple style="display: none;" />
+    <label for="file-multiple" class="custom-file-upload">
+      Cargar Temas (JSON)
+    </label>
+    <span id="file-names" class="file-names-display"></span>
+  </div>
+  <p id="menu-status">Cargue uno o varios archivos JSON con temas.</p>
+  <div class="mode-selector-container">
+    <label class="mode-label">Modo de Test:</label>
+    <div class="mode-buttons">
+      <input type="radio" id="mode-estudio" name="test-mode" value="estudio" checked>
+      <label for="mode-estudio" class="mode-button active">📚 Estudio</label>
+
+      <input type="radio" id="mode-simulacro" name="test-mode" value="simulacro">
+      <label for="mode-simulacro" class="mode-button">⏱️ Simulacro</label>
+    </div>
+  </div>
+  <div class="questions-selector-container">
+    <label>Nº de preguntas:</label>
+    <div class="preset-buttons">
+      <button data-value="10">10</button>
+      <button data-value="20">20</button>
+      <button data-value="100">Simulacro</button>
+    </div>
+    <input type="number" id="total-questions-input" min="1" value="100" placeholder="Otro...">
+  </div>
+  <div id="temas-lista"><em>No hay temas cargados.</em></div>
+  <button id="start-test-btn" disabled>Iniciar Test →</button>
+
+  <div class="secondary-actions">
+    <button id="reset-menu-btn">Limpiar Temas</button>
+    <button id="show-history-btn">Mostrar Historial</button>
+  </div>
+</div>
+
+<div id="quiz-container" style="display:none;">
+  <div id="progress-bar-container" style="width: 100%; background-color: #eee; border-radius: 5px; margin-bottom: 1em;">
+  <div id="progress-bar" style="width: 0%; height: 10px; background-color: #004080; border-radius: 5px; transition: width 0.3s ease-in-out;"></div>
+  </div>
+  <div class="question" id="question-text"></div>
+  <div class="options" id="options-container"></div>
+  <p id="feedback"></p>
+  <button id="explain-btn" style="display:none; margin-top: 10px;">Explicar Respuesta</button>
+    <div id="explanation-container" class="explanation-box"></div>
+    <div id="notes-section" style="margin-top: 1.5em;">
+    <button id="toggle-notes-btn" class="toggle-notes-button">Mis Apuntes ▼</button>
+    <div id="notes-content" class="notes-content collapsed">
+      <textarea id="personal-note" class="notes-textarea" placeholder="Escribe aquí tus apuntes personales sobre esta pregunta..."></textarea>
+      <button id="save-note-btn" class="save-note-button">Guardar Nota</button>  
+    </div>
+  </div> 
+  <nav>
+    <button id="prev-btn" disabled>Anterior</button>
+    <button id="skip-btn">Pasar Pregunta</button>
+    <button id="next-btn" disabled>Siguiente</button>
+  </nav>
+  <p>Puntuación actual: <span id="score">0</span></p>
+</div>
+
+<div id="summary-container" style="display:none;">
+  <h2>Resumen Final</h2>
+  <p>Puntuación final: <span id="final-score">0</span> / <span id="total-questions"></span></p>
+  <div id="incorrect-questions-list"></div>
+  <button id="restart-btn">Volver al Menú Principal</button>
+  <button id="export-pdf-btn">Exportar Resumen a PDF</button>
+</div>
+
+<div id="history-container" style="display:none; margin-top: 1em;">
+  <h2>Historial de Tests</h2>
+  <div id="history-list"></div>
+  <button id="close-history-btn">Cerrar Historial</button>
+  <button id="clear-history-btn">Limpiar Historial</button>
+  <div id="history-detail" style="margin-top: 1em;"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  let currentTestMode = 'estudio'; // Por defecto, empezamos en Modo Estudio
+  const timerElem = document.getElementById('timer');
+  let timerInterval = null; // Guardará la referencia a nuestro cronómetro
+  let startTime = 0; // Guardará el momento de inicio del test
+  const skipBtn = document.getElementById('skip-btn');
+  const mainNavbar = document.getElementById('main-navbar');
+  const homeBtn = document.getElementById('home-btn');
+  const toggleNotesBtn = document.getElementById('toggle-notes-btn');
+  const notesContent = document.getElementById('notes-content');
+  const personalNoteInput = document.getElementById('personal-note');
+  const saveNoteBtn = document.getElementById('save-note-btn');
+  const fileMultipleInput = document.getElementById('file-multiple');
+  const temasLista = document.getElementById('temas-lista');
+  const menuStatus = document.getElementById('menu-status');
+  const startTestBtn = document.getElementById('start-test-btn');
+  const resetMenuBtn = document.getElementById('reset-menu-btn');
+  const totalQuestionsInput = document.getElementById('total-questions-input');
+  const showHistoryBtn = document.getElementById('show-history-btn');
+
+  const quizContainer = document.getElementById('quiz-container');
+  const questionText = document.getElementById('question-text');
+  const optionsContainer = document.getElementById('options-container');
+  const feedback = document.getElementById('feedback');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const scoreElem = document.getElementById('score');
+
+  const summaryContainer = document.getElementById('summary-container');
+  const finalScoreElem = document.getElementById('final-score');
+  const totalQuestionsElem = document.getElementById('total-questions');
+  const incorrectList = document.getElementById('incorrect-questions-list');
+  const restartBtn = document.getElementById('restart-btn');
+  const exportPdfBtn = document.getElementById('export-pdf-btn');
+
+  const historyContainer = document.getElementById('history-container');
+  const historyList = document.getElementById('history-list');
+  const closeHistoryBtn = document.getElementById('close-history-btn');
+  const clearHistoryBtn = document.getElementById('clear-history-btn');
+  const historyDetail = document.getElementById('history-detail');
+  const explainBtn = document.getElementById('explain-btn');
+  const explanationContainer = document.getElementById('explanation-container');
+ 
+  // ⚠️ USA TU NUEVA CLAVE DE OPENROUTER AQUÍ.
+  const OPENROUTER_API_KEY = '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';
+  
+  // OpenRouter requiere que identifiques tu sitio. Puedes poner tu nombre o el del proyecto.
+  const YOUR_SITE_URL = 'http://localhost/test';
+  
+  let temasCargados = [];
+  let temasSeleccionados = new Set();
+
+  let questions = [];
+  let currentIndex = 0;
+  let answers = {};
+  let score = 0;
+  
+  // Esta función distribuye el 100% de la forma más equitativa posible entre los temas cargados.
+  function recalcularPorcentajesEquitativamente() {
+    const numTemas = temasCargados.length;
+    if (numTemas === 0) return; // Si no hay temas, no hacemos nada
+
+    const basePercent = Math.floor(100 / numTemas);
+    let remainder = 100 % numTemas;
+
+    temasCargados.forEach((tema, index) => {
+      // Asignamos el porcentaje base a cada tema
+      tema.porcentaje = basePercent;
+      // Distribuimos el resto (1% a cada uno de los primeros temas) hasta que se agote
+      if (remainder > 0) {
+        tema.porcentaje++;
+        remainder--;
+      }
+    });
+  }
+  function renderTemasLista() {
+    temasLista.innerHTML = '';
+    if (temasCargados.length === 0) {
+      temasLista.innerHTML = '<em>No hay temas cargados.</em>';
+      startTestBtn.disabled = true;
+      return;
+    }
+    // --- PASO 1: AÑADIMOS EL TÍTULO GENERAL ---
+    const tituloPonderacion = document.createElement('h3');
+    tituloPonderacion.textContent = 'Ponderación y % de Preguntas';
+    temasLista.appendChild(tituloPonderacion);
+    // --- FIN DEL PASO 1 ---
+
+    temasCargados.forEach((tema, idx) => {
+      const div = document.createElement('div');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = 'tema-checkbox-' + idx;
+      checkbox.checked = temasSeleccionados.has(idx);
+      checkbox.onchange = () => {
+        if (checkbox.checked) temasSeleccionados.add(idx);
+        else temasSeleccionados.delete(idx);
+        startTestBtn.disabled = temasSeleccionados.size === 0;
+      };
+      div.appendChild(checkbox);
+
+      const label = document.createElement('label');
+      label.htmlFor = 'tema-checkbox-' + idx;
+      label.textContent = tema.nombre;
+      label.style.marginLeft = '0.5em';
+      div.appendChild(label);
+
+      const labelPorcentaje = document.createElement('label');
+       // --- PASO 2: SIMPLIFICAMOS EL TEXTO DE CADA LÍNEA ---
+      labelPorcentaje.textContent = ' Peso: ';
+      labelPorcentaje.style.marginLeft = '1em';
+
+      const inputPorcentaje = document.createElement('input');
+      inputPorcentaje.type = 'number';
+      inputPorcentaje.min = 0;
+      inputPorcentaje.max = 100;
+      inputPorcentaje.value = tema.porcentaje || 0;
+      inputPorcentaje.style.width = '50px';
+
+      inputPorcentaje.oninput = () => {
+          let val = parseInt(inputPorcentaje.value);
+          if (isNaN(val) || val < 0) val = 0;
+          if (val > 1000) val = 1000;
+          temasCargados[idx].porcentaje = val;
+
+          const sumaTotal = temasCargados.reduce((acc, t) => {
+            if (temasSeleccionados.has(temasCargados.indexOf(t))) {
+              return acc + (t.porcentaje || 0);
+            }
+            return acc;
+          }, 0);
+
+          menuStatus.style.color = 'black';
+          menuStatus.textContent = `Suma de pesos de los temas seleccionados: ${sumaTotal}. El test se generará proporcionalmente.`;
+          
+          const algunTemaConPeso = [...temasSeleccionados].some(i => (temasCargados[i].porcentaje || 0) > 0);
+          startTestBtn.disabled = temasSeleccionados.size === 0 || !algunTemaConPeso;
+        };
+      labelPorcentaje.appendChild(inputPorcentaje);
+      div.appendChild(labelPorcentaje);
+
+      temasLista.appendChild(div);
+    });
+    startTestBtn.disabled = temasSeleccionados.size === 0;
+  }
+  
+fileMultipleInput.onchange = e => {
+    const files = e.target.files;
+    if (!files.length) return;
+    
+    // --- MEJORA VISUAL: Mostrar nombres de archivos seleccionados ---
+    const fileNamesSpan = document.getElementById('file-names');
+    if (files.length > 0) {
+      fileNamesSpan.textContent = Array.from(files).map(f => f.name).join(', ');
+    } else {
+      fileNamesSpan.textContent = '';
+    }
+    // --- FIN DE LA MEJORA ---
+
+    // Obtenemos los temas que ya estaban guardados, si los hay
+    let temasGuardados = JSON.parse(localStorage.getItem('temasGuardados')) || [];
+
+    let cargados = 0;
+    for (let file of files) {
+      const reader = new FileReader();
+      reader.onload = ev => {
+        try {
+          const fileContent = ev.target.result;
+          const data = JSON.parse(fileContent);
+
+          if (!data.questions || typeof data.questions !== 'object') {
+            menuStatus.textContent = `Archivo ${file.name} sin "questions" o formato inválido`;
+            return;
+          }
+          
+          // Añadimos el nuevo tema a la lista de temas cargados
+          const nuevoTema = { nombre: file.name, preguntas: data.questions, porcentaje: 0 };
+          temasCargados.push(nuevoTema);
+          
+          // Y también lo añadimos a nuestra lista para guardar en el "trastero"
+          temasGuardados.push({ nombre: file.name, contenido: fileContent });
+
+          temasSeleccionados.add(temasCargados.length - 1);
+          cargados++;
+
+          if (cargados === files.length) {
+            // Guardamos la lista actualizada en el "trastero"
+            localStorage.setItem('temasGuardados', JSON.stringify(temasGuardados));
+            menuStatus.textContent = `Cargados ${cargados} archivos de temas`;
+            
+            // AÑADIMOS LA LLAMADA AQUÍ
+            recalcularPorcentajesEquitativamente();
+
+            renderTemasLista();
+          }
+        } catch {
+          menuStatus.textContent = `Error al leer archivo ${file.name}`;
+        }
+      };
+      reader.readAsText(file);
+    }
+  };
+
+resetMenuBtn.onclick = () => {
+    temasCargados = [];
+    temasSeleccionados.clear();
+    temasLista.innerHTML = '<em>No hay temas cargados.</em>';
+    menuStatus.textContent = 'Menú reseteado. Cargue uno o varios archivos JSON con temas.';
+    startTestBtn.disabled = true;
+    quizContainer.style.display = 'none';
+    fileMultipleInput.value = null;
+
+    // NUEVO: Vaciamos la caja del "trastero"
+    localStorage.removeItem('temasGuardados');
+    localStorage.removeItem('explanationCache');
+    localStorage.removeItem('notesCache');
+  };
+
+startTestBtn.onclick = () => {
+    // --- MODIFICACIÓN: Iniciar timer solo en modo simulacro ---
+    if (currentTestMode === 'simulacro') {
+      timerElem.style.display = 'block'; // Mostramos el timer
+      if (timerInterval) clearInterval(timerInterval);
+      startTime = Date.now();
+      timerInterval = setInterval(() => {
+        const elapsedTime = Date.now() - startTime;
+        const seconds = Math.floor(elapsedTime / 1000) % 60;
+        const minutes = Math.floor(elapsedTime / (1000 * 60));
+        timerElem.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      }, 1000);
+    } else {
+      timerElem.style.display = 'none'; // Ocultamos el timer en modo estudio
+    }
+    
+    const totalPreguntas = parseInt(totalQuestionsInput.value);
+    if (isNaN(totalPreguntas) || totalPreguntas <= 0) {
+      menuStatus.style.color = 'red';
+      menuStatus.textContent = 'Ingresa un número válido de preguntas.';
+      return;
+    }
+
+    // LÓGICA DE CÁLCULO MODIFICADA
+    let preguntasSeleccionadas = [];
+    let sumaPesosSeleccionados = 0;
+
+    // Primero, calculamos la suma total de los pesos SOLO de los temas seleccionados
+    temasSeleccionados.forEach(idx => {
+      sumaPesosSeleccionados += temasCargados[idx].porcentaje || 0;
+    });
+
+    // Si el usuario seleccionó temas pero no les dio peso, mostramos un error
+    if (sumaPesosSeleccionados === 0) {
+      menuStatus.style.color = 'red';
+      menuStatus.textContent = 'Por favor, asigna un peso mayor a 0 al menos a un tema seleccionado.';
+      return;
+    }
+    
+    questions = [];
+    let asignadas = 0;
+    const preguntasPorTema = [];
+
+    // Segundo, distribuimos las preguntas proporcionalmente a la suma de pesos
+    temasSeleccionados.forEach(idx => {
+      const tema = temasCargados[idx];
+      const peso = tema.porcentaje || 0;
+      // CAMBIO CLAVE: Ya no dividimos por 100, sino por la suma total de los pesos
+      let n = Math.floor((peso * totalPreguntas) / sumaPesosSeleccionados);
+      
+      if (n > tema.preguntas.length) n = tema.preguntas.length;
+      preguntasPorTema.push({ tema, n });
+      asignadas += n;
+    });
+    
+    // La lógica para repartir las preguntas sobrantes sigue siendo la misma y funciona perfectamente
+    let faltante = totalPreguntas - asignadas;
+    if (faltante > 0 && preguntasPorTema.length > 0) {
+      let i = 0;
+      while (faltante > 0) {
+        if (preguntasPorTema[i].n < preguntasPorTema[i].tema.preguntas.length) {
+          preguntasPorTema[i].n++;
+          faltante--;
+        }
+        // Evitar bucles infinitos si no se pueden asignar más preguntas
+        if (i === preguntasPorTema.length - 1 && faltante > 0) {
+            const totalAsignable = preguntasPorTema.reduce((acc, p) => acc + (p.tema.preguntas.length - p.n), 0);
+            if (totalAsignable === 0) break;
+        }
+        i = (i + 1) % preguntasPorTema.length;
+      }
+    }
+
+    preguntasPorTema.forEach(({ tema, n }) => {
+      const shuffled = tema.preguntas.slice().sort(() => Math.random() - 0.5);
+      
+      // --- MODIFICACIÓN CLAVE AQUÍ ---
+      // Usamos .map() para crear una copia de cada pregunta y añadirle el nombre del tema
+      const preguntasEtiquetadas = shuffled.slice(0, n).map(q => ({
+        ...q, // Copia todas las propiedades de la pregunta original (id, question, options...)
+        temaNombre: tema.nombre // Y le añade la nueva propiedad con el nombre del archivo JSON
+      }));
+      
+      questions = questions.concat(preguntasEtiquetadas);
+    });
+
+    if (questions.length === 0) {
+      menuStatus.style.color = 'red';
+      menuStatus.textContent = 'No se pudieron generar preguntas con los pesos indicados.';
+      return;
+    }
+    currentIndex = 0;
+    answers = {};
+    score = 0;
+    showView('quiz-container');
+    renderQuestion(currentIndex);
+    saveState();
+    menuStatus.style.color = 'black';
+    menuStatus.textContent = `Test iniciado con ${questions.length} preguntas.`;
+  };
+// --- FUNCIÓN PARA EL BOTÓN DE PASAR PREGUNTA ---
+skipBtn.onclick = () => {
+  const q = questions[currentIndex];
+  
+  // Guardamos la respuesta como 'null' para identificarla como "en blanco"
+  answers[q.id] = null;
+  
+  // Damos feedback visual
+  feedback.textContent = 'Pregunta omitida.';
+  feedback.style.color = '#6c757d';
+
+  // Deshabilitamos todos los botones de opción y el de pasar
+  Array.from(optionsContainer.children).forEach(b => b.disabled = true);
+  skipBtn.disabled = true;
+
+  // Habilitamos el botón "Siguiente" y simulamos un clic en él para avanzar
+  nextBtn.disabled = false;
+  nextBtn.onclick(); // Llamamos a la función del botón siguiente para pasar de pregunta
+};
+
+function renderQuestion(index) {
+    explainBtn.style.display = 'none';
+    explanationContainer.innerHTML = '';
+    // Primero, actualizamos la barra de progreso
+    const progressBar = document.getElementById('progress-bar');
+    const progress = ((index + 1) / questions.length) * 100;
+    progressBar.style.width = `${progress}%`;
+
+    // Ahora, hacemos todo lo que ya hacías: mostrar la pregunta y las opciones
+    const q = questions[index];
+    questionText.textContent = `Pregunta ${index + 1}: ${q.question}`;
+    optionsContainer.innerHTML = '';
+    feedback.textContent = ''; // Limpiamos el feedback al cargar una nueva pregunta
+
+    const questionAnswered = answers.hasOwnProperty(q.id);
+    skipBtn.disabled = questionAnswered;
+
+    Object.entries(q.options).forEach(([key, text]) => {
+        const btn = document.createElement('button');
+        btn.textContent = `${key}. ${text}`;
+        btn.dataset.key = key; 
+
+        // --- LÓGICA CORREGIDA ---
+        // Si la pregunta ya ha sido respondida (por ejemplo, al navegar hacia atrás)
+        if (questionAnswered) {
+            btn.disabled = true; // Deshabilitamos el botón
+            const userAnswer = answers[q.id];
+
+            // Coloreamos correctamente la respuesta correcta y la del usuario si fue incorrecta
+            if (key === q.correct) {
+                btn.classList.add('correct');
+            } else if (key === userAnswer) {
+                btn.classList.add('incorrect');
+            }
+        }
+        
+        // El evento onclick solo se ejecutará la PRIMERA vez que se responda
+        // Reemplaza tu btn.onclick existente por este
+        btn.onclick = (e) => {
+            if (answers.hasOwnProperty(q.id)) return;
+            
+            const userChoiceKey = e.currentTarget.dataset.key;
+            answers[q.id] = userChoiceKey;
+
+            // Deshabilitamos todos los botones de opción para no poder cambiar
+            Array.from(optionsContainer.children).forEach(button => button.disabled = true);
+            skipBtn.disabled = true;
+
+            // --- LÓGICA DE MODOS ---
+            if (currentTestMode === 'estudio') {
+              // MODO ESTUDIO: Damos feedback instantáneo
+              if (userChoiceKey === q.correct) {
+                  score++;
+                  feedback.textContent = '¡Respuesta correcta!';
+                  feedback.style.color = '#4caf50';
+              } else {
+                  feedback.textContent = 'Respuesta incorrecta.';
+                  feedback.style.color = '#f44336';
+              }
+              // Coloreamos los botones
+              Array.from(optionsContainer.children).forEach(button => {
+                  if (button.dataset.key === q.correct) button.classList.add('correct');
+                  else if (button.dataset.key === userChoiceKey) button.classList.add('incorrect');
+              });
+              explainBtn.style.display = 'inline-block';
+            } else {
+              // MODO SIMULACRO: No damos feedback, solo avanzamos
+              feedback.textContent = 'Respuesta guardada.';
+              feedback.style.color = '#6c757d';
+            }
+            // --- FIN LÓGICA DE MODOS ---
+            
+            scoreElem.textContent = score; // En modo simulacro, el score no se actualiza aquí
+            nextBtn.disabled = false;
+            saveState();
+        };
+
+        optionsContainer.appendChild(btn);
+    });
+    
+    // --- NUEVO: Cargar la nota personal guardada ---
+    const notesCache = JSON.parse(localStorage.getItem('notesCache')) || {};
+    personalNoteInput.value = notesCache[q.id] || ''; // Muestra la nota o un texto vacío
+    prevBtn.disabled = index === 0;
+    // Si la pregunta ya fue respondida, el botón "Siguiente" debe estar activo (salvo que sea la última)
+    nextBtn.disabled = !questionAnswered;
+    scoreElem.textContent = score;
+}
+
+  prevBtn.onclick = () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      renderQuestion(currentIndex);
+      saveState();
+    }
+  };
+
+  nextBtn.onclick = () => {
+    if (currentIndex < questions.length - 1) {
+      currentIndex++;
+      renderQuestion(currentIndex);
+      saveState();
+    } else {
+      showSummary();
+    }
+  };
+  // Reemplaza tus `elemento.style.display = '...'` con una función como esta:
+function showView(viewId) {
+    // --- LÓGICA PARA LA NAVBAR AÑADIDA AQUÍ ---
+    // Si la vista es el menú principal, ocultamos la navbar. Para cualquier otra, la mostramos.
+    if (viewId === 'main-menu') {
+      mainNavbar.classList.add('hidden');
+    } else {
+      mainNavbar.classList.remove('hidden');
+    }
+    // --- FIN DE LA LÓGICA DE LA NAVBAR ---
+    const views = ['main-menu', 'quiz-container', 'summary-container', 'history-container'];
+    views.forEach(id => {
+      const el = document.getElementById(id);
+      if (id === viewId) {
+        el.style.display = 'block';
+        // Pequeño retardo para que la transición de opacidad funcione desde display:none
+        setTimeout(() => el.classList.remove('hidden'), 20); 
+      } else {
+        el.classList.add('hidden');
+        // Espera a que termine la transición para ocultarlo completamente
+        setTimeout(() => { if (el.id !== viewId) el.style.display = 'none'; }, 500); 
+      }
+    });
+  }
+
+// --- VERSIÓN FINAL de showSummary CON LÓGICA DE MODOS ---
+  function showSummary() {
+    // Detenemos y ocultamos el timer en cualquier caso
+    if (timerInterval) clearInterval(timerInterval);
+    timerElem.style.display = 'none';
+    const totalTime = Date.now() - startTime;
+    const totalMinutes = Math.floor(totalTime / (1000 * 60));
+    const totalSeconds = Math.floor(totalTime / 1000) % 60;
+    const tiempoTotalTexto = `${totalMinutes} min y ${totalSeconds} seg`;
+    
+    // Contamos aciertos, errores y blancas
+    let aciertos = 0, errores = 0, blancas = 0;
+    questions.forEach(q => {
+      const userAnswer = answers[q.id];
+      if (answers.hasOwnProperty(q.id)) {
+        if (userAnswer === q.correct) aciertos++;
+        else if (userAnswer === null) blancas++;
+        else errores++;
+      } else {
+        blancas++;
+      }
+    });
+
+    // Mostramos la vista del resumen
+    showView('summary-container');
+    
+    let summaryHTML;
+    // --- LÓGICA DE MODOS PARA EL RESUMEN ---
+    if (currentTestMode === 'simulacro') {
+      // MODO SIMULACRO: Mostramos nota con penalización y tiempo
+      const notaNeta = aciertos - (errores / 3);
+      const notaSobre10 = (notaNeta / questions.length) * 10;
+      summaryHTML = `
+        <div style="text-align:left; margin-top:1em;">
+          <p><strong>Aciertos:</strong> ${aciertos}</p>
+          <p><strong>Errores:</strong> ${errores}</p>
+          <p><strong>En blanco:</strong> ${blancas}</p>
+          <p><strong>Tiempo Total:</strong> ${tiempoTotalTexto}</p> <hr>
+          <p><strong>Puntuación Neta (Aciertos - Errores/3):</strong> ${notaNeta.toFixed(2)}</p>
+          <h3 style="text-align:center;">Nota Final: ${Math.max(0, notaSobre10).toFixed(2)} / 10.00</h3>
+        </div>
+      `;
+    } else {
+      // MODO ESTUDIO: Mostramos nota simple
+      const notaSobre10 = (aciertos / questions.length) * 10;
+      summaryHTML = `
+        <div style="text-align:left; margin-top:1em;">
+          <p><strong>Aciertos:</strong> ${aciertos}</p>
+          <p><strong>Errores:</strong> ${errores}</p>
+          <p><strong>En blanco:</strong> ${blancas}</p>
+          <hr>
+          <h3 style="text-align:center;">Nota Final: ${notaSobre10.toFixed(2)} / 10.00</h3>
+        </div>
+      `;
+    }
+    // --- FIN LÓGICA DE MODOS ---
+
+    finalScoreElem.innerHTML = summaryHTML;
+    totalQuestionsElem.textContent = questions.length;
+    
+    // El resto de la función (desglose por temas y preguntas incorrectas) sigue igual
+    // ... (tu código existente para el desglose y la lista de incorrectas)
+    const resultadosPorTema = {};
+    questions.forEach(q => {
+      if (!resultadosPorTema[q.temaNombre]) {
+        resultadosPorTema[q.temaNombre] = { aciertos: 0, errores: 0, blancas: 0, total: 0 };
+      }
+      resultadosPorTema[q.temaNombre].total++;
+      const userAnswer = answers[q.id];
+      if (answers.hasOwnProperty(q.id)) {
+        if (userAnswer === q.correct) resultadosPorTema[q.temaNombre].aciertos++;
+        else if (userAnswer === null) resultadosPorTema[q.temaNombre].blancas++;
+        else resultadosPorTema[q.temaNombre].errores++;
+      } else {
+        resultadosPorTema[q.temaNombre].blancas++;
+      }
+    });
+    let desgloseHTML = '<h2>Rendimiento por Tema:</h2><div style="text-align:left;">';
+    for (const tema in resultadosPorTema) {
+      const res = resultadosPorTema[tema];
+      const porcentaje = res.total > 0 ? (res.aciertos / res.total) * 100 : 0;
+      desgloseHTML += `<p style="margin-bottom: 0.5em;"><strong>- ${tema}:</strong> ${porcentaje.toFixed(1)}% <span style="font-size:0.9em; color:#555;">(${res.aciertos} aciertos, ${res.errores} errores de ${res.total})</span></p>`;
+    }
+    desgloseHTML += '</div><hr>';
+    incorrectList.innerHTML = desgloseHTML;
+    incorrectList.innerHTML += '<h2>Preguntas Incorrectas:</h2>';
+    const incorrects = questions.filter(q => answers.hasOwnProperty(q.id) && answers[q.id] !== null && answers[q.id] !== q.correct);
+    if (incorrects.length === 0) {
+      incorrectList.innerHTML += '<p>¡Felicidades! No has tenido ningún error.</p>';
+    } else {
+        incorrects.forEach(q => {
+            if (!q || !q.options || !q.question || !q.correct) { return; }
+            const userAnswer = answers[q.id] || 'Sin responder';
+            const correctAnswer = q.correct;
+            const div = document.createElement('div');
+            div.style.marginBottom = '1em';
+            const qText = document.createElement('p');
+            qText.className = 'summary-question';
+            qText.textContent = `Pregunta: ${q.question}`;
+            div.appendChild(qText);
+            const userText = document.createElement('p');
+            userText.className = 'summary-answer user-answer';
+            const userAnswerText = q.options.hasOwnProperty(userAnswer) ? q.options[userAnswer] : 'Opción no válida';
+            userText.textContent = `Tu respuesta: ${userAnswer}. ${userAnswer === 'Sin responder' ? '' : userAnswerText}`;
+            div.appendChild(userText);
+            const correctText = document.createElement('p');
+            correctText.className = 'summary-answer correct-answer';
+            correctText.textContent = `Respuesta correcta: ${correctAnswer}. ${q.options[correctAnswer]}`;
+            div.appendChild(correctText);
+            incorrectList.appendChild(div);
+        });
+    }
+
+    saveTestToHistory();
+  }
+
+  function saveTestToHistory() {
+    const historyKey = 'testHistory';
+
+    const now = new Date();
+    const testRecord = {
+      id: now.getTime(),
+      date: now.toLocaleString(),
+      totalQuestions: questions.length,
+      score: score,
+      temas: Array.from(temasSeleccionados).map(idx => temasCargados[idx].nombre),
+      questions: questions.map(q => ({
+        id: q.id,
+        question: q.question,
+        options: q.options,
+        correct: q.correct,
+        userAnswer: answers[q.id] || null
+      }))
+    };
+
+    let history = [];
+    const savedHistory = localStorage.getItem(historyKey);
+    if (savedHistory) {
+      try {
+        history = JSON.parse(savedHistory);
+      } catch (e) {
+        history = [];
+      }
+    }
+    history.push(testRecord);
+    localStorage.setItem(historyKey, JSON.stringify(history));
+  }
+
+  restartBtn.onclick = () => {
+    if (timerInterval) clearInterval(timerInterval);
+    timerElem.textContent = '00:00';
+    timerElem.style.display = 'none';
+    questions = [];
+    answers = {};
+    currentIndex = 0;
+    score = 0;
+    showView('main-menu');
+    menuStatus.textContent = 'Cargue uno o varios archivos JSON con temas para comenzar.';
+    fileMultipleInput.value = null;
+  };
+
+  exportPdfBtn.onclick = () => {
+    window.print();
+  };
+
+  showHistoryBtn.onclick = () => {
+    showHistory();
+  };
+
+  closeHistoryBtn.onclick = () => {
+    showView('main-menu');
+  };
+
+  clearHistoryBtn.onclick = () => {
+    if (confirm('¿Está seguro que desea limpiar todo el historial?')) {
+      localStorage.removeItem('testHistory');
+      showHistory();
+    }
+  };
+  homeBtn.onclick = () => {
+  // Llamamos a la función del botón de reinicio para asegurarnos de que todo se resetea
+  // antes de volver al menú.
+  restartBtn.onclick(); 
+  };
+
+  function showHistory() {
+    const historyKey = 'testHistory';
+    historyList.innerHTML = '';
+    historyDetail.innerHTML = '';
+    let history = [];
+    const savedHistory = localStorage.getItem(historyKey);
+    if (savedHistory) {
+      try {
+        history = JSON.parse(savedHistory);
+      } catch { }
+    }
+    if (history.length === 0) {
+      historyList.innerHTML = '<p>No hay tests guardados.</p>';
+    } else {
+      history.forEach((test, idx) => {
+        const div = document.createElement('div');
+        div.style.borderBottom = '1px solid #ccc';
+        div.style.padding = '0.5em';
+        div.style.cursor = 'pointer';
+        div.textContent = `${test.date} - Puntuación: ${test.score} / ${test.totalQuestions} - Temas: ${test.temas.join(', ')}`;
+        div.onclick = () => showHistoryDetail(idx);
+        historyList.appendChild(div);
+      });
+    }
+    showView('history-container');
+    summaryContainer.style.display = 'none';
+  }
+
+  function showHistoryDetail(index) {
+    const historyKey = 'testHistory';
+    const savedHistory = localStorage.getItem(historyKey);
+    if (!savedHistory) return;
+    const history = JSON.parse(savedHistory);
+    const test = history[index];
+    if (!test) return;
+
+    historyDetail.innerHTML = `<h3>Detalle Test - ${test.date}</h3>
+      <p>Puntuación: ${test.score} / ${test.totalQuestions}</p>
+      <div>
+        ${test.questions.map(q => `
+          <div style="margin-bottom:1em">
+            <p><strong>Pregunta:</strong> ${q.question}</p>
+            <p><strong>Tu respuesta:</strong> ${q.userAnswer}. ${q.options[q.userAnswer] || 'Sin responder'}</p>
+            <p><strong>Respuesta correcta:</strong> ${q.correct}. ${q.options[q.correct]}</p>
+          </div>
+        `).join('')}
+      </div>`;
+  }
+
+  function saveState() {
+    localStorage.setItem('quizAnswers', JSON.stringify(answers));
+    localStorage.setItem('quizIndex', currentIndex);
+    localStorage.setItem('quizScore', score);
+  }
+
+window.onload = () => {
+    menuStatus.textContent = 'Cargue uno o varios archivos JSON con temas para comenzar.';
+    
+    // Miramos en el "trastero" si hay temas guardados
+    const temasGuardadosJSON = localStorage.getItem('temasGuardados');
+
+    if (temasGuardadosJSON) {
+      const temasGuardados = JSON.parse(temasGuardadosJSON);
+      
+      // Si encontramos temas, los cargamos en la app
+      temasGuardados.forEach(temaGuardado => {
+        try {
+          const data = JSON.parse(temaGuardado.contenido);
+          temasCargados.push({ nombre: temaGuardado.nombre, preguntas: data.questions, porcentaje: 0 });
+          temasSeleccionados.add(temasCargados.length - 1);
+        } catch (e) {
+          console.error("Error al parsear un tema guardado:", temaGuardado.nombre);
+        }
+      });
+      
+      // Si hemos cargado algo, lo mostramos en la lista
+      if (temasCargados.length > 0) {
+        menuStatus.textContent = `Se cargaron ${temasCargados.length} temas guardados.`;
+        
+        // AÑADIMOS LA LLAMADA AQUÍ
+        recalcularPorcentajesEquitativamente();
+
+        renderTemasLista();
+      }
+    }
+
+    // Mantenemos oculto el quiz al inicio
+    quizContainer.style.display = 'none';
+  };
+  // --- LÓGICA PARA EL NUEVO SELECTOR DE PREGUNTAS ---
+const presetButtons = document.querySelectorAll('.preset-buttons button');
+// El input 'totalQuestionsInput' ya lo teníamos definido arriba, así que lo reutilizamos.
+
+// Función para actualizar el estado visual de los botones
+function updatePresetButtonSelection() {
+    const currentValue = totalQuestionsInput.value;
+    presetButtons.forEach(btn => {
+        if (btn.dataset.value === currentValue) {
+            btn.classList.add('selected');
+        } else {
+            btn.classList.remove('selected');
+        }
+    });
+}
+
+// Añadimos un evento a cada botón de preselección
+presetButtons.forEach(button => {
+    button.onclick = () => {
+        // 1. Asignamos su valor al input principal
+        totalQuestionsInput.value = button.dataset.value;
+        // 2. Actualizamos la apariencia de los botones
+        updatePresetButtonSelection();
+    };
+});
+
+// Añadimos un evento al input para cuando el usuario escriba un número manualmente
+totalQuestionsInput.oninput = () => {
+    // Si el número que escribe coincide con un botón, lo seleccionamos. Si no, deseleccionamos todos.
+    updatePresetButtonSelection();
+};
+
+// Al cargar la página, sincronizamos el botón "Simulacro" (100) con el valor inicial del input.
+updatePresetButtonSelection();
+// --- FUNCIÓN PARA CONECTAR CON LA IA Y EXPLICAR LA RESPUESTA ---
+// --- NUEVA FUNCIÓN PARA CONECTAR CON OPENROUTER (GROK-4) ---
+// --- NUEVA VERSIÓN CON CACHÉ DE LA FUNCIÓN DE EXPLICACIÓN ---
+// --- NUEVA VERSIÓN CON FAILOVER (TOLERANCIA A FALLOS) ---
+explainBtn.onclick = async () => {
+  // Obtenemos el ID de la pregunta (esto no cambia)
+  const currentQuestion = questions[currentIndex];
+  const questionId = currentQuestion.id;
+
+  // Comprobamos la caché primero (esto no cambia)
+  const explanationCache = JSON.parse(localStorage.getItem('explanationCache')) || {};
+  if (explanationCache[questionId]) {
+    explanationContainer.innerText = explanationCache[questionId];
+    console.log("Explicación cargada desde la caché local.");
+    return;
+  }
+
+  // Preparamos la UI para la carga
+  explainBtn.disabled = true;
+  explanationContainer.innerHTML = '<div class="loader"></div>';
+
+  // --- LÓGICA DE FAILOVER ---
+
+  // 1. Definimos una lista de modelos a intentar, en orden de preferencia.
+  const modelsToTry = [
+    'x-ai/grok-4-fast',
+    'meta-llama/llama-3-8b-instruct:free',
+    'mistralai/mistral-7b-instruct:free'
+  ];
+
+  let explanationText = '';
+  let lastError = null;
+
+  // 2. Usamos un bucle 'for...of' para recorrer la lista de modelos.
+  for (const model of modelsToTry) {
+    try {
+      console.log(`Intentando obtener explicación con el modelo: ${model}`);
+      
+      // 3. Preparamos la petición (igual que antes, pero con el modelo del bucle)
+      const prompt = `Pregunta: "${currentQuestion.question}"\nRespuesta correcta: "${currentQuestion.correct}. ${currentQuestion.options[currentQuestion.correct]}"`;
+      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': YOUR_SITE_URL,
+        },
+        body: JSON.stringify({
+          "model": model, // Usamos el modelo actual del bucle
+          "messages": [
+            {"role": "system", "content": "Eres un tutor experto. Explica de forma clara y concisa por qué la respuesta proporcionada es la correcta para la pregunta. Ve directo a la explicación del concepto, sin frases introductorias."},
+            {"role": "user", "content": prompt}
+          ]
+        })
+      });
+
+      if (!response.ok) {
+        // Si la respuesta no es 200 OK, lanzamos un error para pasar al siguiente modelo
+        const errorData = await response.json();
+        throw new Error(errorData.error.message || `Error HTTP ${response.status}`);
+      }
+
+      // 4. Si la llamada tiene éxito, procesamos la respuesta y salimos del bucle.
+      const data = await response.json();
+      explanationText = data.choices[0].message.content;
+      console.log(`Éxito con el modelo: ${model}`);
+      break; // Salimos del bucle 'for' porque hemos tenido éxito.
+
+    } catch (error) {
+      // 5. Si la llamada falla, el 'catch' lo captura.
+      console.warn(`Falló el modelo ${model}:`, error.message);
+      lastError = error; // Guardamos el último error por si todos fallan.
+      // El bucle continuará automáticamente con el siguiente modelo.
+    }
+  }
+
+  // --- FIN DE LA LÓGICA DE FAILOVER ---
+
+  // Al salir del bucle, comprobamos si obtuvimos una explicación
+  if (explanationText) {
+    // Si tenemos texto, lo mostramos y lo guardamos en caché
+    explanationContainer.innerText = explanationText;
+    explanationCache[questionId] = explanationText;
+    localStorage.setItem('explanationCache', JSON.stringify(explanationCache));
+  } else {
+    // 6. Si el bucle termina y no hay texto, significa que todos los modelos fallaron.
+    console.error("Todos los modelos de la API fallaron.", lastError);
+    explanationContainer.innerText = 'Lo siento, no se pudo obtener la explicación en este momento. Todos los servicios de respaldo fallaron.';
+  }
+
+  // Volvemos a habilitar el botón
+  explainBtn.disabled = false;
+};
+
+// --- FUNCIÓN PARA GUARDAR LA NOTA PERSONAL ---
+saveNoteBtn.onclick = () => {
+  const currentQuestion = questions[currentIndex];
+  const questionId = currentQuestion.id;
+  const noteText = personalNoteInput.value;
+
+  // Cargamos la caché de notas
+  const notesCache = JSON.parse(localStorage.getItem('notesCache')) || {};
+
+  // Guardamos o actualizamos la nota para esta pregunta
+  notesCache[questionId] = noteText;
+
+  // Guardamos la caché actualizada en localStorage
+  localStorage.setItem('notesCache', JSON.stringify(notesCache));
+
+  // Damos una pequeña confirmación visual
+  saveNoteBtn.textContent = '¡Guardado!';
+  setTimeout(() => {
+    saveNoteBtn.textContent = 'Guardar Nota';
+  }, 1500); // Vuelve al texto original después de 1.5 segundos
+};
+// --- FUNCIÓN PARA MOSTRAR/OCULTAR LAS NOTAS ---
+toggleNotesBtn.onclick = () => {
+  // classList.toggle es como un interruptor de luz: si la clase está, la quita; si no está, la pone.
+  notesContent.classList.toggle('collapsed');
+
+  // Cambiamos la flecha del botón para dar una pista visual
+  const isCollapsed = notesContent.classList.contains('collapsed');
+  if (isCollapsed) {
+    toggleNotesBtn.textContent = 'Mis Apuntes ▼';
+  } else {
+    toggleNotesBtn.textContent = 'Mis Apuntes ▲';
+  }
+};
+});
+// --- LÓGICA PARA EL SELECTOR DE MODO ---
+const modeButtons = document.querySelectorAll('.mode-button');
+modeButtons.forEach(button => {
+  button.onclick = () => {
+    // Quitamos la clase 'active' de todos los botones
+    modeButtons.forEach(btn => btn.classList.remove('active'));
+    // Añadimos 'active' solo al que hemos pulsado
+    button.classList.add('active');
+    // Actualizamos la variable con el modo seleccionado
+    currentTestMode = document.querySelector('input[name="test-mode"]:checked').value;
+    console.log("Modo de test cambiado a:", currentTestMode);
+  };
+});
+</script>
+
+</body>
+</html>
