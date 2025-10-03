@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .tabla-profesional {
+            width: 100%;
+            max-width: 1400px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .tabla-profesional caption {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            font-size: 1.4em;
+            font-weight: 700;
+            padding: 20px;
+            text-align: center;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tabla-profesional thead th {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            font-weight: 600;
+            padding: 18px 15px;
+            text-align: center;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 3px solid #2c3e50;
+            position: relative;
+        }
+        
+        .tabla-profesional thead th::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ecf0f1, transparent);
+        }
+        
+        .tabla-profesional tbody tr {
+            transition: all 0.3s ease;
+        }
+        
+        .tabla-profesional tbody tr:nth-child(odd) {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .tabla-profesional tbody tr:nth-child(even) {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f3f4 100%);
+        }
+        
+        .tabla-profesional tbody tr:hover {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tabla-profesional td {
+            padding: 16px 15px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: middle;
+            position: relative;
+        }
+        
+        .tabla-profesional .col-aplicabilidad {
+            font-weight: 700;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ecf0f1 0%, #d5dbdb 100%);
+            font-size: 0.95em;
+            text-align: left;
+            padding-left: 20px;
+        }
+        
+        .tabla-profesional .col-rango {
+            font-weight: 500;
+            color: #34495e;
+            font-size: 0.9em;
+        }
+        
+        .tabla-profesional .col-dispositivos {
+            font-size: 0.85em;
+            color: #2c3e50;
+            line-height: 1.4;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        .tabla-profesional .leyenda-comentario {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 20px;
+            font-size: 0.9em;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        .dispositivo-highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin: 1px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        
+        .angulo-beta::after, .angulo-alpha::after {
+            content: '';
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .tabla-profesional {
+                font-size: 0.85em;
+            }
+            .tabla-profesional td, .tabla-profesional th {
+                padding: 12px 8px;
+            }
+            .col-dispositivos {
+                font-size: 0.75em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <table class="tabla-profesional">
+        <caption>
+            Tabla 13. Rango de requisitos anatómicos según las Instrucciones de Uso de endoprótesis disponibles actualmente
+        </caption>
+        <thead>
+            <tr>
+                <th style="width: 30%;">Aplicabilidad Morfológica</th>
+                <th style="width: 25%;">Rango</th>
+                <th style="width: 45%;">Dispositivos disponibles en España</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-aplicabilidad">Diámetro mínimo del cuello proximal</td>
+                <td class="col-rango">16–19 mm</td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II/IIs</span>
+                    <span class="dispositivo-highlight">Cook Zenith Flex/Alpha</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix</span>
+                    <span class="dispositivo-highlight">Bolton Treovance</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad">Diámetro máximo del cuello proximal</td>
+                <td class="col-rango">28–32 mm</td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II/IIs</span>
+                    <span class="dispositivo-highlight">Cook Zenith Flex/Alpha</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix</span>
+                    <span class="dispositivo-highlight">Bolton Treovance</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad">Longitud mínima del cuello proximal</td>
+                <td class="col-rango">10–15 mm<br><small>(varía según el ángulo)</small></td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3/EXCC (≥10mm)</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II (≥10mm)</span>
+                    <span class="dispositivo-highlight">Cook Zenith (≥15mm)</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix (≥15mm)</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad angulo-beta">Ángulo máximo β (infrarrenal)</td>
+                <td class="col-rango">45–90°<br><small>(varía según longitud del cuello)</small></td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3 (≤60°)</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II (≤60°)</span>
+                    <span class="dispositivo-highlight">Cook Zenith (≤60°)</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix (≤90°)</span>
+                    <span class="dispositivo-highlight">Bolton Treovance (≤90°)</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad angulo-alpha">Ángulo máximo α (suprarrenal)</td>
+                <td class="col-rango">45–60°<br><small>(algunas endoprótesis no aplica)</small></td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II</span>
+                    <span class="dispositivo-highlight">Cook Zenith (con anclaje suprarrenal)</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad">Zona máxima de calcificación/trombo del cuello proximal</td>
+                <td class="col-rango">50%</td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Todos los dispositivos</span>
+                    <small>(limitación general del 50%)</small>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad">Diámetro mínimo de la bifurcación aórtica</td>
+                <td class="col-rango">12–21 mm</td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II</span>
+                    <span class="dispositivo-highlight">Cook Zenith</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix</span>
+                    <span class="dispositivo-highlight">Bolton Treovance</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad">Diámetro mínimo de la arteria ilíaca común</td>
+                <td class="col-rango">7–11 mm</td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II</span>
+                    <span class="dispositivo-highlight">Cook Zenith</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix</span>
+                    <span class="dispositivo-highlight">Bolton Treovance</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad">Diámetro máximo de la arteria ilíaca común</td>
+                <td class="col-rango">18–25 mm</td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II</span>
+                    <span class="dispositivo-highlight">Cook Zenith</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix</span>
+                    <span class="dispositivo-highlight">Bolton Treovance</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad">Longitud mínima de zona de anclaje distal ilíaca común</td>
+                <td class="col-rango">10–20 mm</td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Todos los dispositivos</span>
+                    <small>(requerimiento estándar 10-20mm)</small>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad">Diámetro mínimo de acceso ipsilateral</td>
+                <td class="col-rango">5–8.5 mm<br><small>(varía por diámetro del cuello proximal)</small></td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3 (12-16F)</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II (14-18F)</span>
+                    <span class="dispositivo-highlight">Cook Zenith (18-20F)</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix (16-18F)</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-aplicabilidad">Diámetro mínimo de acceso contralateral</td>
+                <td class="col-rango">3.5–7 mm<br><small>(varía según diámetro ilíaca común)</small></td>
+                <td class="col-dispositivos">
+                    <span class="dispositivo-highlight">Gore Excluder C3 (12F)</span>
+                    <span class="dispositivo-highlight">Medtronic Endurant II (14F)</span>
+                    <span class="dispositivo-highlight">Cook Zenith (14F)</span>
+                    <span class="dispositivo-highlight">Terumo Aorfix (16F)</span>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="leyenda-comentario">
+                    <strong>Leyenda:</strong> β: ángulo infrarrenal, α: ángulo suprarrenal.<br><br>
+                    <strong>Comentario:</strong> Los valores representan rangos recomendados en las IFU de los dispositivos para realizar EVAR. La selección anatómica rigurosa mejora resultados y disminuye complicaciones como migración, endoleaks y fracaso del sellado. Los rangos pueden variar con nuevos dispositivos y avances tecnológicos según guías ESVS 2024 y estudios actuales[8][10][40][48]. Los dispositivos mostrados están comercializados en España y cumplen con los criterios específicos de cada parámetro anatómico.
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

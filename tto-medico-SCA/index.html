@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla 18 - Tratamiento HIA/SCA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .table-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .table-header h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 16px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:nth-child(even) {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f1f4ff 100%);
+        }
+        
+        tr:nth-child(odd) {
+            background: white;
+        }
+        
+        tr:hover {
+            background: linear-gradient(135deg, #e3f2fd 0%, #e8f4f8 100%);
+            transform: scale(1.01);
+            transition: all 0.3s ease;
+        }
+        
+        td {
+            padding: 18px 20px;
+            text-align: center;
+            vertical-align: top;
+            border-bottom: 1px solid #e0e8f0;
+        }
+        
+        .categoria {
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 15px;
+        }
+        
+        .tratamiento {
+            line-height: 1.6;
+            font-weight: 400;
+            color: #2c3e50;
+        }
+        
+        .tratamiento strong {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .comentario {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 12px;
+            font-weight: 500;
+            text-align: justify;
+            line-height: 1.5;
+        }
+        
+        .evidencia {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 16px;
+            margin: 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+            .table-container {
+                margin: 10px;
+                border-radius: 12px;
+            }
+            
+            table {
+                font-size: 12px;
+            }
+            
+            td, th {
+                padding: 12px 8px;
+            }
+            
+            .table-header h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <div class="table-header">
+            <h2>Tabla 18. Resumen de opciones de tratamiento médico para la hipertensión intraabdominal y el síndrome compartimental abdominal</h2>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Categoría de Tratamiento</th>
+                    <th style="width: 70%;">Opciones Terapéuticas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="categoria"><strong>Mejorar la compliance de la pared abdominal</strong></td>
+                    <td class="tratamiento">
+                        <strong>Alivio del dolor</strong> (anestesia epidural)<br>
+                        <strong>Evitar la morfina</strong><br>
+                        <strong>Bloqueo neuromuscular</strong> (puede reducir la presión intraabdominal hasta 50%)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="categoria"><strong>Evacuación del contenido intraluminal y/o abdominal</strong></td>
+                    <td class="tratamiento">
+                        <strong>Descompresión nasogástrica</strong><br>
+                        <strong>Paracentesis</strong> (raramente factible)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="categoria"><strong>Corregir el balance de líquidos positivo</strong></td>
+                    <td class="tratamiento">
+                        <strong>Evitar la sobrerresucitación</strong> y los cristaloides<br>
+                        <strong>Sangre total y coloides</strong> (20% de albúmina)<br>
+                        <strong>Diuréticos</strong> (furosemida)<br>
+                        <strong>Terapia de reemplazo renal</strong> si está indicada
+                    </td>
+                </tr>
+                <tr>
+                    <td class="categoria"><strong>Soporte de órganos</strong></td>
+                    <td class="tratamiento">
+                        <strong>Optimizar la ventilación</strong> (presión positiva al final de la espiración)<br>
+                        <strong>Vasopresores</strong> (presión de perfusión abdominal > 60 mmHg)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="comentario">
+            <strong>Interpretación de los datos:</strong> Esta tabla proporciona un enfoque sistemático para el manejo médico de la HIA/SCA, organizando las intervenciones según su mecanismo de acción. El objetivo es abordar las causas subyacentes (aumento del volumen intraabdominal, disminución de la compliance de la pared abdominal) y mitigar las consecuencias fisiopatológicas (compromiso de la perfusión orgánica). La implementación temprana y combinada de estas estrategias puede prevenir la progresión hacia el síndrome compartimental abdominal completo, que requiere descompresión quirúrgica urgente.
+        </div>
+        
+        <div class="evidencia">
+            <strong>Evidencia reciente (2020-2025):</strong> Los estudios actuales confirman la efectividad del bloqueo neuromuscular en las primeras 48 horas, el beneficio de cristaloides balanceados sobre solución salina, y la importancia de mantener una presión de perfusión abdominal ≥ 60 mmHg. Las guías WSACS 2021 y ESVS 2024 respaldan estas recomendaciones con nivel de evidencia moderado a alto.
+        </div>
+    </div>
+</body>
+</html>
