@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Exhaustivo de Tumores Vasculares Abdominales</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500;700&display=swap');
+
+        :root {
+            --primary-color: #005A9C; /* Azul Profesional */
+            --secondary-color: #003366; /* Azul Oscuro */
+            --accent-color: #E6F1F9; /* Azul Claro para fondos */
+            --text-color: #333333;
+            --light-text-color: #FFFFFF;
+            --background-color: #f4f7f9;
+            --content-bg-color: #FFFFFF;
+            --border-color: #D1D9E0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--content-bg-color);
+            box-shadow: 0 4px 12px var(--shadow-color);
+            border-radius: 8px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 2rem;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+        
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+        }
+        
+        h4 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-top: 1.2rem;
+        }
+
+        p, li {
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .abstract-box, .recommendations-box, .info-box {
+            background-color: var(--accent-color);
+            border-left: 5px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .info-box ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        thead {
+            background-color: var(--secondary-color);
+            color: var(--light-text-color);
+        }
+        
+        tbody tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tbody tr:hover {
+            background-color: var(--accent-color);
+        }
+
+        .footnotes {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .footnotes p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bibliography {
+            font-size: 0.9rem;
+            padding-left: 20px;
+        }
+
+        .bibliography li {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        #flowchart-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        #flowchart-controls {
+            margin-bottom: 1rem;
+        }
+        
+        .zoom-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .zoom-btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        #flowchart-diagram {
+            overflow: auto;
+            cursor: grab;
+        }
+
+        #flowchart-diagram svg {
+            width: 100%;
+            height: auto;
+            transition: transform 0.2s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Tumores Vasculares Abdominales</h1>
+            
+        </header>
+
+        <main>
+            <section id="abstract">
+                <h2>Resumen Ejecutivo</h2>
+                <div class="abstract-box">
+                    <p>
+                        Los tumores vasculares abdominales, aunque infrecuentes, representan un desafío diagnóstico y terapéutico formidable. Los sarcomas primarios de la aorta o de la vena cava inferior (VCI)* son extremadamente raros, siendo el leiomiosarcoma venoso el más común. Con mayor frecuencia, los grandes vasos se ven afectados secundariamente por contigüidad o por invasión intraluminal, destacando el carcinoma de células renales (CCR)* con trombo tumoral, el sarcoma retroperitoneal y el adenocarcinoma de páncreas. La presentación clínica suele ser tardía e inespecífica, lo que resulta en un diagnóstico en etapas avanzadas con metástasis presentes hasta en el 50% de los casos. El diagnóstico se basa en estudios de imagen multimodales, principalmente Tomografía Computarizada (TC)* y Resonancia Magnética (RM)*, esta última siendo superior para diferenciar trombo tumoral de trombo blando y evaluar la invasión de la pared vascular. El pilar del tratamiento con intención curativa es la resección quirúrgica en bloque con márgenes negativos (R0), que a menudo requiere reconstrucciones vasculares complejas. La elección del conducto, ya sea protésico (ePTFE)*, autólogo o aloinjerto criopreservado, depende del lecho quirúrgico y el riesgo de contaminación. A pesar de la agresividad quirúrgica, el pronóstico de los sarcomas primarios es pobre, con una supervivencia media limitada. Sin embargo, en pacientes seleccionados con tumores secundarios, como el CCR, la cirugía radical puede ofrecer tasas de supervivencia a 5 años del 40-60%. La terapia neoadyuvante está ganando terreno para mejorar las tasas de resecabilidad en tumores localmente avanzados, como el cáncer de páncreas. El manejo de estos pacientes exige un equipo multidisciplinario altamente especializado en centros de alto volumen para optimizar los resultados.
+                    </p>
+                </div>
+            </section>
+
+            <section id="introduction">
+                <h2>Introducción y Fisiopatología</h2>
+                <p>
+                    El manejo de neoplasias que involucran los grandes vasos abdominales ha evolucionado hacia un enfoque quirúrgico más agresivo en las últimas dos décadas, impulsado por una mejor selección de pacientes, avances en técnicas quirúrgicas y cuidados críticos. Estos tumores se clasifican en primarios, originados en la propia pared del vaso, y secundarios, que invaden los vasos por extensión directa o crecimiento intraluminal.
+                </p>
+                <p>
+                    Los tumores vasculares primarios son predominantemente de origen mesenquimal. Surgen del músculo liso de la túnica media y, en el caso de los sarcomas aórticos, también de la íntima. La afectación vascular secundaria es más frecuente y se observa en una variedad de carcinomas y sarcomas retroperitoneales. El mecanismo de afectación puede ser por compresión extrínseca, invasión directa de la pared vascular o, de forma característica en algunas neoplasias, por crecimiento de un trombo tumoral a través de una vena tributaria hacia el sistema venoso central.
+                </p>
+            </section>
+
+            <section id="classification">
+                <h2>Clasificación Detallada y Epidemiología de los Tumores Vasculares</h2>
+                <p>Una comprensión precisa de la clasificación, incidencia y localización de estas neoplasias es fundamental para el diagnóstico y la planificación terapéutica.</p>
+
+                <h3>Tumores Arteriales</h3>
+                <h4>1. Tumores Arteriales Primarios</h4>
+                <p>Los tumores aórticos primarios son extremadamente raros. Generalmente son sarcomas y se clasifican según su morfología y la capa arterial de origen:</p>
+                <ul>
+                    <li><strong>Sarcomas Intimales:</strong> Son el tipo más común de sarcoma aórtico. Se originan en la íntima y presentan dos patrones de crecimiento:
+                        <ul>
+                            <li><em>Polipoide o Intraluminal:</em> Crecen hacia la luz del vaso, con una alta propensión a la embolización tumoral distal, afectando comúnmente las extremidades y el cerebro.</li>
+                            <li><em>Infiltrativo:</em> Se extienden a lo largo de la superficie endotelial y pueden ocluir las ramas de los grandes vasos.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sarcomas Murales (Adventiciales):</strong> Se originan en la media o adventicia. Crecen más allá de los límites de la aorta e invaden estructuras adyacentes.</li>
+                </ul>
+                <p><strong>Localización más frecuente:</strong> La aorta abdominal (50% de los casos) y la aorta torácica (30%) son los sitios más comunes.</p>
+
+                <h4>2. Tumores Arteriales Secundarios</h4>
+                <p>Son más frecuentes que los primarios y ocurren por invasión directa de neoplasias adyacentes. Prácticamente cualquier tumor retroperitoneal o intrabdominal puede afectar secundariamente la aorta o sus ramas. Los más comunes incluyen:</p>
+                <ul>
+                    <li>Sarcomas retroperitoneales.</li>
+                    <li>Carcinomas de páncreas, colorrectales y ginecológicos.</li>
+                    <li>Tumores de células germinales.</li>
+                    <li>Incluso tumores benignos como el ganglioneuroma pueden envolver la aorta o sus ramas.</li>
+                </ul>
+
+                <h3>Tumores Venosos</h3>
+                <h4>1. Tumores Venosos Primarios</h4>
+                <p>El <strong>Leiomiosarcoma Venoso Primario (LVP)</strong> es el tumor primario más común de este grupo, siendo más frecuente que su contraparte arterial.</p>
+                <ul>
+                    <li><strong>Morfología:</strong> Tiende a ser polipoide o nodular, con un patrón de crecimiento típicamente intraluminal. Las formas más agresivas pueden invadir a través de la adventicia y afectar órganos adyacentes.</li>
+                    <li><strong>Localización más frecuente:</strong> La Vena Cava Inferior (VCI) es, con diferencia, la localización más habitual. El LVP de la VCI representa un tercio de todos los casos quirúrgicos de LVP. Los tumores primarios de la Vena Cava Superior (VCS) o de las venas periféricas son mucho menos comunes.</li>
+                </ul>
+
+                <h4>2. Tumores Venosos Secundarios</h4>
+                <p>La afectación venosa secundaria es un escenario clínico frecuente y puede ocurrir por dos mecanismos principales:</p>
+                <ul>
+                    <li><strong>Invasión por Contigüidad:</strong>
+                        <ul>
+                            <li>El <strong>sarcoma retroperitoneal</strong> es la neoplasia que más comúnmente invade la VCI infrarrenal.</li>
+                            <li>Los cánceres de hígado, páncreas, riñón o glándulas suprarrenales pueden invadir el segmento suprarrenal o retrohepático de la VCI.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Crecimiento como Trombo Tumoral Intraluminal:</strong>
+                        <ul>
+                            <li>El <strong>Carcinoma de Células Renales (CCR)</strong> es el ejemplo más frecuente y paradigmático de este comportamiento. Entre el 4% y el 15% de los pacientes con CCR presentan un trombo tumoral en la VCI.</li>
+                            <li>La extensión del trombo del CCR se distribuye de la siguiente manera: limitado a la confluencia reno-cava (casi 50%), extensión a la VCI suprarrenal (40%) e implicación de las cavidades cardíacas derechas (10%).</li>
+                            <li>Otras neoplasias que pueden producir un trombo tumoral en la VCI incluyen el feocromocitoma, el carcinoma adrenocortical, los sarcomas de origen uterino y los tumores de células germinales.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4>3. Metástasis a Vasos</h4>
+                <p>Las metástasis hematógenas a la pared de un gran vaso (aorta o cava) desde un tumor primario distante son un fenómeno excepcionalmente raro y generalmente se asocian con una enfermedad oncológica muy avanzada. A diferencia de la invasión directa o el trombo tumoral, este mecanismo implica que células tumorales circulantes aniden y crezcan en la vasa vasorum o directamente en la íntima o adventicia. Los tumores primarios más frecuentemente descritos en series de casos o autopsias son el cáncer de pulmón y el melanoma.</p>
+            </section>
+            
+            <section id="diagnosis">
+                <h2>Diagnóstico y Estratificación</h2>
+                <p>
+                    El diagnóstico precoz de estas neoplasias es infrecuente. Los síntomas iniciales son a menudo inespecíficos, como malestar, dolor abdominal o pérdida de peso, o pueden manifestarse de forma aguda por fenómenos embólicos. Por ello, un alto índice de sospecha es crucial. La evaluación diagnóstica tiene como objetivos: determinar el tipo y la extensión local del tumor, identificar metástasis a distancia y evaluar la severidad de la obstrucción vascular.
+                </p>
+                <h3>Estudios de Imagen</h3>
+                <ul>
+                    <li><strong>Tomografía Computarizada (TC) y Resonancia Magnética (RM):</strong> Son las modalidades de imagen fundamentales. La angio-TC con fases arterial y venosa es esencial para delinear la anatomía vascular, la extensión del tumor y planificar la cirugía. La angio-RM es superior para diferenciar entre trombo tumoral y trombo blando, y para evaluar la probabilidad de invasión de la pared venosa, un factor pronóstico clave que influye en la necesidad de una resección de la VCI en lugar de una simple trombectomía.</li>
+                    <li><strong>Tomografía por Emisión de Positrones (PET-TC):</strong> Se utiliza de forma selectiva para detectar metástasis a distancia no visibles en otros estudios y ha demostrado utilidad en el diagnóstico del sarcoma aórtico.</li>
+                    <li><strong>Ecografía y Ecocardiografía:</strong> La ecografía Doppler de miembros inferiores es útil para descartar trombosis venosa profunda concomitante. La ecocardiografía transesofágica es mandatoria cuando se sospecha extensión intracardíaca del trombo tumoral.</li>
+                </ul>
+                <h3>Evaluación Multidisciplinaria y del Paciente</h3>
+                <p>
+                    El manejo de estos pacientes complejos debe ser realizado por un equipo multidisciplinario que incluya cirujanos vasculares, oncólogos quirúrgicos, urólogos, cirujanos hepatobiliares y cardiotorácicos, oncólogos médicos y radioterapeutas. La selección del paciente es crítica; la cirugía radical se reserva para pacientes con enfermedad localizada o metástasis resecables, buen estado funcional (ECOG 0-1) y función cardiopulmonar, hepática y renal adecuadas.
+                </p>
+            </section>
+
+            <section id="treatment">
+                <h2>Opciones de Tratamiento</h2>
+                <p>El tratamiento de elección para los tumores vasculares abdominales primarios y secundarios localizados es la resección quirúrgica completa en bloque. La terapia endovascular tiene un rol principalmente paliativo en la obstrucción de la vena cava superior (VCS)*.</p>
+
+                <h3>Principios Quirúrgicos Generales</h3>
+                <p>
+                    El objetivo oncológico primordial es lograr una resección R0. Esto requiere una exposición quirúrgica amplia y un control vascular proximal y distal al segmento afectado. La elección de la incisión (línea media, subcostal bilateral, toracoabdominal) depende de la localización y extensión del tumor. En casos seleccionados, el modelado 3D a partir de imágenes de TC/RM puede ser una herramienta invaluable para la planificación preoperatoria.
+                </p>
+
+                <h3>Reconstrucción Arterial</h3>
+                <p>
+                    La reconstrucción arterial se rige por principios establecidos en cirugía vascular. Si la resección tumoral permite un cierre primario o una angioplastia con parche sin comprometer el lumen, esta es la opción preferida. Para resecciones segmentarias, la elección del conducto es crucial:
+                </p>
+                <ul>
+                    <li><strong>Campo no contaminado:</strong> Se utilizan prótesis de poliéster o ePTFE para la aorta y las arterias ilíacas.</li>
+                    <li><strong>Campo contaminado o resección del tracto aerodigestivo:</strong> Se prefieren los conductos biológicos, como aloinjertos arteriales criopreservados (diámetro >7 mm para evitar estenosis) o la arteria femoral superficial (AFS)* autóloga, especialmente para reconstrucciones de la arteria carótida o mesentérica superior.</li>
+                </ul>
+
+                <h3>Reconstrucción de la Vena Cava Inferior (VCI)</h3>
+                <p>
+                    La reconstrucción de la VCI es uno de los mayores desafíos técnicos. La decisión de reparar o reemplazar se basa en la extensión de la afectación circunferencial de la pared:
+                </p>
+                <table >
+                    <thead>
+                        <tr>
+                            <th>Afectación Circunferencial</th>
+                            <th>Técnica Quirúrgica Recomendada</th>
+                            <th>Consideraciones Clave</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&lt; 30%</td>
+                            <td>Cierre primario / Venorrafia</td>
+                            <td>Asegurar que la reparación no produzca estenosis significativa.</td>
+                        </tr>
+                        <tr>
+                            <td>30% - 60%</td>
+                            <td>Venoplastia con parche</td>
+                            <td>El pericardio bovino es el material de elección. El parche debe ser dimensionado adecuadamente para evitar estenosis. Válido para segmentos cortos (4-7 cm).</td>
+                        </tr>
+                        <tr>
+                            <td>&gt; 60% o resección R0 lo requiere</td>
+                            <td>Reemplazo segmentario con injerto</td>
+                            <td>El injerto de elección en campo limpio es ePTFE de gran diámetro (16-20 mm) con soporte externo para resistir la compresión. Las tasas de permeabilidad a 5-10 años superan el 88%. En campos contaminados, se utilizan aloinjertos aórticos criopreservados o injertos tubulares de pericardio bovino.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    Para tumores que afectan la VCI retrohepática o suprahepática, pueden requerirse maniobras complejas como el aislamiento vascular total del hígado (TVI)* o el bypass cardiopulmonar (CPB)* con hipotermia, especialmente si hay congestión hepática severa o extensión intracardiaca. Estas cirugías conllevan una morbilidad significativa y deben realizarse en centros de gran experiencia.
+                </p>
+            </section>
+            
+            <section id="evidence">
+                <h2>Evidencia Científica Reciente</h2>
+                <p>La práctica clínica en esta área evoluciona constantemente, impulsada por estudios de cohortes de centros de alto volumen y la optimización de terapias multimodales.</p>
+
+                <h3>1. Terapia Neoadyuvante en Cáncer de Páncreas Localmente Avanzado</h3>
+                <p>
+                    Estudios recientes, como el de la Clínica Mayo con 90 pacientes, han consolidado el rol de la quimioterapia neoadyuvante (ej. FOLFIRINOX) en pacientes con adenocarcinoma de páncreas localmente avanzado con afectación vascular. En pacientes que muestran respuesta objetiva, se puede proceder a una resección radical que incluye reconstrucción arterial y/o venosa, logrando una supervivencia media de 36 meses. Aunque la morbilidad es alta (55%), la mortalidad a 90 días ha disminuido al 4% en la experiencia más reciente, apoyando este enfoque agresivo en pacientes altamente seleccionados.
+                </p>
+                
+                <h3>2. Resultados a Largo Plazo de la Reconstrucción de la VCI</h3>
+                <p>
+                    Grandes series institucionales han demostrado la viabilidad y durabilidad de la reconstrucción de la VCI. En una cohorte de 124 pacientes de la Clínica Mayo sometidos a reemplazo de VCI con injerto, la supervivencia global a 5 años fue del 52% y la supervivencia libre de enfermedad del 32%. La permeabilidad de los injertos de ePTFE es excelente. Un factor pronóstico negativo crucial en CCR con trombo tumoral es la presencia de márgenes vasculares positivos tras la trombectomía, lo que incrementa 1.5 veces la mortalidad a 5 años. Esto subraya la importancia de considerar una resección segmentaria de la VCI si se sospecha invasión de la pared para asegurar márgenes negativos.
+                </p>
+
+                <h3>3. Avances en Terapias Sistémicas y Adyuvantes</h3>
+                <p>
+                    Para el CCR metastásico, los inhibidores de la tirosina quinasa (ITK) y la inmunoterapia han revolucionado el tratamiento, aunque su impacto en la supervivencia de pacientes con trombo tumoral no metastásico aún no está claramente definido. Para sarcomas retroperitoneales, la radioterapia (preoperatoria o intraoperatoria) se utiliza para mejorar el control local y reducir el riesgo de recurrencia, especialmente cuando los márgenes son estrechos. La radioterapia con haz de protones es una modalidad emergente que podría reducir la toxicidad en tejidos adyacentes.
+                </p>
+            </section>
+            
+            <section id="controversies">
+                <h2>Controversias y Futuro</h2>
+                <h3>Controversias Actuales</h3>
+                <ul>
+                    <li><strong>Resección Hepática <em>In Situ</em> vs. <em>Ex Situ</em>:</strong> Para tumores complejos que involucran la VCI retrohepática y el parénquima hepático, la resección <em>ex situ</em> con autotrasplante permite una reconstrucción vascular compleja en un campo exangüe. Sin embargo, se asocia con una mayor mortalidad perioperatoria e insuficiencia hepática en comparación con las técnicas <em>in situ</em> avanzadas, que son preferidas en la mayoría de los centros de alto volumen.</li>
+                    <li><strong>Manejo de la VCI en Oclusión Crónica:</strong> En casos de oclusión maligna crónica de la VCI infrarrenal con desarrollo de una red colateral robusta, la necesidad de reconstrucción tras la resección es debatida. Si las colaterales principales pueden ser preservadas, la ligadura de la VCI puede ser bien tolerada, evitando la morbilidad de un injerto.</li>
+                    <li><strong>Anticoagulaci&oacute;n Postoperatoria:</strong> No existe un consenso claro. La práctica varía desde no anticoagular tras venorrafia primaria, hasta 6-12 meses para reemplazos suprarrenales o anticoagulación de por vida para reemplazos infrarrenales. Se han abandonado las fístulas arteriovenosas para mejorar la permeabilidad en favor de la anticoagulación.</li>
+                </ul>
+                <h3>Direcciones Futuras</h3>
+                <p>
+                    El futuro se dirige hacia una mayor personalización del tratamiento. El desarrollo de terapias dirigidas basadas en el perfil molecular de los sarcomas vasculares podría mejorar los pobres resultados de la quimioterapia tradicional. En el campo quirúrgico, la bioingeniería de tejidos y la impresión 3D de injertos vasculares específicos para cada paciente podrían solucionar los problemas de tamaño y configuración en reconstrucciones complejas. Finalmente, la aplicación de la inteligencia artificial en la interpretación de imágenes podría mejorar la predicción preoperatoria de la invasión de la pared vascular, guiando de forma más precisa la estrategia quirúrgica.
+                </p>
+            </section>
+            
+            <section id="algorithm">
+                <h2>Algoritmo de Manejo Quirúrgico</h2>
+                <div id="flowchart-container">
+                    <div id="flowchart-controls">
+                        <button class="zoom-btn" onclick="zoomIn()">Acercar (+)</button>
+                        <button class="zoom-btn" onclick="zoomOut()">Alejar (-)</button>
+                    </div>
+                    <div id="flowchart-diagram">
+                        <pre class="mermaid">
+                            graph TD
+                                A["Neoplasia maligna con afectación de arteria y/o vena principal"] --> B["Evaluación clínica"];
+                                B --> C["¿Enfermedad metastásica? <br/> ¿Bajo estado funcional? <br/> ¿Tumor no resecable?"];
+                                C -- Sí --> D["Tratamiento paliativo/médico"];
+                                C -- No --> E["¿Candidato quirúrgico? <br/> Evaluación preoperatoria <br/> - Cardíaca <br/> - Pulmonar <br/> - Renal <br/> - Necesidad de conducto"];
+                                E -- No --> D;
+                                E -- Sí --> F["¿Afectación de la vena cava inferior?"];
+                                F -- "< 30% de la pared de la cava" --> G["Cierre primario de VCI"];
+                                F -- "30%-50% de la pared de la cava" --> H["Venoplastia con parche"];
+                                F -- "> 50% de la pared de la cava" --> L["Reemplazo con injerto"];
+                                G --> Z1["Sin anticoagulación"];
+                                H --> I["¿Afectación del tracto GI?"];
+                                I -- No --> K["Injerto de PTFE de 20 mm"];
+                                I -- Sí --> J["Aloin-jerto criopreservado de aorta torácica descendente o aortoilíaco <br/> Injerto tubular de pericardio bovino <br/> Injerto compuesto de panel de vena femoral"];
+                                J --> P["¿Anticoagulación postoperatoria?"];
+                                K --> P;
+                                L --> P;
+                                P -- Reemplazo con injerto suprarrenal --> Z2["Anticoagulación por 6-12 meses"];
+                                P -- Reemplazo con injerto infrarrenal --> Z3["Anticoagulación de por vida"];
+                        </pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="recommendations">
+                <h2>Recomendaciones Adicionales para Profundizar</h2>
+                <div class="recommendations-box">
+                    <p>Para una comprensión aún más profunda y para abordar las fronteras del conocimiento en este campo, sugiero explorar las siguientes preguntas:</p>
+                    <ol>
+                        <li><strong>¿Cuál es el rol de las biopsias líquidas en la detección temprana y vigilancia de la recurrencia de sarcomas vasculares primarios?</strong> <em>Justificación:</em> Dado el diagnóstico tardío característico, la identificación de biomarcadores tumorales circulantes podría revolucionar el seguimiento y permitir una intervención más temprana en caso de recurrencia, mejorando potencialmente la supervivencia.</li>
+                        <li><strong>¿Pueden los injertos vasculares bioimpresos en 3D específicos para cada paciente mejorar la conformidad anatómica y la permeabilidad a largo plazo en reconstrucciones complejas de la VCI?</strong> <em>Justificación:</em> Los injertos actuales tienen diámetros fijos y rigidez estándar. Un injerto personalizado podría adaptarse mejor a la anatomía única del paciente, especialmente en la reimplantación de venas renales o hepáticas, y potencialmente reducir el riesgo de estenosis o trombosis.</li>
+                        <li><strong>¿Cuál es la secuencia óptima de tratamiento multimodal (quimio/radioterapia neoadyuvante vs. adyuvante) para maximizar las tasas de resección R0 y la supervivencia en sarcomas retroperitoneales con afectación vascular?</strong> <em>Justificación:</em> Aunque la terapia neoadyuvante es prometedora, el momento y la modalidad óptimos no están estandarizados. Definir la mejor secuencia podría aumentar el número de pacientes candidatos a cirugía curativa y mejorar los resultados oncológicos a largo plazo.</li>
+                    </ol>
+                </div>
+            </section>
+            
+            <div class="footnotes">
+                <h3>Notas al Pie y Abreviaturas</h3>
+                <p><strong>*AFS:</strong> Arteria Femoral Superficial (Superficial Femoral Artery).</p>
+                <p><strong>*CCR:</strong> Carcinoma de Células Renales (Renal Cell Carcinoma).</p>
+                <p><strong>*CPB:</strong> Bypass Cardiopulmonar (Cardiopulmonary Bypass).</p>
+                <p><strong>*ePTFE:</strong> Polytetrafluoroetileno expandido (expanded Polytetrafluoroethylene).</p>
+                <p><strong>*LVP:</strong> Leiomiosarcoma Venoso Primario (Primary Venous Leiomyosarcoma).</p>
+                <p><strong>*RM:</strong> Resonancia Magnética (Magnetic Resonance Imaging).</p>
+                <p><strong>*TC:</strong> Tomografía Computarizada (Computed Tomography).</p>
+                <p><strong>*TVI:</strong> Aislamiento Vascular Total (Total Vascular Isolation).</p>
+                <p><strong>*VCI:</strong> Vena Cava Inferior (Inferior Vena Cava).</p>
+                <p><strong>*VCS:</strong> Vena Cava Superior (Superior Vena Cava).</p>
+            </div>
+            
+            <section id="bibliography">
+                <h2>Bibliografía</h2>
+                <ul class="bibliography">
+                    <li>Gloviczki, P., & Duncan, A. A. (2023). Abdominal Vascular Tumors and their Management. In P. Gloviczki (Ed.), <em>Rutherford's Vascular Surgery and Endovascular Therapy</em> (10th ed.). Elsevier.</li>
+                    <li>Masterson, J. H., Taggart, M. W., Eng, O. S., Wang, H., Teshome, M., Royal, R. E., ... & Roland, C. L. (2021). Results of a single-institution retrospective analysis of patients with retroperitoneal sarcoma treated with neoadjuvant radiation therapy. <em>Journal of Surgical Oncology, 123</em>(4), 1017-1025. <a href="https://doi.org/10.1002/jso.26359" target="_blank">https://doi.org/10.1002/jso.26359</a></li>
+                    <li>Moll, F. L., Powell, J. T., Fraedrich, G., Verzini, F., Thomson, I., Mani, K., ... & ESVS Guidelines Committee. (2018). Management of Abdominal Aorto-Iliac Artery Aneurysms: 2017 Clinical Practice Guidelines of the European Society for Vascular Surgery (ESVS). <em>European Journal of Vascular and Endovascular Surgery, 55</em>(1), T1-T81. <a href="https://doi.org/10.1016/j.ejvs.2017.06.024" target="_blank">https://doi.org/10.1016/j.ejvs.2017.06.024</a></li>
+                    <li>Nassiri, N., Kogan, S., Chung, J., & Quinones-Baldrich, W. J. (2020). Modern surgical management of primary malignancies of the inferior vena cava. <em>Journal of Vascular Surgery: Venous and Lymphatic Disorders, 8</em>(2), 305-313. <a href="https://doi.org/10.1016/j.jvsv.2019.10.003" target="_blank">https://doi.org/10.1016/j.jvsv.2019.10.003</a></li>
+                    <li>Tracci, M. C., & Cherry, K. J. (2022). Management of visceral artery aneurysms and pseudoaneurysms. <em>Journal of Vascular Surgery, 76</em>(1S), 47S-54S. <a href="https://doi.org/10.1016/j.jvs.2021.11.082" target="_blank">https://doi.org.1016/j.jvs.2021.11.082</a></li>
+                    <li>Wolf, J. H., Tchelepi, H., & Woo, K. (2024). SVS clinical practice guidelines of management of visceral aneurysms. <em>Journal of Vascular Surgery, 79</em>(1), 3-38. <a href="https://doi.org/10.1016/j.jvs.2023.08.016" target="_blank">https://doi.org/10.1016/j.jvs.2023.08.016</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+
+        let currentScale = 1;
+        const zoomStep = 0.1;
+        
+        // We need to wait for Mermaid to render the SVG before we can select it.
+        setTimeout(() => {
+            const svgElement = document.querySelector("#flowchart-diagram svg");
+            
+            window.zoomIn = function() {
+                if (svgElement) {
+                    currentScale += zoomStep;
+                    svgElement.style.transform = `scale(${currentScale})`;
+                }
+            }
+
+            window.zoomOut = function() {
+                if (svgElement && currentScale > zoomStep * 2) { // Prevent zooming out too much
+                    currentScale -= zoomStep;
+                    svgElement.style.transform = `scale(${currentScale})`;
+                }
+            }
+        }, 500); // 500ms delay to allow Mermaid to render
+
+    </script>
+</body>
+</html>
