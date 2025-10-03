@@ -1,4 +1,4 @@
-// Datos del menú de navegación con URLs exactas
+// Datos del menú de navegación
 const menuData = {
     titulo: "Indice Aorta y Temas relacionados",
     enlaces: [
@@ -7,7 +7,9 @@ const menuData = {
         {texto: "2025 ESVS reparación Aorta ascendente", url: "2025-esvs-reparacion-ao-asc/index.html"},
         {texto: "2025 ESVS trauma vascular", url: "2025-esvs-trauma-vascular/index.html"},
         {texto: "2024 ESVS Manejo Aneurismas Aorto-Ilíaco", url: "2024 ESVS Manejo Aneurismas Aorto-Ilíacos/index.html"},
+        {texto: "Características anatómicas e IFU de endoprótesis", url: "ifu-endoprotesis/index.html"},
         {texto: "World Society of the Abdominal Compartment Syndrome (WSACS) 2013", url: "WSACS2013/index.html"},
+        {texto: "Resumen de opciones de tratamiento médico para la hipertensión intraabdominal y el síndrome compartimental abdominal", url: "tto-medico-SCA/index.html"},
         {texto: "Análisis Exhaustivo de la Infección de Endoprótesis Aórtica Abdominal", url: "analisis-exhaustivo-de-la-infeccion-de-endoprotesis-aortica-abdominal/index.html"},
         {texto: "2020 ESVS INFECCION PROTESIS - RESUMEN DE RECOMENDACIONES", url: "2020-esvs-infeccion-protesis-resumen-de-recomendaciones/index.html"},
         {texto: "Sistemas de Clasificación de Infección de Prótesis Vasculares", url: "sistemas-de-clasificacion-de-infeccion-de-protesis-vasculares/index.html"},
