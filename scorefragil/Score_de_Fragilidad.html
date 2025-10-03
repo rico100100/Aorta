@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Score de Fragilidad</title>
+  <style>
+    :root{ --bg:#0f1220; --text:#e6ebff; --muted:#9aa6c8; --accent:#7aa2ff; --accent2:#4ee0d8; --ok:#22c55e; --warn:#ffb020; --danger:#ff6b6b; --radius:18px; --shadow:0 20px 40px rgba(2,6,23,.35); }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:#0b0f1e; color:var(--text); line-height:1.45}
+    .container{max-width:1200px; margin:36px auto; padding:0 20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); box-shadow:var(--shadow)}
+    header.hero{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:24px; background:linear-gradient(180deg, rgba(122,162,255,.12), rgba(78,224,216,.06)); border-top-left-radius:var(--radius); border-top-right-radius:var(--radius)}
+    .title{font-size:clamp(22px,3.4vw,30px)} .subtitle{color:var(--muted); font-size:14px}
+    .content{padding:20px}
+
+    /* actions */
+    .actions-top{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; margin-bottom:10px}
+    button{appearance:none; border:none; cursor:pointer; font-weight:600; letter-spacing:.2px; background:linear-gradient(180deg,#7aa2ff,#6282ff); color:white; padding:10px 14px; border-radius:12px; box-shadow:0 10px 30px rgba(122,162,255,.3)}
+    button.secondary{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); color:var(--text); border:1px solid rgba(255,255,255,.08); box-shadow:none}
+
+    /* chips */
+    .cats{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px}
+    .chip{padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.12); color:var(--muted); cursor:pointer; background:rgba(255,255,255,.04)}
+    .chip.active{color:var(--text); background:linear-gradient(180deg, rgba(122,162,255,.18), rgba(122,162,255,.06)); border-color:rgba(122,162,255,.35)}
+
+    /* layout */
+    .grid{display:grid; gap:16px}
+    .cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media(max-width:900px){.cols-2{grid-template-columns:1fr}}
+
+    .block{background:linear-gradient(160deg, rgba(255,255,255,.03), rgba(255,255,255,.015)); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:16px}
+    h3{margin:0 0 10px; font-size:16px}
+    .muted{color:var(--muted); font-size:12px}
+
+    input[type="number"], input[type="text"], select{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.06); color:var(--text)}
+    .check{display:flex; align-items:flex-start; gap:10px; border:1px dashed rgba(255,255,255,.08); padding:10px; border-radius:12px; background:rgba(255,255,255,.02); margin:6px 0}
+
+    .result{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,.08)}
+    .pill{padding:6px 10px; border-radius:999px; font-weight:600; border:1px solid rgba(255,255,255,.15)}
+    .pill.ok{background:rgba(34,197,94,.12); color:#86efac; border-color:rgba(34,197,94,.35)}
+    .pill.warn{background:rgba(255,176,32,.12); color:#ffd89a; border-color:rgba(255,176,32,.35)}
+    .pill.danger{background:rgba(255,107,107,.12); color:#ffb3b3; border-color:rgba(255,107,107,.35)}
+
+    .info{margin-top:10px; padding:12px; border:1px solid rgba(255,255,255,.08); border-radius:12px; background:linear-gradient(180deg, rgba(78,224,216,.08), rgba(255,255,255,.02))}
+
+    .biblio{margin-top:24px; padding:16px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(78,224,216,.08), rgba(255,255,255,.02))}
+    .biblio h4{margin:0 0 8px; font-size:15px}
+    .biblio ol{margin:6px 0 0 20px}
+
+    /* PRINT — blanco y negro limpio */
+    @media print{
+      *{box-shadow:none !important; text-shadow:none !important; color:#000 !important}
+      body{background:#fff !important}
+      .card, .block, .result, .info, .biblio, header.hero{background:#fff !important; border-color:#000 !important}
+      .pill{background:#fff !important; color:#000 !important; border-color:#000 !important}
+      .muted{color:#000 !important}
+      .cats, .actions-top{display:none !important}
+      /* muestra sólo el panel activo */
+      #panels .panel[hidden]{display:none !important}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <header class="hero">
+        <div>
+          <div class="title">Score de Fragilidad</div>
+          <div class="subtitle">Calculadora clínica interactiva (mFI‑5 por defecto)</div>
+        </div>
+        <div class="muted">v3.3</div>
+      </header>
+      <div class="content">
+        <div class="actions-top">
+          <button class="secondary" id="btnCopyAll">Copiar resumen (JSON)</button>
+          <button class="secondary" id="btnPrint">Imprimir / PDF</button>
+        </div>
+
+        <!-- Categorías -->
+        <div class="cats" id="catbar">
+          <button class="chip active" data-cat="mfi5">mFI‑5</button>
+          <button class="chip" data-cat="mfi11">mFI‑11</button>
+          <button class="chip" data-cat="eft">EFT</button>
+          <button class="chip" data-cat="cfs">CFS</button>
+          <button class="chip" data-cat="sppb">SPPB</button>
+          <button class="chip" data-cat="fried">Fried</button>
+          <button class="chip" data-cat="vqi">VQI‑FS (9 m)</button>
+          <button class="chip" data-cat="rai">RAI</button>
+        </div>
+
+        <div id="panels">
+
+          <!-- mFI-5 -->
+          <section data-panel="mfi5" class="panel">
+            <div class="grid cols-2">
+              <div class="block">
+                <h3>Datos (opcional)</h3>
+                <label>Edad<input type="number" id="edad" placeholder="Ej.: 74"></label>
+                <label>Historia clínica<input type="text" id="idpac" placeholder="Ej.: HCL‑2025‑00123"></label>
+              </div>
+              <div class="block">
+                <h3>Ítems mFI‑5 (1 pto c/u)</h3>
+                <label class="check"><input type="checkbox" id="m5_func"> Estado funcional no independiente</label>
+                <label class="check"><input type="checkbox" id="m5_dm"> Diabetes mellitus</label>
+                <label class="check"><input type="checkbox" id="m5_copd"> EPOC / neumonía crónica</label>
+                <label class="check"><input type="checkbox" id="m5_chf"> Insuficiencia cardiaca (último mes)</label>
+                <label class="check"><input type="checkbox" id="m5_htn"> Hipertensión tratada</label>
+              </div>
+            </div>
+            <div class="result"><div><strong>Puntaje mFI‑5: <span id="m5_score">0</span>/5</strong><div class="muted">0=No frágil · 1=Pre‑frágil · ≥2=Frágil</div></div><span class="pill ok" id="m5_pill">No frágil</span></div>
+            <div class="info">Pronóstico típico: asociado a complicaciones y mortalidad a 30 días en múltiples cohortes quirúrgicas; útil como tamizaje rápido.</div>
+          </section>
+
+          <!-- mFI-11 -->
+          <section data-panel="mfi11" class="panel" hidden>
+            <div class="block">
+              <h3>Ítems mFI‑11 (1 pto c/u)</h3>
+              <div class="muted">Versión de 11 comorbilidades derivadas de CSHA/NSQIP.</div>
+              <div class="grid cols-2">
+                <label class="check"><input type="checkbox" id="m11_func"> Estado funcional no independiente</label>
+                <label class="check"><input type="checkbox" id="m11_dm"> Diabetes</label>
+                <label class="check"><input type="checkbox" id="m11_copd"> EPOC</label>
+                <label class="check"><input type="checkbox" id="m11_chf"> Insuficiencia cardiaca</label>
+                <label class="check"><input type="checkbox" id="m11_mi"> Infarto de miocardio previo</label>
+                <label class="check"><input type="checkbox" id="m11_pci"> Angina/PCI/CABG</label>
+                <label class="check"><input type="checkbox" id="m11_htn"> HTA tratada</label>
+                <label class="check"><input type="checkbox" id="m11_pvd"> Enfermedad vascular periférica</label>
+                <label class="check"><input type="checkbox" id="m11_sens"> Sensorio alterado</label>
+                <label class="check"><input type="checkbox" id="m11_tia"> TIA/ACV sin secuelas</label>
+                <label class="check"><input type="checkbox" id="m11_cva"> ACV con déficit</label>
+              </div>
+            </div>
+            <div class="result"><div><strong>Puntaje mFI‑11: <span id="m11_score">0</span>/11</strong><div class="muted">0=No frágil · 1–2=Pre‑frágil · ≥3=Frágil</div></div><span class="pill ok" id="m11_pill">No frágil</span></div>
+            <div class="info">Pronóstico típico: mayor granularidad que mFI‑5; predice complicaciones y mortalidad perioperatoria; útil cuando necesitas más sensibilidad.</div>
+          </section>
+
+          <!-- EFT -->
+          <section data-panel="eft" class="panel" hidden>
+            <div class="grid cols-2">
+              <div class="block">
+                <h3>Essential Frailty Toolset (0–5)</h3>
+                <div class="grid cols-2">
+                  <label>Tiempo silla 5x (s)
+                    <input type="number" id="eft_chair_time" min="0" step="0.1" placeholder="Ej.: 16.5">
+                  </label>
+                  <label>Incapaz de realizar
+                    <select id="eft_chair_unable"><option value="no">No</option><option value="si">Sí</option></select>
+                  </label>
+                </div>
+                <label class="check"><input type="checkbox" id="eft_cog"> Déficit cognitivo (Mini‑Cog/Clock anormal)</label>
+                <div class="grid cols-2">
+                  <label>Hemoglobina (g/dL)
+                    <input type="number" id="eft_hb_val" min="0" step="0.1" placeholder="Ej.: 11.8">
+                  </label>
+                  <label>Albúmina (g/dL)
+                    <input type="number" id="eft_alb_val" min="0" step="0.1" placeholder="Ej.: 3.2">
+                  </label>
+                </div>
+                <label class="check"><input type="checkbox" id="eft_extra"> Desempeño funcional comprometido adicional</label>
+                <div class="muted">Reglas automáticas: silla anormal si tiempo ≥15 s o "incapaz"; Hb baja (&lt;12 mujer / &lt;13 varón, ajustar localmente); Alb &lt;3.5.</div>
+              </div>
+              <div class="block">
+                <div class="result"><div><strong>Puntaje EFT: <span id="eft_score">0</span>/5</strong><div class="muted">Asociado a mortalidad y eventos mayores (30–365 días).</div></div><span class="pill ok" id="eft_pill">Robusto</span></div>
+                <div class="info">Interpretación: 0 robusto; 1–2 pre‑frágil; ≥3 frágil. Pronóstico: predice mortalidad, delirium y complicaciones mayores, especialmente en cirugía cardiaca/vascular.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- CFS -->
+          <section data-panel="cfs" class="panel" hidden>
+            <div class="grid cols-2">
+              <div class="block">
+                <h3>Clinical Frailty Scale (1–9)</h3>
+                <label>Selecciona nivel
+                  <select id="cfs_sel">
+                    <option value="1">1 – Muy en forma</option>
+                    <option value="2">2 – En forma</option>
+                    <option value="3">3 – Bien</option>
+                    <option value="4">4 – Vulnerable</option>
+                    <option value="5">5 – Frágil leve</option>
+                    <option value="6">6 – Frágil moderado</option>
+                    <option value="7">7 – Frágil severo</option>
+                    <option value="8">8 – Muy frágil</option>
+                    <option value="9">9 – Enfermedad terminal</option>
+                  </select>
+                </label>
+              </div>
+              <div class="block">
+                <div class="result"><div><strong>CFS: <span id="cfs_score">1</span></strong><div class="muted">≥5 sugiere fragilidad con mayor riesgo de complicaciones y mortalidad.</div></div><span class="pill ok" id="cfs_pill">Robusto</span></div>
+                <div class="info">Interpretación: 1–3 robusto; 4 vulnerable; ≥5 frágil. Pronóstico: asociado a estancia, complicaciones y mortalidad.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SPPB -->
+          <section data-panel="sppb" class="panel" hidden>
+            <div class="grid cols-2">
+              <div class="block">
+                <h3>SPPB (0–12)</h3>
+                <div class="grid cols-2">
+                  <label>Balance (0–4)<input type="number" id="sppb_bal" min="0" max="4" value="0"></label>
+                  <label>Marcha (0–4)<input type="number" id="sppb_gait" min="0" max="4" value="0"></label>
+                  <label>Sentadilla silla (0–4)<input type="number" id="sppb_chair" min="0" max="4" value="0"></label>
+                </div>
+              </div>
+              <div class="block">
+                <div class="result"><div><strong>Puntaje SPPB: <span id="sppb_score">0</span>/12</strong><div class="muted">0–3 severa · 4–6 moderada · 7–9 leve · 10–12 mínima limitación.</div></div><span class="pill danger" id="sppb_pill">Severa</span></div>
+                <div class="info">Pronóstico: SPPB bajo se asocia con institucionalización, discapacidad y mortalidad; útil para prehabilitación.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Fried -->
+          <section data-panel="fried" class="panel" hidden>
+            <div class="grid cols-2">
+              <div class="block">
+                <h3>Fenotipo de Fried (0–5)</h3>
+                <div class="grid cols-2">
+                  <label>Pérdida (kg, 12 m)
+                    <input type="number" id="fr_wl_kg" min="0" step="0.1" placeholder="Ej.: 5">
+                  </label>
+                  <label>Pérdida (%)
+                    <input type="number" id="fr_wl_pct" min="0" step="0.1" placeholder="Ej.: 6">
+                  </label>
+                </div>
+                <label class="check"><input type="checkbox" id="fr_exh"> Exhaustión</label>
+                <label class="check"><input type="checkbox" id="fr_act"> Actividad física baja</label>
+                <div class="grid cols-2">
+                  <label>Velocidad 4 m (s)
+                    <input type="number" id="fr_walk4m" min="0" step="0.1" placeholder="Ej.: 6.5">
+                  </label>
+                  <label>Prensión débil (dinamometría)
+                    <select id="fr_grip_low"><option value="no">No</option><option value="si">Sí</option></select>
+                  </label>
+                </div>
+              </div>
+              <div class="block">
+                <div class="result"><div><strong>Puntaje Fried: <span id="fr_score">0</span>/5</strong><div class="muted">0 robusto · 1–2 pre‑frágil · ≥3 frágil.</div></div><span class="pill ok" id="fr_pill">Robusto</span></div>
+                <div class="info">Pronóstico: se asocia con discapacidad, caídas y mortalidad; captura la fragilidad física clásica.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- VQI-FS -->
+          <section data-panel="vqi" class="panel" hidden>
+            <div class="grid cols-2">
+              <div class="block">
+                <h3>VQI‑FS (9 meses, reconstr. arterial)</h3>
+                <label class="check"><input type="checkbox" id="vqi_chf"> Insuficiencia cardiaca</label>
+                <label class="check"><input type="checkbox" id="vqi_renal"> Insuficiencia renal</label>
+                <label class="check"><input type="checkbox" id="vqi_copd"> EPOC</label>
+                <label class="check"><input type="checkbox" id="vqi_amb"> Ambulación comprometida</label>
+                <label class="check"><input type="checkbox" id="vqi_home"> No vive en domicilio</label>
+                <label class="check"><input type="checkbox" id="vqi_anemia"> Anemia</label>
+                <label class="check"><input type="checkbox" id="vqi_underwt"> Bajo peso severo</label>
+                <label>Procedimiento<select id="vqi_proc"><option value="0">Estándar</option><option value="1">Riesgo alto (+1)</option></select></label>
+              </div>
+              <div class="block">
+                <div class="result"><div><strong>Puntaje VQI‑FS: <span id="vqi_score">0</span>/7</strong><div class="muted">0–1 bajo · 2–3 moderado · ≥4 alto (aprox.).</div></div><span class="pill ok" id="vqi_pill">Bajo</span></div>
+                <div class="info">Pronóstico: estimación de <em>mortalidad a ~9 meses</em> tras reconstrucción arterial; mejor calibración con ponderaciones oficiales.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- RAI -->
+          <section data-panel="rai" class="panel" hidden>
+            <div class="grid cols-2">
+              <div class="block">
+                <h3>Risk Analysis Index (RAI)</h3>
+                <div class="muted">Versión práctica (suma simple aproximada).</div>
+                <label class="check"><input type="checkbox" id="rai_age"> Edad avanzada (p.ej., ≥75)</label>
+                <label class="check"><input type="checkbox" id="rai_male"> Sexo masculino</label>
+                <label class="check"><input type="checkbox" id="rai_wl"> Pérdida de peso reciente</label>
+                <label class="check"><input type="checkbox" id="rai_cancer"> Cáncer activo</label>
+                <label class="check"><input type="checkbox" id="rai_dep"> Dependencia funcional</label>
+                <label class="check"><input type="checkbox" id="rai_ltc"> Residencia en centro</label>
+                <label class="check"><input type="checkbox" id="rai_chf"> Insuficiencia cardiaca</label>
+                <label class="check"><input type="checkbox" id="rai_copd"> EPOC</label>
+                <label class="check"><input type="checkbox" id="rai_lowalb"> Albúmina baja</label>
+              </div>
+              <div class="block">
+                <div class="result"><div><strong>Puntaje RAI (aprox.): <span id="rai_score">0</span></strong><div class="muted">Discriminación sólida para mortalidad 30–365 días.</div></div><span class="pill ok" id="rai_pill">Bajo</span></div>
+                <div class="info">Pronóstico: útil para cribado poblacional y priorización de optimización preop; considera versiones RAI‑C/RAI‑Rev para cortes específicos.</div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <div class="biblio">
+          <h4>Bibliografía (APA 7)</h4>
+          <ol>
+            <li>Afilalo, J., Lauck, S., Kim, D. H., et al. (2017). Frailty in older adults undergoing cardiac surgery: The Essential Frailty Toolset. <em>Journal of the American College of Cardiology</em>, 70(6), 689–700. https://doi.org/10.1016/j.jacc.2017.06.024</li>
+            <li>Fried, L. P., Tangen, C. M., Walston, J., et al. (2001). Frailty in older adults: Evidence for a phenotype. <em>J. Gerontology: Medical Sciences</em>, 56A(3), M146–M156. https://doi.org/10.1093/gerona/56.3.M146</li>
+            <li>Guralnik, J. M., Simonsick, E. M., Ferrucci, L., et al. (1994). A short physical performance battery assessing lower extremity function. <em>J. Gerontology</em>, 49(2), M85–M94. https://doi.org/10.1093/geronj/49.2.M85</li>
+            <li>Hall, D. E., Arya, S., Schmid, K. K., et al. (2017). Development and validation of the Risk Analysis Index. <em>JAMA Surgery</em>, 152(2), 175–182. https://doi.org/10.1001/jamasurg.2016.4202</li>
+            <li>Kraiss, L. W., Presson, A. P., Arya, S., et al. (2022). A VQI frailty assessment predicts post‑discharge mortality after arterial reconstruction. <em>Journal of Vascular Surgery</em>. https://doi.org/10.1016/j.jvs.2022.09.025</li>
+            <li>Subramaniam, S., Aalberg, J., Soriano, R. P., & Divino, C. M. (2018). New 5‑Factor Modified Frailty Index predicts outcomes in surgical patients. <em>American Journal of Surgery</em>, 215(3), 407–413. https://doi.org/10.1016/j.amjsurg.2017.10.014</li>
+            <li>Velanovich, V., Antoine, H., Swartz, A., et al. (2013). Accumulating deficits and postoperative complications: The 11‑Item Modified Frailty Index. <em>Annals of Surgery</em>, 258(6), 1029–1034. https://doi.org/10.1097/SLA.0b013e318297c411</li>
+            <li>Rockwood, K., Song, X., MacKnight, C., et al. (2005). A global clinical measure of fitness and frailty: The CFS. <em>CMAJ</em>, 173(5), 489–495. https://doi.org/10.1503/cmaj.050051</li>
+          </ol>
+          <div class="muted">Cortes orientativos; ajusta a tu protocolo y población. Estos instrumentos complementan, no sustituyen, el juicio clínico.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<script>
+  // helpers
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+  const $ = (sel, root=document) => root.querySelector(sel);
+
+  // Category switching (default mFI-5)
+  const panels = $$('#panels .panel');
+  const chips = $$('#catbar .chip');
+  function show(cat){ chips.forEach(c=> c.classList.toggle('active', c.dataset.cat===cat)); panels.forEach(p=>{ p.hidden = p.dataset.panel!==cat; }); }
+  chips.forEach(c=> c.addEventListener('click', ()=> show(c.dataset.cat)));
+  show('mfi5');
+
+  // mFI-5
+  const m5 = ['m5_func','m5_dm','m5_copd','m5_chf','m5_htn'].map(id=> $('#'+id));
+  m5.forEach(el=> el.addEventListener('change', updateM5));
+  function m5Label(s){ if(s>=2) return ['Frágil','danger']; if(s===1) return ['Pre‑frágil','warn']; return ['No frágil','ok']; }
+  function updateM5(){ const s = m5.reduce((a,e)=>a+(e.checked?1:0),0); $('#m5_score').textContent=s; const [lab,cls]=m5Label(s); const pill=$('#m5_pill'); pill.textContent=lab; pill.className='pill '+cls; }
+  updateM5();
+
+  // mFI-11
+  const m11ids=['m11_func','m11_dm','m11_copd','m11_chf','m11_mi','m11_pci','m11_htn','m11_pvd','m11_sens','m11_tia','m11_cva'];
+  m11ids.forEach(id=> $('#'+id).addEventListener('change', updateM11));
+  function updateM11(){ const s = m11ids.reduce((a,id)=> a + ($('#'+id).checked?1:0), 0); $('#m11_score').textContent=s; const pill=$('#m11_pill'); let cls='ok',lab='No frágil'; if(s>=3){cls='danger';lab='Frágil';} else if(s>=1){cls='warn';lab='Pre‑frágil';} pill.className='pill '+cls; pill.textContent=lab; }
+  updateM11();
+
+  // EFT (auto + cálculo)
+  function eftScore(){
+    const t=parseFloat($('#eft_chair_time')?.value||'');
+    const unable=$('#eft_chair_unable')?.value==='si';
+    const chair = (!!t && t>=15) || unable ? 1:0;
+    const cog = $('#eft_cog')?.checked?1:0;
+    const hbv = parseFloat($('#eft_hb_val')?.value||'');
+    const albv = parseFloat($('#eft_alb_val')?.value||'');
+    const hb = (!isNaN(hbv) && hbv<13) ? 1:0; // aproximación práctica
+    const alb = (!isNaN(albv) && albv<3.5) ? 1:0;
+    const extra = $('#eft_extra')?.checked?1:0;
+    return chair + cog + hb + alb + extra;
+  }
+  function updateEFT(){ const s=eftScore(); $('#eft_score').textContent=s; const pill=$('#eft_pill'); let cls='ok',lab='Robusto'; if(s>=3){cls='danger';lab='Frágil';} else if(s>=1){cls='warn';lab='Pre‑frágil';} pill.className='pill '+cls; pill.textContent=lab; }
+  ['input','change'].forEach(ev=>['eft_chair_time','eft_chair_unable','eft_cog','eft_hb_val','eft_alb_val','eft_extra'].forEach(id=> $('#'+id)?.addEventListener(ev, updateEFT)));
+  updateEFT();
+
+  // CFS
+  function updateCFS(){ const v=parseInt($('#cfs_sel').value,10); $('#cfs_score').textContent=v; const pill=$('#cfs_pill'); let cls='ok',lab='Robusto'; if(v>=5){cls='danger';lab='Frágil';} else if(v===4){cls='warn';lab='Vulnerable';} pill.className='pill '+cls; pill.textContent=lab; }
+  $('#cfs_sel').addEventListener('change', updateCFS); updateCFS();
+
+  // SPPB
+  function updateSPPB(){ const b=+$('#sppb_bal').value||0, g=+$('#sppb_gait').value||0, c=+$('#sppb_chair').value||0; const s=b+g+c; $('#sppb_score').textContent=s; const pill=$('#sppb_pill'); let cls='danger',lab='Severa'; if(s>=10){cls='ok';lab='Mínima';} else if(s>=7){cls='warn';lab='Leve';} else if(s>=4){cls='warn';lab='Moderada';} pill.className='pill '+cls; pill.textContent=lab; }
+  ['sppb_bal','sppb_gait','sppb_chair'].forEach(id=> $('#'+id).addEventListener('input', updateSPPB)); updateSPPB();
+
+  // Fried (auto + cálculo)
+  function friedScore(){
+    const kg=parseFloat($('#fr_wl_kg')?.value||''); const pct=parseFloat($('#fr_wl_pct')?.value||'');
+    const wl = ((!isNaN(kg) && kg>=5) || (!isNaN(pct) && pct>=5)) ? 1:0;
+    const exh = $('#fr_exh')?.checked?1:0;
+    const act = $('#fr_act')?.checked?1:0;
+    const walk = parseFloat($('#fr_walk4m')?.value||'');
+    const slow = (!isNaN(walk) && walk>=5) ? 1:0; // corte genérico
+    const weak = ($('#fr_grip_low')?.value==='si') ? 1:0;
+    return wl + exh + act + slow + weak;
+  }
+  function updateFR(){ const s=friedScore(); $('#fr_score').textContent=s; const pill=$('#fr_pill'); let cls='ok',lab='Robusto'; if(s>=3){cls='danger';lab='Frágil';} else if(s>=1){cls='warn';lab='Pre‑frágil';} pill.className='pill '+cls; pill.textContent=lab; }
+  ['input','change'].forEach(ev=>['fr_wl_kg','fr_wl_pct','fr_exh','fr_act','fr_walk4m','fr_grip_low'].forEach(id=> $('#'+id)?.addEventListener(ev, updateFR))); updateFR();
+
+  // VQI‑FS
+  const vqiIds=['vqi_chf','vqi_renal','vqi_copd','vqi_amb','vqi_home','vqi_anemia','vqi_underwt'];
+  function updateVQI(){ let s=vqiIds.reduce((a,id)=> a + ($('#'+id).checked?1:0),0); /* opcional: + parseInt($('#vqi_proc').value||0) */ const raw=s; $('#vqi_score').textContent=raw; const pill=$('#vqi_pill'); let cls='ok',lab='Bajo'; if(raw>=4){cls='danger';lab='Alto';} else if(raw>=2){cls='warn';lab='Moderado';} pill.className='pill '+cls; pill.textContent=lab; }
+  vqiIds.forEach(id=> $('#'+id).addEventListener('change', updateVQI)); $('#vqi_proc').addEventListener('change', updateVQI); updateVQI();
+
+  // RAI (aprox.)
+  const raiIds=['rai_age','rai_male','rai_wl','rai_cancer','rai_dep','rai_ltc','rai_chf','rai_copd','rai_lowalb'];
+  function updateRAI(){ const s=raiIds.reduce((a,id)=> a + ($('#'+id).checked?1:0), 0); $('#rai_score').textContent=s; const pill=$('#rai_pill'); let cls='ok',lab='Bajo'; if(s>=5){cls='danger';lab='Alto';} else if(s>=3){cls='warn';lab='Moderado';} pill.className='pill '+cls; pill.textContent=lab; }
+  raiIds.forEach(id=> $('#'+id).addEventListener('change', updateRAI)); updateRAI();
+
+  // Export JSON global
+  function collectAll(){
+    const data={
+      paciente:{ id: $('#idpac')?.value||null, edad: $('#edad')?.value||null },
+      mfi5_total: ['m5_func','m5_dm','m5_copd','m5_chf','m5_htn'].reduce((a,id)=>a+($('#'+id)?.checked?1:0),0),
+      mfi11_total: ['m11_func','m11_dm','m11_copd','m11_chf','m11_mi','m11_pci','m11_htn','m11_pvd','m11_sens','m11_tia','m11_cva'].reduce((a,id)=>a+($('#'+id)?.checked?1:0),0),
+      eft_total: ( ()=>{ const t=parseFloat($('#eft_chair_time')?.value||''); const unable=$('#eft_chair_unable')?.value==='si'; const chair=((!!t && t>=15)||unable)?1:0; const cog=$('#eft_cog')?.checked?1:0; const hbv=parseFloat($('#eft_hb_val')?.value||''); const albv=parseFloat($('#eft_alb_val')?.value||''); const hb=(!isNaN(hbv)&&hbv<13)?1:0; const alb=(!isNaN(albv)&&albv<3.5)?1:0; const extra=$('#eft_extra')?.checked?1:0; return chair+cog+hb+alb+extra; })(),
+      cfs_total: parseInt($('#cfs_sel')?.value||'1',10),
+      sppb_total: (+$('#sppb_bal')?.value||0)+(+$('#sppb_gait')?.value||0)+(+$('#sppb_chair')?.value||0),
+      fried_total: ( ()=>{ const kg=parseFloat($('#fr_wl_kg')?.value||''); const pct=parseFloat($('#fr_wl_pct')?.value||''); const wl=((!isNaN(kg)&&kg>=5)||(!isNaN(pct)&&pct>=5))?1:0; const exh=$('#fr_exh')?.checked?1:0; const act=$('#fr_act')?.checked?1:0; const w=parseFloat($('#fr_walk4m')?.value||''); const slow=(!isNaN(w)&&w>=5)?1:0; const weak=($('#fr_grip_low')?.value==='si')?1:0; return wl+exh+act+slow+weak; })(),
+      vqi_total: vqiIds.reduce((a,id)=>a+($('#'+id)?.checked?1:0),0),
+      rai_total: raiIds.reduce((a,id)=>a+($('#'+id)?.checked?1:0),0)
+    };
+    data.labels={
+      mfi5: (data.mfi5_total>=2?'Frágil':(data.mfi5_total===1?'Pre‑frágil':'No frágil')),
+      mfi11: (data.mfi11_total>=3?'Frágil':(data.mfi11_total>=1?'Pre‑frágil':'No frágil')),
+      eft: (data.eft_total>=3?'Frágil':(data.eft_total>=1?'Pre‑frágil':'Robusto')),
+      cfs: (data.cfs_total>=5?'Frágil':(data.cfs_total===4?'Vulnerable':'Robusto')),
+      sppb: (data.sppb_total>=10?'Mínima':(data.sppb_total>=7?'Leve':(data.sppb_total>=4?'Moderada':'Severa'))),
+      fried: (data.fried_total>=3?'Frágil':(data.fried_total>=1?'Pre‑frágil':'Robusto')),
+      vqi: (data.vqi_total>=4?'Alto':(data.vqi_total>=2?'Moderado':'Bajo')),
+      rai: (data.rai_total>=5?'Alto':(data.rai_total>=3?'Moderado':'Bajo'))
+    };
+    data.nota = `mFI‑5 ${data.mfi5_total} (${data.labels.mfi5}); mFI‑11 ${data.mfi11_total} (${data.labels.mfi11}); EFT ${data.eft_total} (${data.labels.eft}); CFS ${data.cfs_total} (${data.labels.cfs}); SPPB ${data.sppb_total} (${data.labels.sppb}); Fried ${data.fried_total} (${data.labels.fried}); VQI‑FS ${data.vqi_total} (${data.labels.vqi}); RAI ${data.rai_total} (${data.labels.rai}).`;
+    return data;
+  }
+  function copyAll(){ const data=collectAll(); navigator.clipboard.writeText(JSON.stringify(data,null,2)); }
+  document.getElementById('btnCopyAll')?.addEventListener('click', ()=>{ copyAll(); alert('Resumen copiado al portapapeles'); });
+  document.getElementById('btnPrint')?.addEventListener('click', ()=> window.print());
+</script>
+</body>
+</html>
