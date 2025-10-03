@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embriología del Sistema Vascular</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #003366;
+            color: #ffffff;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 5px solid #4a90e2;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        main {
+            padding: 30px 40px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: #003366;
+            border-bottom: 3px solid #4a90e2;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            font-size: 1.6em;
+            color: #005a9c;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .info-box {
+            background-color: #eaf2f8;
+            border-left: 5px solid #4a90e2;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+            color: #003366;
+        }
+
+        table.styled-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 1em;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .styled-table thead tr {
+            background-color: #003366;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #003366;
+        }
+
+        .bibliography, .footnotes {
+            background-color: #f9f9f9;
+            padding: 20px 40px;
+            margin-top: 40px;
+        }
+        
+        .bibliography ul, .footnotes ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .bibliography li, .footnotes li {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        sup {
+            font-size: 0.7em;
+            vertical-align: super;
+            margin-left: 2px;
+        }
+        
+        /* --- ESTILOS DEL VISUALIZADOR DESPLEGABLE --- */
+        .collapsible-container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .collapsible-header {
+            background-color: #005a9c;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .collapsible-header:hover {
+            background-color: #003366;
+        }
+        
+        .collapsible-header.active {
+             border-bottom: 1px solid #ccc;
+        }
+
+        .collapsible-header h2 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            color: white;
+            font-size: 1em; /* Hereda del padre */
+        }
+
+        .toggle-icon {
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible-header.active .toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background-color: #f9f9f9;
+        }
+        
+        .controls-and-chart {
+            padding: 15px;
+        }
+        
+        .zoom-controls {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .zoom-controls button {
+            background-color: #005a9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+         .zoom-controls button:hover {
+            background-color: #003366;
+        }
+        
+        .mermaid-container {
+            height: 75vh; /* Altura visible del contenedor */
+            overflow: auto; /* Scrollbars para navegar */
+            cursor: grab;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .mermaid {
+            transform-origin: top left;
+            transition: transform 0.2s ease;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Embriología del Sistema Vascular</h1>
+        </header>
+
+        <main>
+            <h2>Introducción</h2>
+            <p>
+                El sistema vascular es uno de los primeros en establecer su funcionalidad durante el desarrollo embrionario, siendo esencial para el suministro de oxígeno y nutrientes, así como para la eliminación de catabolitos metabólicos. Un fallo en su compleja ontogenia puede derivar en un espectro de anomalías anatómicas con profundas implicaciones clínicas. La comprensión detallada de los mecanismos embriológicos subyacentes es, por tanto, un pilar fundamental para el cirujano vascular y el investigador, permitiendo el reconocimiento preciso y el abordaje informado de las patologías vasculares congénitas.
+            </p>
+
+            <h2>Principios Fundamentales de la Formación Vascular</h2>
+            
+            <div class="info-box">
+                <h3>Formación de Vasos Sanguíneos Embrionarios</h3>
+                <p>
+                    El desarrollo vascular se inicia en la tercera semana de gestación. Para el día 17, se observan componentes sanguíneos y vasculares en el saco vitelino, y para el día 22, el corazón primitivo comienza a latir, estableciendo un sistema cardiovascular funcional para la cuarta semana. Este proceso se rige por una cascada de señalización molecular que involucra factores de transcripción, moléculas receptoras y ligandos específicos.
+                </p>
+            </div>
+
+            <h3>Vasculogénesis vs. Angiogénesis</h3>
+            <p>
+                El desarrollo vascular comprende dos procesos distintos pero interrelacionados:
+            </p>
+            <ul>
+                <li><strong>Vasculogénesis:</strong> Es la formación de novo de vasos sanguíneos. Se inicia con la diferenciación de células del mesodermo esplácnico en angioblastos, precursores de las células endoteliales. Estos angioblastos, bajo el estímulo del factor de crecimiento endotelial vascular (VEGF)<sup>*</sup>, se agregan para formar cordones que eventualmente se canalizan, dando lugar al plexo capilar primitivo. Este proceso está restringido fundamentalmente a la etapa embrionaria.</li>
+                <li><strong>Angiogénesis:</strong> Se refiere a la formación de nuevos vasos a partir de una red vascular preexistente. Ocurre tanto durante la embriogénesis como en la vida postnatal, en procesos fisiológicos (cicatrización) y patológicos (isquemia, tumores). Es un mecanismo de gemación y brote endotelial en respuesta a estímulos como la hipoxia tisular. La hipoxia induce la expresión del factor inducible por hipoxia 1α (HIF-1α)<sup>**</sup>, que a su vez estimula la producción de VEGF, promoviendo la proliferación endotelial.</li>
+            </ul>
+
+            <h3>Diferenciación Arterial, Venosa y Linfática</h3>
+            <p>
+                La especificación del linaje vascular ocurre tempranamente y está determinada por cascadas de señalización específicas:
+            </p>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Linaje Vascular</th>
+                        <th>Vía de Señalización Clave</th>
+                        <th>Marcador Celular</th>
+                        <th>Descripción del Proceso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Arterial</strong></td>
+                        <td>VEGF / VEGF-R2<sup>***</sup> → Notch</td>
+                        <td>Eph-B2</td>
+                        <td>La activación de Notch suprime el factor de transcripción COUP-TFII<sup>****</sup>, lo que conduce a la expresión del marcador arterial Eph-B2.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Venoso</strong></td>
+                        <td>COUP-TFII</td>
+                        <td>Eph-B4</td>
+                        <td>La expresión de COUP-TFII reprime la señalización de Notch, permitiendo la expresión del marcador venoso Eph-B4.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Linfático</strong></td>
+                        <td>PROX1<sup>*****</sup> / VEGF-C<sup>*******</sup> / VEGF-R3<sup>******</sup></td>
+                        <td>PROX1, VEGF-R3</td>
+                        <td>La expresión de PROX1, en conjunto con COUP-TFII, induce la expresión de VEGF-R3, el receptor para VEGF-C, promoviendo la diferenciación de las células endoteliales hacia un fenotipo linfático.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="collapsible-container">
+                <button class="collapsible-header" id="toggle-flowchart">
+                    <h2>Algoritmo Visual del Desarrollo Vascular</h2>
+                    <span class="toggle-icon">+</span>
+                </button>
+                <div class="collapsible-content" id="flowchart-content">
+                    <div class="controls-and-chart">
+                         <p style="text-align: center; margin-top:0; color: #555;">Haga clic y arrastre para navegar por el diagrama. Use los botones para controlar el zoom.</p>
+                         <div class="zoom-controls">
+                            <button id="zoom-in" title="Acercar">+</button>
+                            <button id="zoom-out" title="Alejar">-</button>
+                            <button id="zoom-reset" title="Restablecer">100%</button>
+                        </div>
+                        <div class="mermaid-container" id="mermaid-container">
+                            <div class="mermaid" id="mermaid-chart">
+%%{ init: { 'theme': 'base', 'themeVariables': { 'primaryColor': '#e0e6f8', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#f4f4f4'}} }%%
+flowchart TB
+ subgraph s1["Sistema Arterial"]
+      D1["Arterial: Notch, VEGFR2, EphB2"]
+      E["Desarrollo del sistema arterial"]
+      E1["Corazon primitivo: dia 22 late"]
+      E2["Arcos aorticos 1-6"]
+      E3["3er arco -> carotidas comunes e internas proximales"]
+      E4["4to arco: izq arco aortico, der subclavia prox"]
+      E5["6to arco: arterias pulmonares y ductus arteriosus izq"]
+      E6["Fusion aortas dorsales -> aorta descendente"]
+      E7["Arterias intersegmentarias: cervicales, intercostales, lumbares"]
+      E8["Arterias vitelinas -> tronco celiaco, mesenterica sup e inf"]
+      E9["Arterias umbilicales -> iliacas internas"]
+      E10["Miembro superior: arteria axial -> braquial, radial, cubital"]
+      E11["Miembro inferior: arteria ciatica -> poplitea, iliofemoral"]
+      H1["Anomalias arteriales"]
+      H2["Arco aortico derecho"]
+      H3["Arco aortico doble -> anillo vascular"]
+      H4["Subclavia derecha aberrante -> disfagia lusoria"]
+      H5["Coartacion de aorta: preductal y postductal"]
+      H6["Ductus arteriosus persistente"]
+      H7["Variaciones renales y miembros: arterias multiples o persistentes"]
+ end
+ subgraph s2["Sistema Venoso"]
+      D2["Venosa: COUP-TFII, EphB4"]
+      F["Desarrollo del sistema venoso"]
+      F1["Venas vitelinas -> plexo hepatico, vena porta, mesenterica sup"]
+      F3["Venas umbilicales: izq persiste -> ligamento redondo"]
+      F4["Venas cardinales: anteriores y posteriores"]
+      F7["Subcardinales -> VCI renal y venas gonadales"]
+      F8["Supracardinales -> VCI infrarrenal y sistema acigos"]
+      I1["Anomalias venosas"]
+      F2["Ductus venosus -> VCI suprahepatica"]
+      F5["Cardinales anteriores -> VCS, yugulares, braquiocefalicas"]
+      F6["Cardinales posteriores -> desaparecen"]
+      I2["VCS doble o izquierda"]
+      I3["Duplicacion VCI o VCI izquierda"]
+      I4["Vena renal retroaortica o circumaortica"]
+ end
+ subgraph s4["Sistema Linfatico"]
+      D3["Linfatica: Sox18, PROX1, VEGFR3"]
+      G["Desarrollo del sistema linfatico"]
+      G1["Sacos linfaticos: yugulares, posteriores, retroperitoneal, cisterna chyli"]
+      J1["Anomalias linfaticas"]
+      G2["Conducto toracico definitivo: union yugulares + cisterna"]
+      G3["Conducto linfatico derecho: saco yugular derecho"]
+      G4["Ganglios linfaticos se desarrollan dentro de los sacos"]
+      J2["Hipoplasia linfatica -> linfedema"]
+      J3["Sindrome Klippel-Trenaunay: malformaciones arteriovenosas"]
+ end
+
+    A["Embriologia y Desarrollo Vascular"] --> B["Vasculogenesis"]
+    B --> B1["Angioblastos del mesodermo esplacnico"]
+    B1 --> B2["VEGF activa angioblastos -> endotelio"]
+    B2 --> B3["Plexo capilar primitivo"]
+    B3 --> C["Angiogenesis"]
+    C --> C1["Brotes y ramificacion de vasos"]
+    C1 --> C2["Factores: hipoxia, HIF1a, VEGF"]
+    C2 --> C3["Remodelacion en arterias, venas y capilares"]
+    C3 --> D["Diferenciacion vascular"]
+    D --> D1 & D2 & D3
+    D1 --> E
+    E --> E1 & E6 & E10 & E11 & H1
+    E1 --> E2
+    E2 --> E3 & E4 & E5
+    E6 --> E7 & E8 & E9
+    D2 --> F
+    F --> F1 & F3 & F4 & F7 & F8 & I1
+    F1 --> F2
+    F4 --> F5 & F6
+    D3 --> G
+    G --> G1 & J1
+    G1 --> G2 & G3 & G4
+    H1 --> H2 & H3 & H4 & H5 & H6 & H7
+    I1 --> I2 & I3 & I4
+    J1 --> J2 & J3
+
+    %% Estilos
+    classDef start fill:#b3cde0,color:#003366,stroke:#005a9c,stroke-width:2px;
+    classDef arterial fill:#f8d7da,color:#721c24,stroke:#f5c6cb,stroke-width:2px;
+    classDef venous fill:#d4e4f7,color:#004085,stroke:#b8daff,stroke-width:2px;
+    classDef lymphatic fill:#d4edda,color:#155724,stroke:#c3e6cb,stroke-width:2px;
+    classDef anomaly fill:#fff3cd,color:#856404,stroke:#ffeeba,stroke-width:2px;
+
+    class A,B,B1,B2,B3,C,C1,C2,C3,D start;
+    class D1,E,E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,E11 arterial;
+    class D2,F,F1,F2,F3,F4,F5,F6,F7,F8 venous;
+    class D3,G,G1,G2,G3,G4 lymphatic;
+    class H1,H2,H3,H4,H5,H6,H7,I1,I2,I3,I4,J1,J2,J3 anomaly;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <h2>Desarrollo y Anomalías del Sistema Arterial</h2>
+
+            <div class="info-box">
+                <h3>Desarrollo del Arco Aórtico y sus Ramas</h3>
+                <p>
+                    El arco aórtico se forma a partir de seis pares de arterias faríngeas que conectan el saco aórtico con las aortas dorsales. Estos arcos se desarrollan y regresan en una secuencia craneocaudal entre los días 26 y 30.
+                </p>
+                <ul>
+                    <li><strong>1º y 2º Arcos:</strong> Regresan tempranamente con contribuciones mínimas a la vasculatura adulta.</li>
+                    <li><strong>3º Arcos:</strong> Forman las arterias carótidas comunes y los segmentos proximales de las arterias carótidas internas.</li>
+                    <li><strong>4º Arco Izquierdo:</strong> Origina el segmento del arco aórtico entre la carótida común izquierda y la subclavia izquierda.</li>
+                    <li><strong>4º Arco Derecho:</strong> Da lugar al segmento proximal de la arteria subclavia derecha.</li>
+                    <li><strong>5º Arco:</strong> Rudimentario o ausente en humanos.</li>
+                    <li><strong>6º Arcos (Arcos Pulmonares):</strong> Sus porciones proximales forman las arterias pulmonares. El segmento distal del 6º arco izquierdo persiste como el <em>ductus arteriosus</em> fetal (futuro <em>ligamentum arteriosum</em>).</li>
+                </ul>
+            </div>
+            
+            <h3>Anomalías Clínicamente Relevantes del Arco Aórtico</h3>
+            <p>
+                La persistencia o regresión anómala de segmentos de los arcos aórticos primitivos da lugar a variantes anatómicas, algunas con gran relevancia clínica. El patrón de ramificación considerado "normal" se presenta solo en aproximadamente el 65% de la población.
+            </p>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Anomalía</th>
+                        <th>Descripción Embriológica</th>
+                        <th>Incidencia y Relevancia Clínica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Arco Bovino</strong></td>
+                        <td>Origen común de la arteria carótida común izquierda desde el tronco braquiocefálico.</td>
+                        <td>15-30% de la población. Es la anomalía más frecuente del arco (73% de los casos). Puede tener implicaciones en procedimientos endovasculares y cirugía de cuello.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ductus Arteriosus Persistente (PDA)</strong></td>
+                        <td>Fallo en el cierre del <em>ductus arteriosus</em> (6º arco izquierdo distal) tras el nacimiento.</td>
+                        <td>La anomalía vascular más común, especialmente en prematuros. Causa un shunt de izquierda a derecha (aorta a arteria pulmonar), pudiendo llevar a hipertensión pulmonar.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coartación de la Aorta</strong></td>
+                        <td>Estrechez congénita de la aorta, usualmente yuxtaductal (cerca del <em>ligamentum arteriosum</em>). Se teoriza que tejido ductal ectópico en la pared aórtica se contrae post-nacimiento.</td>
+                        <td>Clínicamente se manifiesta con hipertensión en miembros superiores y pulsos débiles en inferiores. Radiográficamente, puede observarse el signo de Roesler (muescas costales) por circulación colateral a través de las arterias intercostales.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Arco Aórtico Doble</strong></td>
+                        <td>Persistencia de la aorta dorsal derecha distal, que junto al arco izquierdo normal, forma un anillo vascular completo.</td>
+                        <td>Causa compresión de la tráquea y/o el esófago, manifestándose con estridor, disnea o disfagia.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Arteria Subclavia Derecha Aberrante (<em>Arteria Lusoria</em>)</strong></td>
+                        <td>Involución anómala del 4º arco aórtico derecho, con formación de la subclavia derecha a partir de la 7ª arteria intersegmentaria y la aorta dorsal derecha distal.</td>
+                        <td>Nace como el último vaso del arco aórtico y cruza la línea media, típicamente retroesofágica. Puede causar compresión esofágica (<strong>Disfagia Lusoria</strong>) en ~5% de los casos. Es propensa a la degeneración aneurismática (<strong>Divertículo de Kommerell</strong>) hasta en un 48% de los pacientes, con riesgo de ruptura, disección o tromboembolismo.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Desarrollo y Anomalías del Sistema Venoso</h2>
+            <div class="info-box">
+                <h3>Ontogenia de las Venas Cavas</h3>
+                <p>El sistema venoso presenta mayor variabilidad anatómica debido a su origen a partir de múltiples canales anastomosados. Tres sistemas venosos pares son fundamentales: vitelino, umbilical y cardinal.</p>
+                <ul>
+                    <li><strong>Vena Cava Superior (VCS):</strong> Se forma a partir de la vena cardinal anterior derecha y la vena cardinal común derecha. Una anastomosis entre las cardinales anteriores forma la vena braquiocefálica izquierda, que redirige el flujo del lado izquierdo hacia la futura VCS.</li>
+                    <li><strong>Vena Cava Inferior (VCI):</strong> Su desarrollo es un mosaico complejo de cuatro segmentos:
+                        <ol>
+                            <li><strong>Segmento Hepático:</strong> De la vena vitelina derecha (ductus venosus).</li>
+                            <li><strong>Segmento Prerrenal (Renal):</strong> De la vena subcardinal derecha.</li>
+                            <li><strong>Segmento Postrrenal (Infrarrenal):</strong> De la vena supracardinal derecha.</li>
+                            <li><strong>Segmento Caudal:</strong> De la fusión de las venas cardinales posteriores.</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            
+            <h3>Anomalías Venosas Sistémicas</h3>
+            <p>
+                Las anomalías venosas son a menudo hallazgos incidentales, pero su conocimiento es crucial en cirugía aórtica, colocación de filtros de VCI y accesos venosos centrales.
+            </p>
+            <ul>
+                <li><strong>Duplicación de la VCI / VCI Izquierda:</strong> Resultan de la persistencia de la vena supracardinal izquierda en lugar de (o además de) la derecha. La VCI izquierda típicamente cruza al lado derecho a nivel de las venas renales para unirse a la vena renal derecha.</li>
+                <li><strong>Vena Renal Izquierda Retroaórtica o Circumaórtica:</strong> La vena renal izquierda se forma por una anastomosis entre las venas subcardinales que rodea la aorta. Normalmente, el componente posterior de este collar venoso regresa. Si persiste el componente posterior y regresa el anterior, se forma una vena renal izquierda retroaórtica. Si ambos persisten, se forma un anillo venoso o vena circumaórtica. Esta es la anomalía venosa más común y su reconocimiento es vital para evitar lesiones iatrogénicas durante la cirugía aórtica.</li>
+                <li><strong>VCS Doble / VCS Izquierda Persistente:</strong> Se deben a la falta de regresión de la vena cardinal anterior izquierda. La VCS izquierda drena típicamente en el seno coronario.</li>
+            </ul>
+
+            <h2>Desarrollo del Sistema Linfático</h2>
+            <div class="info-box">
+                <h3>Linfangiogénesis</h3>
+                <p>
+                    El desarrollo linfático se inicia en la quinta semana a partir de la brotación de seis sacos linfáticos primordiales que derivan del sistema venoso o de precursores mesenquimales (origen dual). Estos sacos son los yugulares (pares), posteriores (pares), retroperitoneal (impar) y la cisterna del quilo (impar). Vasos linfáticos posteriores conectan estos sacos, formando finalmente los dos grandes conductos colectores:
+                </p>
+                <ul>
+                    <li><strong>Conducto Torácico:</strong> Formado por la fusión de vasos que conectan la cisterna del quilo con el sistema venoso en la confluencia yugulo-subclavia izquierda.</li>
+                    <li><strong>Conducto Linfático Derecho:</strong> Formado a partir del saco yugular derecho.</li>
+                </ul>
+                <p>
+                    Las fallas en este desarrollo pueden conducir a hipoplasia del sistema, manifestándose clínicamente como <strong>linfedema primario</strong>, una condición caracterizada por la acumulación de líquido intersticial debido a un drenaje linfático inadecuado.
+                </p>
+            </div>
+
+
+            <section class="footnotes">
+                <h2>Abreviaturas y Notas al Pie</h2>
+                <ul>
+                    <li><small><strong>* VEGF (Vascular Endothelial Growth Factor):</strong> Factor de crecimiento endotelial vascular. Proteína de señalización clave en vasculogénesis y angiogénesis.</small></li>
+                    <li><small><strong>** HIF-1α (Hypoxia-Inducible Factor 1α):</strong> Factor 1 alfa inducible por hipoxia. Factor de transcripción que responde a la baja tensión de oxígeno.</small></li>
+                    <li><small><strong>*** VEGF-R2 (VEGF Receptor 2):</strong> Receptor 2 del VEGF. Principal receptor transductor de señales mitogénicas de VEGF en células endoteliales.</small></li>
+                    <li><small><strong>**** COUP-TFII (Chicken Ovalbumin Upstream Promoter Transcription Factor II):</strong> Factor de transcripción II promotor de la ovoalbúmina de pollo. Crítico para la especificación del linaje venoso.</small></li>
+                    <li><small><strong>***** PROX1 (Prospero Homeobox Transcription Factor 1):</strong> Factor de transcripción 1 homeobox prospero. Gen maestro en la especificación del linaje linfático.</small></li>
+                    <li><small><strong>****** VEGF-R3 (VEGF Receptor 3):</strong> Receptor 3 del VEGF. Receptor principal para VEGF-C, esencial para la linfangiogénesis.</small></li>
+                    <li><small><strong>******* VEGF-C (Vascular Endothelial Growth Factor C):</strong> Factor de Crecimiento Endotelial Vascular C. Ligando específico para VEGF-R3 en el desarrollo linfático.</small></li>
+                </ul>
+            </section>
+            
+            <section class="bibliography">
+                <h2>Bibliografía</h2>
+                <ul>
+                    <li>Sidawy, A. N., & Perler, B. A. (Eds.). (2023). <em>Rutherford's Vascular Surgery and Endovascular Therapy (10th ed.)</em>. Elsevier.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            mermaid.initialize({ startOnLoad: true, theme: 'base' });
+
+            // --- Lógica del Desplegable ---
+            const collapsibleBtn = document.getElementById("toggle-flowchart");
+            const content = document.getElementById("flowchart-content");
+            const icon = collapsibleBtn.querySelector('.toggle-icon');
+
+            collapsibleBtn.addEventListener("click", function() {
+                this.classList.toggle("active");
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.textContent = "+";
+                } else {
+                    // Espera a que el SVG de mermaid se renderice para calcular la altura correcta
+                     setTimeout(() => {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.textContent = "×";
+                    }, 200);
+                }
+            });
+
+            // --- Lógica de Zoom y Paneo ---
+            const zoomInButton = document.getElementById('zoom-in');
+            const zoomOutButton = document.getElementById('zoom-out');
+            const zoomResetButton = document.getElementById('zoom-reset');
+            const mermaidChart = document.getElementById('mermaid-chart');
+            const container = document.getElementById('mermaid-container');
+            
+            let currentScale = 1.0;
+            const scaleStep = 0.2;
+            
+            // Renderiza el gráfico con un tamaño base grande para asegurar buena resolución al hacer zoom
+            mermaidChart.style.minWidth = '2000px';
+
+            zoomInButton.addEventListener('click', () => {
+                currentScale += scaleStep;
+                mermaidChart.style.transform = `scale(${currentScale})`;
+            });
+
+            zoomOutButton.addEventListener('click', () => {
+                if (currentScale > scaleStep * 2) { 
+                    currentScale -= scaleStep;
+                    mermaidChart.style.transform = `scale(${currentScale})`;
+                }
+            });
+
+            zoomResetButton.addEventListener('click', () => {
+                currentScale = 1.0;
+                mermaidChart.style.transform = `scale(${currentScale})`;
+                container.scrollTop = 0;
+                container.scrollLeft = 0;
+            });
+
+            // Lógica de Paneo (Arrastrar para mover)
+            let isDown = false;
+            let startX;
+            let startY;
+            let scrollLeft;
+            let scrollTop;
+
+            container.addEventListener('mousedown', (e) => {
+                isDown = true;
+                container.style.cursor = 'grabbing';
+                startX = e.pageX - container.offsetLeft;
+                startY = e.pageY - container.offsetTop;
+                scrollLeft = container.scrollLeft;
+                scrollTop = container.scrollTop;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                isDown = false;
+                container.style.cursor = 'grab';
+            });
+
+            container.addEventListener('mouseup', () => {
+                isDown = false;
+                container.style.cursor = 'grab';
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const y = e.pageY - container.offsetTop;
+                const walkX = (x - startX) * 2; 
+                const walkY = (y - startY) * 2;
+                container.scrollLeft = scrollLeft - walkX;
+                container.scrollTop = scrollTop - walkY;
+            });
+        });
+    </script>
+</body>
+</html>

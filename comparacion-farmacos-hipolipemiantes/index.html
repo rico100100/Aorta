@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparación de Fármacos Hipolipemiantes</title>
+<style>
+:root{
+  --bg:#0A0F1F;
+  --panel1:#151B33;
+  --panel2:#0F1428;
+  --txt:#F4F8FF;
+  --muted:#A8B3CC;
+  --p1:#64F2FF;
+  --p2:#5A8CFF;
+  --ok:#2EF5AA;
+  --bad:#FF5E8E;
+  --warn:#FFD34E;
+  --chip:#1A1F3D;
+  --line:rgba(255,255,255,.08);
+  --radius:16px;
+}
+body{
+  margin:0; font-family: 'Segoe UI', Roboto, sans-serif; color:var(--txt);
+  background:radial-gradient(circle at 20% 10%,rgba(100,242,255,.15),transparent 50%),
+             radial-gradient(circle at 80% 0%,rgba(255,94,142,.15),transparent 50%),
+             var(--bg);
+}
+.wrap{max-width:1100px;margin:50px auto;padding:0 20px;}
+h1{
+  font-size:clamp(26px,3.2vw,40px);margin:0 0 8px;
+  background:linear-gradient(90deg,var(--p1),var(--p2));
+  -webkit-background-clip:text;color:transparent;
+  text-shadow:0 3px 20px rgba(90,140,255,.4);
+}
+.subtitle{margin:0;color:var(--muted);}
+.card{
+  background:linear-gradient(180deg,var(--panel1),var(--panel2));
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:0 18px 32px rgba(0,0,0,.5);
+  margin-top:20px;overflow:hidden;
+}
+.chipbar{display:flex;flex-wrap:wrap;gap:8px;padding:12px;}
+.chip{
+  background:linear-gradient(180deg,#20284D,#171D38);
+  color:var(--p1);padding:6px 10px;border-radius:999px;
+  border:1px solid rgba(100,242,255,.3);
+  font-size:12px;box-shadow:0 4px 14px rgba(100,242,255,.2);
+}
+.table-wrap{overflow:auto;}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;}
+thead th{
+  position:sticky;top:0;z-index:2;padding:12px;
+  background:linear-gradient(180deg,rgba(21,27,64,.95),rgba(15,20,50,.95));
+  color:#E8F6FF;text-align:left;border-bottom:1px solid var(--line);
+}
+tbody tr{transition:background .2s;}
+tbody tr:nth-child(even){background:rgba(255,255,255,.02);}
+tbody tr:hover{background:rgba(100,242,255,.08);}
+td{padding:12px;vertical-align:top;border-bottom:1px dashed var(--line);}
+.kpi{font-weight:700;}
+.pos{color:var(--ok);font-weight:700;}
+.neg{color:var(--bad);font-weight:700;}
+.foot{
+  background:linear-gradient(180deg,#1A2248,#141B3A);
+  padding:12px;border-top:1px solid var(--line);
+}
+.foot h4{margin:0 0 8px;font-size:14px;color:var(--p1);}
+.abbr{display:flex;flex-wrap:wrap;gap:6px;}
+.abbr .item{
+  background:var(--chip);
+  border:1px solid var(--line);
+  padding:6px 10px;border-radius:8px;font-size:12px;
+}
+.notes,.refs{
+  margin-top:20px;padding:14px;border-radius:var(--radius);
+  border:1px solid var(--line);
+}
+.notes{background:linear-gradient(180deg,#1C2550,#151D3E);}
+.notes h3,.refs h3{margin:0 0 10px;color:var(--p1);font-size:15px;}
+.notes li{margin:6px 0;}
+.refs{background:linear-gradient(180deg,#1A203F,#121833);}
+.ref-item{font-size:13px;color:var(--muted);margin:4px 0;}
+.tag{color:var(--warn);font-weight:700;}
+@media(max-width:760px){
+  thead th:nth-child(3),thead th:nth-child(4),
+  tbody td:nth-child(3),tbody td:nth-child(4){display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Comparación de Fármacos Hipolipemiantes</h1>
+  <p class="subtitle">Efectos, indicaciones, administración e interacciones</p>
+  <section class="card">
+    <div class="chipbar">
+      <div class="chip">LDL ↓</div><div class="chip">HDL ↑</div>
+      <div class="chip">TG ↓</div><div class="chip">PCSK9</div>
+      <div class="chip">Alto Riesgo CV</div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fármaco / Interv.</th><th class="kpi">↓ LDL %</th>
+            <th>↑ HDL %</th><th>↓ TG %</th>
+            <th>Indicaciones</th><th>Vía/Dosis</th><th>Interacciones</th>
+          </tr>
+        </thead>
+        <tbody>
+<tr><td>Estatinas (atorva, rosuva, simva)</td><td class="kpi">20–60</td><td>5–15</td><td>10–30</td><td>1ª línea; prev. CV</td><td>VO noche</td><td><span class="neg">CYP3A4</span></td></tr>
+<tr><td>Inhib. PCSK9</td><td class="kpi">50–70</td><td>5–10</td><td>10–15</td><td>HF; alto riesgo</td><td>SC 2–4 sem</td><td>—</td></tr>
+<tr><td>Inclisiran</td><td class="kpi">45–60</td><td>5–10</td><td>10–20</td><td>Alto riesgo</td><td>SC 0,3,6m</td><td>—</td></tr>
+<tr><td>Ezetimiba</td><td class="kpi">15–25</td><td>2–5</td><td>5–10</td><td>Con estatinas o intolerancia</td><td>VO día</td><td>↑ miopatía con estatinas</td></tr>
+<tr><td>Resinas</td><td class="kpi">15–30</td><td>3–8</td><td class="neg">↑/NE</td><td>HC; embarazo</td><td>VO comidas</td><td>↓ absorción de fármacos</td></tr>
+<tr><td>Fibratos</td><td class="kpi">5–20</td><td>10–20</td><td class="pos">30–50</td><td>HTG</td><td>VO con comida</td><td>Miopatía con estatinas</td></tr>
+<tr><td>Ácido bempedoico</td><td class="kpi">15–25</td><td>5–10</td><td>5–10</td><td>Intolerancia estatinas</td><td>VO</td><td>↑ ácido úrico</td></tr>
+<tr><td>Niacina</td><td class="kpi">10–25</td><td class="pos">20–35</td><td class="pos">20–40</td><td>↑ potente HDL</td><td>VO comida</td><td>Anticoag.; ↑ glucosa</td></tr>
+<tr><td>AG omega-3</td><td class="kpi">NE/5</td><td>5–10</td><td class="pos">20–50</td><td>HTG</td><td>VO comida</td><td>Sangrado anticoag.</td></tr>
+<tr><td>Inhib. CETP*</td><td class="kpi">30–40</td><td class="pos">60–130</td><td>10–20</td><td>No aprobados</td><td>VO</td><td>—</td></tr>
+<tr><td>AKCEA-APO(a)-LRx</td><td class="kpi">↓ Lp(a) 80%</td><td>NE</td><td>NE</td><td>Lp(a) alta</td><td>SC</td><td>—</td></tr>
+<tr><td>Estatina+Ezetimiba</td><td class="kpi">35–65</td><td>5–10</td><td>10–20</td><td>↓ LDL adicional</td><td>VO</td><td>Ambas</td></tr>
+<tr><td>Estatina+PCSK9</td><td class="kpi">60–80</td><td>5–15</td><td>15–30</td><td>Máx. ↓ LDL</td><td>VO+SC</td><td>Miopatía</td></tr>
+<tr><td>Dieta+Ejercicio</td><td class="kpi">5–20</td><td>5–10</td><td>10–30</td><td>Base tto</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="foot">
+      <h4>Abreviaturas</h4>
+      <div class="abbr">
+        <div class="item">VO: vía oral</div><div class="item">SC: subcutánea</div>
+        <div class="item">HF: hipercolesterolemia familiar</div>
+        <div class="item">HTG: hipertrigliceridemia</div>
+        <div class="item">CV: cardiovascular</div>
+        <div class="item">NE: neutro/sin efecto</div>
+        <div class="item">Prev.: prevención</div>
+        <div class="item">Atorva/Rosuva/Simva: atorvastatina/rosuvastatina/simvastatina</div>
+        <div class="item">CYP3A4: citocromo P450 3A4</div>
+      </div>
+    </div>
+  </section>
+  <section class="notes">
+    <h3>Notas</h3>
+    <ul>
+      <li><span class="tag">Inclisiran</span>: ARNi que reduce PCSK9; dosis semestral.</li>
+      <li><span class="tag">Ácido bempedoico</span>: Actúa en hígado, no músculo.</li>
+      <li><span class="tag">AKCEA-APO(a)-LRx</span>: En desarrollo para Lp(a).</li>
+    </ul>
+  </section>
+  <section class="refs">
+    <h3>Bibliografía (APA 7)</h3>
+    <div class="ref-item">Mach, F., Baigent, C., Catapano, A. L., et al. (2020). 2019 ESC/EAS Guidelines for the management of dyslipidaemias. European Heart Journal, 41(1), 111–188.</div>
+    <div class="ref-item">Grundy, S. M., Stone, N. J., et al. (2019). 2018 AHA/ACC Guideline on the management of blood cholesterol. J Am Coll Cardiol, 73(24), e285–e350.</div>
+    <div class="ref-item">Sabatine, M. S., et al. (2017). Evolocumab and clinical outcomes in cardiovascular disease. NEJM, 376, 1713–1722.</div>
+  </section>
+</div>
+</body>
+</html>

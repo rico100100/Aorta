@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía ESVS 2025: Manejo del Trauma Vascular</title>
+    <style>
+        :root {
+            --color-primary: #1e3a8a; /* Azul profesional */
+            --color-secondary: #dc2626; /* Rojo de trauma */
+            --color-bg-light: #f3f4f6; /* Fondo claro */
+            --color-text-dark: #1f2937; /* Texto oscuro */
+            --color-card-bg: #ffffff; /* Fondo de tarjeta */
+            --color-border-card: #e5e7eb; /* Borde de tarjeta */
+            --color-hover: #e0e7ff; /* Hover azul claro */
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--color-text-dark);
+            background-color: var(--color-bg-light);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--color-card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: var(--color-primary);
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .search-container {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        #search-input {
+            width: 80%;
+            padding: 12px 20px;
+            border: 2px solid var(--color-primary);
+            border-radius: 25px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        #search-input:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
+        }
+        .recommendation-card {
+            background-color: var(--color-card-bg);
+            border-left: 5px solid var(--color-secondary);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--color-border-card);
+            display: none; /* Ocultar por defecto para el filtrado */
+        }
+        .recommendation-card.visible {
+            display: block; /* Mostrar cuando sea visible */
+        }
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .recommendation-card h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+            font-size: 1.25rem;
+        }
+        .recommendation-card p {
+            font-size: 1rem;
+            color: var(--color-text-dark);
+        }
+        .recommendation-card .grade {
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .grade.class-I {
+            color: #166534; /* Verde para Clase I */
+        }
+        .grade.class-IIa, .grade.class-IIb {
+            color: #d97706; /* Naranja para Clase II */
+        }
+        .grade.class-IIIa, .grade.class-IIIb {
+            color: var(--color-secondary); /* Rojo para Clase III */
+        }
+        .area-container {
+            margin-bottom: 30px;
+            border: 2px solid var(--color-border-card);
+            border-radius: 12px;
+            padding: 20px;
+            background-color: var(--color-bg-light);
+        }
+        .area-header {
+            cursor: pointer;
+            padding: 15px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .area-header:hover {
+            background-color: #0b1c55;
+        }
+        .area-header .arrow {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .area-content {
+            display: none;
+            padding-top: 20px;
+        }
+        .area-header.active .arrow {
+            transform: rotate(90deg);
+        }
+        
+        .mermaid-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: rgba(220, 38, 38, 0.1); /* Rojo muy claro */
+            border-radius: 12px;
+            border: 1px dashed var(--color-secondary);
+        }
+        .mermaid-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid var(--color-secondary);
+        }
+        .footnote {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border-card);
+        }
+        .footnote sup {
+            color: var(--color-secondary);
+        }
+        .bibliography {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border-card);
+        }
+        .bibliography h2 {
+            color: var(--color-primary);
+        }
+        .citation-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .citation-list li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .filter-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropbtn {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+        .dropbtn:hover, .dropbtn:focus {
+            background-color: #0b1c55;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1;
+            right: 0;
+            left: auto;
+            margin-top: 10px;
+        }
+        .dropdown-content button {
+            color: var(--color-text-dark);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+        .dropdown-content button:hover {
+            background-color: var(--color-hover);
+        }
+        .dropdown-content button.active {
+            background-color: var(--color-secondary);
+            color: white;
+        }
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .navigation-buttons button {
+            background-color: #4b5563;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .navigation-buttons button:hover {
+            background-color: #1f2937;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Guía ESVS 2025: Manejo del Trauma Vascular</h1>
+        <p style="text-align: center; color: #4b5563;">Recomendaciones basadas en la Guía de Práctica Clínica de la Sociedad Europea de Cirugía Vascular (ESVS) 2025 sobre el Manejo del Trauma Vascular.</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Buscar recomendaciones por palabra clave (ej. embolización, tórax, ligadura, etc.)">
+    </div>
+
+    <div class="filter-container">
+        <div class="filter-dropdown">
+            <button onclick="toggleDropdown()" class="dropbtn">Filtrar por Clase de Recomendación</button>
+            <div id="filterDropdown" class="dropdown-content">
+                <button onclick="filterByClass('all')">Todas</button>
+                <button onclick="filterByClass('class-I')">Clase I</button>
+                <button onclick="filterByClass('class-II')">Clase II</button>
+                <button onclick="filterByClass('class-III')">Clase III</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="main-content">
+        <h2 class="section-title">Consideraciones Generales</h2>
+        <div class="recommendation-card class-I" data-keywords="cirugía, urgencia, equipo, rescate, 24/7">
+            <h3>Recomendación 1</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el acceso rápido, 24/7, a un equipo clínico competente en control de hemorragias y cirugía abierta y endovascular para el manejo de pacientes con lesiones vasculares que amenazan la vida o la extremidad.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="entrenamiento, habilidades, currículum, formación">
+            <h3>Recomendación 2</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la implementación de currículos de trauma vascular civil y militar y capacitación dedicada para el desarrollo y mantenimiento de la toma de decisiones y habilidades técnicas en trauma vascular.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="quirófano, híbrido, endovascular, abierto">
+            <h3>Recomendación 3</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el acceso de emergencia a un quirófano con capacidad híbrida para el tratamiento quirúrgico del paciente de trauma con una lesión vascular.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="resucitación, control de daños, transfusión, protocolos">
+            <h3>Recomendación 4</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia A</div>
+            <p>Se recomiendan los principios de resucitación de control de daños y los protocolos de transfusión masiva utilizados para pacientes con hemorragia traumática para pacientes con trauma vascular.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="tranexámico, ácido, sangrado, hemorragia">
+            <h3>Recomendación 5</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia A</div>
+            <p>Se recomienda la administración temprana de ácido tranexámico para todos los pacientes con trauma vascular que sangran severamente.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="torniquete, prehospitalario, sangrado, extremidad">
+            <h3>Recomendación 6</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda un torniquete prehospitalario, aplicado lo más distalmente posible, para pacientes con sangrado incontrolado de trauma vascular de extremidades cuando la compresión local y/o el empaquetamiento no son suficientes.</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="heparinización, torniquete, hemorragia">
+            <h3>Recomendación 7</h3>
+            <div class="grade class-IIIa">Clase IIIa, Nivel de Evidencia C</div>
+            <p>La heparinización no está indicada como parte del manejo del torniquete en pacientes con sangrado incontrolado de trauma vascular de extremidades.</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="reboa, sangrado, hemorragia, torso">
+            <h3>Recomendación 8</h3>
+            <div class="grade class-IIIb">Clase IIIb, Nivel de Evidencia B</div>
+            <p>La oclusión con balón endovascular de reanimación de la aorta (REBOA)* no se recomienda como un enfoque de rutina para el control temporal de la hemorragia en pacientes con trauma con hemorragia torácica exsanguinante.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="angiografía, TAC, inestable, quirófano">
+            <h3>Recomendación 9</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda que los pacientes hemodinámicamente inestables, considerados no aptos para la angiografía por tomografía computarizada (Angio-TC)*, sean transferidos de inmediato al quirófano para una intervención quirúrgica.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="angiografía, TAC, diagnóstico, estable">
+            <h3>Recomendación 10</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>La Angio-TC, incluyendo la fase arterial y venosa, se recomienda como la investigación de primera línea para identificar o descartar lesiones vasculares en pacientes con trauma sin signos clínicos de sangrado activo.</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="angiografía, TAC, renal, insuficiencia">
+            <h3>Recomendación 11</h3>
+            <div class="grade class-IIIb">Clase IIIb, Nivel de Evidencia C</div>
+            <p>No se recomienda evitar o posponer la Angio-TC debido a una posible insuficiencia renal en pacientes hemodinámicamente estables con lesiones vasculares que potencialmente amenacen la vida o la extremidad.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="flujo, restauración, extremidad, órgano">
+            <h3>Recomendación 12</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda priorizar la restauración del flujo arterial en línea, temporal o definitivamente, en el manejo del trauma vascular que amenaza la extremidad o el órgano terminal.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="reparación, definitiva, temporal">
+            <h3>Recomendación 13</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la reparación definitiva primaria para pacientes con trauma vascular sobre las soluciones temporales.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="shunts, reparación, temporal, flujo">
+            <h3>Recomendación 14</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el uso de shunts* vasculares temporales para restaurar rápidamente el flujo sanguíneo cuando la reparación vascular definitiva oportuna no es factible debido a la fisiología del paciente o al patrón de la lesión.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="shunts, reparación, definitiva, operación">
+            <h3>Recomendación 15</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la conversión de shunts vasculares a reparación definitiva lo antes posible, idealmente en la operación primaria.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="injertos, interposición, reconstrucción">
+            <h3>Recomendación 16</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomiendan los injertos de interposición cortos en pacientes con trauma vascular que requieran reconstrucción.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="injertos, sintético, reparación">
+            <h3>Recomendación 17</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar el uso de injertos de interposición sintéticos para la reparación vascular definitiva de emergencia.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="injertos, vena, reconstrucción, bypass">
+            <h3>Recomendación 18</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar el uso de injertos de vena para la reconstrucción vascular de lesiones arteriales que requieran conductos de bypass más largos o para vasos distales de calibre pequeño.</p>
+        </div>
+
+        <h2 class="section-title">Trauma Vascular del Cuello</h2>
+        <div class="recommendation-card class-I" data-keywords="cuello, penetrante, hemorragia, cirugía, exploración">
+            <h3>Recomendación 19</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la exploración quirúrgica abierta inmediata para pacientes con lesión penetrante en el cuello y hemorragia activa de la herida o hematoma en expansión.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="cuello, penetrante, Angio-TC">
+            <h3>Recomendación 20</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia B</div>
+            <p>La Angio-TC se recomienda para todos los pacientes con trauma penetrante en el cuello sin indicación de intervención quirúrgica inmediata.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="carótida, penetrante, antiplaquetario, no-quirúrgico">
+            <h3>Recomendación 21</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar el manejo no quirúrgico con terapia antiplaquetaria única para pacientes con lesión menor (Grado 1 de la ESVS) de la arteria carótida debido a trauma penetrante.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="carótida, penetrante, ligadura, reconstrucción">
+            <h3>Recomendación 22</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la reconstrucción en lugar de la ligadura de la arteria carótida común o interna, cuando la fisiología del paciente lo permite y es técnicamente factible, en pacientes con una lesión de la arteria carótida de grado 2 o 3 de la ESVS por trauma penetrante.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="vertebral, penetrante, antiplaquetario, no-quirúrgico">
+            <h3>Recomendación 23</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar el manejo no quirúrgico con terapia antiplaquetaria única para pacientes con una lesión de la arteria vertebral de Grado 1 de la ESVS debido a trauma penetrante.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="vertebral, pseudoaneurisma, fístula, endovascular">
+            <h3>Recomendación 24</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la terapia endovascular como tratamiento de primera línea para pseudoaneurismas o fístulas arteriovenosas (Grado 2 de la ESVS) sintomáticos o progresivos en pacientes con lesión penetrante de la arteria vertebral.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="vertebral, penetrante, hemorragia, embolización">
+            <h3>Recomendación 25</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el manejo endovascular de emergencia con embolización, si es factible, para pacientes con lesión penetrante de la arteria vertebral extracraneal y hemorragia incontrolada (Grado 3 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="vertebral, oclusión, no-quirúrgico, antiplaquetario">
+            <h3>Recomendación 26</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar el manejo no quirúrgico con terapia antiplaquetaria única para pacientes con lesión penetrante de la arteria vertebral extracraneal y oclusión (Grado X de la ESVS) sin síntomas neurológicos.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="yugular, ligadura, reparación, vena">
+            <h3>Recomendación 27</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la ligadura si la reparación de la lesión de la vena yugular interna no es fácilmente alcanzable, siempre que una vena yugular interna permanezca permeable.</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="cuello, romo, examen, clínico">
+            <h3>Recomendación 28</h3>
+            <div class="grade class-IIIb">Clase IIIb, Nivel de Evidencia C</div>
+            <p>No se recomienda el examen clínico solo para descartar una lesión vascular cervical en pacientes con trauma cervical romo.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="cuello, Angio-TC, intracerebral, romo">
+            <h3>Recomendación 29</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia B</div>
+            <p>Se recomienda la Angio-TC, incluyendo los vasos intracerebrales, para todos los pacientes con riesgo de lesión cerebrovascular roma.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="cuello, romo, protocolos, detección">
+            <h3>Recomendación 30</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar el uso de protocolos de cribado para identificar lesiones vasculares cervicales tempranamente en pacientes con trauma romo.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="carótida, romo, antiplaquetario, Grado 1">
+            <h3>Recomendación 31</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el manejo no quirúrgico con terapia antiplaquetaria única para pacientes con lesión carotídea roma de bajo grado (Grado 1 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="carótida, stent, romo, sangrado">
+            <h3>Recomendación 32</h3>
+            <div class="grade class-IIIb">Clase IIIb, Nivel de Evidencia C</div>
+            <p>No se recomienda el uso de stents endovasculares de rutina como complemento a la terapia antitrombótica para pacientes con lesión carotídea roma sin sangrado activo (Grado 1 o 2 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="carótida, vertebral, pseudoaneurisma, endovascular">
+            <h3>Recomendación 33</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar el tratamiento endovascular diferido para pacientes con lesión de la arteria carótida o vertebral roma y pseudoaneurisma en crecimiento (Grado 2 de la ESVS) o síntomas neurológicos.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="carótida, hemorragia, reparación, stent">
+            <h3>Recomendación 34</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el tratamiento quirúrgico con reparación abierta o injerto de stent endovascular para pacientes con lesión de la arteria carótida roma y hemorragia activa (Grado 3 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="carótida, romo, oclusión, antiplaquetario">
+            <h3>Recomendación 35</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar el manejo no quirúrgico con terapia antiplaquetaria única para pacientes con lesión carotídea roma y oclusión completa (Grado X de la ESVS) sin síntomas neurológicos.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="carótida, oclusión, individualizado, síntomas">
+            <h3>Recomendación 36</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>El manejo de la lesión carotídea roma y oclusión completa (Grado X de la ESVS) con síntomas neurológicos se debe considerar de forma individual, incluyendo la duración de los síntomas neurológicos, el riesgo de lesión por reperfusión y los signos de infarto cerebral en la tomografía computarizada.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="vertebral, romo, antiplaquetario, hemorragia">
+            <h3>Recomendación 37</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia B</div>
+            <p>Se recomienda el manejo con terapia antiplaquetaria como tratamiento de primera línea para pacientes con lesión de la arteria vertebral roma sin hemorragia activa (Grados 1, 2 o X de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="vertebral, romo, embolización, hemorragia">
+            <h3>Recomendación 38</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el manejo endovascular de emergencia con embolización, si es factible, para pacientes con lesión de la arteria vertebral extracraneal roma y hemorragia incontrolada (Grado 3 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="carótida, seguimiento, Angio-TC, antiplaquetario">
+            <h3>Recomendación 39</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar el seguimiento con Angio-TC a una semana y tres meses para pacientes con lesión de la arteria carótida roma (Grado 1 o 2 de la ESVS) que se someten a un manejo no quirúrgico con tratamiento antiplaquetario.</p>
+        </div>
+
+        <h2 class="section-title">Trauma Vascular Torácico y Salida Torácica</h2>
+        <div class="recommendation-card class-I" data-keywords="tórax, aorta, presión arterial, control, frecuencia">
+            <h3>Recomendación 40</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el control de la presión arterial sistólica (90-110 mmHg) y de la frecuencia cardíaca (<100/minuto) para pacientes con una lesión aórtica torácica roma (BTAI)* no tratada, excepto en presencia de shock hipovolémico o lesión cerebral traumática (TBI)*.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="tórax, centro de trauma, aorta, derivación">
+            <h3>Recomendación 41</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la derivación a un centro de trauma con experiencia multiespecialidad 24/7 para tratar la patología aórtica para todos los pacientes con BTAI.</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="tórax, radiografía, aorta">
+            <h3>Recomendación 42</h3>
+            <div class="grade class-IIIb">Clase IIIb, Nivel de Evidencia C</div>
+            <p>No se recomienda la radiografía de tórax como técnica de imagen para excluir la BTAI.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="tórax, angiografía, aorta, diagnóstico">
+            <h3>Recomendación 43</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia B</div>
+            <p>La Angio-TC de la aorta se recomienda para el diagnóstico y la caracterización de la BTAI.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="tórax, aorta, no-quirúrgico, Grado 1">
+            <h3>Recomendación 44</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el manejo no quirúrgico con control de la presión arterial y seguimiento por imagen en pacientes con BTAI de Grado 1 de la ESVS sin TBI severa concomitante.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="tórax, aorta, Grado 1, TBI, stent">
+            <h3>Recomendación 45</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar la reparación con injerto de stent endovascular en pacientes con BTAI de Grado 1 de la ESVS y TBI severa concomitante cuando el control de la presión arterial no es factible.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="tórax, aorta, Grado 2, diferido, stent">
+            <h3>Recomendación 46</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la reparación con injerto de stent endovascular diferido (> 24 horas) para pacientes con BTAI y cualquier anomalía del contorno de la pared externa (Grado 2 de la ESVS) si no hay características de lesión de alto riesgo.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="tórax, aorta, Grado 2, urgente, stent">
+            <h3>Recomendación 47</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la reparación urgente (<24 horas) con injerto de stent endovascular para pacientes con BTAI y cualquier anomalía del contorno externo (Grado 2 de la ESVS) con características aórticas de alto riesgo.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="reparación, aorta, Grado 3, extravasación">
+            <h3>Recomendación 48</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la reparación quirúrgica inmediata para los pacientes con BTAI con extravasación activa (Grado 3 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="tórax, heparinización, stent">
+            <h3>Recomendación 49</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la heparinización sistémica intraoperatoria para la reparación con injerto de stent de la aorta torácica de forma individualizada, incluyendo los riesgos percibidos de sangrado, complicaciones tromboembólicas y la gravedad de la lesión cerebral traumática.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="tórax, stent, sobredimensionamiento, hipotensión">
+            <h3>Recomendación 50</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar un sobredimensionamiento del injerto de stent entre el 20% y el 30%, dependiendo del estado hipovolémico durante la Angio-TC inicial, para pacientes con BTAI que se someten a un tratamiento endovascular de emergencia.</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="subclavia, revascularización, rutina, aorta">
+            <h3>Recomendación 51</h3>
+            <div class="grade class-IIIa">Clase IIIa, Nivel de Evidencia C</div>
+            <p>La revascularización rutinaria de la arteria subclavia izquierda no está indicada para pacientes con BTAI que requieran reparación con injerto de stent endovascular con cobertura de la arteria subclavia izquierda.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="subclavia, revascularización, aorta, cobertura">
+            <h3>Recomendación 52</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la revascularización de la arteria subclavia izquierda para pacientes seleccionados con BTAI que requieran reparación con injerto de stent endovascular con cobertura de la arteria subclavia izquierda y riesgo de perfusión comprometida en el cerebro, corazón o médula espinal.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="subclavia, revascularización, diferida, isquemia">
+            <h3>Recomendación 53</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la revascularización diferida de la arteria subclavia izquierda para pacientes seleccionados con BTAI que requieran reparación con injerto de stent endovascular que desarrollen síntomas isquémicos con la cobertura de la arteria subclavia izquierda.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="tórax, reparación, abierta, anatomía">
+            <h3>Recomendación 54</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia A</div>
+            <p>Se recomienda la reparación quirúrgica abierta en pacientes seleccionados con BTAI que requieran intervención y con una anatomía aórtica inadecuada para un injerto de stent.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="perfusión, distal, abierta, paraplejia">
+            <h3>Recomendación 55</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia A</div>
+            <p>Se recomienda la perfusión aórtica distal activa para minimizar el riesgo de paraplejia en pacientes con BTAI que se someten a reparación quirúrgica abierta.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="tórax, seguimiento, stent, imagen">
+            <h3>Recomendación 56</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el seguimiento por imagen para pacientes con BTAI que se han sometido a reparación con injerto de stent endovascular, a un mes, un año, y después de eso, se continúa durante al menos cinco años.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="tórax, seguimiento, no-reparación, remodelación">
+            <h3>Recomendación 57</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el seguimiento por imagen, hasta la remodelación aórtica, para pacientes con BTAI que no se han sometido a reparación aórtica torácica.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="tórax, seguimiento, MRA, MRI, largo plazo">
+            <h3>Recomendación 58</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>La angiografía por resonancia magnética (MRA)* se recomienda como el método de imagen preferido para el seguimiento a largo plazo después de una BTAI.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="tronco braquiocefálico, carótida, reparación, endovascular">
+            <h3>Recomendación 59</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la elección del tratamiento entre la reparación quirúrgica abierta y la endovascular de la lesión de la arteria innominada o de la arteria carótida común izquierda proximal (Grado 2 y 3 de la ESVS) en función del estado hemodinámico, la anatomía y las lesiones concomitantes.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="subclavia, endovascular, preferido">
+            <h3>Recomendación 60</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia B</div>
+            <p>Se debe considerar la reparación con injerto de stent endovascular como la modalidad de tratamiento preferida para pacientes con lesión de la arteria subclavia (Grado 2 y 3 de la ESVS) que requieran tratamiento quirúrgico.</p>
+        </div>
+
+        <h2 class="section-title">Trauma Vascular Abdominal</h2>
+        <div class="recommendation-card class-I" data-keywords="abdomen, hemorragia, exploración, cirugía">
+            <h3>Recomendación 61</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la exploración quirúrgica inmediata y el control de la hemorragia para pacientes en shock con sangrado activo y sospecha de lesión vascular abdominal mayor.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="retroperitoneo, hematoma, inestable, exploración">
+            <h3>Recomendación 62</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la exploración quirúrgica de los hematomas retroperitoneales durante la laparotomía por trauma en pacientes que están hemodinámicamente inestables O que tienen un hematoma retroperitoneal inestable (en expansión, pulsátil o con sangrado activo).</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="retroperitoneo, hematoma, estable, no-exploración">
+            <h3>Recomendación 63</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda un enfoque no exploratorio de los hematomas retroperitoneales durante la laparotomía por trauma, con Angio-TC posterior, para pacientes que están hemodinámicamente estables Y tienen un hematoma retroperitoneal estable (no en expansión, no pulsátil y sin sangrado activo).</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="aorta, ilíaca, renal, mesentérica, no-quirúrgico">
+            <h3>Recomendación 64</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el manejo no quirúrgico con vigilancia y terapia antitrombótica para pacientes sin sangrado activo y con lesiones menores de la aorta abdominal, ilíaca, renal o de la arteria mesentérica superior (Grado 1 de la ESVS) en la Angio-TC.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="aorta, abdominal, sangrado, cirugía, reparación">
+            <h3>Recomendación 65</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la reparación quirúrgica abierta como tratamiento de primera línea para pacientes con una lesión aórtica abdominal roma o penetrante con hemorragia libre e inestabilidad hemodinámica (Grado 3 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="injerto, sintético, aorta, reconstrucción">
+            <h3>Recomendación 66</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el material de injerto sintético para la reconstrucción aórtica en situaciones de emergencia con o sin lesión intestinal concomitante.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="aorta, abdominal, stent, pseudoaneurisma">
+            <h3>Recomendación 67</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia B</div>
+            <p>Se debe considerar la reparación con injerto de stent endovascular para pacientes hemodinámicamente estables y con lesión aórtica abdominal con anomalía del contorno externo, como un pseudoaneurisma (Grado 2 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="aorta, abdominal, stent, sobredimensionamiento, hipotensión">
+            <h3>Recomendación 68</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar un sobredimensionamiento del injerto de stent entre el 20% y el 30% cuando la imagen se realizó durante la hipotensión en pacientes con una lesión aórtica abdominal que se someten a un tratamiento endovascular de emergencia.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="iliaca, lesión, cirugía, reparación, injerto">
+            <h3>Recomendación 69</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la reparación quirúrgica primaria, la reconstrucción con injerto de interposición sintético o el uso de shunt vascular para la lesión de la arteria ilíaca común o externa (Grado 3 de la ESVS) descubierta durante una laparotomía de emergencia.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="iliaca, stent, reparación">
+            <h3>Recomendación 70</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la reparación con injerto de stent endovascular para la lesión de la arteria ilíaca común o externa de Grado 2 o 3 de la ESVS.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="pelvis, embolización, hemorragia, ilíaca interna">
+            <h3>Recomendación 71</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia B</div>
+            <p>Se recomienda el tratamiento endovascular con embolización para pacientes con lesión pélvica y signos clínicos de sangrado activo o imagen que muestra extravasación de la arteria ilíaca interna o sus ramas.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="mesentérica, stent, oclusión, revascularización">
+            <h3>Recomendación 72</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar la reparación con stent o injerto de stent endovascular para la lesión de la arteria mesentérica superior de Grado X de la ESVS para lograr una restauración temprana de la perfusión intestinal.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="mesentérica, ligadura">
+            <h3>Recomendación 73</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la ligadura para el tratamiento de la lesión de la arteria mesentérica inferior.</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="riñón, revascularización">
+            <h3>Recomendación 74</h3>
+            <div class="grade class-IIIb">Clase IIIb, Nivel de Evidencia C</div>
+            <p>No se recomienda la revascularización de un riñón unilateral desvascularizado identificado en una angiografía por tomografía computarizada.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="riñón, reparación, Grado 3, estable">
+            <h3>Recomendación 75</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la reparación abierta o endovascular de la arteria renal para pacientes hemodinámicamente estables y con lesión de la arteria renal de Grado 3 de la ESVS.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="riñón, ligadura, inestable">
+            <h3>Recomendación 76</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la ligadura de la arteria renal, con o sin nefrectomía simultánea, en un paciente hemodinámicamente inestable con lesión severa de la arteria renal (Grado 3 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="riñón, stent, pseudoaneurisma, estable">
+            <h3>Recomendación 77</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la reparación con injerto de stent endovascular para pacientes hemodinámicamente estables con lesión de Grado 2 de la ESVS (ej. pseudoaneurisma) de la arteria renal.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="riñón, reparación, bilateral">
+            <h3>Recomendación 78</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la reparación abierta o endovascular de la arteria renal para pacientes con lesiones bilaterales de la arteria renal de Grado 2, 3 o X de la ESVS o si hay un riñón solitario salvable.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="vena, ligadura, abdominal">
+            <h3>Recomendación 79</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la ligadura de la vena para la lesión venosa abdominal si la reparación no es fácilmente alcanzable.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="cava, inferior, no-quirúrgico, hematoma">
+            <h3>Recomendación 80</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar el manejo no quirúrgico con observación cercana y seguimiento por imagen en pacientes hemodinámicamente estables con una lesión de la vena cava inferior y un hematoma retroperitoneal estable (no en expansión y sin sangrado activo).</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="cava, atriocaval, shunt">
+            <h3>Recomendación 81</h3>
+            <div class="grade class-IIIa">Clase IIIa, Nivel de Evidencia C</div>
+            <p>El shunt atriocaval no está indicado en el manejo de las lesiones de la vena cava inferior.</p>
+        </div>
+
+        <h2 class="section-title">Trauma Vascular de Extremidades</h2>
+        <div class="recommendation-card class-I" data-keywords="extremidad, examen físico, diagnóstico, pulsos">
+            <h3>Recomendación 82</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda un examen vascular clínico cuidadoso en todos los pacientes con trauma de extremidades para identificar posibles lesiones vasculares hemorrágicas o isquémicas.</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="tobillo, índice braquial, ABI, diagnóstico">
+            <h3>Recomendación 83</h3>
+            <div class="grade class-IIIa">Clase IIIa, Nivel de Evidencia C</div>
+            <p>No se recomienda un índice tobillo-brazo (ABI)* para diagnosticar o descartar una lesión vascular en pacientes con trauma de extremidades.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="extremidad, Angio-TC, diagnóstico">
+            <h3>Recomendación 84</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la Angio-TC inmediata como modalidad de imagen primaria en pacientes con lesión de extremidades en los que no se puede descartar una lesión vascular significativa mediante el examen vascular clínico (pulsos periféricos palpables).</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="extremidad, revascularización, tiempo, isquemia">
+            <h3>Recomendación 85</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la revascularización lo antes posible, idealmente dentro de una hora de la admisión, en pacientes con evidencia clínica de isquemia aguda debido a trauma vascular de la extremidad.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="extremidad, shunts, reparación">
+            <h3>Recomendación 86</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el uso de un shunt vascular temporal para restaurar rápidamente el flujo sanguíneo en la extremidad cuando la reparación vascular definitiva y oportuna no es factible debido a la fisiología del paciente o la inestabilidad esquelética.</p>
+        </div>
+        <div class="recommendation-card class-III" data-keywords="amputación, salvamento, score, puntuación">
+            <h3>Recomendación 87</h3>
+            <div class="grade class-IIIb">Clase IIIb, Nivel de Evidencia B</div>
+            <p>No se recomienda el uso de sistemas de puntuación al decidir sobre el salvamento de la extremidad o la amputación para pacientes con trauma de extremidades.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="amputación, multidisciplinario, decisión">
+            <h3>Recomendación 88</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia B</div>
+            <p>Se recomienda la toma de decisiones multidisciplinaria con respecto a la revascularización frente a la amputación primaria en pacientes con trauma complejo de extremidades.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="extremidad, no-oclusivo, no-quirúrgico, seguimiento">
+            <h3>Recomendación 89</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar el manejo no quirúrgico con seguimiento clínico y por imagen para pacientes con lesiones vasculares no oclusivas de extremidades (Grado 1 o 2 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="extremidad, endovascular, abierto, reparación">
+            <h3>Recomendación 90</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar la reparación con stent o injerto de stent endovascular como una alternativa a la reparación abierta en pacientes seleccionados con trauma vascular de extremidades que requieran tratamiento quirúrgico (Grado 2, 3 o X de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="extremidad, embolización, sangrado, ramas">
+            <h3>Recomendación 91</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la embolización endovascular para el sangrado activo de ramas secundarias de arterias principales en pacientes con lesiones de extremidades.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="radial, cubital, ligadura, isquemia">
+            <h3>Recomendación 92</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Si la reparación no es fácilmente alcanzable, se recomienda la ligadura en una lesión arterial radial o cubital aislada sin evidencia de isquemia distal.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="ligadura, embolización, infragenicular">
+            <h3>Recomendación 93</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar la ligadura o embolización de una lesión arterial infragenicular aislada sin evidencia de isquemia distal en pacientes con una de las arterias tibiales anterior o posterior intacta y permeable.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="extremidad, heparinización, intraoperatoria">
+            <h3>Recomendación 94</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar la heparinización sistémica intraoperatoria en pacientes con trauma de extremidades de forma individualizada, incluyendo la extensión de la reparación, la duración del flujo sanguíneo interrumpido, las lesiones concomitantes, el riesgo general de sangrado y el grado de coagulopatía inducida por el trauma.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="vena, femoral, poplítea, ligadura">
+            <h3>Recomendación 95</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia B</div>
+            <p>Se debe considerar la reparación de la lesión venosa femoral o poplítea localizada en lugar de la ligadura en pacientes hemodinámicamente estables.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="fasciotomía, síndrome compartimental">
+            <h3>Recomendación 96</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia B</div>
+            <p>Se recomienda la fasciotomía de cuatro compartimentos de emergencia para tratar el síndrome compartimental de la extremidad inferior post-isquémico traumático.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="extremidad, seguimiento, duplex, reconstrucción">
+            <h3>Recomendación 97</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar el seguimiento postoperatorio con examen clínico y ecografía dúplex un mes después de la reparación, o antes si se desarrollan hallazgos o síntomas anormales, para pacientes con lesión vascular de extremidades y reconstrucción vascular.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="antitrombótico, postoperatorio, antiplaquetario">
+            <h3>Recomendación 98</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar la terapia antiplaquetaria única postoperatoria para pacientes con trauma vascular que se han sometido a reparación abierta o endovascular.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="extremidad, seguimiento, dúplex, reconstrucción">
+            <h3>Recomendación 105</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar el seguimiento postoperatorio con examen clínico y ecografía dúplex un mes después de la reparación, o antes si se desarrollan hallazgos o síntomas anormales, para niños con lesión vascular de extremidades reconstruida con bypass o injerto de interposición.</p>
+        </div>
+
+        <h2 class="section-title">Trauma Vascular Pediátrico</h2>
+        <div class="recommendation-card class-I" data-keywords="pediátrico, Angio-TC, diagnóstico">
+            <h3>Recomendación 99</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>La Angio-TC se recomienda como la investigación de primera línea para identificar o descartar una lesión vascular en pacientes pediátricos con trauma hemodinámicamente estables.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="pediátrico, carótida, antiplaquetario">
+            <h3>Recomendación 100</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la terapia antitrombótica temprana para niños con lesión de la arteria carótida de bajo grado (Grado 1 o 2 de la ESVS).</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="pediátrico, aorta, stent, Grado 2, 3">
+            <h3>Recomendación 101</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se debe considerar la reparación con injerto de stent endovascular como el tratamiento quirúrgico de primera línea para niños con BTAI (Grado 2 o 3 de la ESVS) y anatomía apropiada.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="pediátrico, abdomen, cirugía">
+            <h3>Recomendación 102</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda la exploración quirúrgica inmediata y el control del sangrado para niños en shock con hemorragia activa y sospecha de lesión vascular abdominal mayor.</p>
+        </div>
+        <div class="recommendation-card class-I" data-keywords="pediátrico, extremidad, examen">
+            <h3>Recomendación 103</h3>
+            <div class="grade class-I">Clase I, Nivel de Evidencia C</div>
+            <p>Se recomienda el examen vascular clínico en línea con la guía para adultos en todos los niños con trauma en la extremidad superior o inferior para identificar posibles lesiones vasculares hemorrágicas o isquémicas.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="pediátrico, húmero, pulso, no-quirúrgico">
+            <h3>Recomendación 104</h3>
+            <div class="grade class-IIa">Clase IIa, Nivel de Evidencia C</div>
+            <p>Se puede considerar el manejo no quirúrgico en un niño con una mano "rosa y cálida, pero sin pulso" después de una reducción de fractura de húmero supracondílea con observación cercana para el desarrollo de isquemia aguda.</p>
+        </div>
+        <div class="recommendation-card class-II" data-keywords="pediátrico, seguimiento, reconstrucción, duplex">
+            <h3>Recomendación 105</h3>
+            <div class="grade class-IIb">Clase IIb, Nivel de Evidencia C</div>
+            <p>Se puede considerar el seguimiento postoperatorio con examen clínico y ecografía dúplex un mes después de la reparación, o antes si se desarrollan hallazgos o síntomas anormales, para niños con lesión vascular de extremidades reconstruida con bypass o injerto de interposición.</p>
+        </div>
+    </div>
+    
+    <hr>
+    
+    <footer class="footnote">
+        <p><strong>*Notas al pie:</strong></p>
+        <p><strong>REBOA:</strong> Resuscitative Endovascular Balloon Occlusion of the Aorta (Oclusión con Balón Endovascular de Reanimación de la Aorta).</p>
+        <p><strong>Angio-TC:</strong> Angiografía por Tomografía Computarizada. Es la técnica de imagen de primera línea para identificar o descartar lesiones vasculares significativas.</p>
+        <p><strong>Shunts:</strong> Dispositivos temporales utilizados para restaurar rápidamente el flujo sanguíneo en una extremidad cuando la reparación definitiva no es viable de inmediato.</p>
+        <p><strong>BTAI:</strong> Blunt Thoracic Aortic Injury (Lesión Aórtica Torácica Roma). Se asocia con una alta mortalidad, con un 80% de los pacientes falleciendo antes de llegar al hospital.</p>
+        <p><strong>TBI:</strong> Traumatic Brain Injury (Lesión Cerebral Traumática).</p>
+        <p><strong>ABI:</strong> Ankle Brachial Index (Índice Tobillo-Brazo). Es una medida utilizada para comparar la presión arterial en el tobillo con la del brazo para evaluar el flujo sanguíneo en las arterias.</p>
+        <p><strong>Clasificación ESVS de Lesiones Arteriales:</strong></p>
+        <ul>
+            <li><strong>Clase I:</strong> Lesión parcial de la pared interna del vaso (flap intimal o hematoma intramural) con contorno externo normal, sin compromiso del flujo.</li>
+            <li><strong>Clase II:</strong> Ruptura completa de la pared del vaso con sangrado contenido (ej. pseudoaneurisma, fístula AV).</li>
+            <li><strong>Clase III:</strong> Ruptura completa de la pared del vaso con hemorragia activa y no contenida.</li>
+            <li><strong>Clase X:</strong> Oclusión completa del vaso sin flujo distal.</li>
+        </ul>
+        <p><strong>Fuente principal:</strong> Wahlgren, C. M. et al. (2024). European Society for Vascular Surgery (ESVS) 2025 Clinical Practice Guidelines on the Management of Vascular Trauma. <em>European Journal of Vascular and Endovascular Surgery</em>. <a href="https://doi.org/10.1016/j.ejvs.2024.12.018" target="_blank">https://doi.org/10.1016/j.ejvs.2024.12.018</a>.</p>
+    </footer>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const allRecommendations = document.querySelectorAll('.recommendation-card');
+        const searchInput = document.getElementById('search-input');
+        const mainContent = document.getElementById('main-content');
+        const sectionTitles = document.querySelectorAll('.section-title');
+        
+        // Función para filtrar por clase
+        window.filterByClass = (className) => {
+            const filterButtons = document.querySelectorAll('.dropdown-content button');
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`button[onclick="filterByClass('${className}')"]`).classList.add('active');
+            searchInput.value = '';
+            
+            allRecommendations.forEach(rec => {
+                const recClass = rec.className.split(' ').find(c => c.startsWith('class-'));
+                if (className === 'all' || recClass === className) {
+                    rec.style.display = 'block';
+                } else {
+                    rec.style.display = 'none';
+                }
+            });
+            updateSectionVisibility();
+            document.getElementById("filterDropdown").style.display = "none";
+        };
+
+        // Función para mostrar u ocultar secciones si están vacías
+        const updateSectionVisibility = () => {
+            const sections = {};
+            sectionTitles.forEach(title => sections[title.textContent] = title);
+
+            allRecommendations.forEach(rec => {
+                if (rec.style.display === 'block') {
+                    let parentTitle = rec.previousElementSibling;
+                    while (parentTitle && !parentTitle.classList.contains('section-title')) {
+                        parentTitle = parentTitle.previousElementSibling;
+                    }
+                    if (parentTitle) {
+                        parentTitle.style.display = 'block';
+                    }
+                }
+            });
+
+            for (const titleText in sections) {
+                let hasVisibleRecs = false;
+                let nextElement = sections[titleText].nextElementSibling;
+                while (nextElement && !nextElement.classList.contains('section-title')) {
+                    if (nextElement.style.display !== 'none') {
+                        hasVisibleRecs = true;
+                        break;
+                    }
+                    nextElement = nextElement.nextElementSibling;
+                }
+                if (!hasVisibleRecs) {
+                    sections[titleText].style.display = 'none';
+                }
+            }
+        };
+
+        // Event listener para la búsqueda
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filterButtons = document.querySelectorAll('.dropdown-content button');
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+
+            allRecommendations.forEach(rec => {
+                const text = rec.textContent.toLowerCase();
+                const keywords = rec.dataset.keywords ? rec.dataset.keywords.toLowerCase() : '';
+                if (text.includes(query) || keywords.includes(query)) {
+                    rec.style.display = 'block';
+                } else {
+                    rec.style.display = 'none';
+                }
+            });
+            updateSectionVisibility();
+        });
+
+        // Toggle del dropdown de clase de recomendación
+        window.toggleDropdown = () => {
+            const dropdown = document.getElementById("filterDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        };
+
+        // Cerrar el dropdown si se hace clic fuera
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        };
+
+        // Mostrar todas las recomendaciones al cargar la página por defecto
+        allRecommendations.forEach(rec => rec.style.display = 'block');
+        updateSectionVisibility();
+    });
+</script>
+
+</body>
+</html>

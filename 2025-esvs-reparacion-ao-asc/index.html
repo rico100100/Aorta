@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESVS 2025 | Guía de Práctica Clínica sobre aTEVAR</title>
+    <style>
+        :root {
+            --primary-color: #0d6efd; /* Un azul profesional */
+            --secondary-color: #6c757d; /* Gris secundario */
+            --light-bg: #f8f9fa;
+            --white-bg: #ffffff;
+            --border-color: #dee2e6;
+            --text-color: #212529;
+            --text-muted: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --color-class-i: #d4edda;
+            --color-class-ii: #fff3cd;
+            --color-class-iii: #f8d7da;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--white-bg);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border-left: 8px solid var(--primary-color);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.1em;
+            color: var(--text-muted);
+            margin: 10px 0 0;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--primary-color);
+            color: var(--white-bg);
+        }
+
+        .section-card {
+            background-color: var(--white-bg);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .section-card h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2em;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background-color: #f1f3f5;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5em;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 20px;
+        }
+        
+        .accordion-content .content-inner {
+            padding: 20px 0;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .pico {
+            background-color: #e9ecef;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-style: italic;
+        }
+        
+        table.consensus-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table.consensus-table th, table.consensus-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        table.consensus-table th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Colores para las clases de recomendación */
+        .class-i { background-color: var(--color-class-i); }
+        .class-iia, .class-iib { background-color: var(--color-class-ii); }
+        .class-iii { background-color: var(--color-class-iii); }
+        
+        .image-placeholder {
+            background-color: #e9ecef;
+            border: 1px dashed var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .image-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .image-placeholder p {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 10px;
+        }
+
+        #risk-calculator {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: var(--font-family);
+        }
+        
+        #calculator-controls {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .calc-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .calc-button.calculate {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .calc-button.calculate:hover {
+            background-color: #0b5ed7;
+        }
+        
+        .calc-button.reset {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .calc-button.reset:hover {
+            background-color: #5c636a;
+        }
+        
+        #result-box {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+            padding: 25px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            display: none; /* Oculto por defecto */
+        }
+        
+        #result-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5em;
+        }
+        
+        #score-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        #score-interpretation {
+            font-size: 1.1em;
+        }
+        
+        .bibliography ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .bibliography li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .bibliography li::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .footnote {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+            padding-top: 15px;
+        }
+        
+        .footnote p {
+            margin: 5px 0;
+        }
+        
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: none; /* Oculto por defecto */
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        #back-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        sup {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.75em;
+            vertical-align: super;
+        }
+        
+        @media (max-width: 768px) {
+            nav .nav-container {
+                flex-direction: column;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-container container">
+            <a href="#introduccion">Introducción</a>
+            <a href="#recomendaciones">Recomendaciones</a>
+            <a href="#calculadora">Calculadora EuroSCORE II</a>
+            <a href="#bibliografia">Bibliografía</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Declaración de Consenso de Práctica Clínica de la ESVS 2025</h1>
+            <p>Sobre la Reparación Endovascular Aórtica Torácica Ascendente (aTEVAR)</p>
+        </header>
+
+        <main>
+            <section id="introduccion" class="section-card">
+                <h2>Introducción y Metodología</h2>
+                <p>
+                    Las patologías de la aorta torácica ascendente, que incluyen la disección aórtica tipo A (TAAD)<sup>*</sup>, el hematoma intramural (IMH)<sup>*</sup> tipo A, aneurismas fusiformes, pseudoaneurismas y úlceras aórticas penetrantes (PAU)<sup>*</sup>, representan desafíos clínicos significativos. Históricamente, la reparación quirúrgica abierta ha sido el estándar de oro. Sin embargo, la alta morbilidad y mortalidad en pacientes de edad avanzada o con comorbilidades importantes ha impulsado la búsqueda de alternativas menos invasivas, como la reparación endovascular aórtica torácica adaptada para la aorta ascendente (aTEVAR)<sup>*</sup>.
+                </p>
+                <p>
+                    La aorta ascendente presenta dificultades únicas para las intervenciones endovasculares debido a su compleja anatomía, proximidad a estructuras críticas (válvula aórtica, arterias coronarias) y las fuerzas hemodinámicas dinámicas. Este documento de consenso, desarrollado por la Sociedad Europea de Cirugía Vascular (ESVS)<sup>*</sup>, tiene como objetivo proporcionar recomendaciones basadas en la evidencia y la opinión de expertos sobre el uso de aTEVAR, abordando la selección de pacientes, la planificación del procedimiento, las estrategias intraoperatorias y el manejo postoperatorio.
+                </p>
+                <div class="image-placeholder">
+                    <p><strong>Figura 2. Zonas de Aterrizaje Aórtico.</strong> Esquema de la aorta ascendente con las zonas de Ishimaru modificadas por Roselli et al. La Zona 0 se subdivide en 0A (raíz aórtica), 0B (aorta ascendente media) y 0C (aorta ascendente distal), distal a la unión sinotubular (STJ)<sup>*</sup> y proximal al tronco braquiocefálico. Esta clasificación es fundamental para la planificación del aTEVAR.</p>
+                </div>
+                 <div class="footnote">
+                    <p><strong>*Nota de Abreviaturas:</strong></p>
+                    <p><strong>aTEVAR:</strong> Ascending Thoracic Endovascular Aortic Repair (Reparación Endovascular Aórtica Torácica Ascendente).</p>
+                    <p><strong>ESVS:</strong> European Society for Vascular Surgery (Sociedad Europea de Cirugía Vascular).</p>
+                    <p><strong>IMH:</strong> Intramural Hematoma (Hematoma Intramural).</p>
+                    <p><strong>PAU:</strong> Penetrating Aortic Ulcer (Úlcera Aórtica Penetrante).</p>
+                    <p><strong>STJ:</strong> Sinotubular Junction (Unión Sinotubular).</p>
+                    <p><strong>TAAD:</strong> Type A Aortic Dissection (Disección Aórtica Tipo A).</p>
+                </div>
+            </section>
+
+            <section id="recomendaciones" class="section-card">
+                <h2>Recomendaciones del Consenso</h2>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">1. Organización del Cuidado y Centros Especializados</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> En pacientes con enfermedades de la aorta torácica ascendente, ¿el cuidado en centros especializados mejora los resultados en comparación con el cuidado no especializado?</p>
+                            <p>La implementación de aTEVAR debe ser cautelosa y estructurada, centralizándose en centros de alto volumen con equipos aórticos multidisciplinarios. Dichos centros deben ofrecer un espectro completo de opciones terapéuticas, incluyendo cirugía cardíaca abierta y procedimientos endovasculares aórticos complejos, y disponer de una sala de operaciones híbrida.</p>
+                            <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-i"><td>1. Se recomienda que los pacientes considerados para aTEVAR sean evaluados por un equipo multidisciplinario.</td><td>I</td><td>C</td></tr>
+                                    <tr class="class-i"><td>2. Se recomienda que los centros aórticos que realizan aTEVAR tengan acceso a experiencia quirúrgica cardíaca abierta y aórtica endovascular.</td><td>I</td><td>C</td></tr>
+                                    <tr class="class-i"><td>3. Se recomienda realizar aTEVAR en una sala de operaciones híbrida.</td><td>I</td><td>C</td></tr>
+                                    <tr class="class-i"><td>4. Se recomienda un seguimiento clínico y de imagen transversal de por vida después de aTEVAR.</td><td>I</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">2. Scores de Riesgo</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> Para los pacientes considerados para aTEVAR, ¿los scores de riesgo mejoran la evaluación del riesgo en comparación con la ausencia de herramientas formales?</p>
+                            <p>Los scores de riesgo quirúrgico cuantificables desempeñan un papel en la evaluación del riesgo o la aptitud de los pacientes. Herramientas como EuroSCORE II, el calculador de riesgo STS, la clasificación TEM y el score GERAADA son opciones a considerar en la práctica diaria. Sin embargo, ninguno ha sido validado específicamente para aTEVAR. El comité de consenso no respalda un valor de corte específico para la toma de decisiones. Si bien los scores son una guía útil, no deben ser el único determinante, y el juicio clínico experto sigue siendo fundamental.</p>
+                            <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-iib"><td>5. Además del juicio clínico, los scores de riesgo quirúrgico cuantificables pueden ser considerados para la evaluación del riesgo quirúrgico y/o la aptitud del paciente.</td><td>IIb</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">3. Selección de Pacientes y Patologías a Tratar</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> En pacientes con patologías aórticas ascendentes, ¿aTEVAR mejora la supervivencia y reduce la morbilidad en comparación con las opciones tradicionales?</p>
+                            <p>aTEVAR es una opción de tratamiento viable para PAU, pseudoaneurismas y TAAD agudas y crónicas en pacientes con anatomía adecuada, tanto en entornos electivos como de emergencia. Los resultados a corto plazo son prometedores, especialmente para pacientes de alto riesgo quirúrgico. Para aneurismas fusiformes e IMH, su uso debe considerarse solo en pacientes altamente seleccionados con anatomía favorable.</p>
+                            <div class="image-placeholder">
+                                <p><strong>Figura 3. Patologías tratadas con aTEVAR.</strong> (A) Úlcera aórtica penetrante; (B) Pseudoaneurisma; (C) Disección aórtica tipo A; (D) Aneurisma fusiforme; (E) Hematoma intramural.</p>
+                            </div>
+                            <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-iia"><td>6. aTEVAR debería ser considerado una opción de tratamiento para úlcera aórtica penetrante, pseudoaneurisma, y disección aórtica tipo A (crónica y aguda) en pacientes con anatomía adecuada, en el ámbito electivo y agudo.</td><td>IIa</td><td>C</td></tr>
+                                    <tr class="class-iib"><td>7. aTEVAR puede ser considerado en aneurisma fusiforme y hematoma intramural tipo A en pacientes altamente seleccionados con anatomía adecuada.</td><td>IIb</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">4. Aspectos Técnicos: Zonas de Aterrizaje y Sobredimensionamiento</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> ¿La selección personalizada de la zona de aterrizaje reduce las complicaciones en comparación con una planificación no específica?</p>
+                            <p>Las zonas de aterrizaje (landing zones) proximal y distal deben adaptarse a la patología específica. Para TAAD aguda, una zona de aterrizaje proximal >1 cm puede ser suficiente. Para TAAD crónica, PAU y pseudoaneurismas, se recomienda una zona de al menos 2 cm para asegurar un sellado estable. El sobredimensionamiento (oversizing) del stent-graft debe estar entre el 10-30%, ajustado según la enfermedad, la anatomía y las propiedades del dispositivo para minimizar el riesgo de endofugas tipo Ia y migración.</p>
+                            <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-i"><td>8. Se recomienda que la zona de aterrizaje requerida durante aTEVAR sea determinada por la entidad de la enfermedad específica y las características anatómicas.</td><td>I</td><td>C</td></tr>
+                                    <tr class="class-iib"><td>9. Una zona de aterrizaje proximal > 1 cm puede ser considerada en pacientes con disecciones aórticas tipo A agudas.</td><td>IIb</td><td>C</td></tr>
+                                    <tr class="class-iib"><td>10. Una zona de aterrizaje proximal de al menos 2 cm puede ser considerada en pacientes con disecciones aórticas tipo A crónicas.</td><td>IIb</td><td>C</td></tr>
+                                    <tr class="class-iib"><td>11. Una zona de aterrizaje proximal y distal de al menos 2 cm puede ser considerada en pacientes con úlcera aórtica penetrante o pseudoaneurisma.</td><td>IIb</td><td>C</td></tr>
+                                    <tr class="class-iia"><td>12. Debe considerarse un sobredimensionamiento del stent-graft del 10-30% basado en la patología y características anatómicas.</td><td>IIa</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">5. Número de Stents y Solapamiento</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> ¿Un mayor solapamiento entre stents reduce las complicaciones en comparación con un solapamiento mínimo?</p>
+                            <p>El comité recomienda un solapamiento de al menos 3 cm entre dos stent-grafts para reducir el riesgo de endofugas tipo III, buscando el máximo solapamiento posible. Esta superposición es crucial en la aorta ascendente debido a las fuerzas dinámicas. Cuando la anatomía lo permite, un único stent-graft es la opción preferida para eliminar este riesgo por completo.</p>
+                             <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-i"><td>13. Se recomienda tener un solapamiento máximo (> 3 cm) entre dos stent-grafts para evitar endofugas tipo III.</td><td>I</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">6. Manejo de Troncos Supraaórticos (TSA)</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> ¿La incorporación de los TSA mejora los resultados en comparación con limitar el tratamiento a la aorta ascendente?</p>
+                            <p>La incorporación de los TSA debe considerarse cuidadosamente para lograr una zona de aterrizaje distal adecuada. Cuando la anatomía lo permite, se prefiere un único stent-graft tubular confinado a la aorta ascendente. Sin embargo, si el sello distal es inadecuado, la extensión al arco aórtico mediante debranching quirúrgico, fenestraciones o ramas es esencial para garantizar un sellado seguro y mantener la perfusión.</p>
+                             <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-i"><td>14. Se debe considerar el manejo de los troncos supraaórticos para crear una zona de aterrizaje distal adecuada durante aTEVAR.</td><td>I</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">7. Procedimientos Adjuntos, Acceso y Anestesia</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p>El uso de imagenología adjunta como la ecocardiografía transesofágica (ETE) puede ser considerado para mejorar el posicionamiento del dispositivo. El acceso arterial femoral es la vía preferida (>85% de los casos). En cuanto a las alternativas, los vasos supraaórticos (carótida o subclavia) son el acceso no femoral más común, con el ápex ventricular izquierdo como opción viable en centros experimentados. Para el control del gasto cardíaco durante el despliegue, la estimulación ventricular rápida es el método preferido. La anestesia general se considera el estándar para garantizar la seguridad y el control del paciente, permitiendo la conversión a cirugía abierta si es necesario.</p>
+                            <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-iib"><td>15. La ETE puede considerarse como una opción de imagen adjunta durante aTEVAR.</td><td>IIb</td><td>C</td></tr>
+                                    <tr class="class-iia"><td>16. La arteria femoral debe considerarse el sitio de acceso preferido para los procedimientos de aTEVAR.</td><td>IIa</td><td>C</td></tr>
+                                    <tr class="class-iib"><td>17. Los accesos alternativos (por ejemplo, carotídeo, subclavio, ventricular izquierdo) pueden ser considerados en centros experimentados.</td><td>IIb</td><td>C</td></tr>
+                                    <tr class="class-iia"><td>18. La hipotensión permisiva inducida farmacológicamente debe ser considerada para controlar la presión arterial sistólica durante el despliegue del stent-graft.</td><td>IIa</td><td>C</td></tr>
+                                    <tr class="class-iib"><td>19. La estimulación ventricular rápida puede considerarse el método preferido para el control del gasto cardíaco.</td><td>IIb</td><td>C</td></tr>
+                                    <tr class="class-iia"><td>20. La anestesia general debe considerarse el método preferido para la mayoría de los pacientes sometidos a aTEVAR.</td><td>IIa</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header">8. Contraindicaciones Relativas</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> En pacientes con intervenciones cardíacas previas, infección, trombo aórtico o calcificación, ¿se puede realizar aTEVAR de forma segura con una planificación adecuada?</p>
+                            <p>Un bypass coronario (CABG) o TAVR previos, lesiones aórticas infectadas, y trombos o calcificaciones significativas no son contraindicaciones absolutas para aTEVAR, pero requieren una evaluación cuidadosa y estrategias personalizadas. La posición de los injertos o de la TAVR debe ser evaluada para evitar isquemia coronaria o disfunción valvular. Las lesiones infectadas pueden considerarse en escenarios controlados (ej. como puente a la cirugía). El trombo o la calcificación en las zonas de sellado pueden aumentar el riesgo de embolización o endofugas.</p>
+                             <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-iib"><td>21. aTEVAR puede ser considerado a pesar de un bypass coronario previo, TAVR, infecciones activas o trombo y/o calcificaciones significativas, si es anatómicamente adecuado.</td><td>IIb</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">9. aTEVAR como Puente a Cirugía Abierta</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> En pacientes de alto riesgo o inestables, ¿aTEVAR como puente a la cirugía abierta mejora los resultados en comparación con la reparación abierta inmediata?</p>
+                            <p>aTEVAR puede considerarse un puente al tratamiento quirúrgico abierto definitivo en situaciones de emergencia, ofreciendo una opción de estabilización para pacientes hemodinámicamente inestables o con alto riesgo quirúrgico inmediato. Este enfoque es valioso en escenarios como lesiones aórticas infectadas o síndromes aórticos agudos, donde la reparación inmediata puede no ser factible. Permite estabilizar al paciente y optimizar las condiciones para una cirugía definitiva posterior, ya sea abierta o endovascular.</p>
+                             <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-iib"><td>22. aTEVAR puede ser considerado como un puente al tratamiento quirúrgico abierto definitivo en el contexto de una emergencia.</td><td>IIb</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">10. Manejo de Endofugas</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> En pacientes con endofugas tras aTEVAR, ¿la reintervención mejora los resultados en comparación con el manejo conservador?</p>
+                            <p>Las endofugas directas (tipo Ia, Ib, III) deben ser consideradas para reintervención, evaluando el riesgo quirúrgico y la anatomía del paciente. El uso de balones de moldeo ("ballooning") en esta región debe ser extremadamente cauto por el riesgo de complicaciones catastróficas. Las endofugas pequeñas y de bajo flujo pueden manejarse de forma conservadora con vigilancia por imagen, ya que a menudo resuelven espontáneamente.</p>
+                             <div class="image-placeholder">
+                                <p><strong>Figura 5. Tipos de Endofugas.</strong> Ilustración de los diferentes tipos de endofugas post-aTEVAR: Tipo I (fuga en las zonas de sellado), Tipo III (desconexión modular o desgarro del tejido), Tipo IV (porosidad del graft) y Tipo V (endotensión).</p>
+                            </div>
+                            <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-iia"><td>23. Las endofugas directas (IA, IB, III) después de aTEVAR deben considerarse para reintervención, sopesando riesgo, anatomía y condición clínica.</td><td>IIa</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">11. Flushing del Endoinjerto</div>
+                    <div class="accordion-content">
+                        <div class="content-inner">
+                            <p class="pico"><strong>PICO:</strong> En pacientes sometidos a aTEVAR, ¿el pre-lavado (flushing) del sistema de endoinjerto reduce el riesgo de embolia cerebral y complicaciones?</p>
+                            <p>El pre-lavado del endoinjerto es un paso crítico para reducir el riesgo de embolia gaseosa cerebral. Elimina eficazmente el aire del sistema del stent-graft, minimizando el riesgo de accidente cerebrovascular o déficits neurológicos. La técnica de lavado debe adaptarse al diseño del dispositivo (por ejemplo, CO2 seguido de suero salino para endoinjertos con vaina, o "back bleeding" para los que tienen funda) y debe ser realizada o supervisada directamente por el cirujano operador.</p>
+                             <table class="consensus-table">
+                                <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel Evidencia</th></tr></thead>
+                                <tbody>
+                                    <tr class="class-iia"><td>24. Se debe considerar el pre-lavado del endoinjerto en pacientes sometidos a aTEVAR para disminuir el riesgo de émbolos aéreos cerebrales.</td><td>IIa</td><td>C</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="calculadora" class="section-card">
+                <h2>Calculadora de Riesgo Quirúrgico: EuroSCORE II</h2>
+                <p>
+                    Aunque el comité de consenso no respalda un punto de corte específico, las puntuaciones de riesgo cuantificables como el EuroSCORE II son herramientas útiles para complementar el juicio clínico en la evaluación del riesgo quirúrgico. Esta calculadora interactiva permite estimar la mortalidad prevista para la cirugía cardíaca.
+                </p>
+                <form id="risk-calculator" onsubmit="event.preventDefault(); calculateEuroSCORE();">
+                    <div class="form-group">
+                        <label for="age">Edad (años)</label>
+                        <input type="number" id="age" required min="18">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Género</label>
+                        <select id="gender">
+                            <option value="male">Masculino</option>
+                            <option value="female">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="renal">Función Renal</label>
+                        <select id="renal">
+                            <option value="1">Creatinina ≤ 100 µmol/L (On dialysis=NO)</option>
+                            <option value="2">Creatinina 101-200 µmol/L (On dialysis=NO)</option>
+                            <option value="3">Creatinina > 200 µmol/L (On dialysis=NO)</option>
+                            <option value="4">En diálisis (independiente de creatinina)</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="arteriopathy">Arteriopatía Extracardíaca</label>
+                        <select id="arteriopathy">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobility">Movilidad Reducida</label>
+                        <select id="mobility">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="previous_surgery">Cirugía Cardíaca Previa</label>
+                        <select id="previous_surgery">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="lung_disease">Enfermedad Pulmonar Crónica</label>
+                        <select id="lung_disease">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="endocarditis">Endocarditis Activa</label>
+                        <select id="endocarditis">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                     <div class="form-group">
+                        <label for="critical_state">Estado Crítico Preoperatorio</label>
+                        <select id="critical_state">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="diabetes">Diabetes con Insulina</label>
+                        <select id="diabetes">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nyha">Clase NYHA</label>
+                        <select id="nyha">
+                            <option value="1">I</option>
+                            <option value="2">II</option>
+                            <option value="3">III</option>
+                            <option value="4">IV</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ccs_angina">Angina CCS Clase 4</label>
+                        <select id="ccs_angina">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="lv_function">Función Ventricular Izquierda</label>
+                        <select id="lv_function">
+                            <option value="1">Buena (FEVI > 50%)</option>
+                            <option value="2">Moderada (FEVI 31-50%)</option>
+                            <option value="3">Mala (FEVI 21-30%)</option>
+                            <option value="4">Muy mala (FEVI ≤ 20%)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mi">Infarto de Miocardio Reciente (<90 días)</label>
+                        <select id="mi">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pulmonary_hypertension">Hipertensión Pulmonar</label>
+                        <select id="pulmonary_hypertension">
+                            <option value="1">No / Leve (PSAP ≤ 30 mmHg)</option>
+                            <option value="2">Moderada (PSAP 31-55 mmHg)</option>
+                            <option value="3">Severa (PSAP > 55 mmHg)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="urgency">Urgencia</label>
+                        <select id="urgency">
+                            <option value="1">Electiva</option>
+                            <option value="2">Urgente</option>
+                            <option value="3">Emergencia</option>
+                            <option value="4">Salvamento</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight_intervention">Peso de la Intervención</label>
+                        <select id="weight_intervention">
+                            <option value="1">CABG Aislado</option>
+                            <option value="2">Procedimiento Valvular Único (no MVR)</option>
+                            <option value="3">2 Procedimientos</option>
+                            <option value="4">3+ Procedimientos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="thoracic_aorta">Cirugía en Aorta Torácica</label>
+                        <select id="thoracic_aorta">
+                            <option value="no">No</option>
+                            <option value="yes">Sí</option>
+                        </select>
+                    </div>
+                    
+                    <div id="calculator-controls">
+                        <button type="submit" class="calc-button calculate">Calcular Riesgo</button>
+                        <button type="reset" class="calc-button reset" onclick="resetCalculator()">Reiniciar</button>
+                    </div>
+                </form>
+                
+                <div id="result-box">
+                    <h3>Resultado EuroSCORE II</h3>
+                    <p>Mortalidad operatoria estimada:</p>
+                    <div id="score-value"></div>
+                    <div id="score-interpretation"></div>
+                </div>
+
+                <div class="footnote">
+                    <p><strong>*Nota sobre la calculadora:</strong> Este score es una herramienta de estratificación de riesgo y no debe sustituir el juicio clínico de un equipo multidisciplinario. Las variables y su ponderación se basan en el modelo EuroSCORE II. La arteriopatía extracardíaca incluye claudicación, oclusión carotídea >50% o cirugía previa en aorta abdominal, arterias de miembros o carótidas. La movilidad reducida se refiere a una alteración severa de la movilidad por problemas musculoesqueléticos o neurológicos. El estado crítico incluye ventilación mecánica, soporte inotrópico, IABP, fallo renal agudo, etc. Fuente: Nashef, S. A., et al. (2012). EuroSCORE II. <em>European Journal of Cardio-Thoracic Surgery, 41</em>(4), 734–745.</p>
+                </div>
+            </section>
+            
+            <section id="bibliografia" class="section-card bibliography">
+                <h2>Bibliografía</h2>
+                <ul>
+                    <li>Czerny M, Grabenwöger M, Berger T, Aboyans V, Della Corte A, Chen EP, et al. (2024). EACTS/STS guidelines for diagnosing and treating acute and chronic syndromes of the aortic organ. <em>European Journal of Cardio-thoracic Surgery, 65</em>, ezad426.</li>
+                    <li>Isselbacher EM, Preventza O, Black JH, Augoustides JG, Beck AW, Bolen MA, et al. (2022). 2022 ACC/AHA guideline for the diagnosis and management of aortic disease. <em>Circulation, 146</em>, e334-482.</li>
+                    <li>de Kort JF, Mandigers TJ, Bissacco D, Domanin M, Piffaretti G, Twine CP, et al. (2025). Outcomes of endovascular repair confined to the ascending thoracic aorta: a systematic review and meta-analysis. <em>European Journal of Vascular and Endovascular Surgery, 69</em>, 531-44.</li>
+                    <li>de Kort JF, Been M, Grassi V, Piffaretti G, Gelpi G, de Bruin J, et al. (2025). Endovascular repair of diseases originating in the ascending thoracic aorta: a systematic review and meta-analysis. <em>(Manuscrito enviado)</em>.</li>
+                    <li>de Beaufort HWL, Nauta FJH, Conti M, Cellitti E, Trentin C, Faggiano E, et al. (2017). Extensibility and distensibility of the thoracic aorta in patients with aneurysm. <em>European Journal of Vascular and Endovascular Surgery, 53</em>, 199-205.</li>
+                    <li>Nashef SAM, Roques F, Sharples LD, Nilsson J, Smith C, Goldstone AR, et al. (2012). EuroSCORE II. <em>Eur J Cardiothorac Surg, 41</em>, 734-45.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <button id="back-to-top" title="Volver arriba">&#8679;</button>
+
+    <script>
+        // --- Accordion Logic ---
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                const content = item.querySelector('.accordion-content');
+                
+                // Close other open accordions
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.accordion-content').style.maxHeight = '0';
+                        otherItem.querySelector('.accordion-content').style.padding = '0 20px';
+                    }
+                });
+
+                // Toggle current accordion
+                item.classList.toggle('active');
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.padding = '0 20px';
+                } else {
+                    content.style.maxHeight = '0';
+                    content.style.padding = '0 20px';
+                }
+            });
+        });
+
+        // --- Back to Top Button Logic ---
+        const backToTopButton = document.getElementById('back-to-top');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopButton.style.display = "flex";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // --- Navbar Active Link Logic ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if(pageYOffset >= sectionTop - 100){
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if(a.getAttribute('href') == '#' + current){
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // --- EuroSCORE II Calculator Logic ---
+        function calculateEuroSCORE() {
+            const coefficients = {
+                intercept: -5.324537,
+                age: 0.0285181,
+                renal_2: 0.303553,
+                renal_3: 0.8592256,
+                renal_4: 0.6421508,
+                arteriopathy: 0.5360268,
+                mobility: 0.2448662,
+                previous_surgery: 0.626243,
+                lung_disease: 0.1886564,
+                endocarditis: 0.6194522,
+                critical_state: 1.08356,
+                diabetes: 0.3542145,
+                nyha_2: 0.1095543,
+                nyha_3: 0.2958358,
+                nyha_4: 0.5597938,
+                ccs_angina: 0.2222245,
+                lv_2: 0.3150615,
+                lv_3: 0.8084094,
+                lv_4: 0.9346188,
+                mi: 0.1521993,
+                pulmonary_hypertension_2: 0.1788899,
+                pulmonary_hypertension_3: 0.3491334,
+                urgency_2: 0.3174211,
+                urgency_3: 0.7039121,
+                urgency_4: 1.362947,
+                weight_2: 0.0061152,
+                weight_3: 0.5521478,
+                weight_4: 0.8921976,
+                thoracic_aorta: 0.6527205,
+                female: -0.220608 // Note: this is a negative coefficient, applied for female gender
+            };
+
+            let logit = coefficients.intercept;
+
+            // Patient factors
+            logit += (parseInt(document.getElementById('age').value) || 0) * coefficients.age;
+            if (document.getElementById('gender').value === 'female') {
+                logit += coefficients.female;
+            }
+            const renal = document.getElementById('renal').value;
+            if (renal === '2') logit += coefficients.renal_2;
+            if (renal === '3') logit += coefficients.renal_3;
+            if (renal === '4') logit += coefficients.renal_4;
+            if (document.getElementById('arteriopathy').value === 'yes') logit += coefficients.arteriopathy;
+            if (document.getElementById('mobility').value === 'yes') logit += coefficients.mobility;
+            if (document.getElementById('previous_surgery').value === 'yes') logit += coefficients.previous_surgery;
+            if (document.getElementById('lung_disease').value === 'yes') logit += coefficients.lung_disease;
+            if (document.getElementById('endocarditis').value === 'yes') logit += coefficients.endocarditis;
+            if (document.getElementById('critical_state').value === 'yes') logit += coefficients.critical_state;
+            if (document.getElementById('diabetes').value === 'yes') logit += coefficients.diabetes;
+
+            // Cardiac factors
+            const nyha = document.getElementById('nyha').value;
+            if (nyha === '2') logit += coefficients.nyha_2;
+            if (nyha === '3') logit += coefficients.nyha_3;
+            if (nyha === '4') logit += coefficients.nyha_4;
+            if (document.getElementById('ccs_angina').value === 'yes') logit += coefficients.ccs_angina;
+            const lv = document.getElementById('lv_function').value;
+            if (lv === '2') logit += coefficients.lv_2;
+            if (lv === '3') logit += coefficients.lv_3;
+            if (lv === '4') logit += coefficients.lv_4;
+            if (document.getElementById('mi').value === 'yes') logit += coefficients.mi;
+            const ph = document.getElementById('pulmonary_hypertension').value;
+            if (ph === '2') logit += coefficients.pulmonary_hypertension_2;
+            if (ph === '3') logit += coefficients.pulmonary_hypertension_3;
+
+            // Operation factors
+            const urgency = document.getElementById('urgency').value;
+            if (urgency === '2') logit += coefficients.urgency_2;
+            if (urgency === '3') logit += coefficients.urgency_3;
+            if (urgency === '4') logit += coefficients.urgency_4;
+            const weight = document.getElementById('weight_intervention').value;
+            if (weight === '2') logit += coefficients.weight_2;
+            if (weight === '3') logit += coefficients.weight_3;
+            if (weight === '4') logit += coefficients.weight_4;
+            if (document.getElementById('thoracic_aorta').value === 'yes') logit += coefficients.thoracic_aorta;
+            
+            const probability = Math.exp(logit) / (1 + Math.exp(logit));
+            const mortalityPercent = (probability * 100).toFixed(2);
+
+            displayResult(mortalityPercent);
+        }
+
+        function displayResult(score) {
+            const resultBox = document.getElementById('result-box');
+            const scoreValue = document.getElementById('score-value');
+            const interpretation = document.getElementById('score-interpretation');
+
+            scoreValue.textContent = score + ' %';
+            
+            let riskLevel = '';
+            let riskColor = '';
+            
+            if (score <= 2) {
+                riskLevel = 'Riesgo Bajo.';
+                riskColor = '#28a745'; // green
+            } else if (score > 2 && score <= 5) {
+                riskLevel = 'Riesgo Intermedio.';
+                riskColor = '#ffc107'; // yellow
+            } else {
+                riskLevel = 'Riesgo Alto.';
+                riskColor = '#dc3545'; // red
+            }
+            
+            interpretation.innerHTML = `La puntuación indica un <strong>${riskLevel}</strong> Este resultado debe ser interpretado en el contexto clínico completo del paciente por el equipo aórtico.`;
+            scoreValue.style.color = riskColor;
+            resultBox.style.borderColor = riskColor;
+            resultBox.style.display = 'block';
+        }
+        
+        function resetCalculator() {
+            document.getElementById('risk-calculator').reset();
+            const resultBox = document.getElementById('result-box');
+            resultBox.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
