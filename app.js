@@ -1,61 +1,68 @@
-// Datos del menú de navegación
+// Datos del menú de navegación con URLs exactas
 const menuData = {
     titulo: "Indice Aorta y Temas relacionados",
     enlaces: [
-        {texto: "Embriología del Sistema Vascular", url: "embriologia-del-sistema-vascular"},
-        {texto: "Comparación fármacos hipolipemiantes", url: "comparacion-farmacos-hipolipemiantes"},
-        {texto: "2025 ESVS reparación Aorta ascendente", url: "2025-esvs-reparacion-ao-asc"},
-        {texto: "2025 ESVS trauma vascular", url: "2025-esvs-trauma-vascular"},
-        {texto: "2024 ESVS Manejo Aneurismas Aorto-Ilíaco", url: "2024-esvs-manejo-aneurismas-aorto-iliacos"},
-        {texto: "World Society of the Abdominal Compartment Syndrome (WSACS) 2013", url: "wsacs2013"},
-        {texto: "Análisis Exhaustivo de la Infección de Endoprótesis Aórtica Abdominal", url: "analisis-exhaustivo-infeccion-endoprotesis"},
-        {texto: "2020 ESVS INFECCION PROTESIS - RESUMEN DE RECOMENDACIONES", url: "2020-esvs-infeccion-protesis"},
-        {texto: "Sistemas de Clasificación de Infección de Prótesis Vasculares", url: "sistemas-clasificacion-infeccion-protesis"},
-        {texto: "Técnicas remoción endoprótesis infrarrenal abierto", url: "tecnicas-remocion-endoprotesis"},
-        {texto: "Vasculitis y enfermedades vasculares 09-2025", url: "vasculitis-aorta"},
-        {texto: "Vasculitis y Vasculopatías Asociadas", url: "vasculitis"},
-        {texto: "Trastornos del Tejido Conectivo Asociados a Aneurismas y Síndrome Aórtico Agudo", url: "trastornos-tejido-conectivo-aneurismas"},
-        {texto: "Trastornos del Tejido Conectivo con Compromiso Vascular", url: "trastornos-tejido-conectivo-vascular"},
-        {texto: "Tumores vasculares abdominales", url: "tumores"},
-        {texto: "Calculadoras de Riesgo Vascular", url: "calculadora-riesgo-vascular"},
-        {texto: "Score de Fragilidad", url: "score-fragilidad"},
-        {texto: "Preguntas", url: "preguntas"}
+        {texto: "Embriología del Sistema Vascular", url: "embriologia-del-sistema-vascular/index.html"},
+        {texto: "Comparación fármacos hipolipemiantes", url: "comparacion-farmacos-hipolipemiantes/index.html"},
+        {texto: "2025 ESVS reparación Aorta ascendente", url: "2025-esvs-reparacion-ao-asc/index.html"},
+        {texto: "2025 ESVS trauma vascular", url: "2025-esvs-trauma-vascular/index.html"},
+        {texto: "2024 ESVS Manejo Aneurismas Aorto-Ilíaco", url: "2024 ESVS Manejo Aneurismas Aorto-Ilíacos/index.html"},
+        {texto: "World Society of the Abdominal Compartment Syndrome (WSACS) 2013", url: "WSACS2013/index.html"},
+        {texto: "Análisis Exhaustivo de la Infección de Endoprótesis Aórtica Abdominal", url: "analisis-exhaustivo-de-la-infeccion-de-endoprotesis-aortica-abdominal/index.html"},
+        {texto: "2020 ESVS INFECCION PROTESIS - RESUMEN DE RECOMENDACIONES", url: "2020-esvs-infeccion-protesis-resumen-de-recomendaciones/index.html"},
+        {texto: "Sistemas de Clasificación de Infección de Prótesis Vasculares", url: "sistemas-de-clasificacion-de-infeccion-de-protesis-vasculares/index.html"},
+        {texto: "Técnicas remoción endoprótesis infrarrenal abierto", url: "tecnicas-remocion-endoprotesis-infrarrenal-abierto/index.html"},
+        {texto: "Vasculitis y enfermedades vasculares 09-2025", url: "vasculitis y aorta/index.html"},
+        {texto: "Vasculitis y Vasculopatías Asociadas", url: "vasculitis/index.html"},
+        {texto: "Trastornos del Tejido Conectivo Asociados a Aneurismas y Síndrome Aórtico Agudo", url: "trastornos-del-tejido-conectivo-asociados-a-aneurismas-y-sindrome-aortico-agudo/index.html"},
+        {texto: "Trastornos del Tejido Conectivo con Compromiso Vascular", url: "trastornos-del-tejido-conectivo-con-compromiso-vascular/index.html"},
+        {texto: "Tumores vasculares abdominales", url: "tumores/index.html"},
+        {texto: "Calculadoras de Riesgo Vascular", url: "calculadora_riesgo_vasc/index.html"},
+        {texto: "Score de Fragilidad", url: "scorefragil/index.html"},
+        {texto: "Preguntas", url: "preguntas1/index.html"}
     ]
 };
 
 /**
- * Función para mostrar modal de demostración
+ * Función para mostrar modal de confirmación de navegación
  */
-function showDemoModal(title, url) {
+function showNavigationModal(title, url) {
     // Crear modal si no existe
-    let modal = document.getElementById('demoModal');
+    let modal = document.getElementById('navigationModal');
     if (!modal) {
-        modal = createDemoModal();
+        modal = createNavigationModal();
         document.body.appendChild(modal);
     }
     
     // Actualizar contenido del modal
     const modalTitle = modal.querySelector('.modal-title');
     const modalUrl = modal.querySelector('.modal-url');
+    const confirmButton = modal.querySelector('.modal-confirm');
     
     modalTitle.textContent = title;
     modalUrl.textContent = url;
+    
+    // Configurar el botón de confirmación para navegar a la URL
+    confirmButton.onclick = () => {
+        hideNavigationModal();
+        // Abrir en nueva pestaña
+        window.open(url, '_blank');
+    };
     
     // Mostrar modal
     modal.classList.remove('hidden');
     modal.classList.add('visible');
     
-    // Enfocar el botón de cerrar
-    const closeButton = modal.querySelector('.modal-close');
-    setTimeout(() => closeButton.focus(), 100);
+    // Enfocar el botón de confirmación
+    setTimeout(() => confirmButton.focus(), 100);
 }
 
 /**
- * Función para crear el modal de demostración
+ * Función para crear el modal de navegación
  */
-function createDemoModal() {
+function createNavigationModal() {
     const modal = document.createElement('div');
-    modal.id = 'demoModal';
+    modal.id = 'navigationModal';
     modal.className = 'modal hidden';
     modal.setAttribute('role', 'dialog');
     modal.setAttribute('aria-labelledby', 'modal-title');
@@ -70,34 +77,35 @@ function createDemoModal() {
             </div>
             <div class="modal-body">
                 <p id="modal-description" class="modal-description">
-                    ✅ <strong>Enlace funcional demostrado</strong>
+                    🔗 <strong>Navegando a contenido médico</strong>
                 </p>
                 <p class="modal-info">
-                    Este enlace navegaría a: <code class="modal-url"></code>
+                    Se abrirá en una nueva pestaña: <code class="modal-url"></code>
                 </p>
                 <p class="modal-note">
-                    <em>En un entorno de producción, este enlace abriría el contenido médico correspondiente en una nueva pestaña.</em>
+                    <em>Está a punto de acceder al contenido médico especializado correspondiente.</em>
                 </p>
             </div>
             <div class="modal-footer">
-                <button class="btn btn--primary modal-ok" type="button">Entendido</button>
+                <button class="btn btn--outline modal-cancel" type="button">Cancelar</button>
+                <button class="btn btn--primary modal-confirm" type="button">Continuar</button>
             </div>
         </div>
     `;
     
     // Agregar event listeners
     const closeButton = modal.querySelector('.modal-close');
-    const okButton = modal.querySelector('.modal-ok');
+    const cancelButton = modal.querySelector('.modal-cancel');
     const overlay = modal.querySelector('.modal-overlay');
     
-    [closeButton, okButton, overlay].forEach(element => {
-        element.addEventListener('click', () => hideDemoModal());
+    [closeButton, cancelButton, overlay].forEach(element => {
+        element.addEventListener('click', () => hideNavigationModal());
     });
     
     // Cerrar con Escape
     modal.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
-            hideDemoModal();
+            hideNavigationModal();
         }
     });
     
@@ -107,8 +115,8 @@ function createDemoModal() {
 /**
  * Función para ocultar el modal
  */
-function hideDemoModal() {
-    const modal = document.getElementById('demoModal');
+function hideNavigationModal() {
+    const modal = document.getElementById('navigationModal');
     if (modal) {
         modal.classList.remove('visible');
         modal.classList.add('hidden');
@@ -128,10 +136,11 @@ function createMenuItem(enlace, index) {
     
     // Crear el elemento anchor
     const link = document.createElement('a');
-    link.href = '#';
+    link.href = enlace.url;
     link.className = 'menu-link';
     link.setAttribute('data-url', enlace.url);
     link.setAttribute('data-title', enlace.texto);
+    link.setAttribute('target', '_blank');
     
     // Agregar atributos de accesibilidad
     link.setAttribute('aria-describedby', `item-${index + 1}-description`);
@@ -196,7 +205,7 @@ function handleMenuClick(event) {
     
     if (!link) return;
     
-    // Prevenir navegación por defecto
+    // Prevenir navegación por defecto para mostrar confirmación
     event.preventDefault();
     
     // Obtener datos del enlace
@@ -206,8 +215,8 @@ function handleMenuClick(event) {
     // Agregar clase de estado activo temporalmente
     link.classList.add('menu-link--active');
     
-    // Mostrar modal de demostración
-    showDemoModal(title, url);
+    // Mostrar modal de confirmación de navegación
+    showNavigationModal(title, url);
     
     // Remover la clase después de un breve momento
     setTimeout(() => {
@@ -302,7 +311,7 @@ function handleError(error) {
     const menuList = document.getElementById('menuList');
     if (menuList && menuList.children.length === 0) {
         menuList.innerHTML = `
-            <li style="text-align: center; color: rgba(255,255,255,0.8); padding: 2rem;">
+            <li style="text-align: center; color: var(--color-text-secondary); padding: 2rem;">
                 <p>Error al cargar el menú. Por favor, recarga la página.</p>
             </li>
         `;
