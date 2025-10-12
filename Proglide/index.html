@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Avanzada del Perclose ProGlide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .abbott-blue { background-color: #0033a1; }
+        .abbott-light-blue { background-color: #00a3e0; }
+        .text-abbott-blue { color: #0033a1; }
+        .text-abbott-light-blue { color: #00a3e0; }
+        .border-abbott-blue { border-color: #0033a1; }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- NAVBAR -->
+    <header id="header" class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-abbott-blue">Guía ProGlide</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#introduccion" class="text-gray-600 hover:text-abbott-blue px-3 py-2 rounded-md text-sm font-medium">Introducción</a>
+                        <a href="#guia-paso-a-paso" class="text-gray-600 hover:text-abbott-blue px-3 py-2 rounded-md text-sm font-medium">Paso a Paso</a>
+                        <a href="#complicaciones" class="text-gray-600 hover:text-abbott-blue px-3 py-2 rounded-md text-sm font-medium">Complicaciones</a>
+                        <a href="#comparativa" class="text-gray-600 hover:text-abbott-blue px-3 py-2 rounded-md text-sm font-medium">Comparativa</a>
+                        <a href="#recursos" class="text-gray-600 hover:text-abbott-blue px-3 py-2 rounded-md text-sm font-medium">Recursos</a>
+                        <a href="#referencias" class="text-gray-600 hover:text-abbott-blue px-3 py-2 rounded-md text-sm font-medium">Referencias</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-abbott-blue hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-abbott-blue">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#introduccion" class="text-gray-600 hover:text-abbott-blue block px-3 py-2 rounded-md text-base font-medium">Introducción</a>
+                <a href="#guia-paso-a-paso" class="text-gray-600 hover:text-abbott-blue block px-3 py-2 rounded-md text-base font-medium">Paso a Paso</a>
+                <a href="#complicaciones" class="text-gray-600 hover:text-abbott-blue block px-3 py-2 rounded-md text-base font-medium">Complicaciones</a>
+                <a href="#comparativa" class="text-gray-600 hover:text-abbott-blue block px-3 py-2 rounded-md text-base font-medium">Comparativa</a>
+                <a href="#recursos" class="text-gray-600 hover:text-abbott-blue block px-3 py-2 rounded-md text-base font-medium">Recursos</a>
+                <a href="#referencias" class="text-gray-600 hover:text-abbott-blue block px-3 py-2 rounded-md text-base font-medium">Referencias</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Introduction Section -->
+        <section id="introduccion" class="pt-16 -mt-16 mb-16">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-abbott-blue mb-4">Dominando el Perclose ProGlide™</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Como cirujano vascular con más de una década utilizando el sistema Perclose ProGlide, he creado esta guía para colegas que buscan perfeccionar su técnica. Este no es solo un resumen del manual de uso; es una destilación de experiencia práctica, consejos para solventar situaciones complejas y una perspectiva comparativa. El objetivo es ir más allá del "cómo" para entender el "porqué" de cada paso, logrando cierres seguros, eficientes y predecibles para nuestros pacientes.</p>
+            </div>
+            <div class="flex justify-center mt-8">
+                 
+            </div>
+        </section>
+
+        <!-- Step-by-Step Guide Section -->
+        <section id="guia-paso-a-paso" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-abbott-blue mb-8 border-b-4 border-abbott-blue pb-2">Guía Técnica Detallada: Paso a Paso</h2>
+            <video width="640" height="360" controls>
+            <source src="1.mp4" type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+            </video>
+
+            <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Fase I: Preparación y Despliegue de Agujas</h3>
+                <ol class="list-decimal list-inside space-y-8 text-gray-700">
+                    <li>
+                        <strong class="font-semibold text-gray-900 block">Preparación y Avance Inicial</strong>
+                        <p class="mt-1">Para preparar el dispositivo, <strong>verifique la permeabilidad del lumen marcador (marker lumen)</strong> enjuagándolo con solución salina hasta que la solución salina salga por el puerto marcador (marker Port).</p>
+                        <div class="mt-2 p-3 bg-blue-50 border-l-4 border-abbott-light-blue rounded-r-lg">
+                            <h4 class="font-bold text-sm text-abbott-blue">Tip de Experto:</h4>
+                            <p class="text-sm text-gray-700">Este paso es crucial, no lo omita. Asegura que el puerto de reflujo de sangre funcionará correctamente. Una pequeña burbuja de aire atrapada puede dar un falso negativo de reflujo. Purgue con energía y asegúrese de ver un flujo claro y sin obstrucciones.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-gray-900 block">Intercambio de Vaina y Guía</strong>
+                        <p class="mt-1">Después del procedimiento índice, <strong>intercambie la vaina (procedural sheath) del procedimiento por un alambre guía (guide wire) de 0.038 pulgadas o más pequeño</strong>.</p>
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-gray-900 block">Posicionamiento del Dispositivo</strong>
+                        <p class="mt-1"><strong>Avance el dispositivo sobre el alambre hasta que el puerto de salida del alambre guía (guide wire exit Port) esté al nivel de la piel</strong>. <strong>Retire el alambre guía para permitir el reflujo de sangre</strong> y luego <strong>avance el dispositivo hasta que el reflujo de sangre se detenga</strong>, lo que indica que la punta del dispositivo está contra la pared del vaso.</p>
+                        <div class="mt-2 p-3 bg-blue-50 border-l-4 border-abbott-light-blue rounded-r-lg">
+                            <h4 class="font-bold text-sm text-abbott-blue">Tip de Experto:</h4>
+                            <p class="text-sm text-gray-700">El "baile" del reflujo es la clave. Avance lentamente hasta que el sangrado cese; si avanza demasiado, puede empujar la pared posterior. Retire muy ligeramente hasta obtener un sangrado pulsátil y vuelva a avanzar mínimamente hasta que cese. Esa es la posición perfecta. Mantenga el dispositivo en un ángulo de 45 grados respecto a la piel.</p>
+                        </div>
+                    </li>
+                     <li>
+                        <strong class="font-semibold text-gray-900 block">Despliegue de las Patas (Feet) y Agujas</strong>
+                        <p class="mt-1"><strong>Levante la palanca para desplegar las patas (feet) dentro del vaso</strong>. <strong>Retire ligeramente el dispositivo hasta sentir resistencia</strong>, lo que confirma que las patas están ancladas contra la pared del vaso. Mientras mantiene una ligera tracción hacia atrás, <strong>presione el émbolo (plunger) completamente para desplegar las agujas y la sutura</strong>.</p>
+                    </li>
+                </ol>
+
+                <h3 class="text-2xl font-semibold text-gray-800 mt-12 mb-6">Fase II: Manejo de la Sutura y Cierre</h3>
+                <ol class="list-decimal list-inside space-y-8 text-gray-700" start="5">
+                    <li>
+                        <strong class="font-semibold text-gray-900 block">Retiro del Dispositivo y Manejo de Suturas</strong>
+                        <p class="mt-1"><strong>Retire la guía de sutura azul (blue suture guide) del mango</strong>. <strong>Sujete los dos cabos de sutura y tire del dispositivo hacia atrás para retirarlo del cuerpo</strong>, permitiendo que los cabos de sutura pasen a través del dispositivo.</p>
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-gray-900 block">Avance del Nudo</strong>
+                        <p class="mt-1"><strong>Identifique el riel corto (short rail) y deslícelo hacia adelante para crear un nudo</strong>. <strong>El recortador de suturas (suture trimmer) se puede usar para avanzar el nudo</strong>. <strong>Adopte una posición con una sola mano para continuar avanzando el nudo sobre el alambre</strong>. <strong>Aplique tensión lenta, constante y creciente</strong>.</p>
+                         <div class="mt-2 p-3 bg-blue-50 border-l-4 border-abbott-light-blue rounded-r-lg">
+                            <h4 class="font-bold text-sm text-abbott-blue">Tip de Experto:</h4>
+                            <p class="text-sm text-gray-700">No tense bruscamente. Es una tensión firme y progresiva. Imagine que está "ordeñando" el nudo hacia la arteriotomía. Mantenga el alambre guía en su sitio durante este primer ajuste; le da un raíl para asegurar que el nudo baja coaxialmente y no se atasca.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-gray-900 block">Bloqueo del Nudo y Retiro del Alambre Guía</strong>
+                        <p class="mt-1">Cuando el sangrado esté controlado, <strong>retire el alambre guía y continúe avanzando el nudo</strong>. <strong>Tire del no-riel con punta blanca (white tipped non rail) para bloquear el nudo de sutura firmemente en su lugar</strong>.</p>
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-gray-900 block">Carga y Recorte Final de los Cabos de Sutura</strong>
+                        <p class="mt-1"><strong>Tire hacia atrás de la perilla del pulgar (thumb knob) para abrir la compuerta de sutura (suture gate)</strong> en el extremo distal del recortador de sutura. <strong>Cargue ambos cabos de sutura en la compuerta de sutura antes de soltar la perilla del pulgar</strong>. <strong>Tire de la palanca roja para recortar los cabos de sutura</strong>.</p>
+                    </li>
+                    <li>
+                        <strong class="font-semibold text-gray-900 block">Confirmación de Hemostasia</strong>
+                        <p class="mt-1"><strong>Realice la confirmación activa de la hemostasia</strong>.</p>
+                        <div class="mt-2 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
+                            <h4 class="font-bold text-sm text-yellow-700">Advertencia de Seguridad:</h4>
+                            <p class="text-sm text-gray-700">No se conforme con la hemostasia pasiva. Compruebe el pulso distal y considere una breve ecografía para descartar estenosis o hematoma en el sitio de punción. La presión arterial del paciente debe ser normotensa durante la confirmación final.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Complications Section -->
+        <section id="complicaciones" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-abbott-blue mb-8 border-b-4 border-abbott-blue pb-2">Complicaciones y Soluciones</h2>
+            <div id="accordion-container" class="space-y-4">
+                <!-- Complication 1 -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="accordion-header w-full flex justify-between items-center text-left p-4 font-semibold text-lg text-abbott-blue focus:outline-none">
+                        <span>Fallo de Cierre (Sangrado persistente)</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-4 pb-4">
+                        <p class="text-gray-700 mb-2"><strong>Causas:</strong> Nudo mal ajustado, desgarro de la arteriotomía, captura inadecuada del tejido, calcificación severa en el sitio de punción.</p>
+                        <p class="text-gray-700 mb-2"><strong>Solución Inmediata:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1 text-gray-600">
+                            <li><strong>Re-tensar el nudo:</strong> Antes de cortar la sutura, si hay sangrado, vuelva a avanzar el ajustador de nudos y aplique tensión firme.</li>
+                            <li><strong>Desplegar un segundo ProGlide:</strong> Es la técnica estándar ("pre-cierre"). Si falla el primero, el segundo suele ser exitoso. Rote el segundo dispositivo unos 30-45 grados respecto al primero para capturar tejido diferente.</li>
+                            <li><strong>Compresión manual:</strong> Si todo falla, la compresión manual sigue siendo el estándar de oro. No dude en recurrir a ella.</li>
+                            <li><strong>Conversión a cirugía abierta:</strong> En casos de sangrado incontrolable, es la opción más segura.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Complication 2 -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="accordion-header w-full flex justify-between items-center text-left p-4 font-semibold text-lg text-abbott-blue focus:outline-none">
+                        <span>Oclusión / Estenosis del Vaso</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-4 pb-4">
+                        <p class="text-gray-700 mb-2"><strong>Causas:</strong> Captura de la pared posterior del vaso, nudo demasiado apretado en un vaso pequeño, disección arterial subyacente.</p>
+                        <p class="text-gray-700 mb-2"><strong>Solución / Manejo:</strong></p>
+                        <ul class="list-disc list-inside ml-4 space-y-1 text-gray-600">
+                            <li><strong>Evaluación inmediata:</strong> Si hay pérdida de pulso distal post-cierre, realice una ecografía Doppler o angiografía de inmediato.</li>
+                            <li><strong>Angioplastia con balón:</strong> Una estenosis leve a menudo puede resolverse con una angioplastia con balón de bajo perfil desde un acceso contralateral o braquial.</li>
+                            <li><strong>Cirugía:</strong> En caso de oclusión completa o disección significativa, puede ser necesaria una endarterectomía o un bypass.</li>
+                             <li class="mt-2 text-sm"><strong>Tip de Experto para Prevención:</strong> Siempre confirme la posición 100% intraluminal con el reflujo sanguíneo. Nunca despliegue las patas si no está seguro. Una tracción excesiva al anclar las patas puede hacer que capturen la pared posterior.</li>
+                        </ul>
+                    </div>
+                </div>
+                 <!-- Complication 3 -->
+                <div class="bg-white rounded-lg shadow-md">
+                    <button class="accordion-header w-full flex justify-between items-center text-left p-4 font-semibold text-lg text-abbott-blue focus:outline-none">
+                        <span>Infección del Sitio de Punción / Sutura</span>
+                        <svg class="w-6 h-6 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-4 pb-4">
+                        <p class="text-gray-700 mb-2"><strong>Causas:</strong> Técnica aséptica deficiente, paciente con múltiples comorbilidades (diabetes, obesidad), hematoma sobreinfectado.</p>
+                        <p class="text-gray-700 mb-2"><strong>Solución / Manejo:</strong></p>
+                         <ul class="list-disc list-inside ml-4 space-y-1 text-gray-600">
+                            <li><strong>Profilaxis:</strong> Una técnica estéril impecable es la mejor prevención.</li>
+                            <li><strong>Tratamiento:</strong> Las infecciones superficiales pueden tratarse con antibióticos orales. Las infecciones profundas que involucran la sutura o el vaso pueden requerir antibióticos IV, drenaje quirúrgico y, en raras ocasiones, la extirpación de la sutura y la reparación vascular.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+             <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold text-abbott-blue mb-3">Contraindicaciones Clave</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Punción a través de la bifurcación femoral o por encima del ligamento inguinal.</li>
+                    <li>Calcificación severa en la pared anterior de la arteria que impida el paso de las agujas.</li>
+                    <li>Tejido cicatricial extremo o injerto vascular previo en el sitio de acceso.</li>
+                    <li>Obesidad mórbida con un panículo adiposo que exceda la longitud de trabajo del dispositivo.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparativa" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-abbott-blue mb-8 border-b-4 border-abbott-blue pb-2">Comparativa de Dispositivos de Cierre</h2>
+            <div class="overflow-x-auto bg-white p-4 rounded-lg shadow-lg">
+                <table class="w-full text-sm text-left text-gray-600">
+                    <thead class="text-xs text-abbott-blue uppercase bg-gray-100">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 rounded-l-lg">Característica</th>
+                            <th scope="col" class="px-6 py-3">Perclose ProGlide</th>
+                            <th scope="col" class="px-6 py-3">Angio-Seal VIP</th>
+                            <th scope="col" class="px-6 py-3">StarClose SE</th>
+                            <th scope="col" class="px-6 py-3 rounded-r-lg">Prostar XL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b">
+                            <td class="px-6 py-4 font-semibold">Mecanismo</td>
+                            <td class="px-6 py-4">Sutura de Polipropileno (Cierre activo)</td>
+                            <td class="px-6 py-4">Ancla bioabsorbible, tapón de colágeno y sutura (Cierre pasivo)</td>
+                            <td class="px-6 py-4">Clip de Nitinol (Cierre activo)</td>
+                            <td class="px-6 py-4">Suturas de poliéster (similar a ProGlide, para grandes orificios)</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b">
+                            <td class="px-6 py-4 font-semibold">Tamaño Introductor</td>
+                            <td class="px-6 py-4">5F - 21F (con técnica pre-cierre)</td>
+                            <td class="px-6 py-4">6F y 8F</td>
+                            <td class="px-6 py-4">5F y 6F</td>
+                            <td class="px-6 py-4">8.5F y 10F</td>
+                        </tr>
+                         <tr class="bg-white border-b">
+                            <td class="px-6 py-4 font-semibold">Material Intravascular</td>
+                            <td class="px-6 py-4">Sutura (mínimo)</td>
+                            <td class="px-6 py-4">Ancla de polímero bioabsorbible</td>
+                            <td class="px-6 py-4">Clip de Nitinol (permanente)</td>
+                            <td class="px-6 py-4">Sutura (mínimo)</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b">
+                            <td class="px-6 py-4 font-semibold">Capacidad de Re-punción</td>
+                            <td class="px-6 py-4">Alta. Se puede puncionar de nuevo sin problemas.</td>
+                            <td class="px-6 py-4">Limitada hasta la reabsorción (90 días).</td>
+                            <td class="px-6 py-4">Posible, pero se debe evitar el clip.</td>
+                            <td class="px-6 py-4">Alta. Similar a ProGlide.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="px-6 py-4 font-semibold">Curva de Aprendizaje</td>
+                            <td class="px-6 py-4">Moderada a alta. Dependiente de la técnica.</td>
+                            <td class="px-6 py-4">Baja. Muy sencillo de usar.</td>
+                            <td class="px-6 py-4">Baja a moderada.</td>
+                            <td class="px-6 py-4">Alta. Considerado el más técnico.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="recursos" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-abbott-blue mb-8 border-b-4 border-abbott-blue pb-2">Recursos Adicionales</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Video Section -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-abbott-blue mb-4">Vídeos de Demostración</h3>
+                    <p class="text-gray-600 mb-4">Visualizar la técnica es fundamental. Estos vídeos del fabricante demuestran el despliegue estándar y técnicas avanzadas.</p>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe src="https://www.youtube.com/embed/B9LJH8i7qgE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-md"></iframe>
+                    </div>
+                </div>
+                <!-- Studies Section -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-abbott-blue mb-4">Estudios Clave</h3>
+                    <p class="text-gray-600 mb-4">La práctica basada en la evidencia es esencial. A continuación, se presentan algunos estudios relevantes sobre la eficacia y seguridad del ProGlide.</p>
+                    <ul class="space-y-3">
+                        <li><a href="https://pubmed.ncbi.nlm.nih.gov/21216335/" target="_blank" class="text-abbott-light-blue hover:underline font-semibold">ISAR-CLOSURE Trial:</a><span class="text-gray-600"> Comparación de tres dispositivos de cierre en un ensayo aleatorizado a gran escala.</span></li>
+                        <li><a href="https://pubmed.ncbi.nlm.nih.gov/29361303/" target="_blank" class="text-abbott-light-blue hover:underline font-semibold">Meta-análisis de Cierre Percutáneo vs. Quirúrgico en EVAR:</a><span class="text-gray-600"> Un análisis que evalúa los resultados en reparaciones de aneurismas endovasculares.</span></li>
+                        <li><a href="https://pubmed.ncbi.nlm.nih.gov/18640129/" target="_blank" class="text-abbott-light-blue hover:underline font-semibold">Uso del ProGlide en TAVI:</a><span class="text-gray-600"> Experiencia y resultados del uso de la técnica de "pre-cierre" en procedimientos de implante de válvula aórtica transcatéter.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="referencias" class="pt-20 -mt-16 mb-16">
+            <h2 class="text-3xl font-bold text-abbott-blue mb-8 border-b-4 border-abbott-blue pb-2">Referencias (Formato APA 7)</h2>
+            <div class="bg-white p-6 rounded-lg shadow-lg text-sm text-gray-700 space-y-4">
+                <p>Abbott Vascular. (n.d.). <em>Perclose ProGlide Suture-Mediated Closure (SMC) System Instructions for Use.</em></p>
+                <p>Biatas, I., Stathogiannis, K., & Tsigkas, G. (2018). Percutaneous versus surgical femoral access for transfemoral aortic valve implantation: a meta-analysis. <em>Hellenic journal of cardiology : HJC = Hellenike kardiologike epitheorese, 59</em>(1), 26–32. https://doi.org/10.1016/j.hjc.2017.07.004</p>
+                <p>Schulz-Schüpke, S., Helde, S., Gewalt, S., Ibrahim, T., et al. (2011). Comparison of vascular closure devices vs manual compression after femoral artery puncture: the ISAR-CLOSURE randomized clinical trial. <em>JAMA, 305</em>(3), 257–264. https://doi.org/10.1001/jama.2010.2000</p>
+                <p>Van Mieghem, N. M., & de Jaegere, P. P. (2008). The ProGlide device for suture-mediated percutaneous closure of the arterial access site: a "must have" in the TAVI era. <em>EuroIntervention : journal of EuroPCR in collaboration with the Working Group on Interventional Cardiology of the European Society of Cardiology, 4</em>(2), 171–173.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto py-4 px-5 text-center">
+            <p class="text-sm">&copy; 2025 Guía para Cirujanos Vasculares. Creado con fines educativos.</p>
+            <p class="text-xs text-gray-400 mt-1">Esta información no reemplaza el juicio clínico ni las instrucciones de uso oficiales del fabricante.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // --- Smooth Scrolling & Mobile Menu Closing for ALL Navbar Links ---
+            const allNavLinks = document.querySelectorAll('nav a[href^="#"]');
+
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Hide mobile menu on navigation
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+
+                        // Perform smooth scroll
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // --- Accordion Functionality ---
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('svg');
+                    
+                    const isOpening = !content.style.maxHeight;
+
+                    // Close all other accordions first
+                    document.querySelectorAll('.accordion-content').forEach(item => {
+                        item.style.maxHeight = null;
+                        const otherIcon = item.previousElementSibling.querySelector('svg');
+                        if (otherIcon) {
+                           otherIcon.classList.remove('rotate-180');
+                        }
+                    });
+
+                    // Then, open the clicked one if it was closed
+                    if (isOpening) {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        if (icon) {
+                            icon.classList.add('rotate-180');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
