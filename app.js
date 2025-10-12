@@ -20,6 +20,7 @@ const menuData = {
         {texto: "Trastornos del Tejido Conectivo Asociados a Aneurismas y Síndrome Aórtico Agudo", url: "trastornos-del-tejido-conectivo-asociados-a-aneurismas-y-sindrome-aortico-agudo/index.html"},
         {texto: "Trastornos del Tejido Conectivo con Compromiso Vascular", url: "trastornos-del-tejido-conectivo-con-compromiso-vascular/index.html"},
         {texto: "Tumores vasculares abdominales", url: "tumores/index.html"},
+        {texto: "Colocación de Proglide", url: "Proglide/index.html"},
         {texto: "Calculadoras de Riesgo Vascular", url: "calculadora_riesgo_vasc/index.html"},
         {texto: "Score de Fragilidad", url: "scorefragil/index.html"},
         {texto: "Preguntas", url: "preguntas1/index.html"}
