@@ -1,35 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Índice Aorta y Temas Relacionados</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aorta · Índice de recursos</title>
+  <meta name="description" content="Índice de módulos y documentos del repositorio Aorta">
+  <style>
+    :root{
+      --bg:#0b0f14;--panel:#121821;--panel-2:#0f141b;--text:#e6edf3;--muted:#9fb0c0;
+      --accent:#42a5f5;--radius:18px;--shadow:0 6px 28px rgba(0,0,0,.35);
+      --border:1px solid rgba(255,255,255,.06);--focus:0 0 0 3px rgba(66,165,245,.35)
+    }
+    *{box-sizing:border-box}html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,#0b0f14 0%,#0f141b 100%);
+      color:var(--text);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:1200px;margin:0 auto;padding:28px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+    h1{font-size:clamp(22px,3.2vw,32px);margin:0}
+    .sub{color:var(--muted);font-size:14px}
+    .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .search,.toggle{display:flex;align-items:center;gap:10px;background:var(--panel);border:var(--border);
+      padding:10px 12px;border-radius:12px;box-shadow:var(--shadow)}
+    .search input{all:unset;color:var(--text);width:240px}
+    .grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:14px;margin-top:14px}
+    @media (min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (min-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .card{background:linear-gradient(180deg,var(--panel) 0%,var(--panel-2) 100%);border:var(--border);
+      border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,0,0,.45);border-color:rgba(255,255,255,.12)}
+    .badge{align-self:flex-start;font-size:12px;background:#d0e7ff;border-radius:999px;padding:4px 10px;color:#0b2239}
+    .title{font-weight:600;font-size:16px}
+    .desc{color:var(--muted);font-size:13px;min-height:36px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+    .btn{appearance:none;border:none;cursor:pointer;text-decoration:none;padding:10px 12px;border-radius:12px;font-weight:600;background:var(--accent);color:#001320;box-shadow:var(--shadow)}
+    .btn.secondary{background:transparent;color:var(--text);border:1px dashed rgba(255,255,255,.18)}
+    .footer{margin-top:22px;color:var(--muted);font-size:12px}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0a1118;border:1px solid rgba(255,255,255,.12);padding:2px 6px;border-radius:6px}
+    a{color:inherit}.search:focus-within,.toggle:focus-within,.btn:focus{outline:none;box-shadow:var(--focus)}
+  </style>
 </head>
 <body>
-    <div class="main-container">
-        <header class="header-section">
-            <div class="title-container">
-                <h1 class="main-title">Índice Aorta y Temas Relacionados</h1>
-                <div class="title-decoration"></div>
-            </div>
-        </header>
-        
-        <main class="content-section">
-            <div class="menu-container">
-                <nav class="navigation-menu" role="navigation" aria-label="Menú principal de temas">
-                    <ul class="menu-list" id="menuList">
-                        <!-- Los items del menú se generarán dinámicamente con JavaScript -->
-                    </ul>
-                </nav>
-            </div>
-        </main>
-        
-        <footer class="footer-section">
-            <p class="footer-text">Recursos académicos de medicina vascular</p>
-        </footer>
-    </div>
-    
-    <script src="app.js"></script>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Aorta · Índice</h1>
+        <div class="sub">Guías, técnicas y herramientas. Escribe para filtrar o pulsa <span class="kbd">Ctrl</span>+<span class="kbd">K</span>.</div>
+      </div>
+      <div class="controls" role="region" aria-label="Controles">
+        <label class="search" aria-label="Buscar módulos">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 20.3 16.7 16a8 8 0 1 0-1.7 1.7L20.3 22 21 20.3zM10.5 17a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"/></svg>
+          <input id="q" type="search" placeholder="Buscar (ESVS, REBOA, vasculitis…)" autocomplete="off" />
+        </label>
+        <label class="toggle" title="Abrir enlaces en pestaña nueva">
+          <input id="newtab" type="checkbox" />
+          <span>Abrir en pestaña nueva</span>
+        </label>
+      </div>
+    </header>
+
+    <section id="grid" class="grid" aria-live="polite"></section>
+
+    <p class="footer">Consejo: pulsa <span class="kbd">Enter</span> sobre una tarjeta para abrirla.</p>
+  </div>
+
+  <script>
+    // === Configuración manual de carpetas -> index.html ===
+    // Puedes editar títulos/descripciones a tu gusto.
+    const modules = [
+      { folder:"2025-esvs-reparacion-ao-asc", title:"2025 ESVS · Reparación Aorta Ascendente", tag:"guía", desc:"Resumen / material relacionado." },
+      { folder:"2025-esvs-trauma-vascular", title:"2025 ESVS · Trauma Vascular", tag:"guía", desc:"Pautas y recursos." },
+      { folder:"2024 ESVS Manejo Aneurismas Aorto-Ilíacos", title:"2024 ESVS · Aneurismas Aorto-Ilíacos", tag:"guía", desc:"Manejo y recomendaciones." },
+      { folder:"2020-esvs-infeccion-protesis-resumen-de-recomendaciones", title:"2020 ESVS · Infección de Prótesis", tag:"guía", desc:"Resumen de recomendaciones." },
+
+      { folder:"REBOA-ECMO-Guide", title:"REBOA / ECMO · Guía", tag:"técnica", desc:"Guía y flujo de actuación." },
+      { folder:"WSACS2013", title:"WSACS 2013", tag:"guía", desc:"Síndrome compartimental abdominal." },
+      { folder:"tecnicas-remocion-endoprotesis-infrarrenal-abierto", title:"Técnicas · Remoción endoprótesis infrarrenal (abierto)", tag:"técnica", desc:"Abordaje abierto." },
+      { folder:"ifu-endoprotesis", title:"IFU · Endoprótesis", tag:"IFU", desc:"Información de uso (fabricante)." },
+
+      { folder:"embriologia-del-sistema-vascular", title:"Embriología del Sistema Vascular", tag:"fundamentos", desc:"Bases y desarrollo." },
+      { folder:"comparacion-farmacos-hipolipemiantes", title:"Comparación de Fármacos Hipolipemiantes", tag:"fármacos", desc:"Tablas comparativas." },
+      { folder:"trastornos-del-tejido-conectivo-con-compromiso-vascular", title:"Trastornos del Tejido Conectivo (compromiso vascular)", tag:"fundamentos", desc:"Resumen y criterios." },
+      { folder:"trastornos-del-tejido-conectivo-asociados-a-aneurismas-y-sindrome-aortico-agudo", title:"Tejido conectivo y Síndrome Aórtico Agudo", tag:"fundamentos", desc:"Asociaciones y manejo." },
+      { folder:"vasculitis y aorta", title:"Vasculitis y Aorta", tag:"vasculitis", desc:"Relación y manejo." },
+      { folder:"vasculitis", title:"Vasculitis · General", tag:"vasculitis", desc:"Resumen y enlaces." },
+
+      { folder:"sistemas-de-clasificacion-de-infeccion-de-protesis-vasculares", title:"Clasificación · Infección de prótesis vasculares", tag:"clasificación", desc:"Sistemas y criterios." },
+      { folder:"analisis-exhaustivo-de-la-infeccion-de-endoprotesis-aortica-abdominal", title:"Infección de Endoprótesis Aórtica Abdominal", tag:"análisis", desc:"Revisión en profundidad." },
+
+      { folder:"calculadora_riesgo_vasc", title:"Calculadora de Riesgo Vascular", tag:"herramienta", desc:"Estimación de riesgo." },
+      { folder:"scorefragil", title:"Score de Fragilidad", tag:"herramienta", desc:"Valoración de fragilidad." },
+
+      { folder:"tto-medico-SCA", title:"Tratamiento Médico · SCA", tag:"fármacos", desc:"Esquemas terapéuticos." },
+      { folder:"Proglide", title:"ProGlide · Dispositivo", tag:"dispositivo", desc:"Notas y procedimiento." },
+      { folder:"tumores", title:"Tumores (vascular)", tag:"apuntes", desc:"Notas y referencias." },
+      { folder:"preguntas1", title:"Preguntas (banco 1)", tag:"preguntas", desc:"Autoevaluación." },
+    ];
+
+    // === Utilidades ===
+    const $ = sel => document.querySelector(sel);
+    const grid = $("#grid"), q = $("#q"), newtab = $("#newtab");
+
+    // Render de tarjetas
+    function render(items){
+      grid.innerHTML = "";
+      if(!items.length){
+        grid.innerHTML = `<article class="card"><div class="title">Sin resultados</div><div class="desc">Prueba con otros términos (p. ej. “ESVS”, “REBOA”).</div></article>`;
+        return;
+      }
+      for(const m of items){
+        const folderPath = (m.folder||"").replace(/\/+$/,"");
+        const href = m.href ?? `${encodeURIComponent(folderPath)}/index.html`;
+        const pathLabel = m.href ? m.href : `${m.folder}/index.html`;
+        const isPDF = /\.pdf$/i.test(href);
+        const target = (newtab.checked || isPDF) ? 'target="_blank" rel="noopener"' : "";
+
+        const card = document.createElement("article");
+        card.className = "card";
+        card.tabIndex = 0;
+        card.setAttribute("role","button");
+        card.setAttribute("aria-label", `Abrir ${m.title}`);
+
+        card.innerHTML = `
+          <span class="badge">${m.tag || "módulo"}</span>
+          <div class="title">${m.title || m.folder}</div>
+          <div class="desc">${m.desc || ""}</div>
+          <div class="actions">
+            <a class="btn" href="${href}" ${target}>Abrir</a>
+            <a class="btn secondary" href="${href}" ${target} aria-label="Abrir ${pathLabel}">
+              ${pathLabel}
+            </a>
+          </div>
+        `;
+
+        // Click/Enter abre
+        card.addEventListener("click", e=>{
+          if(e.target.closest("a")) return;
+          if(newtab.checked || isPDF){ window.open(href, "_blank","noopener"); }
+          else{ window.location.href = href; }
+        });
+        card.addEventListener("keydown", e=>{
+          if(e.key === "Enter"){
+            if(newtab.checked || isPDF){ window.open(href, "_blank","noopener"); }
+            else{ window.location.href = href; }
+          }
+        });
+
+        grid.appendChild(card);
+      }
+    }
+
+    // Filtro
+    function filter(){
+      const term = (q.value || "").trim().toLowerCase();
+      const out = !term ? modules : modules.filter(m=>{
+        const hay = [m.title,m.folder,m.tag,m.desc].join(" ").toLowerCase();
+        return hay.includes(term);
+      });
+      render(out);
+    }
+
+    // Atajos y eventos
+    q.addEventListener("input", filter);
+    newtab.addEventListener("change", ()=>render(modules));
+    document.addEventListener("keydown", e=>{
+      if((e.ctrlKey || e.metaKey) && e.key.toLowerCase()==="k"){ e.preventDefault(); q.focus(); q.select(); }
+    });
+
+    // === Descubrimiento automático de PDFs en la raíz ===
+    const OWNER = "rico100100";
+    const REPO  = "Aorta";
+    async function fetchRootPDFs(){
+      try{
+        const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/`);
+        if(!res.ok) throw new Error("No se pudo listar contenidos");
+        const items = await res.json();
+        return items
+          .filter(it => it.type === "file" && /\.pdf$/i.test(it.name))
+          .map(it => ({
+            href: it.name,
+            title: it.name.replace(/_/g," "),
+            tag: "PDF",
+            desc: "Archivo PDF en la raíz."
+          }));
+      }catch(e){
+        console.warn("No se pudieron descubrir PDFs:", e);
+        return [];
+      }
+    }
+
+    // Inicio
+    (async ()=>{
+      render(modules);                   // pinta rápido
+      const pdfs = await fetchRootPDFs();// intenta añadir PDFs del raíz
+      if(pdfs.length){ modules.push(...pdfs); filter(); }
+    })();
+  </script>
 </body>
 </html>
