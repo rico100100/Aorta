@@ -1,0 +1,599 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "No es un principio general:",
+      "options": {
+        "A": "La calidad y seguridad de los servicios y prestaciones sanitarias.",
+        "B": "La participación de los ciudadanos a través de órganos específicos en la gestión de la política sanitaria.",
+        "C": "La suficiencia de medios profesionales y materiales.",
+        "D": "La participación del paciente y el usuario en las actuaciones sanitarias relacionadas con su salud."
+      },
+      "correct": "B",
+      "comment": "Art. 3 Ley 5/2010. Aunque la participación ciudadana en la formulación de políticas es un principio (art 3.c), la opción B introduce el matiz de 'órganos específicos en la gestión', que no se ajusta a la definición literal de los principios generales de esta ley."
+    },
+    {
+      "id": 2,
+      "question": "La Ley de derechos y deberes en materia de salud de Castilla-La Mancha:",
+      "options": {
+        "A": "Se aplica a extranjeros extracomunitarios que tengan permiso de residencia y trabajo en España.",
+        "B": "No se aplica a los extranjeros extracomunitarios en ningún caso.",
+        "C": "Se garantiza en todo caso la atención sanitaria en situaciones de urgencia y emergencia a todas las personas.",
+        "D": "La atención de ugencias y emergencias sólo se garantiza a las mujeres gestantes que no tengan nacionalidad comunitaria."
+      },
+      "correct": "C",
+      "comment": "Art. 2 y 3 Ley 5/2010. La atención de urgencia es un derecho universal garantizado."
+    },
+    {
+      "id": 3,
+      "question": "Son principios básicos de la asistencia sanitaria:",
+      "options": {
+        "A": "Deber de respeto a las decisiones adoptadas por el paciente sobre su propia salud una vez haya recibido la información adecuada que le permita valorar la situación.",
+        "B": "Derecho del paciente a elegir entre las distintas opciones o alternativas al tratamiento.",
+        "C": "Derecho del paciente a revocar en todo momento una anterior decisión sobre su propia salud.",
+        "D": "Todas las respuestas son correctas."
+      },
+      "correct": "D",
+      "comment": "Art. 4 Ley 5/2010."
+    },
+    {
+      "id": 4,
+      "question": "La historia clínica en Castilla-La Mancha se desarrolla:",
+      "options": {
+        "A": "En la Ley 5/2010, de derechos y deberes en materia de asistencia sanitaria.",
+        "B": "Además de en la Ley 5/2010, en el Decreto 24/2011, de 12 de abril, de la documentación sanitaria en Castilla-La Mancha.",
+        "C": "La respuesta B) es correcta, pero el Decreto es el 24/2010, de 12 de abril, de la documentación sanitaria en Castilla-La Mancha.",
+        "D": "Todas son incorrectas."
+      },
+      "correct": "B",
+      "comment": "El Decreto 24/2011 desarrolla los aspectos técnicos de la documentación clínica en CLM."
+    },
+    {
+      "id": 5,
+      "question": "Sobre los datos genéticos:",
+      "options": {
+        "A": "Cuando la información obtenida... sea necesaria para evitar un grave perjuicio para la salud del paciente y la de sus familiares... se informará al propio paciente y a un familiar biológico próximo... previa consulta del Comité de Ética Asistencial si lo hubiera...",
+        "B": "Cuando la información obtenida... sea necesaria... se informará... sin que se requiera la previa consulta del Comité de Ética Asistencial si lo hubiera.",
+        "C": "Cuando la información obtenida... sea necesaria... se informará únicamente al paciente respetando el derecho fundamental a la intimidad...",
+        "D": "Cuando la información obtenida... sea necesaria para evitar un perjuicio para la salud... se informará al propio paciente y a un familiar biológico próximo..."
+      },
+      "correct": "A",
+      "comment": "Art. 17.2 Ley 5/2010. Exige consulta al Comité de Ética antes de informar a familiares para evitar perjuicios graves."
+    },
+    {
+      "id": 6,
+      "question": "Un profesional médico que ha tenido conocimiento de una enfermedad de su compañero de servicio accede a la historia clínica de éste dada su amistad para enterarse de qué le ha pasado:",
+      "options": {
+        "A": "Es posible porque la ley ampara el acceso a toda la historia clínica de los profesionales sanitarios.",
+        "B": "Se estaría vulnerando el derecho a la intimidad y podría ser susceptible de sanción.",
+        "C": "No se debe hacer, siendo susceptible de posible responsablidad civil pero no se prevé como infracción en la normativa administrativa.",
+        "D": "Puede acceder, siempre y cuando posteriormente se le autorice por el paciente."
+      },
+      "correct": "B",
+      "comment": "El acceso a la HC (Art. 23) está limitado a fines asistenciales, epidemiológicos, docentes o de gestión justificada. El acceso por curiosidad es una infracción muy grave (Art 67)."
+    },
+    {
+      "id": 7,
+      "question": "En caso de que un paciente rechace el tratamiento:",
+      "options": {
+        "A": "El profesional responsable le informará de posibles alternativas existentes.",
+        "B": "Si no existen tales alternativas, habrá de dársele el alta forzosa.",
+        "C": "Será la dirección la que tramitará el alta forzoda.",
+        "D": "No cabe rechzar el tratamiento cuando vaya contra la lex artis."
+      },
+      "correct": "A",
+      "comment": "Art. 12 Ley 5/2010. El primer paso ante el rechazo es informar de alternativas."
+    },
+    {
+      "id": 8,
+      "question": "Señale la respuesta incorrecta sobre la historia clínica:",
+      "options": {
+        "A": "Cualquier información incorporada deberá ser fechada y firmada de manera que se identifique claramente la persona que la realiza.",
+        "B": "Las anotaciones serán legibles y se evitará en lo posible la utilización de símbolos y abreviaturas.",
+        "C": "Se utilizará terminología propia, en cuyo caso se deberá aclarar su significado.",
+        "D": "Todos los documentos de la hc deben estar claramente identificados incluyendo, como mínimo, el número de historia clínica, nombre y apellidos del paciente..."
+      },
+      "correct": "C",
+      "comment": "Es la incorrecta porque el Art. 20.3 Ley 5/2010 exige el uso de símbolos y abreviaturas normalizados y universales, no terminología 'propia' o inventada por el profesional."
+    },
+    {
+      "id": 9,
+      "question": "No es una infracción según la ley de derechos y deberes en materia de salud de Castilla-La Mancha:",
+      "options": {
+        "A": "La utilización indebida, abusiva o irresponsable de los recursos y prestaciones sanitarias que no respondan a una necesidad objetiva.",
+        "B": "El incumplimiento del deber de las personas de responsabilizarse del cumplimiento de su estado de salud.",
+        "C": "El incumplimiento de horario y de la jornada laboral.",
+        "D": "La resistencia, falta de respeto, amenazas, insultos, represalias o cualquier otra forma de presión ejercida contra los profesionales de los centros."
+      },
+      "correct": "C",
+      "comment": "El incumplimiento de horario es una falta disciplinaria del personal (Estatuto Marco), no una infracción de la Ley de Derechos y Deberes de los usuarios (Ley 5/2010)."
+    },
+    {
+      "id": 10,
+      "question": "La información ha de proporcionarse al paciente:",
+      "options": {
+        "A": "Con antelación suficiente.",
+        "B": "Con al menos 24 horas de antelación en caso de intervención quirúrgica.",
+        "C": "Con al menos 48 horas de antelación en caso de intervención quirúrgica.",
+        "D": "Nada se dice en la ley, siendo suficiente que se haga antes de la intervención asistencial."
+      },
+      "correct": "A",
+      "comment": "Art. 5.2 Ley 5/2010."
+    },
+    {
+      "id": 11,
+      "question": "La información clínica:",
+      "options": {
+        "A": "Se proporcionará generalmente de manera verbal.",
+        "B": "Ha de realizarse por escrito.",
+        "C": "Se dejará constancia en la historia clínica de haber proporcionado información.",
+        "D": "Las respuestas A) y C) son correctas."
+      },
+      "correct": "D",
+      "comment": "Art. 5 Ley 5/2010."
+    },
+    {
+      "id": 12,
+      "question": "En materia de información, consentimiento informado y documentación clínica, la Ley 5/2010:",
+      "options": {
+        "A": "Es de aplicación directa en los proyectos de investigación biomédica.",
+        "B": "La respuesta A) es correcta y además se aplica directamente en materia de técnicas de reproducción asistida.",
+        "C": "La respuesta A) es correcta y además se aplica directamente en materia de extracción y transplante de órganos.",
+        "D": "Es de aplicación supletoria en materia los procesos relativos a medicamentos y productos sanitarios."
+      },
+      "correct": "D",
+      "comment": "Art. 1.3 Ley 5/2010. La ley es supletoria en materias reguladas por leyes especiales (trasplantes, ensayos clínicos, reproducción asistida, etc.)."
+    },
+    {
+      "id": 13,
+      "question": "Acerca del Plan Dignifica:",
+      "options": {
+        "A": "Constituye el Plan de salud de Castilla-La mancha.",
+        "B": "Prevé que el Gobierno de Castilla-La Mancha pondrá en marcha las Escuelas de Pacientes para que sirvan de apoyo tanto a los pacientes como a sus familiares en la difusión del conocimiento científico, haciendo especial hincapié en los autocuidados y en la enseñanza entre iguales.",
+        "C": "Pretende crear un Comisión de 15 expertos para lograr involucrar en un plan de mejora continua a todos los protagonistas de la asistencia sanitaria en el siglo XXI.",
+        "D": "El Plan Dignifica es una mera declaración de intenciones."
+      },
+      "correct": "B",
+      "comment": "El Plan Dignifica fue una iniciativa de humanización en CLM que incluía las Escuelas de Salud y Cuidados."
+    },
+    {
+      "id": 14,
+      "question": "El acceso a la historia clínica de un paciente:",
+      "options": {
+        "A": "Está permitido a todos los profesionales sanitarios.",
+        "B": "El paciente tiene plena libertad de acceso a su historia clínica.",
+        "C": "Está vetada a profesionales no sanitarios.",
+        "D": "Existe una conexión entre este derecho de acceso a la historia clínica por parte de los profesionales sanitarios con la finalidad que lo justifica, que no es otra que la adecuada asistencia al paciente."
+      },
+      "correct": "D",
+      "comment": "Art. 23 Ley 5/2010. El acceso está vinculado estrictamente a la finalidad asistencial."
+    },
+    {
+      "id": 15,
+      "question": "Sobre las anotaciones subjetivas:",
+      "options": {
+        "A": "Tienen esta consideración las anotaciones sobre comportamientos agresivos del paciente.",
+        "B": "Deben quedar claramente identificadas respecto a la información contenida en la historia clínica con el fin de facilitar su disociación.",
+        "C": "Las sospechas sobre incumplimientos terapéuticos o tratamientos no declarados.",
+        "D": "Todas son correctas."
+      },
+      "correct": "D",
+      "comment": "Art. 24 Ley 5/2010."
+    },
+    {
+      "id": 16,
+      "question": "Las infracciones leves:",
+      "options": {
+        "A": "Supondrán la imposición de una multa de hasta 4.000 euros.",
+        "B": "Supondrán la imposición de una multa de hasta 3.000 euros.",
+        "C": "Supondrán la imposición de una multa de hasta 2.500 euros.",
+        "D": "Supondrán la imposición de una multa de hasta 3.500 euros."
+      },
+      "correct": "B",
+      "comment": "Art. 67.1.a Ley 5/2010."
+    },
+    {
+      "id": 17,
+      "question": "Sobre la información clínica:",
+      "options": {
+        "A": "Esta obligación concierne únicamente al médico responsable del proceso.",
+        "B": "La información debe formar parte de todas las actuaciones asistenciales, permitiendo comprender la finalidad y la naturaleza de cada intervención, así como sus riesgos y consecuencias.",
+        "C": "La información debe comprender la finalidad y las consecuencias si son nocivas para el paciente.",
+        "D": "Sólo procede cuando se trata de tratamientos o intervenciones quirúrgicas, invasivas o notoriamente molestas para el paciente."
+      },
+      "correct": "B",
+      "comment": "Art. 4.1 Ley 5/2010."
+    },
+    {
+      "id": 18,
+      "question": "El consentimiento informado se proporcionará por escrito:",
+      "options": {
+        "A": "Siempre, debiendo figurar además en la historia clínica.",
+        "B": "Cuando lo solicite el paciente y en determinadas circuntancias previstas por la ley.",
+        "C": "Sólo en casos de Intervención quirúrgica grave y procedimientos diagnósticos y terapéuticos invasores.",
+        "D": "En los casos de Intervención quirúrgica, Procedimientos diagnósticos y terapéuticos invasores y Procedimientos que impliquen riesgos o inconvenientes de notoria y previsible repercusión negativa sobre la salud del paciente."
+      },
+      "correct": "D",
+      "comment": "Art. 14.1 Ley 5/2010."
+    },
+    {
+      "id": 19,
+      "question": "Las voluntades anticipadas se regulan en el ámbito de Castilla-La Mancha:",
+      "options": {
+        "A": "Ley 6/2005, de 7 de julio, sobre la Declaración de Voluntades Anticipadas.",
+        "B": "Decreto 6/2005, de 7 de julio, sobre la Declaración de Voluntades Anticipadas.",
+        "C": "Ley 5/2006, de 7 de julio, sobre la Declaración de Voluntades Anticipadas.",
+        "D": "Decreto 5/2006, de 7 de julio, sobre la Declaración de Voluntades Anticipadas."
+      },
+      "correct": "A"
+    },
+    {
+      "id": 20,
+      "question": "Los documentos clínicos deben reunir las siguientes características:",
+      "options": {
+        "A": "Persistencia.",
+        "B": "Trazabilidad de cambios.",
+        "C": "Autenticidad.",
+        "D": "Todas las respuestas son correctas."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 21,
+      "question": "La información asistencial tendrá las siguientes caracterísitcas:",
+      "options": {
+        "A": "Comprensible, adaptada a la capcidad de cada persona.",
+        "B": "Comprensible, adaptada la la capacidad de cada persona, debiendo proporcionarse con antelación suficiente.",
+        "C": "Completa, comprensible y con antelación suficiente.",
+        "D": "Completa, adaptada a la persona y se proporcionará de forma escrita."
+      },
+      "correct": "B",
+      "comment": "Art. 5 Ley 5/2010."
+    },
+    {
+      "id": 22,
+      "question": "Se conservarán de forma definitiva:",
+      "options": {
+        "A": "El documento de consentimiento informado.",
+        "B": "El informe de anestesia.",
+        "C": "Las hojas de alta voluntaria.",
+        "D": "Todas son correctas."
+      },
+      "correct": "D",
+      "comment": "De acuerdo con el Decreto 24/2011 de CLM."
+    },
+    {
+      "id": 23,
+      "question": "La Ley de derechos y deberes en materia de salud de Castilla-La Mancha:",
+      "options": {
+        "A": "Consta de 6 Títulos y 70 artículos",
+        "B": "Se aplica al conjunto de profesionales de los centros, servicios y establecimientos sanitarios",
+        "C": "Se aplica tanto a los centros públicos como a los privados, siemrpe que éstos últimos estén concertados con el Servicio de Salud de Castilla-La Mancha",
+        "D": "Todas las respuestas son correctas."
+      },
+      "correct": "B",
+      "comment": "Art. 2 Ley 5/2010."
+    },
+    {
+      "id": 24,
+      "question": "Para lograr el cumplimiento de las resoluciones administrativas que se adopten en base a la Ley 5/2010 podrán imponerse multas coercitivas:",
+      "options": {
+        "A": "Reiteradas por lapsos de dos meses y una cuantía de hasta 1000 euros.",
+        "B": "Reiteradas por lapsos de un mes y una cuantía de hasta 1000 euros",
+        "C": "Reiteradas por lapsos de un mes y una cuantía de hasta 2000 euros.",
+        "D": "Reiteradas por lapsos de dos meses y una cuantía de hasta 2000 euros."
+      },
+      "correct": "B",
+      "comment": "Art. 68 Ley 5/2010. El límite económico es 1.000 euros."
+    },
+    {
+      "id": 25,
+      "question": "Cuando se solicita el acceso a la historia clínica de un familiar fallecido:",
+      "options": {
+        "A": "Dado que se aplica el mismo criterio que con el derecho de información, podrá tenerse información completa de los datos, salvo los personales de terceras personas.",
+        "B": "No existe un acceso ilimitado a los datos del paciente, pues los referidos a ideología, creencias, vida sexual, entre otros, requieren especial salvaguarda.",
+        "C": "El acceso se facilita a personas vinculadas a él por razones familiares o de hecho.",
+        "D": "El acceso se facilita a personas vinculadas al fallecido salvo que éste lo hubiese prohibido expresamente por escrito y así se acredite."
+      },
+      "correct": "D",
+      "comment": "Art. 25 Ley 5/2010."
+    },
+    {
+      "id": 26,
+      "question": "En una atención de urgencia por accidente de tráfico, un paciente requiere una traqueotomía y se encuentra inconsciente. Su familiar que le acompañaba, se encuentra ya atendido y parece consciente:",
+      "options": {
+        "A": "No se requiere el consentimiento informado, se actuará con urgencia para realizar las actuaciones necesarias dirigidas a solventar la situación de urgencia.",
+        "B": "Se informará y consultará previamente al familiar que está consciente y se llevarán a cabo las actuaciones de urgencia.",
+        "C": "Se actuará sin informar en ningún caso al familiar.",
+        "D": "Se recabará el consentimeinto informado del familiar necesariamente."
+      },
+      "correct": "B",
+      "comment": "Art. 12.2 y 15.2 Ley 5/2010. Al existir vínculo familiar presente, se debe informar y consultar (consentimiento por representación) antes de actuar, salvo que la urgencia sea tan vital que no permita ni siquiera esa consulta rápida."
+    },
+    {
+      "id": 27,
+      "question": "Se reconoce el derecho de los profesionales a renunciar a la atención sanitaria:",
+      "options": {
+        "A": "No es un derecho reconocido al profesional, siendo una decisión que corresponde proponerla a la Gerencia con informe preceptivo de la inspección sanitaria.",
+        "B": "Se reconoce siempre al profesional.",
+        "C": "Se reconoce en situaciones de injurias, amenazas o agresión si no conlleva desatención.",
+        "D": "No es un derecho del profesional, sino que es parte del derecho a la libre elección del usuario."
+      },
+      "correct": "C",
+      "comment": "Art. 72.2 Ley 5/2010."
+    },
+    {
+      "id": 28,
+      "question": "La información y documentación clínica:",
+      "options": {
+        "A": "Es un principio general, garantizado por Ley.",
+        "B": "Es un deber del personal sanitario.",
+        "C": "Es un derecho de los pacientes y usuarios.",
+        "D": "Todas las respuestas son correctas."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 29,
+      "question": "La historia clínica tiene utilidad, conforme al artículo 28 de la Ley 5/2010 para fines:",
+      "options": {
+        "A": "Docentes.",
+        "B": "De Investigación.",
+        "C": "Fines epidemiológicos.",
+        "D": "Todas son correctas, y además, de salud pública."
+      },
+      "correct": "D",
+      "comment": "Art. 28 Ley 5/2010."
+    },
+    {
+      "id": 30,
+      "question": "Sobre el derecho del paciente a no ser informado:",
+      "options": {
+        "A": "Ha de constar en la historia clínica del paciente.",
+        "B": "Será verbal con carácter general, debiendo hacerse por escrito en los supuestos de intervenciones quirúrgicas o invasivas.",
+        "C": "No se le reconoce este derecho puesto que la información forma parte de toda actuación clínica.",
+        "D": "Todas las respuestas anteriores son correctas."
+      },
+      "correct": "A",
+      "comment": "Art. 8 Ley 5/2010."
+    },
+    {
+      "id": 31,
+      "question": "Respecto a los menores:",
+      "options": {
+        "A": "Con carácter general, se reconoce el derecho del menor a recibir información sobre su salud en un lenguaje adecuado a su edad, madurez y estado psicológico.",
+        "B": "Cuando se trate de menores de 16 años no emancipados se informará también a los padres o tutores.",
+        "C": "Cuando se trate de menores de 14 años no emancipados no se informará a los padres o tutores.",
+        "D": "Las respuestas A) y B) son correctas."
+      },
+      "correct": "D",
+      "comment": "Art. 6 Ley 5/2010. Se reconoce el derecho a la información del menor (A) y el deber de informar también a los padres si es <16 (B)."
+    },
+    {
+      "id": 32,
+      "question": "El consentimiento informado del paciente cunado se requiera por escrito, habrá de firmarlo:",
+      "options": {
+        "A": "En la consulta en la que se le informa de cuando se le realizará la intervención prevista para dentro de 6 meses debido a la lista de espera.",
+        "B": "Inmediatamente antes de entrar en el quirófano.",
+        "C": "Al menos con 72 horas de antelación a la intervención.",
+        "D": "Es recomendable que primero se haya proporcionado la debida información y haya sido comprendida, pudiendo entonces firmar el consentimiento que, en todo caso podrá revocar en cualquier momento por escrito."
+      },
+      "correct": "D"
+    },
+    {
+      "id": 33,
+      "question": "Sobre la conservación de historias clínicas:",
+      "options": {
+        "A": "En el caso de cese en el ejercicio de la actividad profesional de manera individual, los facultativos seguirán sometidos a las existencias legales en materia de conservación.",
+        "B": "En el momento del cese de la actividad, desaparece la obligación de conservar las historias clínicas, sin perjuicio de que lo comunique al Colegio Oficial de Médicos.",
+        "C": "Estará obligado a conservar las historias clínicas al menos 10 años desde el último proceso de alta del paciente.",
+        "D": "Todas son incorrectas."
+      },
+      "correct": "A",
+      "comment": "Art. 32 Ley 5/2010."
+    },
+    {
+      "id": 34,
+      "question": "Respecto a la intimidad de las personas en el ámbito sanitario (señale la incorrecta):",
+      "options": {
+        "A": "Incluye el derecho de toda persona a ser atendida en un medio que garantice su intimidad, haciendo referencia expresa al respeto a la intimidad del cuerpo.",
+        "B": "No alcanza al derecho a recibir o rechazar asistencia espiritual y moral incluso de un representante de su religión siempre que no se perjudique la actuación sanitaria.",
+        "C": "Ha de estar presente en cualquier actividad de investigación biomédica o en proyectos docentes se garantizará el respeto a la intimidad de las personas.",
+        "D": "Obliga a que se respete el carácter confidencial de los datos referentes a su salud, y a que nadie pueda acceder a ellos sin previa autorización amparada por la Ley."
+      },
+      "correct": "B",
+      "comment": "Es la incorrecta porque el Art. 18.1 Ley 5/2010 SÍ incluye el derecho a recibir asistencia espiritual y moral."
+    },
+    {
+      "id": 35,
+      "question": "Cuando el facultativo atiende a una persona con discapacidad:",
+      "options": {
+        "A": "Ha de informar al representante legal.",
+        "B": "No ha de informar al incapacitado.",
+        "C": "Cuando es un incapacitado legal el titular del derecho a la informacion es el tutor.",
+        "D": "La respuesta anterior es correcta, pero el paciente será informado de modo adecuado a sus posibilidades."
+      },
+      "correct": "D",
+      "comment": "Art. 6.3 Ley 5/2010."
+    },
+    {
+      "id": 36,
+      "question": "Cuando se requiere el consentimiento informado de una persona que no sabe leer ni escribir:",
+      "options": {
+        "A": "Se informará a los familiares y serán éstos los que firmarán.",
+        "B": "Se informará debidamente al paciente y, en su caso, familiares o allegados para que en el consentimiento se pueda acreditar debidamente el deber de información.",
+        "C": "Se informará de esta circunstancia a la autoridad judicial.",
+        "D": "Se recabará aún así el consentimiento del paciente."
+      },
+      "correct": "B",
+      "comment": "Art. 14.4 Ley 5/2010."
+    },
+    {
+      "id": 37,
+      "question": "En relación a la confidencialidad de los datos genéticos:",
+      "options": {
+        "A": "El paciente puede oponerse en todo caso a que se proporcione dicha información a un tercero.",
+        "B": "No se reconoce este derecho en la Ley 5/2010.",
+        "C": "Puede proporcionarse a una tercera persona cuando se estime que hay posibilidad de perjuicio grave para un tercero a juicio del Comité de Ética Asistencial.",
+        "D": "Todas son incorrectas."
+      },
+      "correct": "D",
+      "comment": "Según la Ley 5/2010 Art 17, el acceso para familiares requiere 'previa consulta' al Comité, pero la decisión final médica justificada por grave perjuicio puede prevalecer sobre la oposición del paciente (limitado a datos necesarios). La opción D ('Todas son incorrectas') se marca como válida en el test porque las opciones A, B y C contienen imprecisiones legales estrictas."
+    },
+    {
+      "id": 38,
+      "question": "A la hora de confeccionar la historia clinica, los clinicos deberán tener presente:",
+      "options": {
+        "A": "La legibilidad de lo que en ella reflejen.",
+        "B": "La utilización de siglas y términos científicos.",
+        "C": "Ha de guardarse un orden secuencial.",
+        "D": "Las respuestas A) y C) son correctas."
+      },
+      "correct": "D",
+      "comment": "Art. 20 Ley 5/2010."
+    },
+    {
+      "id": 39,
+      "question": "Es falso que:",
+      "options": {
+        "A": "El criterio sobre si el paciente carece de capacidad para comprender la información o para hacerse cargo de su situación le corresponde al médico.",
+        "B": "En el caso del paciente declarado incapaz, el titular del derecho a la información será el tutor.",
+        "C": "La persona declarada incapaz por sentencia judicial no tiene derecho a recibir información sobre su estado de salud.",
+        "D": "El profesional responsable del paciente deberá garantizar el incumplimiento del derecho a la información."
+      },
+      "correct": "C",
+      "comment": "Es falso porque la persona incapacitada sigue teniendo derecho a ser informada de modo adecuado a sus posibilidades (Art. 6.3 Ley 5/2010)."
+    },
+    {
+      "id": 40,
+      "question": "El derecho del paciente a una historia clínica completa implica:",
+      "options": {
+        "A": "Que habrá de incluirse con detalle exhaustivo y pormenorizado todos los datos relativos a su salud y aspectos sociales relevantes para aquella.",
+        "B": "Que deberá constar toda la información sobre su estado de salud.",
+        "C": "Que en ella deberá constar toda la información sobre su estado de salud y de las actuaciones clínicas y sanitarias de los diferentes episodios asistenciales realizados.",
+        "D": "Que en ella deberán figurar todos los documentos en papel y otros soportes."
+      },
+      "correct": "C",
+      "comment": "Art. 19.2 Ley 5/2010."
+    },
+    {
+      "id": 41,
+      "question": "En el caso de menores mayores de 16 años o menores emancipados:",
+      "options": {
+        "A": "Sus padres o tutores no podrán acceder a la historia clínica en ningún caso, salvo consentimiento expreso del menor.",
+        "B": "No tendrán derecho de acceso los padres o tutores, sin perjuicio de que deban de ser informados del contenido de la historia clínica cuando exista situación de grave riesgo.",
+        "C": "Los padres o tutores no tendrán derecho de acceso, pero siempre serán informados de su contenido.",
+        "D": "No se reconoce el derecho de acceso de padres o tutores cuando el menor sea mayor de 14 años."
+      },
+      "correct": "B",
+      "comment": "Art. 26.2 Ley 5/2010."
+    },
+    {
+      "id": 42,
+      "question": "Sobre la imposición de sanciones:",
+      "options": {
+        "A": "Corresponde al Consejo de Gobierno de la Junta de Comunidades de Castilla-La Mancha la competencia para imponer sanciones superiores a 120.000 euros.",
+        "B": "Corresponde al Consejo de Gobierno de la Junta de Comunidades de Castilla-La Mancha la competencia para imponer sanciones superiores a 150.000 euros.",
+        "C": "Corresponde al titular de la Consejería de Sanidad la competencia para imponer sanciones superiores a 150.000 euros.",
+        "D": "Corresponde al titular de la Consejería de Sanidad la competencia para imponer sanciones superiores a 120.000 euros."
+      },
+      "correct": "A",
+      "comment": "Art. 67.3.c Ley 5/2010."
+    },
+    {
+      "id": 43,
+      "question": "El derecho al acceso a la historia clínica:",
+      "options": {
+        "A": "Se reconoce a todos los profesionales sanitarios.",
+        "B": "Podrá ejercerse por el paciente puesto que se entiende que es de su propiedad.",
+        "C": "Podrá ejercerse mediante representante legal debidamente acreidtado.",
+        "D": "El personal de gestión no tiene acceso a la misma."
+      },
+      "correct": "C",
+      "comment": "Art. 22 Ley 5/2010."
+    },
+    {
+      "id": 44,
+      "question": "Se reconoce el derecho del profesional:",
+      "options": {
+        "A": "A la autonomía científica y técnica en el ejercicio de sus funciones, sin más limitaciones que las establecidas por la ley y por los principios y valores contenidos en el ordenamiento jurídico y deontológico.",
+        "B": "A recibir apoyo profesional en situaciones problemáticas.",
+        "C": "Las respuestas anteriores son correctas, si bien por situaciones problemáticas se especifica que son las agresiones físicas y amenazas.",
+        "D": "Las respuestas A) y B) son correctas."
+      },
+      "correct": "D",
+      "comment": "Art. 72 Ley 5/2010."
+    },
+    {
+      "id": 45,
+      "question": "Si un paciente expresa que no desea ser informado de las actuaciones asistenciales:",
+      "options": {
+        "A": "Es un derecho que forma parte del derecho a la autonomía de la voluntad.",
+        "B": "Debe ser respetado por los profesionales sanitarios, quienen no tratarán de imponer su voluntad.",
+        "C": "Debe expresarse por escrito e incluirse en la historia clínica.",
+        "D": "Todas las respuestas son correctas."
+      },
+      "correct": "D",
+      "comment": "Art. 8 Ley 5/2010."
+    },
+    {
+      "id": 46,
+      "question": "Los derechos y deberes en materia sanitara en Castilla-La Mancha se regulan en:",
+      "options": {
+        "A": "Ley 5/2011, de 25 de junio, de Derechos y deberes en materia de Salud en Castilla-La Mancha.",
+        "B": "Ley 5/2011, de 25 de junio, de Derechos y deberes en materia de Salud en Castilla-La Mancha.",
+        "C": "Ley 5/2010, de 24 de junio, de Derechos y deberes en materia de Salud en Castilla-La Mancha.",
+        "D": "Todas son falsas, se regulan en la Ley 8/2000, de 30 de noviembre, de Ordenación Sanitaria de Castilla-La Mancha."
+      },
+      "correct": "C"
+    },
+    {
+      "id": 47,
+      "question": "El plazo de resolución de los procedimientos sancionadores:",
+      "options": {
+        "A": "Será de un año para resolver y notificar la sanción.",
+        "B": "Será de un año para resolver y notificar la sanción en el caso de infracciones graves y muy graves.",
+        "C": "Será de seis meses para resolver en el caso de falta leve.",
+        "D": "Será de un año para resolver en el caso de faltas graves y muy graves."
+      },
+      "correct": "A",
+      "comment": "Art. 65.3 Ley 5/2010."
+    },
+    {
+      "id": 48,
+      "question": "Sobre el rechazo al tratamiento:",
+      "options": {
+        "A": "Podrá ser verbal cuando la información se haya proporcionado de forma verbal.",
+        "B": "Es un derecho reconocido en todo caso en virtud del principio de autonomía.",
+        "C": "Ha de prestarse siempre por escrito y ha de quedar documentado en la historia clínica.",
+        "D": "Las respuestas A) y C) son correctas."
+      },
+      "correct": "C",
+      "comment": "Art. 12 Ley 5/2010."
+    },
+    {
+      "id": 49,
+      "question": "Se reconoce el derecho al acompañamiento:",
+      "options": {
+        "A": "Los menores tienen derecho a estar acompañados por su spadres o tutores.",
+        "B": "La mujer durante el proceso del parto puede estar acompañada por una persona de su confianza en todo caso.",
+        "C": "El derecho al acompañamiento se puede limitar cuando pueda perjudicar u obstaculizar la asistencia sanitaria.",
+        "D": "El paciente puede estar acompañado por un número de dos personas."
+      },
+      "correct": "C",
+      "comment": "Art. 10 Ley 5/2010."
+    },
+    {
+      "id": 50,
+      "question": "Sobre el consentimiento informado:",
+      "options": {
+        "A": "Deberá contener los objetivos del procedimiento y beneficios que se espera alcanzar.",
+        "B": "Deberá contener los objetivos del procedimiento y las consecuencias previsibles de su realización, pero no los beneficios que se espera alcanzar.",
+        "C": "Deberá contener la identificación del profesional sanitario responsable del procedimiento, así como lo indicado en la respuesta A).",
+        "D": "Deberá contener lo indicado en la respuesta B) además del profesional sanitario responsable de garantizar la información al paciente."
+      },
+      "correct": "C",
+      "comment": "Art. 14 Ley 5/2010."
+    }
+  ]
+}
