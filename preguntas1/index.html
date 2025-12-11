@@ -206,60 +206,36 @@
   text-overflow: ellipsis;
 }
 
-/* --- ESTILOS PARA LA EXPLICACIÓN DEL JSON (NUEVO) --- */
+/* --- ESTILOS MEJORADOS PARA LA EXPLICACIÓN DEL JSON (OFICIAL) --- */
 .static-comment-box {
-  margin-top: 15px;
-  padding: 15px;
-  background-color: #fff8e1; /* Fondo amarillo muy suave */
-  border-left: 5px solid #ffc107; /* Borde amarillo oscuro/naranja */
-  border-radius: 4px;
-  color: #333;
-  font-size: 0.95em;
-  line-height: 1.5;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  padding: 15px 20px;
+  background-color: #e8f4f8; /* Azul grisáceo muy pálido, clínico */
+  border-left: 6px solid #004080; /* Mismo azul corporativo que tus títulos */
+  border-radius: 6px;
+  color: #2c3e50;
+  font-size: 1em;
+  line-height: 1.6;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-in-out;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .static-comment-title {
-  font-weight: bold;
-  color: #d35400;
+  font-weight: 800;
+  color: #004080;
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   text-transform: uppercase;
   font-size: 0.85em;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #bdc3c7;
+  padding-bottom: 5px;
 }
 
-/* --- ESTILOS PARA LA EXPLICACIÓN CON IA --- */
-#explain-btn {
-  background-color: #007bff;
-  color: white;
-  border: none;
-}
-#explain-btn:hover:not(:disabled) {
-  background-color: #0056b3;
-}
-.explanation-box {
-  margin-top: 1em;
-  padding: 1em;
-  background-color: #f0f8ff; 
-  border-left: 5px solid #007bff;
-  border-radius: 5px;
-  color: #333;
-  line-height: 1.6;
-}
-
-.loader {
-  border: 4px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 4px solid #007bff;
-  width: 30px;
-  height: 30px;
-  animation: spin 1s linear infinite;
-  margin: 1em auto;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .notes-textarea {
@@ -693,6 +669,63 @@ body {
       }
     });
   }
+// --- NUEVA LÓGICA DE AUTOCÁLCULO ---
+  function distribuirPorcentajesEquitativamente() {
+    const seleccionadosArr = Array.from(temasSeleccionados); // Convertimos el Set a Array
+    const num = seleccionadosArr.length;
+    
+    if (num === 0) return;
+
+    // Calculamos la base equitativa
+    const basePercent = Math.floor(100 / num);
+    let remainder = 100 % num;
+
+    // 1. Ponemos a 0 los no seleccionados
+    temasCargados.forEach((t, i) => {
+        if (!temasSeleccionados.has(i)) {
+            t.porcentaje = 0;
+        }
+    });
+
+    // 2. Repartimos el 100% entre los seleccionados
+    seleccionadosArr.forEach(idx => {
+        let extra = 0;
+        if (remainder > 0) {
+            extra = 1;
+            remainder--;
+        }
+        temasCargados[idx].porcentaje = basePercent + extra;
+    });
+
+    // 3. Actualizamos visualmente los inputs de la pantalla
+    temasCargados.forEach((t, idx) => {
+        const input = document.getElementById('input-porcentaje-' + idx);
+        if (input) {
+            input.value = t.porcentaje;
+            // Deshabilitamos el input si no está seleccionado el tema para evitar confusión
+            input.disabled = !temasSeleccionados.has(idx); 
+        }
+    });
+
+    actualizarTextoEstado();
+  }
+
+  function actualizarTextoEstado() {
+      const sumaTotal = temasCargados.reduce((acc, t) => {
+            if (temasSeleccionados.has(temasCargados.indexOf(t))) {
+              return acc + (t.porcentaje || 0);
+            }
+            return acc;
+      }, 0);
+      
+      const numSel = temasSeleccionados.size;
+      menuStatus.style.color = 'black';
+      menuStatus.innerHTML = `Temas seleccionados: <b>${numSel}</b>. Suma total de peso: <b>${sumaTotal}%</b>.`;
+      
+      const algunTemaConPeso = [...temasSeleccionados].some(i => (temasCargados[i].porcentaje || 0) > 0);
+      startTestBtn.disabled = temasSeleccionados.size === 0 || !algunTemaConPeso;
+  }
+
   function renderTemasLista() {
     temasLista.innerHTML = '';
     if (temasCargados.length === 0) {
@@ -706,14 +739,23 @@ body {
 
     temasCargados.forEach((tema, idx) => {
       const div = document.createElement('div');
+      div.style.display = 'flex';
+      div.style.alignItems = 'center';
+      div.style.marginBottom = '5px';
+
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       checkbox.id = 'tema-checkbox-' + idx;
       checkbox.checked = temasSeleccionados.has(idx);
+      
+      // AQUÍ ESTÁ LA MAGIA: Al cambiar el checkbox, recalculamos todo
       checkbox.onchange = () => {
-        if (checkbox.checked) temasSeleccionados.add(idx);
-        else temasSeleccionados.delete(idx);
-        startTestBtn.disabled = temasSeleccionados.size === 0;
+        if (checkbox.checked) {
+            temasSeleccionados.add(idx);
+        } else {
+            temasSeleccionados.delete(idx);
+        }
+        distribuirPorcentajesEquitativamente(); // <--- LLAMADA AL AUTOCÁLCULO
       };
       div.appendChild(checkbox);
 
@@ -721,44 +763,38 @@ body {
       label.htmlFor = 'tema-checkbox-' + idx;
       label.textContent = tema.nombre;
       label.style.marginLeft = '0.5em';
+      label.style.flexGrow = '1'; // Para que ocupe espacio y empuje el input a la derecha
       div.appendChild(label);
 
-      const labelPorcentaje = document.createElement('label');
-      labelPorcentaje.textContent = ' Peso: ';
-      labelPorcentaje.style.marginLeft = '1em';
+      const labelPorcentaje = document.createElement('span'); // Cambiado a span para mejor control
+      labelPorcentaje.textContent = '%: ';
+      labelPorcentaje.style.marginRight = '5px';
 
       const inputPorcentaje = document.createElement('input');
       inputPorcentaje.type = 'number';
+      inputPorcentaje.id = 'input-porcentaje-' + idx; // ID único para encontrarlo luego
       inputPorcentaje.min = 0;
       inputPorcentaje.max = 100;
       inputPorcentaje.value = tema.porcentaje || 0;
-      inputPorcentaje.style.width = '50px';
+      inputPorcentaje.style.width = '60px';
+      inputPorcentaje.disabled = !temasSeleccionados.has(idx); // Desactivado si no hay check
 
+      // Si el usuario cambia el número MANUALMENTE, actualizamos solo el estado, no redistribuimos
       inputPorcentaje.oninput = () => {
           let val = parseInt(inputPorcentaje.value);
           if (isNaN(val) || val < 0) val = 0;
-          if (val > 1000) val = 1000;
           temasCargados[idx].porcentaje = val;
-
-          const sumaTotal = temasCargados.reduce((acc, t) => {
-            if (temasSeleccionados.has(temasCargados.indexOf(t))) {
-              return acc + (t.porcentaje || 0);
-            }
-            return acc;
-          }, 0);
-
-          menuStatus.style.color = 'black';
-          menuStatus.textContent = `Suma de pesos de los temas seleccionados: ${sumaTotal}. El test se generará proporcionalmente.`;
-          
-          const algunTemaConPeso = [...temasSeleccionados].some(i => (temasCargados[i].porcentaje || 0) > 0);
-          startTestBtn.disabled = temasSeleccionados.size === 0 || !algunTemaConPeso;
-        };
-      labelPorcentaje.appendChild(inputPorcentaje);
+          actualizarTextoEstado();
+      };
+      
       div.appendChild(labelPorcentaje);
+      div.appendChild(inputPorcentaje);
 
       temasLista.appendChild(div);
     });
-    startTestBtn.disabled = temasSeleccionados.size === 0;
+    
+    // Ejecutamos una vez al renderizar para asegurar que todo esté cuadrado
+    distribuirPorcentajesEquitativamente();
   }
   
 fileMultipleInput.onchange = e => {
@@ -787,10 +823,23 @@ fileMultipleInput.onchange = e => {
             return;
           }
           
-          const nuevoTema = { nombre: file.name, preguntas: data.questions, porcentaje: 0 };
+          // --- NUEVO: NORMALIZACIÓN DE PREGUNTAS ---
+          // Esto asegura que si el JSON trae "explicacion", "justificacion" o "Comment",
+          // se guarde unificadamente como "comment" para que el test lo reconozca siempre.
+          const preguntasNormalizadas = data.questions.map(q => {
+             // Buscamos cualquier campo que parezca una explicación
+             const rawComment = q.comment || q.Comment || q.explanation || q.explicacion || q.justificacion || q.retroalimentacion || "";
+             return {
+                 ...q,
+                 comment: rawComment // Forzamos a que siempre se llame 'comment' internamente
+             };
+          });
+          // -----------------------------------------
+          
+          const nuevoTema = { nombre: file.name, preguntas: preguntasNormalizadas, porcentaje: 0 };
           temasCargados.push(nuevoTema);
           
-          temasGuardados.push({ nombre: file.name, contenido: fileContent });
+          temasGuardados.push({ nombre: file.name, contenido: JSON.stringify({ questions: preguntasNormalizadas }) }); // Guardamos ya normalizado
 
           temasSeleccionados.add(temasCargados.length - 1);
           cargados++;
@@ -798,12 +847,11 @@ fileMultipleInput.onchange = e => {
           if (cargados === files.length) {
             localStorage.setItem('temasGuardados', JSON.stringify(temasGuardados));
             menuStatus.textContent = `Cargados ${cargados} archivos de temas`;
-            
-            recalcularPorcentajesEquitativamente();
-
+                        
             renderTemasLista();
           }
-        } catch {
+        } catch (e) { // Capturamos 'e' para ver el error en consola si hace falta
+          console.error(e);
           menuStatus.textContent = `Error al leer archivo ${file.name}`;
         }
       };
@@ -937,7 +985,8 @@ function renderQuestion(index) {
     
     // --- RESETEO DE LA CAJA DE COMENTARIOS ---
     staticCommentContainer.style.display = 'none';
-    staticCommentContainer.textContent = '';
+    staticCommentContainer.innerHTML = '';
+    staticCommentContainer.className = 'static-comment-box'; // Aseguramos que tenga la clase base
     // -----------------------------------------
 
     const progressBar = document.getElementById('progress-bar');
@@ -945,6 +994,23 @@ function renderQuestion(index) {
     progressBar.style.width = `${progress}%`;
 
     const q = questions[index];
+    
+    // --- DIAGNÓSTICO (Mira la consola F12 si sigue fallando) ---
+    console.log("Datos de la pregunta actual:", q); 
+    
+    // --- BÚSQUEDA INTELIGENTE DEL COMENTARIO ---
+    // Buscamos cualquier campo que contenga la explicación, sin importar cómo se llame en el JSON
+    const posibleKeys = ['comment', 'Comment', 'explicacion', 'explicación', 'explanation', 'justificacion', 'justificación', 'retroalimentacion', 'feedback'];
+    let foundComment = "";
+    
+    for (let key of posibleKeys) {
+        if (q[key] && typeof q[key] === 'string' && q[key].trim() !== "") {
+            foundComment = q[key];
+            break; // Encontrado, dejamos de buscar
+        }
+    }
+    // ---------------------------------------------
+
     questionText.textContent = `Pregunta ${index + 1}: ${q.question}`;
     optionsContainer.innerHTML = '';
     feedback.textContent = ''; 
@@ -992,17 +1058,21 @@ function renderQuestion(index) {
               });
               explainBtn.style.display = 'inline-block';
               
-              // --- MOSTRAR COMENTARIO DEL JSON AL RESPONDER (MODO ESTUDIO) ---
-              if (q.comment) {
+              // --- MOSTRAR COMENTARIO OFICIAL (Lógica Robusta) ---
+              if (foundComment) {
                   staticCommentContainer.style.display = 'block';
-                  staticCommentContainer.innerHTML = `<span class="static-comment-title">Explicación oficial:</span> ${q.comment}`;
+                  staticCommentContainer.innerHTML = `<span class="static-comment-title">📖 Explicación Oficial / Fundamento:</span> ${foundComment}`;
+                  
+                  // Scroll suave para asegurar visibilidad
+                  setTimeout(() => {
+                      staticCommentContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                  }, 100);
               }
-              // ----------------------------------------------------------------
+              // ---------------------------------------------------
 
             } else {
               feedback.textContent = 'Respuesta guardada.';
               feedback.style.color = '#6c757d';
-              // En modo simulacro NO mostramos comentarios ni feedback
             }
             
             scoreElem.textContent = score; 
@@ -1015,41 +1085,24 @@ function renderQuestion(index) {
     
     // --- LÓGICA SI YA ESTABA RESPONDIDA (AL VOLVER ATRÁS) ---
     if (questionAnswered) {
-        // Si estamos en modo estudio O hemos vuelto a una respondida, mostramos feedback
          if (currentTestMode === 'estudio' || answers[q.id] !== undefined) {
-             if (q.comment) {
+             // Usamos la variable foundComment que calculamos arriba
+             if (foundComment) {
                   staticCommentContainer.style.display = 'block';
-                  staticCommentContainer.innerHTML = `<span class="static-comment-title">Explicación oficial:</span> ${q.comment}`;
+                  staticCommentContainer.innerHTML = `<span class="static-comment-title">📖 Explicación Oficial / Fundamento:</span> ${foundComment}`;
              }
              if (currentTestMode === 'estudio') explainBtn.style.display = 'inline-block';
          }
     }
-    // ---------------------------------------------------------
-
+    
+    // Recuperar nota personal si existe
     const notesCache = JSON.parse(localStorage.getItem('notesCache')) || {};
     personalNoteInput.value = notesCache[q.id] || ''; 
+    
     prevBtn.disabled = index === 0;
     nextBtn.disabled = !questionAnswered;
     scoreElem.textContent = score;
 }
-
-  prevBtn.onclick = () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      renderQuestion(currentIndex);
-      saveState();
-    }
-  };
-
-  nextBtn.onclick = () => {
-    if (currentIndex < questions.length - 1) {
-      currentIndex++;
-      renderQuestion(currentIndex);
-      saveState();
-    } else {
-      showSummary();
-    }
-  };
   
 function showView(viewId) {
     if (viewId === 'main-menu') {
