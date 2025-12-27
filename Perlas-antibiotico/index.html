@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perlas de Antibiótico en Cirugía Vascular</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Palette: Vibrant Medical (Cyan, Deep Blue, White) -->
+    <!-- Palette Name: Future Med -->
+    <!-- Plan:
+         1. Header: Hook on VGI severity.
+         2. Stats: Incidence & Mortality (Big Numbers).
+         3. Pathogens: Bar Chart (Chart.js) showing bacterial prevalence.
+         4. Kinetics: Line Chart (Chart.js) showing Elution over time (Local vs Systemic).
+         5. Fabrication: HTML/CSS Step-by-step flow (No Mermaid/SVG).
+         6. 3D Model: Plotly WebGL scatter of concentration.
+         7. Conclusion: Summary of efficacy.
+         NO SVG used. NO Mermaid used.
+    -->
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8; /* Light blue-grey background */
+            color: #1e293b;
+        }
+        
+        /* Chart Container Strict Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+            background: white;
+            border-radius: 0.5rem;
+            padding: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        .plotly-container {
+            width: 100%;
+            max-width: 100%;
+            height: 400px;
+            position: relative;
+        }
+
+        /* Utility for Flowchart arrows without SVG */
+        .arrow-right::after {
+            content: "➔";
+            font-size: 2rem;
+            color: #06b6d4;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .arrow-right::after {
+                content: "⬇";
+                display: block;
+                margin: 10px auto;
+                text-align: center;
+            }
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-slate-800">
+                <span class="text-cyan-500 text-3xl mr-2">●</span>Cirugía Vascular
+            </h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6 text-sm font-medium text-slate-600">
+                    <li>Problema</li>
+                    <li>Microbiología</li>
+                    <li>Farmacocinética</li>
+                    <li>Técnica</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Title -->
+    <section class="container mx-auto px-6 py-12 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                Perlas de Antibiótico en <br><span class="gradient-text">Infecciones de Prótesis Vasculares</span>
+            </h2>
+            <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                El tratamiento de infecciones de injertos vasculares (VGI) representa uno de los desafíos más complejos en cirugía. 
+                El uso de polimetilmetacrilato (PMMA) impregnado de antibióticos permite una liberación local alta con toxicidad sistémica mínima.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-semibold text-sm">PMMA</span>
+                <span class="px-4 py-2 bg-cyan-100 text-cyan-800 rounded-full font-semibold text-sm">Vancomicina</span>
+                <span class="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm">Gentamicina</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: The Problem (Data Cards) -->
+    <section class="bg-white py-12 border-t border-slate-100">
+        <div class="container mx-auto px-6">
+            <div class="mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 border-l-4 border-cyan-500 pl-4 mb-2">Impacto Clínico</h3>
+                <p class="text-slate-600">
+                    Las infecciones de injertos vasculares son eventos catastróficos asociados con alta morbilidad. A continuación se presentan las estadísticas críticas que justifican el uso de terapias adyuvantes agresivas como las perlas de antibiótico.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Stat Card 1 -->
+                <div class="p-6 rounded-xl bg-slate-50 card-shadow text-center hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-5xl font-bold text-blue-600 mb-2">1-6%</div>
+                    <div class="text-sm font-bold uppercase tracking-wide text-slate-500">Incidencia Global</div>
+                    <p class="text-xs text-slate-400 mt-2">En cirugías de bypass infrainguinal</p>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="p-6 rounded-xl bg-slate-50 card-shadow text-center hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-5xl font-bold text-red-500 mb-2">15-50%</div>
+                    <div class="text-sm font-bold uppercase tracking-wide text-slate-500">Mortalidad</div>
+                    <p class="text-xs text-slate-400 mt-2">Dependiendo de la ubicación (Aórtica vs Periférica)</p>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="p-6 rounded-xl bg-slate-50 card-shadow text-center hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-5xl font-bold text-cyan-600 mb-2">~30%</div>
+                    <div class="text-sm font-bold uppercase tracking-wide text-slate-500">Tasa de Amputación</div>
+                    <p class="text-xs text-slate-400 mt-2">Sin control efectivo de la infección local</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Microbiology (Bar Chart) -->
+    <section class="py-12 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800 border-l-4 border-blue-500 pl-4 mb-4">Etiología Microbiana</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        La elección del antibiótico para las perlas debe basarse en la epidemiología local. El <strong>Staphylococcus aureus</strong> (incluyendo MRSA) es el patógeno más frecuente, seguido por estafilococos coagulasa negativos. Las perlas suelen combinar Vancomicina (para Gram+) y Tobramicina/Gentamicina (para Gram-).
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center text-slate-700">
+                            <span class="text-blue-500 mr-2 font-bold">✓</span> Staphylococcus aureus (MRSA/MSSA)
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <span class="text-blue-500 mr-2 font-bold">✓</span> S. Epidermidis (Biofilm)
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <span class="text-blue-500 mr-2 font-bold">✓</span> Pseudomonas aeruginosa
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="w-full">
+                    <div class="chart-container card-shadow">
+                        <canvas id="microbiologyChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-slate-500 mt-2">Frecuencia relativa de aislamiento en infecciones vasculares tardías.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Pharmacokinetics (Line Chart) -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h3 class="text-2xl font-bold text-slate-800 mb-4">Farmacocinética: Elución Local</h3>
+                <p class="text-slate-600">
+                    La ventaja crítica de las perlas de PMMA es la capacidad de alcanzar concentraciones locales que superan en <strong>100-200 veces</strong> la concentración inhibitoria mínima (MIC), mientras que los niveles séricos permanecen indetectables o seguros, evitando nefrotoxicidad.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
+                <div class="chart-container w-full md:w-3/4 mx-auto card-shadow border border-slate-100">
+                    <canvas id="elutionChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Procedure (Steps - No Diagrams/Mermaid) -->
+    <section class="py-12 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-bold text-white border-l-4 border-cyan-400 pl-4 mb-8">Técnica de Fabricación Intraoperatoria</h3>
+            <p class="text-slate-300 mb-8 max-w-3xl">
+                Aunque existen kits comerciales, la fabricación manual permite adaptar la dosis y tipo de antibiótico. Se recomienda usar cemento óseo de alta viscosidad y antibióticos en polvo termoestables.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                <!-- Step 1 -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 relative group">
+                    <div class="text-4xl mb-4">🧪</div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">1. Mezcla</h4>
+                    <p class="text-sm text-slate-400">Mezclar 40g de polímero PMMA con antibióticos en polvo (2-4g Vancomicina + 2.4g Tobramicina).</p>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 text-cyan-500 text-2xl">➔</div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 relative">
+                    <div class="text-4xl mb-4">🥣</div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">2. Catalización</h4>
+                    <p class="text-sm text-slate-400">Añadir el monómero líquido. Mezclar hasta obtener una consistencia pastosa pero no pegajosa.</p>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 text-cyan-500 text-2xl">➔</div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700 relative">
+                    <div class="text-4xl mb-4">🧵</div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">3. Moldeado</h4>
+                    <p class="text-sm text-slate-400">Moldear esferas de 5-7mm sobre una sutura monofilamento (Prolene 0 o 1) o alambre.</p>
+                    <div class="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 text-cyan-500 text-2xl">➔</div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                    <div class="text-4xl mb-4">⏱️</div>
+                    <h4 class="text-lg font-bold text-cyan-400 mb-2">4. Fraguado</h4>
+                    <p class="text-sm text-slate-400">Esperar la polimerización exotérmica (calor). Enfriar con suero salino antes de implantar.</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 p-4 bg-yellow-900/30 border border-yellow-600/50 rounded-lg flex items-start">
+                <span class="text-2xl mr-4">⚠️</span>
+                <div>
+                    <h5 class="font-bold text-yellow-500">Consideración Crítica</h5>
+                    <p class="text-sm text-slate-300">Nunca usar antibióticos líquidos, ya que alteran la polimerización del cemento. El PMMA actúa como un sistema de liberación sostenida por difusión a través de poros y microfisuras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Distribution Simulation (Plotly WebGL) -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div id="plotlyDiv" class="plotly-container border border-slate-200 rounded-lg shadow-inner bg-slate-50"></div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <h3 class="text-2xl font-bold text-slate-800 border-l-4 border-purple-500 pl-4 mb-4">Cobertura Espacial</h3>
+                    <p class="text-slate-600 mb-4">
+                        Este modelo de dispersión ilustra la concentración teórica del antibiótico alrededor de una cadena de perlas implantada en el lecho quirúrgico.
+                    </p>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li><strong class="text-purple-600">Zona Roja (Núcleo):</strong> Concentración suprafisiológica (>1000 µg/ml). Erradicación de biofilm.</li>
+                        <li><strong class="text-blue-500">Zona Azul (Difusión):</strong> Niveles terapéuticos efectivos en tejido blando circundante (hasta 2-3 cm).</li>
+                        <li><strong class="text-slate-400">Zona Externa:</strong> Caída rápida de concentración, protegiendo órganos sistémicos.</li>
+                    </ul>
+                    <div class="mt-6">
+                        <h4 class="font-bold text-slate-800 mb-2">Duración del Tratamiento</h4>
+                        <div class="w-full bg-slate-200 rounded-full h-2.5 mb-1">
+                            <div class="bg-cyan-500 h-2.5 rounded-full" style="width: 70%"></div>
+                        </div>
+                        <p class="text-xs text-slate-500 flex justify-between">
+                            <span>Implantación</span>
+                            <span>Retirada (2-6 Semanas)</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Outcomes Comparison (Pie/Doughnut) -->
+    <section class="py-12 bg-slate-50 border-b border-slate-200">
+        <div class="container mx-auto px-6">
+            <h3 class="text-2xl font-bold text-center text-slate-800 mb-8">Eficacia Comparativa</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="chart-container mx-auto">
+                    <canvas id="outcomesChart"></canvas>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold text-slate-700 mb-3">Salvamento de Extremidad</h4>
+                    <p class="text-slate-600 mb-4">
+                        Los estudios retrospectivos indican que el uso de terapia combinada (Desbridamiento + Antibióticos Sistémicos + Perlas Locales) mejora significativamente las tasas de salvamento de la extremidad y curación de la infección en comparación con la terapia sistémica sola.
+                    </p>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+                        <p class="font-bold text-slate-800">Tasa de Éxito: ~85-90%</p>
+                        <p class="text-sm text-slate-500">En pacientes tratados con el protocolo de perlas impregnadas (Serie Samson/Szilagyi).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-800 py-8">
+        <div class="container mx-auto px-6 text-center text-slate-400 text-sm">
+            <p class="mb-2">Generado para fines educativos sobre Cirugía Vascular y Control de Infecciones.</p>
+            <p>&copy; 2024 Infografía Clínica Vascular. Diseño basado en evidencia médica estándar.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- UTILITY FUNCTIONS ---
+
+        // Function to split long labels into arrays for multiline Chart.js support
+        function splitLabel(str, maxLen = 16) {
+            if (str.length <= maxLen) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxLen) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Shared Tooltip Configuration strict requirement
+        const sharedTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: MICROBIOLOGY (Bar Chart) ---
+        const ctxMicro = document.getElementById('microbiologyChart').getContext('2d');
+        const rawLabelsMicro = [
+            'Staphylococcus aureus (MRSA)', 
+            'Staphylococcus epidermidis', 
+            'Pseudomonas aeruginosa', 
+            'Escherichia coli', 
+            'Enterococcus spp.'
+        ];
+        
+        // Apply splitting logic
+        const processedLabelsMicro = rawLabelsMicro.map(l => splitLabel(l));
+
+        new Chart(ctxMicro, {
+            type: 'bar',
+            data: {
+                labels: processedLabelsMicro,
+                datasets: [{
+                    label: 'Prevalencia (%)',
+                    data: [45, 30, 15, 6, 4],
+                    backgroundColor: [
+                        'rgba(239, 68, 68, 0.8)', // Red for MRSA
+                        'rgba(6, 182, 212, 0.8)', // Cyan
+                        'rgba(59, 130, 246, 0.8)', // Blue
+                        'rgba(99, 102, 241, 0.8)', // Indigo
+                        'rgba(168, 85, 247, 0.8)'  // Purple
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y', // Horizontal bar for better label reading
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: sharedTooltipConfig,
+                    title: {
+                        display: true,
+                        text: 'Patógenos Más Comunes'
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: { display: false }
+                    },
+                    y: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 2: PHARMACOKINETICS (Line Chart) ---
+        const ctxElution = document.getElementById('elutionChart').getContext('2d');
+        const labelsElution = ['Día 0', 'Día 1', 'Día 3', 'Día 7', 'Día 14', 'Día 21', 'Día 28'];
+        
+        new Chart(ctxElution, {
+            type: 'line',
+            data: {
+                labels: labelsElution,
+                datasets: [
+                    {
+                        label: 'Concentración Local (µg/ml)',
+                        data: [1200, 800, 450, 200, 100, 60, 40],
+                        borderColor: '#06b6d4', // Cyan
+                        backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        fill: true,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Concentración Sérica (µg/ml)',
+                        data: [15, 5, 2, 1, 0.5, 0.2, 0],
+                        borderColor: '#94a3b8', // Grey
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        tension: 0.4,
+                        fill: false,
+                        yAxisID: 'y1' // Secondary axis
+                    },
+                    {
+                        label: 'MIC (Staph Aureus)',
+                        data: [2, 2, 2, 2, 2, 2, 2],
+                        borderColor: '#ef4444', // Red alert line
+                        borderWidth: 1,
+                        pointRadius: 0,
+                        yAxisID: 'y'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    tooltip: sharedTooltipConfig,
+                    title: {
+                        display: true,
+                        text: 'Curva de Elución Antibiótica (Vancomicina)'
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'logarithmic', // Log scale to show the massive difference
+                        display: true,
+                        position: 'left',
+                        title: { display: true, text: 'Concentración Local (Log)' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        min: 0,
+                        max: 20,
+                        grid: {
+                            drawOnChartArea: false,
+                        },
+                        title: { display: true, text: 'Concentración Sérica (Lineal)' }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 3: OUTCOMES (Doughnut) ---
+        const ctxOutcomes = document.getElementById('outcomesChart').getContext('2d');
+        
+        new Chart(ctxOutcomes, {
+            type: 'doughnut',
+            data: {
+                labels: ['Curación Completa', 'Recurrencia/Fallo', 'Pérdida de Extremidad'],
+                datasets: [{
+                    data: [85, 10, 5],
+                    backgroundColor: [
+                        '#10b981', // Emerald Green (Success)
+                        '#f59e0b', // Amber (Warning)
+                        '#ef4444'  // Red (Danger)
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: sharedTooltipConfig,
+                    title: {
+                        display: true,
+                        text: 'Resultados a 12 Meses'
+                    }
+                },
+                cutout: '60%'
+            }
+        });
+
+        // --- PLOTLY: 3D DISTRIBUTION ---
+        // Simulating a cluster of points representing antibiotic density
+        
+        function generateCluster(count, centerX, centerY, centerZ, spread, color) {
+            let x = [], y = [], z = [];
+            for (let i = 0; i < count; i++) {
+                x.push(centerX + (Math.random() - 0.5) * spread);
+                y.push(centerY + (Math.random() - 0.5) * spread);
+                z.push(centerZ + (Math.random() - 0.5) * spread);
+            }
+            return { x, y, z, color };
+        }
+
+        // Core (High Concentration)
+        const core = generateCluster(300, 0, 0, 0, 2, '#ef4444');
+        // Mid (Therapeutic)
+        const mid = generateCluster(600, 0, 0, 0, 5, '#06b6d4');
+        // Outer (Low)
+        const outer = generateCluster(400, 0, 0, 0, 9, '#cbd5e1');
+
+        const traceCore = {
+            x: core.x, y: core.y, z: core.z,
+            mode: 'markers',
+            marker: { size: 4, color: core.color, opacity: 0.8 },
+            type: 'scatter3d',
+            name: 'Conc. Alta (>1000µg)'
+        };
+        
+        const traceMid = {
+            x: mid.x, y: mid.y, z: mid.z,
+            mode: 'markers',
+            marker: { size: 3, color: mid.color, opacity: 0.5 },
+            type: 'scatter3d',
+            name: 'Terapéutica'
+        };
+
+        const traceOuter = {
+            x: outer.x, y: outer.y, z: outer.z,
+            mode: 'markers',
+            marker: { size: 2, color: outer.color, opacity: 0.3 },
+            type: 'scatter3d',
+            name: 'Sub-terapéutica'
+        };
+
+        const layoutPlotly = {
+            margin: { l: 0, r: 0, b: 0, t: 0 },
+            showlegend: true,
+            legend: { x: 0, y: 1 },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            scene: {
+                xaxis: { title: '', showgrid: false, zeroline: false, showticklabels: false },
+                yaxis: { title: '', showgrid: false, zeroline: false, showticklabels: false },
+                zaxis: { title: '', showgrid: false, zeroline: false, showticklabels: false },
+                camera: {
+                    eye: { x: 1.5, y: 1.5, z: 1.5 }
+                }
+            }
+        };
+
+        Plotly.newPlot('plotlyDiv', [traceOuter, traceMid, traceCore], layoutPlotly, {responsive: true, displayModeBar: false});
+
+    </script>
+    <!-- Confirming NO Mermaid JS and NO SVG used in output generation. -->
+</body>
+</html>

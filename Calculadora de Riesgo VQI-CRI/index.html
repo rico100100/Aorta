@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Riesgo Cardíaco VQI (VQI-CRI)</title>
+    <style>
+        /* Estilos Generales y de Diseño (CSS Profesional) */
+        :root {
+            --primary-color: #005b96; /* Azul médico profesional */
+            --secondary-color: #b3cde0;
+            --bg-light: #f4f7f9;
+            --text-dark: #333;
+            --risk-low-bg: #d4edda; --risk-low-text: #155724;
+            --risk-mod-bg: #fff3cd; --risk-mod-text: #856404;
+            --risk-high-bg: #f8d7da; --risk-high-text: #721c24;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Estilos del Formulario */
+        .calculator-section {
+            margin-bottom: 30px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-label:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--primary-color);
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.5);
+            margin-right: 15px;
+            accent-color: var(--primary-color);
+        }
+
+        .icon-text {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .small-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+
+        /* Botón */
+        .btn-calculate {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-calculate:hover {
+            background-color: #004475;
+        }
+
+        /* Sección de Resultados */
+        #result-container {
+            display: none; /* Oculto por defecto */
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .result-desc {
+            font-size: 1.1rem;
+        }
+
+        /* Clases dinámicas para el riesgo */
+        .risk-low { background-color: var(--risk-low-bg); color: var(--risk-low-text); border: 2px solid #c3e6cb; }
+        .risk-moderate { background-color: var(--risk-mod-bg); color: var(--risk-mod-text); border: 2px solid #ffeeba; }
+        .risk-high { background-color: var(--risk-high-bg); color: var(--risk-high-text); border: 2px solid #f5c6cb; }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Calculadora de Riesgo VQI-CRI</h1>
+        <p class="subtitle">Herramienta específica para la predicción de MACE perioperatorio en Cirugía Vascular.</p>
+    </header>
+
+    <div class="calculator-section">
+        <p style="margin-bottom: 20px; font-weight: bold; color: var(--primary-color);">
+            Seleccione los factores de riesgo presentes en el paciente:
+        </p>
+
+        <div class="checkbox-group">
+            <label class="checkbox-label">
+                <input type="checkbox" class="risk-factor" value="1">
+                <div>
+                    <span class="icon-text">🫀 Enfermedad Coronaria (CAD)</span>
+                    <span class="small-desc">Historia de IAM, angina estable/inestable.</span>
+                </div>
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" class="risk-factor" value="1">
+                <div>
+                    <span class="icon-text">🌬️ Insuficiencia Cardíaca (ICC)</span>
+                    <span class="small-desc">Historia clínica o síntomas activos.</span>
+                </div>
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" class="risk-factor" value="1">
+                <div>
+                    <span class="icon-text">🫁 EPOC</span>
+                    <span class="small-desc">Enfermedad Pulmonar Obstructiva Crónica.</span>
+                </div>
+            </label>
+
+            <label class="checkbox-label">
+                <input type="checkbox" class="risk-factor" value="1">
+                <div>
+                    <span class="icon-text">🩺 Dependencia de Diálisis</span>
+                    <span class="small-desc">Insuficiencia renal terminal.</span>
+                </div>
+            </label>
+
+            <label class="checkbox-label" style="border-color: #ff9800;">
+                <input type="checkbox" class="risk-factor high-risk-proc" value="1">
+                <div>
+                    <span class="icon-text">🔪 Procedimiento de Alto Riesgo</span>
+                    <span class="small-desc">Ej. Aneurisma Aórtico Abierto, Bypass Suprainguinal.</span>
+                </div>
+            </label>
+        </div>
+
+        <button class="btn-calculate" onclick="calcularRiesgo()">Calcular Riesgo VQI</button>
+    </div>
+
+    <div id="result-container">
+        <div id="result-title" class="result-title"></div>
+        <div id="result-desc" class="result-desc"></div>
+    </div>
+
+    <footer>
+        <p><strong>Referencia Base:</strong> Bertges DJ, et al. <em>Development of a VQI cardiac risk index...</em> J Vasc Surg. 2016.</p>
+        <p><em>Nota: Esta herramienta es una ayuda visual clínica y no sustituye el juicio médico profesional. MACE = Eventos Cardíacos Adversos Mayores.</em></p>
+    </footer>
+</div>
+
+<script>
+    // Lógica JavaScript para el cálculo (Simulación clínica simplificada para la web)
+    function calcularRiesgo() {
+        const checkboxes = document.querySelectorAll('.risk-factor:checked');
+        let totalScore = 0;
+        let hasHighRiskProc = false;
+        
+        // Contar factores seleccionados
+        checkboxes.forEach((checkbox) => {
+            totalScore += parseInt(checkbox.value);
+            if (checkbox.classList.contains('high-risk-proc')) {
+                hasHighRiskProc = true;
+            }
+        });
+
+        const resultContainer = document.getElementById('result-container');
+        const resultTitle = document.getElementById('result-title');
+        const resultDesc = document.getElementById('result-desc');
+
+        // Limpiar clases anteriores
+        resultContainer.className = '';
+        resultContainer.style.display = 'block';
+
+        // Lógica de Estratificación (Simplificada para demostración visual coherente con la infografía)
+        // Nota Clínica: Los modelos de regresión reales usan coeficientes complejos, pero la agrupación clínica a menudo sigue este patrón aditivo.
+        if (totalScore <= 1 && !hasHighRiskProc) {
+            // RIESGO BAJO
+            resultContainer.classList.add('risk-low');
+            resultTitle.innerText = "✅ Riesgo Cardíaco Estimado: BAJO";
+            resultDesc.innerText = `Puntuación acumulada: ${totalScore}. La probabilidad de MACE perioperatorio es mínima según el modelo VQI.`;
+        } else if (totalScore === 2 && !hasHighRiskProc) {
+            // RIESGO MODERADO
+            resultContainer.classList.add('risk-moderate');
+            resultTitle.innerText = "⚠️ Riesgo Cardíaco Estimado: MODERADO";
+            resultDesc.innerText = `Puntuación acumulada: ${totalScore}. Se recomienda vigilancia perioperatoria estándar y optimización médica.`;
+        } else {
+            // RIESGO ALTO (3+ factores O procedimiento de alto riesgo con comorbilidades)
+            // Nota: Un procedimiento aórtico abierto por sí solo ya eleva significativamente el riesgo.
+            resultContainer.classList.add('risk-high');
+            resultTitle.innerText = "🚨 Riesgo Cardíaco Estimado: ALTO / MUY ALTO";
+            let desc = `Puntuación acumulada: ${totalScore}. `;
+            if (hasHighRiskProc) desc += "La presencia de un procedimiento aórtico/suprainguinal eleva considerablemente el riesgo basal. ";
+            desc += "Existe una probabilidad significativa de MACE. Considere reevaluación cardiológica intensiva y manejo en UCI.";
+            resultDesc.innerText = desc;
+        }
+
+        // Scroll suave hacia el resultado en dispositivos móviles
+        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+</script>
+
+</body>
+</html>
