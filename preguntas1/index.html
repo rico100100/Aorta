@@ -11,15 +11,16 @@
   <!-- Dependencias Externas -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     :root {
       --primary: #2563eb;
       --primary-hover: #1d4ed8;
-      --secondary: #64748b;
       --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
       --surface: rgba(255, 255, 255, 0.9);
       --surface-border: rgba(255, 255, 255, 0.5);
+      --surface-alt: #f8fafc;
       --text-main: #1e293b;
       --text-muted: #64748b;
       --success: #10b981;
@@ -29,6 +30,168 @@
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       --radius: 12px;
       --glass: blur(12px);
+      --icon-size: 1.1rem;
+    }
+
+    [data-theme="dark"] {
+      --primary: #60a5fa;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --surface: rgba(30, 41, 59, 0.95);
+      --surface-border: rgba(255, 255, 255, 0.15);
+      --surface-alt: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --glass: blur(20px);
+    }
+
+    [data-theme="midnight"] {
+      --primary: #a5b4fc;
+      --bg-gradient: linear-gradient(135deg, #020617 0%, #1e1b4b 100%);
+      --surface: rgba(30, 27, 75, 0.95);
+      --surface-border: rgba(165, 180, 252, 0.2);
+      --surface-alt: #1e1b4b;
+      --text-main: #f8fafc;
+      --text-muted: #c7d2fe;
+      --glass: blur(20px);
+    }
+
+    [data-theme="emerald"] {
+      --primary: #059669;
+      --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-border: rgba(5, 150, 105, 0.15);
+      --surface-alt: #f0fdf4;
+      --text-main: #064e3b;
+      --text-muted: #059669;
+    }
+
+    [data-theme="sunset"] {
+      --primary: #ea580c;
+      --bg-gradient: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-border: rgba(234, 88, 12, 0.15);
+      --surface-alt: #fff7ed;
+      --text-main: #7c2d12;
+      --text-muted: #ea580c;
+    }
+
+    [data-theme="rose"] {
+      --primary: #e11d48;
+      --bg-gradient: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-border: rgba(225, 29, 72, 0.15);
+      --surface-alt: #fff1f2;
+      --text-main: #881337;
+      --text-muted: #e11d48;
+    }
+
+    [data-theme="amber"] {
+      --primary: #d97706;
+      --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-border: rgba(217, 119, 6, 0.15);
+      --surface-alt: #fffbeb;
+      --text-main: #78350f;
+      --text-muted: #b45309;
+    }
+
+    /* Estilos para el selector de temas (Dropdown) */
+    .theme-switcher-container {
+      position: absolute;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    /* Iconos Globales */
+    .lucide {
+      width: var(--icon-size);
+      height: var(--icon-size);
+      vertical-align: middle;
+      display: inline-block;
+      stroke-width: 2px;
+    }
+
+    button .lucide {
+      margin-right: 6px;
+    }
+
+    button.icon-only .lucide {
+      margin-right: 0;
+    }
+
+    .profile-item button {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--surface-border);
+    }
+
+    /* --- ESTILOS MEJORADOS SUMMARY --- */
+    .summary-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-card {
+      background: var(--surface-alt);
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--surface-border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .final-score-box {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(37, 99, 235, 0.03));
+      border: 2px solid var(--primary);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .final-score-box h3 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .theme-select {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      outline: none;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+    }
+
+    .theme-select:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .theme-select option {
+      background: #1e293b;
+      color: white;
     }
 
     body {
@@ -124,9 +287,9 @@
       width: 100%;
       text-align: left;
       justify-content: flex-start;
-      background-color: white;
+      background-color: var(--surface-alt);
       color: var(--text-main);
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--surface-border);
       padding: 1.2rem;
       font-weight: 500;
       margin-bottom: 0.8rem;
@@ -144,10 +307,10 @@
       margin-top: 1.5rem;
       max-height: 400px;
       overflow-y: auto;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--surface-border);
       border-radius: 8px;
       padding: 1rem;
-      background-color: #f8fafc;
+      background-color: var(--surface-alt);
     }
 
     .correct {
@@ -167,18 +330,36 @@
       margin-top: 1em;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       body {
-        padding: 0.5em;
+        padding: 80px 0.8rem 1rem 0.8rem;
       }
 
-      button {
-        font-size: 1em;
-        padding: 0.8em;
+      #quiz-container,
+      #summary-container,
+      #main-menu,
+      #history-container,
+      #creator-container,
+      #help-container {
+        padding: 1.2rem;
+        border-radius: 8px;
+        width: 100%;
       }
 
       h1 {
-        font-size: 1.5em;
+        font-size: 1.8rem;
+      }
+
+      .top-banner h1 {
+        font-size: 1.4rem;
+      }
+
+      .theme-switcher-container {
+        right: 1rem;
+      }
+
+      .top-banner {
+        padding: 1rem;
       }
     }
 
@@ -194,7 +375,8 @@
     }
 
     #temas-lista div:hover {
-      background-color: #f1f5f9;
+      background-color: transparent;
+      color: inherit;
     }
 
     #temas-lista label {
@@ -240,9 +422,9 @@
     }
 
     .questions-selector-container {
-      background: white;
+      background: var(--surface-alt);
       padding: 1.5rem;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--surface-border);
       border-radius: 12px;
       margin-bottom: 1.5rem;
       box-shadow: var(--shadow-sm);
@@ -265,9 +447,9 @@
     .preset-buttons button {
       flex: 1;
       min-width: 60px;
-      background-color: #f1f5f9;
+      background-color: var(--surface-alt);
       color: var(--text-main);
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--surface-border);
       padding: 0.6rem;
       font-size: 0.9rem;
     }
@@ -287,15 +469,18 @@
     }
 
     .file-uploader {
-      background: white;
+      background: var(--surface-alt);
       padding: 1.5rem;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--surface-border);
       border-radius: 12px;
       margin-bottom: 1.5rem;
       box-shadow: var(--shadow-sm);
       display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       gap: 1rem;
+      text-align: center;
     }
 
     .custom-file-upload {
@@ -316,40 +501,37 @@
     }
 
     .file-names-display {
-      margin-left: 15px;
+      margin: 0;
       font-style: italic;
-      color: #555;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      color: var(--text-muted);
+      max-width: 100%;
+      word-break: break-all;
     }
 
     /* --- ESTILOS MEJORADOS PARA LA EXPLICACIÓN DEL JSON (OFICIAL) --- */
     .static-comment-box {
       margin-top: 20px;
       padding: 15px 20px;
-      background-color: #e8f4f8;
-      /* Azul grisáceo muy pálido, clínico */
-      border-left: 6px solid #004080;
-      /* Mismo azul corporativo que tus títulos */
-      border-radius: 6px;
-      color: #2c3e50;
+      background-color: var(--surface-alt);
+      border-left: 6px solid var(--primary);
+      border-radius: 8px;
+      color: var(--text-main);
       font-size: 1em;
       line-height: 1.6;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-sm);
       animation: fadeIn 0.5s ease-in-out;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .static-comment-title {
       font-weight: 800;
-      color: #004080;
+      color: var(--primary);
       display: block;
       margin-bottom: 8px;
       text-transform: uppercase;
       font-size: 0.85em;
       letter-spacing: 1px;
-      border-bottom: 1px solid #bdc3c7;
+      border-bottom: 1px solid var(--surface-border);
       padding-bottom: 5px;
     }
 
@@ -369,10 +551,12 @@
       width: 100%;
       height: 80px;
       padding: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--surface-border);
       border-radius: 5px;
       margin-top: 0.5em;
-      font-family: Arial, sans-serif;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+      font-family: inherit;
       font-size: 1em;
       box-sizing: border-box;
     }
@@ -390,15 +574,15 @@
 
     .toggle-notes-button {
       width: 100%;
-      background-color: #f0f0f0;
-      color: #333;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
       text-align: left;
-      border: 1px solid #ddd;
+      border: 1px solid var(--surface-border);
     }
 
     .toggle-notes-button:hover {
-      background-color: #e9e9e9;
-      color: #000;
+      background-color: var(--primary);
+      color: white;
     }
 
     .notes-content {
@@ -414,6 +598,82 @@
       padding-top: 0;
       padding-bottom: 0;
       margin-top: 0;
+    }
+
+    /* --- TOOLTIPS / HELP SYSTEM --- */
+    .help-tooltip {
+      position: relative;
+      display: inline-block;
+      margin-left: 6px;
+      cursor: help;
+      color: var(--text-muted);
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    .help-tooltip .tooltip-content {
+      visibility: hidden;
+      width: 250px;
+      background-color: var(--surface-bg, #1e293b);
+      color: var(--text-main, #fff);
+      text-align: left;
+      border: 1px solid var(--primary);
+      border-radius: 8px;
+      padding: 12px;
+      position: absolute;
+      z-index: 1200;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+      box-shadow: var(--shadow-lg);
+      font-size: 0.85rem;
+      font-weight: 400;
+      line-height: 1.4;
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .help-tooltip .tooltip-content,
+    [data-theme="emerald"] .help-tooltip .tooltip-content,
+    [data-theme="sunset"] .help-tooltip .tooltip-content,
+    [data-theme="rose"] .help-tooltip .tooltip-content,
+    [data-theme="amber"] .help-tooltip .tooltip-content {
+      background-color: white;
+      color: #1e293b;
+    }
+
+    .help-tooltip:hover .tooltip-content {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .tooltip-content strong {
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .tooltip-content em {
+      display: block;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--surface-border);
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .help-tooltip .lucide {
+      width: 16px;
+      height: 16px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .help-tooltip:hover .lucide {
+      opacity: 1;
+      color: var(--primary);
     }
 
     .summary-question {
@@ -466,16 +726,20 @@
 
     .secondary-actions {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       margin-top: 1.5em;
+      justify-content: center;
     }
 
     .secondary-actions button {
       flex: 1;
+      min-width: 140px;
       background-color: #f0f0f0;
       color: #333;
       border: 1px solid #ddd;
-      font-size: 0.9em;
+      font-size: 0.85em;
+      white-space: nowrap;
     }
 
     .secondary-actions button:hover:not(:disabled) {
@@ -484,8 +748,10 @@
     }
 
     .main-navbar {
-      position: sticky;
-      top: 0;
+      position: fixed;
+      /* Cambiado a fixed para que siempre se vea al hacer scroll */
+      top: 70px;
+      /* Debajo del banner superior azul */
       left: 0;
       width: 100%;
       background: var(--surface) !important;
@@ -500,6 +766,41 @@
       z-index: 1000;
       box-sizing: border-box;
       transition: all 0.4s ease;
+    }
+
+    /* Contenedor de opciones de tiempo */
+    .timer-config {
+      margin-top: 1rem;
+      padding: 1.2rem;
+      background: var(--surface-border);
+      border-radius: 10px;
+      display: none;
+      /* Se muestra solo en simulacro */
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .timer-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .timer-option label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .timer-option input {
+      width: 80px;
+      padding: 0.4rem;
+      border-radius: 6px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-alt);
+      color: var(--text-main);
+      text-align: center;
     }
 
     .navbar-title {
@@ -517,9 +818,144 @@
     }
 
     .navbar-button:hover {
-      background-color: var(--primary);
+      background: var(--primary);
       color: white;
     }
+
+    button.icon-only {
+      padding: 0.4rem;
+      width: auto;
+      min-width: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* --- CATEGORÍAS --- */
+    .category-group {
+      margin-top: 1rem;
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 1rem;
+      background: var(--surface-border);
+      margin-bottom: 1.5rem;
+    }
+
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.4rem;
+    }
+
+    .category-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-mgmt {
+      margin: 1rem 0;
+      padding: 1.2rem;
+      background: var(--surface-alt);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .category-mgmt input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .cat-tag {
+      font-size: 0.7rem;
+      background: var(--primary);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .move-to-cat-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      background: var(--surface-alt);
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--surface-border);
+    }
+
+    .move-to-cat-select {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      border-radius: 4px;
+      padding: 0.2rem;
+      outline: none;
+    }
+
+    /* --- PERFILES DE ESTUDIO --- */
+    .header-checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cat-item,
+    .profile-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface-alt);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--surface-border);
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .cat-item:hover,
+    .profile-item:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cat-item.active,
+    .profile-item.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .cat-item input[type="checkbox"],
+    .profile-item input[type="checkbox"] {
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .profile-item .del-profile-btn {
+      color: var(--error);
+      margin-left: 4px;
+      padding: 2px;
+    }
+
+    .profile-item .del-profile-btn:hover {
+      color: #991b1b;
+    }
+
 
     body {
       padding-top: 60px;
@@ -671,9 +1107,9 @@
     }
 
     .mode-selector-container {
-      background: white;
+      background: var(--surface-alt);
       padding: 1.5rem;
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--surface-border);
       border-radius: 12px;
       margin-bottom: 1.5rem;
       box-shadow: var(--shadow-sm);
@@ -688,7 +1124,7 @@
 
     .mode-buttons {
       display: flex;
-      background: #f1f5f9;
+      background: var(--surface-border);
       padding: 4px;
       border-radius: 10px;
     }
@@ -710,8 +1146,8 @@
     }
 
     .mode-buttons .mode-button.active {
-      background-color: white;
-      color: var(--primary);
+      background-color: var(--primary);
+      color: white;
       box-shadow: var(--shadow-sm);
     }
 
@@ -721,19 +1157,20 @@
       gap: 0.5rem;
       margin-bottom: 1rem;
       padding-bottom: 0.8rem;
-      border-bottom: 1px solid #e2e8f0;
+      border-bottom: 1px solid var(--surface-border);
     }
 
     .bulk-actions button {
       padding: 0.4rem 0.8rem;
       font-size: 0.85rem;
-      background-color: #f1f5f9;
+      background-color: var(--surface-alt);
       color: var(--text-main);
-      border: 1px solid #e2e8f0;
+      border: 1px solid var(--surface-border);
     }
 
     .bulk-actions button:hover {
-      background-color: #e2e8f0;
+      background-color: var(--primary);
+      color: white;
     }
 
     .tema-item {
@@ -741,14 +1178,14 @@
       align-items: center;
       margin-bottom: 8px;
       padding: 0.5rem;
-      background: white;
+      background: var(--surface-alt);
       border-radius: 8px;
-      border: 1px solid transparent;
+      border: 1px solid var(--surface-border);
       transition: all 0.2s;
     }
 
     .tema-item:hover {
-      border-color: #cbd5e1;
+      border-color: var(--primary);
       box-shadow: var(--shadow-sm);
     }
 
@@ -770,18 +1207,251 @@
       background-color: #fca5a5 !important;
       color: white !important;
     }
+
+    /* --- ESTILOS CREADOR DE TEMAS --- */
+    #creator-container {
+      background: var(--surface);
+      backdrop-filter: var(--glass);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 800px;
+      box-sizing: border-box;
+      margin-top: 1rem;
+    }
+
+    .creator-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--surface-alt);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--surface-border);
+      margin-bottom: 2rem;
+    }
+
+    .creator-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .creator-field label {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .creator-field input,
+    .creator-field textarea,
+    .creator-field select {
+      padding: 0.7rem;
+      border: 1px solid var(--surface-border);
+      border-radius: 6px;
+      font-family: inherit;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+    }
+
+    .creator-bulk-area {
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      tab-size: 4;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .creator-q-list {
+      margin-top: 1rem;
+      border-top: 2px solid #eee;
+      padding-top: 1rem;
+    }
+
+    .creator-q-item {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      border-left: 4px solid var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .creator-q-item button {
+      background: #fee2e2 !important;
+      color: #b91c1c !important;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .tab {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* --- ESTILOS BANNERS PROFESIONALES --- */
+    .top-banner {
+      width: 100%;
+      background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      box-shadow: var(--shadow-md);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1100;
+      height: 70px;
+      box-sizing: border-box;
+    }
+
+    .top-banner img {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .top-banner h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+      background: none;
+      filter: none;
+    }
+
+    .bottom-banner {
+      width: 100%;
+      background: #1e293b;
+      color: #94a3b8;
+      padding: 2rem;
+      margin-top: 4rem;
+      text-align: center;
+      border-top: 4px solid var(--primary);
+      box-sizing: border-box;
+    }
+
+    .bottom-banner h2 {
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .bottom-banner .about {
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin: 0 auto;
+      border-top: 1px solid #334155;
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+
+    body {
+      padding-top: 90px;
+      padding-bottom: 0;
+    }
+
+    /* Ajuste para el navbar sticky que ya existía */
+    .main-navbar {
+      top: 70px;
+    }
+
+    /* --- ESTILOS VISTA DE AYUDA --- */
+    #help-container {
+      background: var(--surface);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      border: 1px solid var(--surface-border);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 700px;
+      margin-top: 2rem;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+
+    #help-container h2 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    #help-container h3 {
+      color: var(--primary);
+      margin-top: 1.2rem;
+    }
+
+    #help-container ul {
+      padding-left: 1.5rem;
+    }
+
+    #help-container li {
+      margin-bottom: 0.5rem;
+    }
+
+    #help-container code {
+      background: #f1f5f9;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
   </style>
 
 </head>
 
 <body>
-  <header id="main-navbar" class="main-navbar hidden">
-    <span class="navbar-title">Test APP</span>
-    <span id="timer" class="navbar-timer">00:00</span>
-    <button id="home-btn" class="navbar-button">🏠 Volver al Menú</button>
-  </header>
+  <div class="top-banner">
+    <img src="app_icon.png" alt="TestAPP Icon">
+    <h1>TestAPP</h1>
+    <div class="theme-switcher-container">
+      <span style="font-size: 0.8rem; opacity: 0.9;">🎨 Tema:</span>
+      <select id="theme-selector" class="theme-select">
+        <option value="light">Claro</option>
+        <option value="dark">Oscuro</option>
+        <option value="midnight">Medianoche</option>
+        <option value="emerald">Esmeralda</option>
+        <option value="sunset">Atardecer</option>
+        <option value="rose">Rosa Premium</option>
+        <option value="amber">Ámbar</option>
+      </select>
+    </div>
+  </div>
 
-  <h1>✅ Test APP</h1>
+  <header id="main-navbar" class="main-navbar hidden">
+    <span class="navbar-title">Panel de Control</span>
+    <span id="timer" class="navbar-timer">00:00</span>
+    <button id="home-btn" class="navbar-button">
+      <i data-lucide="home"></i> Volver al Menú
+    </button>
+  </header>
 
   <div id="main-menu">
     <h2>Menú Principal</h2>
@@ -794,13 +1464,60 @@
     </div>
     <p id="menu-status">Cargue uno o varios archivos JSON con temas.</p>
     <div class="mode-selector-container">
-      <label class="mode-label">Modo de Test:</label>
+      <label class="mode-label">
+        Modo de Test:
+        <span class="help-tooltip">
+          <i data-lucide="help-circle"></i>
+          <span class="tooltip-content">
+            <strong>Modos de Test</strong>
+            Elige entre 'Estudio' para ver respuestas y apuntes al momento, o 'Simulacro' para un examen real con tiempo
+            limitado.
+            <em>Ejemplo: Modo Estudio para repasar fallos con calma.</em>
+          </span>
+        </span>
+      </label>
       <div class="mode-buttons">
         <input type="radio" id="mode-estudio" name="test-mode" value="estudio" checked>
-        <label for="mode-estudio" class="mode-button active">📚 Estudio</label>
-
+        <label for="mode-estudio" class="mode-button active">
+          <i data-lucide="book-open"></i> Estudio
+        </label>
         <input type="radio" id="mode-simulacro" name="test-mode" value="simulacro">
-        <label for="mode-simulacro" class="mode-button">⏱️ Simulacro</label>
+        <label for="mode-simulacro" class="mode-button">
+          <i data-lucide="timer"></i> Simulacro
+        </label>
+      </div>
+
+      <div id="timer-config" class="timer-config">
+        <div class="timer-option">
+          <label>
+            ⏱️ Tiempo total (min):
+            <span class="help-tooltip">
+              <i data-lucide="help-circle"></i>
+              <span class="tooltip-content">
+                <strong>Tiempo Total</strong>
+                Define la duración máxima de todo el test. Al agotarse, el test finalizará automáticamente.
+                <em>Ejemplo: 60 minutos para un simulacro oficial.</em>
+              </span>
+            </span>
+          </label>
+          <input type="number" id="total-time-input" value="60" min="1">
+        </div>
+        <div class="timer-option">
+          <label>
+            ⏳ Tiempo/Pregunta (seg):
+            <span class="help-tooltip">
+              <i data-lucide="help-circle"></i>
+              <span class="tooltip-content">
+                <strong>Tiempo por Pregunta</strong>
+                Limita el tiempo para cada pregunta individual. Si llega a 0, pasará a la siguiente. (0 = sin límite).
+                <em>Ejemplo: 30 segundos para entrenar agilidad mental.</em>
+              </span>
+            </span>
+          </label>
+          <input type="number" id="q-time-input" value="0" min="0" title="Pon 0 para no limitar por pregunta">
+        </div>
+        <small style="font-size: 0.75rem; color: var(--text-muted);">* Pon 0 en tiempo por pregunta para usar solo el
+          tiempo total.</small>
       </div>
     </div>
     <div class="questions-selector-container">
@@ -808,17 +1525,271 @@
       <div class="preset-buttons">
         <button data-value="10">10</button>
         <button data-value="20">20</button>
-        <button data-value="100">Simulacro</button>
+        <button data-value="110">Simulacro</button>
       </div>
-      <input type="number" id="total-questions-input" min="1" value="100" placeholder="Otro...">
+      <input type="number" id="total-questions-input" min="1" value="110" placeholder="Otro...">
     </div>
-    <div id="temas-lista"><em>No hay temas cargados.</em></div>
-    <button id="start-test-btn" disabled>Iniciar Test →</button>
+    <div class="category-mgmt">
+      <h4
+        style="margin:0 0 8px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="folder-cog"></i> Gestión de Categorías
+        <span class="help-tooltip">
+          <i data-lucide="help-circle"></i>
+          <span class="tooltip-content" style="bottom: auto; top: 125%;">
+            <strong>Categorías</strong>
+            Agrupa tus archivos JSON para tenerlos organizados. Puedes filtrar temas activando o desactivando la
+            categoría completa.
+            <em>Ejemplo: Categoría 'Cardiología' para todos los temas de corazón.</em>
+          </span>
+        </span>
+      </h4>
+      <div style="display: flex; gap: 8px; width: 100%;">
+        <input type="text" id="new-cat-input" placeholder="Nombre de nueva categoría..." style="flex: 1;">
+        <button id="add-cat-btn" style="background: var(--success) !important; padding: 0.5rem 1rem;">
+          <i data-lucide="plus"></i> Añadir
+        </button>
+      </div>
+      <div id="available-categories-list"
+        style="width: 100%; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;">
+        <!-- Etiquetas de categorías -->
+      </div>
+    </div>
+
+    <!-- Perfiles existentes (Vista rápida) -->
+    <div id="profiles-selection-container" style="margin-bottom: 1.5rem;">
+      <h4
+        style="margin:0 0 8px 0; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="bookmark"></i> Perfiles Guardados
+        <span class="help-tooltip">
+          <i data-lucide="help-circle"></i>
+          <span class="tooltip-content">
+            <strong>Perfiles de Pesos</strong>
+            Carga configuraciones guardadas de selección de temas y sus porcentajes (%) de aparición.
+            <em>Ejemplo: Perfil 'Examen Final' con 50% Ley y 50% Medicina.</em>
+          </span>
+        </span>
+      </h4>
+      <div id="profiles-list" style="width: 100%; display: flex; flex-wrap: wrap; gap: 8px;">
+        <!-- Perfiles -->
+      </div>
+    </div>
+
+    <div id="temas-lista-section">
+      <h4
+        style="margin:0 0 10px 0; color:var(--primary); font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="list"></i> Selección de Temas y Pesos
+        <span class="help-tooltip">
+          <i data-lucide="help-circle"></i>
+          <span class="tooltip-content">
+            <strong>Temas y Pesos %</strong>
+            Selecciona qué temas quieres incluir y qué porcentaje del total de preguntas tendrá cada uno.
+            <em>Ejemplo: Tema A al 80% y Tema B al 20% para priorizar estudio.</em>
+          </span>
+        </span>
+      </h4>
+      <div id="temas-lista"><em>No hay temas cargados.</em></div>
+    </div>
+
+    <!-- Mover seleccionados a Categoría -->
+    <div id="move-to-cat-mgmt"
+      style="margin-top: 1.5rem; padding: 1.2rem; background: var(--surface-alt); border: 1px solid var(--surface-border); border-radius: 12px; display: none;">
+      <h4
+        style="margin:0 0 10px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="folder-output"></i> Mover seleccionados a Categoría
+        <span class="help-tooltip">
+          <i data-lucide="help-circle"></i>
+          <span class="tooltip-content">
+            <strong>Mover en Bloque</strong>
+            Cambia de categoría todos los temas que tengas marcados actualmente. Ideal para organizar archivos recién
+            cargados.
+            <em>Ejemplo: Mover 10 temas sueltos a la categoría 'Urgencias'.</em>
+          </span>
+        </span>
+      </h4>
+      <div style="display: flex; gap: 8px; width: 100%; flex-wrap: wrap;">
+        <select id="bulk-cat-selector"
+          style="flex: 1; min-width: 150px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--surface-border); background: var(--surface-bg); color: var(--text-main);">
+          <option value="">-- Elegir existente --</option>
+        </select>
+        <input type="text" id="bulk-new-cat-input" placeholder="O nueva categoría..."
+          style="flex: 1; min-width: 150px;">
+        <button id="bulk-move-btn" style="background: var(--primary) !important; flex: 1; min-width: 150px;">
+          <i data-lucide="folder-plus"></i> Mover
+        </button>
+      </div>
+    </div>
+
+    <!-- Guardar nueva configuración como perfil -->
+    <div class="profiles-mgmt"
+      style="margin-top: 1.5rem; padding: 1.2rem; background: var(--surface-alt); border: 1px solid var(--surface-border); border-radius: 12px;">
+      <h4
+        style="margin:0 0 10px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="save"></i> Guardar esta selección como Perfil
+      </h4>
+      <div style="display: flex; gap: 8px; width: 100%; flex-wrap: wrap;">
+        <input type="text" id="profile-name-input" placeholder="Nombre del perfil..."
+          style="flex: 1; min-width: 200px;">
+        <button id="save-profile-btn" style="background: #0ea5e9 !important; flex: 1; min-width: 150px;">
+          <i data-lucide="download"></i> Guardar Perfil
+        </button>
+      </div>
+    </div>
+
+    <button id="start-test-btn" disabled style="width: 100%; margin-top: 2rem;">
+      <i data-lucide="play"></i> Iniciar Test
+    </button>
 
     <div class="secondary-actions">
-      <button id="reset-menu-btn">Limpiar Temas</button>
-      <button id="show-history-btn">Mostrar Historial</button>
+      <button id="reset-menu-btn" style="background: var(--text-muted) !important; color: white !important;">
+        <i data-lucide="refresh-ccw"></i> Limpiar Temas
+      </button>
+      <button id="show-history-btn">
+        <i data-lucide="history"></i> Ver Historial
+      </button>
+      <button id="show-creator-btn" style="background-color: #0ea5e9 !important; color: white !important;">
+        <i data-lucide="hammer"></i> Crear Tema
+      </button>
+      <button id="test-mistakes-global-btn" style="background-color: #f59e0b !important; color: white !important;">
+        <i data-lucide="flame"></i> Repasar Fallos (<span id="global-mistakes-count">0</span>)
+      </button>
+      <button id="show-help-btn" style="background-color: #64748b !important; color: white !important;">
+        <i data-lucide="book-open"></i> Manual
+      </button>
     </div>
+  </div>
+
+  <!-- CONTENEDOR DE AYUDA -->
+  <div id="help-container" style="display:none;">
+    <h2><i data-lucide="library"></i> Manual de Usuario - TestAPP</h2>
+    <p>Bienvenido a <strong>TestAPP</strong>, tu plataforma de entrenamiento profesional.</p>
+
+    <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+      <section>
+        <h3><i data-lucide="play-circle"></i> Modos de Entrenamiento</h3>
+        <ul>
+          <li><strong>Modo Estudio:</strong> Aprende con feedback inmediato, explicaciones automáticas (IA) y añade tus
+            propios apuntes.</li>
+          <li><strong>Modo Simulacro:</strong> Configura un temporizador total o por pregunta para entrenar bajo
+            presión.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><i data-lucide="folder-tree"></i> Organización Avanzada</h3>
+        <ul>
+          <li><strong>Categorías:</strong> Agrupa tus temas para mantener el orden. Usa las etiquetas para filtrar y
+            seleccionar rápidamente.</li>
+          <li><strong>Perfiles de Estudio:</strong> Guarda tus configuraciones de porcentajes (%) favoritas para
+            cargarlas en un clic.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><i data-lucide="bar-chart-3"></i> Análisis y Progreso</h3>
+        <ul>
+          <li><strong>Repaso de Fallos:</strong> Los errores se guardan automáticamente. Úsalos para pulir tus puntos
+            débiles.</li>
+          <li><strong>Historial:</strong> Accede a tus intentos pasados para ver tu evolución y revisar preguntas
+            específicas.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><i data-lucide="external-link"></i> Exportación y Creación</h3>
+        <ul>
+          <li>Genera informes en <strong>Excel, CSV o PDF</strong> profesionales al finalizar cada test.</li>
+          <li>Crea tus propios temas con el editor manual o carga masiva (Bulk) desde el menú principal.</li>
+        </ul>
+      </section>
+    </div>
+
+    <button id="close-help-btn" style="width: 100%; margin-top: 2rem; background: var(--primary) !important;">
+      <i data-lucide="check-circle"></i> Entendido, Volver al Menú
+    </button>
+  </div>
+
+  <!-- CONTENEDOR CREADOR DE TEMAS -->
+  <div id="creator-container" style="display:none;">
+    <h2><i data-lucide="hammer"></i> Creador de Temas JSON</h2>
+
+    <div class="creator-form">
+      <div class="creator-field">
+        <label>Nombre del Tema:</label>
+        <input type="text" id="creator-theme-name" placeholder="Ej: Mi Examen de Medicina">
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" id="tab-manual">Manual</div>
+        <div class="tab" id="tab-bulk">Carga Masiva (Bulk)</div>
+      </div>
+
+      <!-- Entrada Manual -->
+      <div id="creator-manual-section">
+        <div class="creator-field">
+          <label>Pregunta:</label>
+          <textarea id="creator-q-text" rows="2"></textarea>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="creator-field">
+            <label>Opción A:</label>
+            <input type="text" id="creator-opt-a">
+          </div>
+          <div class="creator-field">
+            <label>Opción B:</label>
+            <input type="text" id="creator-opt-b">
+          </div>
+          <div class="creator-field">
+            <label>Opción C:</label>
+            <input type="text" id="creator-opt-c">
+          </div>
+          <div class="creator-field">
+            <label>Opción D:</label>
+            <input type="text" id="creator-opt-d">
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 10px; margin-top: 10px;">
+          <div class="creator-field">
+            <label>Correcta:</label>
+            <select id="creator-opt-correct">
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="c">C</option>
+              <option value="d">D</option>
+            </select>
+          </div>
+          <div class="creator-field">
+            <label>Explicación (opcional):</label>
+            <input type="text" id="creator-q-comment">
+          </div>
+        </div>
+        <button id="creator-add-btn" style="width: 100%; margin-top: 15px; background: #10b981 !important;">➕ Añadir
+          Pregunta</button>
+      </div>
+
+      <!-- Entrada Masiva -->
+      <div id="creator-bulk-section" style="display:none;">
+        <p style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">Formato:
+          <code>Pregunta | A | B | C | D | Correcta (A, B, C o D) | Comentario</code>
+        </p>
+        <textarea id="creator-bulk-text" class="creator-bulk-area"
+          placeholder="Ej: ¿2+2? | 3 | 4 | 5 | 6 | B | Es aritmética simple"></textarea>
+        <button id="creator-parse-btn" style="width: 100%; margin-top: 10px; background: #6366f1 !important;">📥
+          Procesar Lista</button>
+      </div>
+    </div>
+
+    <div class="creator-q-list">
+      <h3>Preguntas añadidas: <span id="creator-q-count">0</span></h3>
+      <div id="creator-questions-preview" style="max-height: 200px; overflow-y: auto;"></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; margin-top: 2rem;">
+      <button id="creator-save-btn" style="flex:2; background: #059669 !important;">💾 Guardar e Integrar en la
+        App</button>
+      <button id="creator-download-btn" style="flex:1;">📥 Descargar JSON</button>
+    </div>
+    <button id="creator-cancel-btn" style="width: 100%; margin-top: 10px; background: #64748b !important;">Cerrar y
+      Volver</button>
   </div>
 
   <div id="quiz-container" style="display:none;">
@@ -827,6 +1798,10 @@
       <div id="progress-bar"
         style="width: 0%; height: 10px; background-color: #004080; border-radius: 5px; transition: width 0.3s ease-in-out;">
       </div>
+    </div>
+    <div id="reserve-notice"
+      style="display:none; background: #fef3c7; color: #92400e; padding: 0.5rem; text-align: center; border-radius: 8px; margin-bottom: 1rem; font-weight: 700; border: 1px solid #fde68a;">
+      <i data-lucide="info"></i> Preguntas de reserva
     </div>
     <div class="question" id="question-text"></div>
     <div class="options" id="options-container"></div>
@@ -837,7 +1812,9 @@
     <button id="explain-btn" style="display:none; margin-top: 10px;">Explicar Respuesta (IA)</button>
     <div id="explanation-container" class="explanation-box"></div>
     <div id="notes-section" style="margin-top: 1.5em;">
-      <button id="toggle-notes-btn" class="toggle-notes-button">Mis Apuntes ▼</button>
+      <button id="toggle-notes-btn" class="toggle-notes-button">
+        <i data-lucide="chevron-down"></i> Mis Apuntes
+      </button>
       <div id="notes-content" class="notes-content collapsed">
         <textarea id="personal-note" class="notes-textarea"
           placeholder="Escribe aquí tus apuntes personales sobre esta pregunta..."></textarea>
@@ -846,6 +1823,7 @@
     </div>
     <nav>
       <button id="prev-btn" disabled>Anterior</button>
+      <button id="pending-btn" style="display:none; background: #f59e0b !important;">Pendientes</button>
       <button id="skip-btn">Pasar Pregunta</button>
       <button id="next-btn" disabled>Siguiente</button>
     </nav>
@@ -887,19 +1865,33 @@
 
     <!-- Acciones de Exportación -->
     <div class="export-actions">
-      <button id="export-xlsx-btn" class="export-btn">📊 Exportar Excel (XLSX)</button>
-      <button id="export-csv-btn" class="export-btn csv">📄 Exportar CSV</button>
-      <button id="export-pdf-btn">🖨️ Imprimir / PDF</button>
+      <button id="export-xlsx-btn" class="export-btn">
+        <i data-lucide="file-spreadsheet"></i> Excel (XLSX)
+      </button>
+      <button id="export-csv-btn" class="export-btn csv">
+        <i data-lucide="file-text"></i> CSV
+      </button>
+      <button id="export-pdf-btn">
+        <i data-lucide="printer"></i> Imprimir / PDF
+      </button>
     </div>
 
-    <button id="restart-btn" style="width: 100%; margin-top: 10px;">Volver al Menú Principal</button>
+    <button id="restart-btn" style="width: 100%; margin-top: 10px;">
+      <i data-lucide="home"></i> Volver al Menú Principal
+    </button>
   </div>
 
   <div id="history-container" style="display:none; margin-top: 1em;">
-    <h2>Historial de Tests</h2>
+    <h2><i data-lucide="history"></i> Historial de Tests</h2>
     <div id="history-list"></div>
-    <button id="close-history-btn">Cerrar Historial</button>
-    <button id="clear-history-btn">Limpiar Historial</button>
+    <div style="display:flex; gap:10px; margin-top:1em;">
+      <button id="close-history-btn" style="flex:1; background:var(--text-muted) !important;">
+        <i data-lucide="x-circle"></i> Cerrar Historial
+      </button>
+      <button id="clear-history-btn" style="flex:1; background:var(--error) !important;">
+        <i data-lucide="trash-2"></i> Limpiar Historial
+      </button>
+    </div>
     <div id="history-detail" style="margin-top: 1em;"></div>
   </div>
 
@@ -923,6 +1915,11 @@
       const resetMenuBtn = document.getElementById('reset-menu-btn');
       const totalQuestionsInput = document.getElementById('total-questions-input');
       const showHistoryBtn = document.getElementById('show-history-btn');
+      const addCatBtn = document.getElementById('add-cat-btn');
+      const newCatInput = document.getElementById('new-cat-input');
+      const saveProfileBtn = document.getElementById('save-profile-btn');
+      const profileNameInput = document.getElementById('profile-name-input');
+      const profilesList = document.getElementById('profiles-list');
 
       const quizContainer = document.getElementById('quiz-container');
       const questionText = document.getElementById('question-text');
@@ -930,6 +1927,7 @@
       const feedback = document.getElementById('feedback');
       // NUEVO: Referencia al contenedor del comentario estático
       const staticCommentContainer = document.getElementById('static-comment-container');
+      const reserveNotice = document.getElementById('reserve-notice');
 
       const prevBtn = document.getElementById('prev-btn');
       const nextBtn = document.getElementById('next-btn');
@@ -942,6 +1940,7 @@
       const exportPdfBtn = document.getElementById('export-pdf-btn');
       const exportXlsxBtn = document.getElementById('export-xlsx-btn');
       const exportCsvBtn = document.getElementById('export-csv-btn');
+      const pendingBtn = document.getElementById('pending-btn');
 
       const historyContainer = document.getElementById('history-container');
       const historyList = document.getElementById('history-list');
@@ -950,12 +1949,49 @@
       const historyDetail = document.getElementById('history-detail');
       const explainBtn = document.getElementById('explain-btn');
       const explanationContainer = document.getElementById('explanation-container');
+      const testMistakesGlobalBtn = document.getElementById('test-mistakes-global-btn');
+      const showCreatorBtn = document.getElementById('show-creator-btn');
+
+      // Elementos del Creador
+      const creatorContainer = document.getElementById('creator-container');
+      const creatorThemeName = document.getElementById('creator-theme-name');
+      const creatorQuestionsPreview = document.getElementById('creator-questions-preview');
+      const creatorQCount = document.getElementById('creator-q-count');
+      const creatorSaveBtn = document.getElementById('creator-save-btn');
+      const creatorDownloadBtn = document.getElementById('creator-download-btn');
+      const creatorCancelBtn = document.getElementById('creator-cancel-btn');
+
+      // Formulario Manual
+      const creatorAddBtn = document.getElementById('creator-add-btn');
+      const creatorQText = document.getElementById('creator-q-text');
+      const creatorOptA = document.getElementById('creator-opt-a');
+      const creatorOptB = document.getElementById('creator-opt-b');
+      const creatorOptC = document.getElementById('creator-opt-c');
+      const creatorOptD = document.getElementById('creator-opt-d');
+      const creatorOptCorrect = document.getElementById('creator-opt-correct');
+      const creatorQComment = document.getElementById('creator-q-comment');
+
+      // Bulk Cat
+      const moveToCatMgmt = document.getElementById('move-to-cat-mgmt');
+      const bulkCatSelector = document.getElementById('bulk-cat-selector');
+      const bulkNewCatInput = document.getElementById('bulk-new-cat-input');
+      const bulkMoveBtn = document.getElementById('bulk-move-btn');
+
+      // Theme Creator Bulk
+      const creatorBulkText = document.getElementById('creator-bulk-text');
+      const creatorParseBtn = document.getElementById('creator-parse-btn');
+
+      // --- ESTADO DEL CREADOR ---
+      let creatorQuestions = [];
 
       // ⚠️ USA TU NUEVA CLAVE DE OPENROUTER AQUÍ.
       const OPENROUTER_API_KEY = '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';
 
       const YOUR_SITE_URL = 'http://localhost/test';
 
+      let categorias = JSON.parse(localStorage.getItem('quizCategorias')) || ['General'];
+      let perfilesEstudio = JSON.parse(localStorage.getItem('quizPerfilesPesos')) || {};
+      let activeProfileName = null;
       let temasCargados = [];
       let temasSeleccionados = new Set();
 
@@ -964,59 +2000,270 @@
       let answers = {};
       let score = 0;
 
-      function recalcularPorcentajesEquitativamente() {
-        // Filtrar solo los temas que están seleccionados por nombre
-        const seleccionadosArr = temasCargados.filter(t => temasSeleccionados.has(t.nombre));
-        const numTemas = seleccionadosArr.length;
-        if (numTemas === 0) {
-          // Si no hay nada seleccionado, todos a 0
-          temasCargados.forEach(t => t.porcentaje = 0);
-          return;
-        }
-
-        const basePercent = Math.floor(100 / numTemas);
-        let remainder = 100 % numTemas;
-
-        // Resetear todos
-        temasCargados.forEach(t => t.porcentaje = 0);
-
-        // Asignar a los seleccionados
-        seleccionadosArr.forEach((tema, index) => {
-          tema.porcentaje = basePercent;
-          if (remainder > 0) {
-            tema.porcentaje++;
-            remainder--;
-          }
-        });
-      }
-
-      // --- NUEVA LÓGICA DE AUTOCÁLCULO ---
+      // --- LÓGICA DE AUTOCÁLCULO PROACTIVO ---
       function distribuirPorcentajesEquitativamente() {
-        const num = temasSeleccionados.size;
+        const seleccionados = temasCargados.filter(t => temasSeleccionados.has(t.nombre));
+        const num = seleccionados.length;
 
         if (num === 0) {
           temasCargados.forEach(t => t.porcentaje = 0);
         } else {
-          // Calculamos la base equitativa
           const basePercent = Math.floor(100 / num);
           let remainder = 100 % num;
-
-          // 1. Ponemos a 0 los no seleccionados y repartimos el 100% entre los seleccionados
           temasCargados.forEach(t => {
             if (temasSeleccionados.has(t.nombre)) {
-              let extra = 0;
-              if (remainder > 0) {
-                extra = 1;
-                remainder--;
-              }
+              let extra = (remainder > 0) ? 1 : 0;
+              if (extra > 0) remainder--;
               t.porcentaje = basePercent + extra;
             } else {
               t.porcentaje = 0;
             }
           });
         }
+        sincronizarInputsUI();
+        actualizarTextoEstado();
+      }
 
-        // 2. Actualizamos visualmente los inputs de la pantalla
+      function guardarTemasCargadosEnStorage() {
+        const temasParaGuardar = temasCargados.map(t => ({
+          nombre: t.nombre,
+          contenido: JSON.stringify({ questions: t.preguntas }),
+          categoria: t.categoria || 'General'
+        }));
+        localStorage.setItem('temasGuardados', JSON.stringify(temasParaGuardar));
+      }
+
+      // --- LÓGICA DE CATEGORÍAS ---
+      addCatBtn.onclick = () => {
+        const name = newCatInput.value.trim();
+        if (!name) return;
+        if (categorias.includes(name)) {
+          alert('La categoría ya existe.');
+          return;
+        }
+        categorias.push(name);
+        localStorage.setItem('quizCategorias', JSON.stringify(categorias));
+        newCatInput.value = '';
+        renderCategoriasDisponibles();
+        renderTemasLista();
+      };
+
+      function renderCategoriasDisponibles() {
+        const listDiv = document.getElementById('available-categories-list');
+        if (!listDiv) return;
+        listDiv.innerHTML = '';
+
+        // Actualizar también el selector masivo
+        bulkCatSelector.innerHTML = '<option value="">-- Elegir existente --</option>';
+
+        categorias.forEach(cat => {
+          // Opción para el selector masivo
+          const opt = document.createElement('option');
+          opt.value = cat;
+          opt.textContent = cat;
+          bulkCatSelector.appendChild(opt);
+
+          const div = document.createElement('div');
+          div.className = 'cat-item';
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+
+          // Verificar si todos los temas de esta categoría están seleccionados
+          const temasDeEstaCat = temasCargados.filter(t => (t.categoria || 'General') === cat);
+          checkbox.checked = temasDeEstaCat.length > 0 && temasDeEstaCat.every(t => temasSeleccionados.has(t.nombre));
+
+          checkbox.onchange = (e) => {
+            e.stopPropagation();
+            const themesInCat = temasCargados.filter(t => (t.categoria || 'General') === cat);
+            if (checkbox.checked) {
+              themesInCat.forEach(t => temasSeleccionados.add(t.nombre));
+            } else {
+              themesInCat.forEach(t => temasSeleccionados.delete(t.nombre));
+            }
+            distribuirPorcentajesEquitativamente();
+            renderTemasLista();
+            renderCategoriasDisponibles(); // Actualizar estado visual
+          };
+
+          const span = document.createElement('span');
+          span.textContent = cat;
+
+          div.onclick = () => {
+            newCatInput.value = cat;
+          };
+
+          div.appendChild(checkbox);
+          div.appendChild(span);
+
+          if (cat !== 'General') {
+            const delBtn = document.createElement('button');
+            delBtn.className = 'del-profile-btn'; // Reusing existing CSS
+            delBtn.innerHTML = '<i data-lucide="trash-2"></i>';
+            delBtn.title = 'Borrar categoría';
+            delBtn.onclick = (e) => {
+              e.stopPropagation();
+              if (confirm(`¿Borrar la categoría "${cat}"? Los temas pasarán a "General".`)) {
+                const index = categorias.indexOf(cat);
+                if (index > -1) {
+                  categorias.splice(index, 1);
+                  temasCargados.forEach(t => {
+                    if (t.categoria === cat) t.categoria = 'General';
+                  });
+                  localStorage.setItem('quizCategorias', JSON.stringify(categorias));
+                  guardarTemasCargadosEnStorage();
+                  renderCategoriasDisponibles();
+                  renderTemasLista();
+                }
+              }
+            };
+            div.appendChild(delBtn);
+          }
+
+          listDiv.appendChild(div);
+        });
+        if (window.lucide) lucide.createIcons();
+      }
+
+      // Eliminar el manejador antiguo del botón global (ya no existe en HTML)
+
+
+      // Lógica de borrar categoría integrada en los items (renderCategoriasDisponibles)
+
+      // --- LÓGICA DE PERFILES DE ESTUDIO ---
+      function renderPerfiles() {
+        profilesList.innerHTML = '';
+        Object.keys(perfilesEstudio).forEach(name => {
+          const div = document.createElement('div');
+          div.className = 'profile-item';
+          if (activeProfileName === name) div.classList.add('active');
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.checked = (activeProfileName === name);
+          checkbox.onchange = (e) => {
+            e.stopPropagation();
+            if (checkbox.checked) {
+              cargarPerfil(name);
+            } else {
+              activeProfileName = null;
+              renderPerfiles();
+            }
+          };
+
+          const span = document.createElement('span');
+          span.innerHTML = `<i data-lucide="bookmark" style="width:12px; height:12px; margin-right:4px;"></i> ${name}`;
+
+          const delBtn = document.createElement('button');
+          delBtn.className = 'del-profile-btn';
+          delBtn.innerHTML = '<i data-lucide="x" style="width:14px; height:14px;"></i>';
+          delBtn.title = 'Borrar este perfil';
+          delBtn.onclick = (e) => {
+            e.stopPropagation();
+            if (confirm(`¿Borrar perfil "${name}"?`)) {
+              delete perfilesEstudio[name];
+              if (activeProfileName === name) activeProfileName = null;
+              localStorage.setItem('quizPerfilesPesos', JSON.stringify(perfilesEstudio));
+              renderPerfiles();
+            }
+          };
+
+          div.appendChild(checkbox);
+          div.appendChild(span);
+          div.appendChild(delBtn);
+          profilesList.appendChild(div);
+        });
+        if (window.lucide) lucide.createIcons();
+      }
+
+      saveProfileBtn.onclick = () => {
+        const name = profileNameInput.value.trim();
+        if (!name) {
+          alert("Escribe un nombre para el perfil.");
+          return;
+        }
+
+        const config = {};
+        temasCargados.forEach(t => {
+          if (temasSeleccionados.has(t.nombre)) {
+            config[t.nombre] = t.porcentaje;
+          }
+        });
+
+        if (Object.keys(config).length === 0) {
+          alert("Selecciona al menos un tema con peso antes de guardar.");
+          return;
+        }
+
+        perfilesEstudio[name] = config;
+        localStorage.setItem('quizPerfilesPesos', JSON.stringify(perfilesEstudio));
+        profileNameInput.value = '';
+        renderPerfiles();
+        alert(`Perfil "${name}" guardado.`);
+      };
+
+      function cargarPerfil(name) {
+        const config = perfilesEstudio[name];
+        if (!config) return;
+
+        temasSeleccionados.clear();
+        temasCargados.forEach(t => {
+          if (config.hasOwnProperty(t.nombre)) {
+            temasSeleccionados.add(t.nombre);
+            t.porcentaje = config[t.nombre];
+          } else {
+            t.porcentaje = 0;
+          }
+        });
+
+        renderTemasLista();
+        renderCategoriasDisponibles(); // Sincronizar checkboxes de categorías
+        activeProfileName = name;
+        renderPerfiles();
+        alert(`Perfil "${name}" cargado con éxito.`);
+      }
+
+
+      function ajustarPorcentajeDinamicamente(idxEditado, nuevoValor) {
+        if (nuevoValor > 100) nuevoValor = 100;
+        if (nuevoValor < 0) nuevoValor = 0;
+
+        const temaEditado = temasCargados[idxEditado];
+        const otrosArr = temasCargados.filter((t, i) => temasSeleccionados.has(t.nombre) && i !== idxEditado);
+
+        if (otrosArr.length === 0) {
+          temaEditado.porcentaje = 100;
+        } else {
+          temaEditado.porcentaje = nuevoValor;
+          let sumaTotal = temasCargados.reduce((acc, t) => acc + (temasSeleccionados.has(t.nombre) ? t.porcentaje : 0), 0);
+          let diff = 100 - sumaTotal;
+
+          if (diff !== 0) {
+            let step = diff > 0 ? 1 : -1;
+            let absDiff = Math.abs(diff);
+
+            while (absDiff > 0) {
+              let cambios = 0;
+              for (let t of otrosArr) {
+                if (absDiff === 0) break;
+                if (step === -1 && t.porcentaje <= 0) continue;
+                if (step === 1 && t.porcentaje >= 100) continue;
+                t.porcentaje += step;
+                absDiff--;
+                cambios++;
+              }
+              if (cambios === 0) {
+                temaEditado.porcentaje += (step === 1 ? -absDiff : absDiff);
+                break;
+              }
+            }
+          }
+        }
+        sincronizarInputsUI();
+        actualizarTextoEstado();
+      }
+
+      function sincronizarInputsUI() {
         temasCargados.forEach((t, idx) => {
           const input = document.getElementById('input-porcentaje-' + idx);
           if (input) {
@@ -1024,12 +2271,8 @@
             input.disabled = !temasSeleccionados.has(t.nombre);
           }
           const spanPercent = document.getElementById('span-percent-' + idx);
-          if (spanPercent) {
-            spanPercent.textContent = t.porcentaje + '%';
-          }
+          if (spanPercent) spanPercent.textContent = t.porcentaje + '%';
         });
-
-        actualizarTextoEstado();
       }
 
       function actualizarTextoEstado() {
@@ -1041,18 +2284,22 @@
         }, 0);
 
         const numSel = temasSeleccionados.size;
-        menuStatus.style.color = 'black';
+        menuStatus.style.color = 'var(--text-main)';
+
         menuStatus.innerHTML = `Temas seleccionados: <b>${numSel}</b>. Suma total de peso: <b>${sumaTotal}%</b>.`;
 
         const algunTemaConPeso = Array.from(temasSeleccionados).some(name => {
           const t = temasCargados.find(tc => tc.nombre === name);
           return t && (t.porcentaje || 0) > 0;
         });
-        startTestBtn.disabled = temasSeleccionados.size === 0 || !algunTemaConPeso;
+
+        startTestBtn.disabled = temasSeleccionados.size === 0 || !algunTemaConPeso || sumaTotal !== 100;
+        startTestBtn.title = (sumaTotal !== 100 && numSel > 0) ? "La suma debe ser exactamente 100%" : "";
       }
 
       function renderTemasLista() {
         temasLista.innerHTML = '';
+        actualizarTextoEstado();
         if (temasCargados.length === 0) {
           temasLista.innerHTML = '<em>No hay temas cargados.</em>';
           startTestBtn.disabled = true;
@@ -1063,83 +2310,301 @@
         headerContainer.className = 'bulk-actions';
 
         const selAllBtn = document.createElement('button');
-        selAllBtn.textContent = 'Seleccionar Todos';
+        selAllBtn.innerHTML = '<i data-lucide="check-square"></i> Todos';
         selAllBtn.onclick = () => {
           temasCargados.forEach(t => temasSeleccionados.add(t.nombre));
+          distribuirPorcentajesEquitativamente();
           renderTemasLista();
         };
 
         const deselAllBtn = document.createElement('button');
-        deselAllBtn.textContent = 'Deseleccionar Todos';
+        deselAllBtn.innerHTML = '<i data-lucide="square"></i> Ninguno';
         deselAllBtn.onclick = () => {
           temasSeleccionados.clear();
+          distribuirPorcentajesEquitativamente();
           renderTemasLista();
         };
 
+        const moveContainer = document.createElement('div');
+        moveContainer.className = 'move-to-cat-container';
+        moveContainer.innerHTML = `<i data-lucide="share-2" style="width:16px; height:16px;"></i> <span style="font-weight:600;">Mover a:</span>`;
+        const catSelect = document.createElement('select');
+        catSelect.className = 'move-to-cat-select';
+        categorias.forEach(cat => {
+          const opt = document.createElement('option');
+          opt.value = cat;
+          opt.textContent = cat;
+          catSelect.appendChild(opt);
+        });
+        const moveBtn = document.createElement('button');
+        moveBtn.innerHTML = '<i data-lucide="chevron-right"></i> Mover';
+        moveBtn.style.padding = '0.3rem 0.8rem';
+        moveBtn.onclick = () => {
+          const targetCat = catSelect.value;
+          let count = 0;
+          temasCargados.forEach(t => {
+            if (temasSeleccionados.has(t.nombre)) {
+              t.categoria = targetCat;
+              count++;
+            }
+          });
+          if (count > 0) {
+            guardarTemasCargadosEnStorage();
+            renderTemasLista();
+          } else {
+            alert("Selecciona al menos un tema para mover.");
+          }
+        };
+        moveContainer.appendChild(catSelect);
+        moveContainer.appendChild(moveBtn);
+
         headerContainer.appendChild(selAllBtn);
         headerContainer.appendChild(deselAllBtn);
+        headerContainer.appendChild(moveContainer);
         temasLista.appendChild(headerContainer);
 
-        temasCargados.forEach((tema, idx) => {
-          const div = document.createElement('div');
-          div.className = 'tema-item';
+        // Renderizado por Categorías
+        categorias.forEach(catName => {
+          const temasDeEstaCat = temasCargados.filter(t => (t.categoria || 'General') === catName);
+          if (temasDeEstaCat.length === 0) return;
 
-          const checkbox = document.createElement('input');
-          checkbox.type = 'checkbox';
-          checkbox.id = 'tema-checkbox-' + idx;
-          checkbox.checked = temasSeleccionados.has(tema.nombre);
+          const catDiv = document.createElement('div');
+          catDiv.className = 'category-group';
 
-          checkbox.onchange = () => {
-            if (checkbox.checked) {
-              temasSeleccionados.add(tema.nombre);
-            } else {
-              temasSeleccionados.delete(tema.nombre);
-            }
+          // Header con checkbox para selección masiva
+          const headerDiv = document.createElement('div');
+          headerDiv.className = 'category-header';
+
+          const titleSpan = document.createElement('span');
+          titleSpan.className = 'category-title';
+          titleSpan.innerHTML = `<i data-lucide="folder"></i> ${catName}`;
+
+          const headerCheckContainer = document.createElement('div');
+          headerCheckContainer.className = 'header-checkbox-container';
+          headerCheckContainer.style.fontSize = '0.85rem';
+          headerCheckContainer.style.fontWeight = '600';
+
+          const headerCheck = document.createElement('input');
+          headerCheck.type = 'checkbox';
+          headerCheck.title = 'Seleccionar/Deseleccionar toda la categoría';
+
+          // Si todos los temas de la categoría están seleccionados, marcar el header
+          headerCheck.checked = temasDeEstaCat.every(t => temasSeleccionados.has(t.nombre));
+
+          headerCheck.onchange = () => {
+            temasDeEstaCat.forEach(t => {
+              if (headerCheck.checked) temasSeleccionados.add(t.nombre);
+              else temasSeleccionados.delete(t.nombre);
+            });
             distribuirPorcentajesEquitativamente();
-          };
-          div.appendChild(checkbox);
-
-          const label = document.createElement('label');
-          label.htmlFor = 'tema-checkbox-' + idx;
-          label.textContent = tema.nombre;
-          label.style.marginLeft = '0.5em';
-          label.style.flexGrow = '1';
-          div.appendChild(label);
-
-          const inputPorcentaje = document.createElement('input');
-          inputPorcentaje.type = 'number';
-          inputPorcentaje.id = 'input-porcentaje-' + idx;
-          inputPorcentaje.min = 0;
-          inputPorcentaje.max = 100;
-          inputPorcentaje.value = tema.porcentaje || 0;
-          inputPorcentaje.style.width = '55px';
-          inputPorcentaje.disabled = !temasSeleccionados.has(tema.nombre);
-
-          inputPorcentaje.oninput = () => {
-            let val = parseInt(inputPorcentaje.value);
-            if (isNaN(val) || val < 0) val = 0;
-            tema.porcentaje = val;
-            actualizarTextoEstado();
+            renderTemasLista();
           };
 
-          div.appendChild(inputPorcentaje);
-          div.appendChild(document.createTextNode('%'));
+          headerCheckContainer.appendChild(headerCheck);
+          headerCheckContainer.appendChild(document.createTextNode(' SELECCIONAR TODO'));
 
-          const removeBtn = document.createElement('button');
-          removeBtn.textContent = 'Retirar';
-          removeBtn.className = 'remove-tema-btn';
-          removeBtn.title = 'Quitar tema de la lista de forma definitiva';
-          removeBtn.onclick = () => {
-            if (confirm(`¿Retirar definitivamente "${tema.nombre}" de la lista?\n(No se borrará el archivo de su sistema)`)) {
-              retirarTema(tema.nombre);
+          headerDiv.appendChild(titleSpan);
+          headerDiv.appendChild(headerCheckContainer);
+          catDiv.appendChild(headerDiv);
+
+          temasDeEstaCat.forEach((tema) => {
+            const idx = temasCargados.findIndex(t => t.nombre === tema.nombre);
+            const div = document.createElement('div');
+            div.className = 'tema-item';
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = 'tema-checkbox-' + idx;
+            checkbox.checked = temasSeleccionados.has(tema.nombre);
+
+            checkbox.onchange = () => {
+              if (checkbox.checked) {
+                temasSeleccionados.add(tema.nombre);
+              } else {
+                temasSeleccionados.delete(tema.nombre);
+              }
+              distribuirPorcentajesEquitativamente();
+              renderTemasLista(); // Redibujar para actualizar el check de categoría
+            };
+            div.appendChild(checkbox);
+
+            const label = document.createElement('label');
+            label.htmlFor = 'tema-checkbox-' + idx;
+            label.textContent = tema.nombre;
+            label.style.marginLeft = '0.5em';
+            label.style.flexGrow = '1';
+            label.style.fontWeight = '500';
+            div.appendChild(label);
+
+            const inputPorcentaje = document.createElement('input');
+            inputPorcentaje.type = 'number';
+            inputPorcentaje.id = 'input-porcentaje-' + idx;
+            inputPorcentaje.min = 0;
+            inputPorcentaje.max = 100;
+            inputPorcentaje.value = tema.porcentaje || 0;
+            inputPorcentaje.style.width = '55px';
+            inputPorcentaje.disabled = !temasSeleccionados.has(tema.nombre);
+
+            inputPorcentaje.oninput = () => {
+              let val = parseInt(inputPorcentaje.value);
+              if (isNaN(val) || val < 0) val = 0;
+              ajustarPorcentajeDinamicamente(idx, val);
+            };
+
+            div.appendChild(inputPorcentaje);
+            div.appendChild(document.createTextNode('%'));
+
+            const actionsDiv = document.createElement('div');
+            actionsDiv.style.display = 'flex';
+            actionsDiv.style.gap = '5px';
+            actionsDiv.style.marginLeft = '10px';
+
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'remove-tema-btn icon-only';
+            removeBtn.innerHTML = '<i data-lucide="trash-2"></i>';
+            removeBtn.title = 'Retirar tema';
+            removeBtn.onclick = () => {
+              if (confirm(`¿Retirar definitivamente "${tema.nombre}"?`)) {
+                retirarTema(tema.nombre);
+              }
+            };
+            actionsDiv.appendChild(removeBtn);
+
+            const failedStore = JSON.parse(localStorage.getItem('failedQuestions')) || {};
+            const themeMistakes = Object.values(failedStore).filter(m => m.temaNombre === tema.nombre);
+
+            if (themeMistakes.length > 0) {
+              const reviewMistakesBtn = document.createElement('button');
+              reviewMistakesBtn.innerHTML = `<i data-lucide="flame"></i> ${themeMistakes.length}`;
+              reviewMistakesBtn.className = 'test-mistakes-btn';
+              reviewMistakesBtn.style.padding = '0.3rem 0.6rem';
+              reviewMistakesBtn.style.fontSize = '0.8rem';
+              reviewMistakesBtn.onclick = () => startMistakesTest(tema.nombre);
+              actionsDiv.appendChild(reviewMistakesBtn);
             }
-          };
-          div.appendChild(removeBtn);
 
-          temasLista.appendChild(div);
+            div.appendChild(actionsDiv);
+            catDiv.appendChild(div);
+          });
+          temasLista.appendChild(catDiv);
         });
 
+        if (window.lucide) lucide.createIcons();
         distribuirPorcentajesEquitativamente();
+        renderCategoriasDisponibles(); // Sincronizar checkboxes de categorías superiores
+
+        // Mostrar sección de mover masivo si hay temas
+        moveToCatMgmt.style.display = temasCargados.length > 0 ? 'block' : 'none';
+
+        actualizarContadorFallosGlobal();
+      }
+
+      bulkMoveBtn.onclick = () => {
+        const selectedThemesNames = Array.from(temasSeleccionados);
+        if (selectedThemesNames.length === 0) {
+          alert("Selecciona al menos un tema para mover.");
+          return;
+        }
+
+        let catName = bulkNewCatInput.value.trim();
+        if (!catName) {
+          catName = bulkCatSelector.value;
+        }
+
+        if (!catName) {
+          alert("Selecciona o escribe el nombre de una categoría.");
+          return;
+        }
+
+        // Si es nueva, añadirla
+        if (!categorias.includes(catName)) {
+          categorias.push(catName);
+          localStorage.setItem('quizCategorias', JSON.stringify(categorias));
+        }
+
+        // Mover temas
+        temasCargados.forEach(t => {
+          if (temasSeleccionados.has(t.nombre)) {
+            t.categoria = catName;
+          }
+        });
+
+        bulkNewCatInput.value = '';
+        bulkCatSelector.value = '';
+        guardarTemasCargadosEnStorage();
+        renderCategoriasDisponibles();
+        renderTemasLista();
+        alert(`Movidos ${selectedThemesNames.length} temas a "${catName}"`);
+      };
+
+      function actualizarContadorFallosGlobal() {
+        const failedStore = JSON.parse(localStorage.getItem('failedQuestions')) || {};
+        const count = Object.keys(failedStore).length;
+        const globalBtn = document.getElementById('test-mistakes-global-btn');
+        const countSpan = document.getElementById('global-mistakes-count');
+
+        if (countSpan) countSpan.textContent = count;
+        if (globalBtn) globalBtn.disabled = (count === 0);
+      }
+
+      function syncFailedQuestions() {
+        let store = JSON.parse(localStorage.getItem('failedQuestions')) || {};
+
+        questions.forEach(q => {
+          const key = `${q.temaNombre}:::${q.id}`;
+          const userAnswer = answers[q.id];
+
+          if (answers.hasOwnProperty(q.id)) {
+            if (userAnswer === q.correct) {
+              // Si la responde bien, sale de la lista de fallos
+              delete store[key];
+            } else if (userAnswer !== null) {
+              // Si falla (no blanco), entra/sigue en la lista
+              store[key] = {
+                ...q,
+                lastAttempt: new Date().toISOString()
+              };
+            }
+          }
+        });
+
+        localStorage.setItem('failedQuestions', JSON.stringify(store));
+        actualizarContadorFallosGlobal();
+      }
+
+      function startMistakesTest(temaNombre = null) {
+        const failedStore = JSON.parse(localStorage.getItem('failedQuestions')) || {};
+        let mistakes = Object.values(failedStore);
+
+        if (temaNombre) {
+          mistakes = mistakes.filter(m => m.temaNombre === temaNombre);
+        }
+
+        if (mistakes.length === 0) {
+          alert("No hay preguntas fallidas para repasar.");
+          return;
+        }
+
+        // --- Configuración previa para el modo fallos ---
+        // Detener timer de tests anteriores si existen
+        if (timerInterval) clearInterval(timerInterval);
+        timerElem.style.display = 'none';
+
+        // Barajamos errores
+        questions = mistakes.sort(() => Math.random() - 0.5);
+
+        currentIndex = 0;
+        answers = {};
+        score = 0;
+
+        // El modo de repaso de fallos siempre es "estudio" por defecto para ayudar al aprendizaje
+        currentTestMode = 'estudio';
+
+        showView('quiz-container');
+        renderQuestion(currentIndex);
+        saveState();
+        menuStatus.style.color = '#f59e0b';
+        menuStatus.textContent = `Repasando ${questions.length} errores ${temaNombre ? `de "${temaNombre}"` : 'globales'}.`;
       }
 
       function retirarTema(nombre) {
@@ -1148,14 +2613,173 @@
         // Eliminar de seleccionados
         temasSeleccionados.delete(nombre);
 
-        // Eliminar de localStorage
-        let temasGuardados = JSON.parse(localStorage.getItem('temasGuardados')) || [];
-        temasGuardados = temasGuardados.filter(t => t.nombre !== nombre);
-        localStorage.setItem('temasGuardados', JSON.stringify(temasGuardados));
+        guardarTemasCargadosEnStorage();
 
+        distribuirPorcentajesEquitativamente();
         renderTemasLista();
         menuStatus.textContent = `Se ha retirado el tema: ${nombre}`;
       }
+
+      // --- LÓGICA DEL CREADOR ---
+      function updateCreatorPreview() {
+        creatorQuestionsPreview.innerHTML = '';
+        creatorQCount.textContent = creatorQuestions.length;
+
+        creatorQuestions.forEach((q, idx) => {
+          const div = document.createElement('div');
+          div.className = 'creator-q-item';
+          div.innerHTML = `
+            <div style="font-size: 0.9rem;">
+              <strong>#${idx + 1}:</strong> ${q.question.substring(0, 50)}${q.question.length > 50 ? '...' : ''}
+              <br><small>Resp correct: ${q.correct.toUpperCase()}</small>
+            </div>
+          `;
+          const delBtn = document.createElement('button');
+          delBtn.textContent = 'X';
+          delBtn.onclick = () => {
+            creatorQuestions.splice(idx, 1);
+            updateCreatorPreview();
+          };
+          div.appendChild(delBtn);
+          creatorQuestionsPreview.appendChild(div);
+        });
+      }
+
+      function cleanManualForm() {
+        creatorQText.value = '';
+        creatorOptA.value = '';
+        creatorOptB.value = '';
+        creatorOptC.value = '';
+        creatorOptD.value = '';
+        creatorQComment.value = '';
+      }
+
+      creatorAddBtn.onclick = () => {
+        const qText = creatorQText.value.trim();
+        const a = creatorOptA.value.trim();
+        const b = creatorOptB.value.trim();
+        const c = creatorOptC.value.trim();
+        const d = creatorOptD.value.trim();
+
+        if (!qText || !a || !b) {
+          alert("La pregunta y al menos dos opciones (A y B) son obligatorias.");
+          return;
+        }
+
+        const newQ = {
+          id: 'custom-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9),
+          question: qText,
+          options: { a, b, c, d },
+          correct: creatorOptCorrect.value,
+          comment: creatorQComment.value.trim()
+        };
+
+        creatorQuestions.push(newQ);
+        updateCreatorPreview();
+        cleanManualForm();
+      };
+
+      creatorParseBtn.onclick = () => {
+        const text = creatorBulkText.value.trim();
+        if (!text) return;
+
+        const lines = text.split('\n');
+        let count = 0;
+        lines.forEach(line => {
+          const parts = line.split('|').map(p => p.trim());
+          if (parts.length >= 6) {
+            const newQ = {
+              id: 'bulk-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9),
+              question: parts[0],
+              options: {
+                a: parts[1],
+                b: parts[2],
+                c: parts[3] || '',
+                d: parts[4] || ''
+              },
+              correct: parts[5].toLowerCase(),
+              comment: parts[6] || ''
+            };
+            creatorQuestions.push(newQ);
+            count++;
+          }
+        });
+
+        if (count > 0) {
+          alert(`Se han parseado ${count} preguntas.`);
+          updateCreatorPreview();
+          creatorBulkText.value = '';
+        } else {
+          alert("No se encontró ninguna línea válida. Asegúrate de usar el formato: Pregunta | A | B | C | D | Correcta | Comentario");
+        }
+      };
+
+      creatorSaveBtn.onclick = () => {
+        const name = creatorThemeName.value.trim();
+        if (!name) {
+          alert("Asigna un nombre al tema antes de guardar.");
+          return;
+        }
+        if (creatorQuestions.length === 0) {
+          alert("Añade al menos una pregunta.");
+          return;
+        }
+
+        const themeContent = JSON.stringify({ questions: creatorQuestions });
+
+        // Integrar en la App
+        temasCargados.push({ nombre: name, preguntas: creatorQuestions, porcentaje: 0, categoria: 'General' });
+        temasSeleccionados.add(name);
+
+        // Guardar en localStorage para persistencia
+        guardarTemasCargadosEnStorage();
+
+        alert("¡Tema guardado con éxito! Ya puedes seleccionarlo en el menú.");
+        creatorCancelBtn.onclick();
+        distribuirPorcentajesEquitativamente();
+        renderTemasLista();
+      };
+
+      creatorDownloadBtn.onclick = () => {
+        const name = creatorThemeName.value.trim() || 'nuevo-tema';
+        if (creatorQuestions.length === 0) {
+          alert("Añade al menos una pregunta.");
+          return;
+        }
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ questions: creatorQuestions }, null, 2));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", name.replace(/\s+/g, '_') + ".json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+      };
+
+      showCreatorBtn.onclick = () => {
+        creatorQuestions = [];
+        creatorThemeName.value = '';
+        updateCreatorPreview();
+        showView('creator-container');
+      };
+
+      creatorCancelBtn.onclick = () => {
+        showView('main-menu');
+      };
+
+      // Tabs
+      document.getElementById('tab-manual').onclick = () => {
+        document.getElementById('tab-manual').classList.add('active');
+        document.getElementById('tab-bulk').classList.remove('active');
+        document.getElementById('creator-manual-section').style.display = 'block';
+        document.getElementById('creator-bulk-section').style.display = 'none';
+      };
+
+      document.getElementById('tab-bulk').onclick = () => {
+        document.getElementById('tab-bulk').classList.add('active');
+        document.getElementById('tab-manual').classList.remove('active');
+        document.getElementById('creator-bulk-section').style.display = 'block';
+        document.getElementById('creator-manual-section').style.display = 'none';
+      };
 
       fileMultipleInput.onchange = e => {
         const files = e.target.files;
@@ -1196,18 +2820,17 @@
               });
               // -----------------------------------------
 
-              const nuevoTema = { nombre: file.name, preguntas: preguntasNormalizadas, porcentaje: 0 };
+              const nuevoTema = { nombre: file.name, preguntas: preguntasNormalizadas, porcentaje: 0, categoria: 'General' };
               temasCargados.push(nuevoTema);
-
-              temasGuardados.push({ nombre: file.name, contenido: JSON.stringify({ questions: preguntasNormalizadas }) }); // Guardamos ya normalizado
 
               temasSeleccionados.add(file.name);
               cargados++;
 
               if (cargados === files.length) {
-                localStorage.setItem('temasGuardados', JSON.stringify(temasGuardados));
+                guardarTemasCargadosEnStorage();
                 menuStatus.textContent = `Cargados ${cargados} archivos de temas`;
 
+                distribuirPorcentajesEquitativamente();
                 renderTemasLista();
               }
             } catch (e) { // Capturamos 'e' para ver el error en consola si hace falta
@@ -1233,23 +2856,54 @@
         localStorage.removeItem('notesCache');
       };
 
+      let questionRemaining = 0; // Variable compartida
+
       startTestBtn.onclick = () => {
-        // Actualizamos el modo de test al pulsar iniciar
         currentTestMode = document.querySelector('input[name="test-mode"]:checked')?.value || 'estudio';
-        console.log("Iniciando test en modo:", currentTestMode);
 
         if (currentTestMode === 'simulacro') {
           timerElem.style.display = 'block';
           if (timerInterval) clearInterval(timerInterval);
+
+          const totalTimeLimit = parseInt(document.getElementById('total-time-input').value) * 60;
+          const qTimeLimit = parseInt(document.getElementById('q-time-input').value);
+
+          let currentRemaining = totalTimeLimit;
+          questionRemaining = qTimeLimit;
           startTime = Date.now();
+
           timerInterval = setInterval(() => {
-            const elapsedTime = Date.now() - startTime;
-            const seconds = Math.floor(elapsedTime / 1000) % 60;
-            const minutes = Math.floor(elapsedTime / (1000 * 60));
-            timerElem.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            currentRemaining--;
+            if (currentRemaining <= 0) {
+              clearInterval(timerInterval);
+              showSummary();
+              return;
+            }
+
+            if (qTimeLimit > 0) {
+              questionRemaining--;
+              if (questionRemaining < 0) {
+                if (currentIndex < questions.length - 1) {
+                  skipBtn.click();
+                  questionRemaining = qTimeLimit;
+                } else {
+                  clearInterval(timerInterval);
+                  showSummary();
+                }
+              }
+              timerElem.textContent = `Global: ${formatTime(currentRemaining)} | Pregunta: ${questionRemaining}s`;
+            } else {
+              timerElem.textContent = formatTime(currentRemaining);
+            }
           }, 1000);
         } else {
           timerElem.style.display = 'none';
+        }
+
+        function formatTime(seconds) {
+          const m = Math.floor(seconds / 60);
+          const s = seconds % 60;
+          return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
         }
 
         const totalPreguntas = parseInt(totalQuestionsInput.value);
@@ -1342,8 +2996,45 @@
         skipBtn.disabled = true;
 
         nextBtn.disabled = false;
+        actualizarBotonPendientes();
         nextBtn.onclick();
       };
+
+      function actualizarBotonPendientes() {
+        if (!questions || questions.length === 0) {
+          pendingBtn.style.display = 'none';
+          return;
+        }
+        const hasUnanswered = questions.some(q => !answers.hasOwnProperty(q.id));
+        pendingBtn.style.display = hasUnanswered ? 'inline-flex' : 'none';
+      }
+
+      pendingBtn.onclick = () => {
+        const firstUnanswered = questions.findIndex(q => !answers.hasOwnProperty(q.id));
+        if (firstUnanswered !== -1) {
+          currentIndex = firstUnanswered;
+          renderQuestion(currentIndex);
+          saveState();
+        }
+      };
+
+      // --- ATAJOS DE TECLADO ---
+      document.addEventListener('keydown', (e) => {
+        // Ignorar si el usuario está escribiendo en un input o textarea
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        if (e.code === 'Space') {
+          e.preventDefault();
+          if (!nextBtn.disabled) {
+            nextBtn.click();
+          }
+        } else if (e.code === 'Backspace') {
+          if (!prevBtn.disabled) {
+            e.preventDefault();
+            prevBtn.click();
+          }
+        }
+      });
 
       function renderQuestion(index) {
         explainBtn.style.display = 'none';
@@ -1353,7 +3044,8 @@
         staticCommentContainer.style.display = 'none';
         staticCommentContainer.innerHTML = '';
         staticCommentContainer.className = 'static-comment-box'; // Aseguramos que tenga la clase base
-        // -----------------------------------------
+        // NUEVO: RESETEO DE RESERVA
+        reserveNotice.style.display = 'none';
 
         const progressBar = document.getElementById('progress-bar');
         const progress = ((index + 1) / questions.length) * 100;
@@ -1376,6 +3068,11 @@
           }
         }
         // ---------------------------------------------
+
+        // --- MOSTRAR AVISO DE RESERVA ---
+        if (index >= 100) {
+          reserveNotice.style.display = 'block';
+        }
 
         questionText.textContent = `Pregunta ${index + 1}: ${q.question}`;
         optionsContainer.innerHTML = '';
@@ -1410,7 +3107,7 @@
             skipBtn.disabled = true;
 
             if (userChoiceKey === q.correct) {
-              if (currentTestMode === 'estudio') score++;
+              score++;
               feedback.textContent = '¡Correcto!';
               feedback.style.color = '#4caf50';
             } else {
@@ -1463,6 +3160,8 @@
         prevBtn.disabled = index === 0;
         nextBtn.disabled = !questionAnswered;
         scoreElem.textContent = score;
+        actualizarBotonPendientes();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
       function showView(viewId) {
@@ -1471,7 +3170,7 @@
         } else {
           mainNavbar.classList.remove('hidden');
         }
-        const views = ['main-menu', 'quiz-container', 'summary-container', 'history-container'];
+        const views = ['main-menu', 'quiz-container', 'summary-container', 'history-container', 'creator-container', 'help-container'];
         views.forEach(id => {
           const el = document.getElementById(id);
           if (id === viewId) {
@@ -1489,6 +3188,11 @@
           currentIndex++;
           renderQuestion(currentIndex);
           saveState();
+          // Resetear tiempo por pregunta si aplica
+          const qTimeLimit = parseInt(document.getElementById('q-time-input').value);
+          if (currentTestMode === 'simulacro' && qTimeLimit > 0) {
+            questionRemaining = qTimeLimit;
+          }
         } else {
           showSummary();
         }
@@ -1553,18 +3257,28 @@
           const notaNeta = aciertos - (errores / 3);
           const notaSobre10 = (notaNeta / questions.length) * 10;
           summaryHTML = `
-            <div style="text-align:left; margin-top:1em;">
-              <p><strong>Aciertos:</strong> ${aciertos} | <strong>Errores:</strong> ${errores} | <strong>En blanco:</strong> ${blancas}</p>
-              <p><strong>Tiempo:</strong> ${tiempoTotalTexto} | <strong>Puntuación Neta:</strong> ${notaNeta.toFixed(2)}</p>
-              <h3 style="text-align:center;">Nota Final: ${Math.max(0, notaSobre10).toFixed(2)} / 10.00</h3>
+            <div class="summary-stats-grid">
+              <div class="stat-card"><i data-lucide="check-circle" style="color:var(--success)"></i> <span>Aciertos: ${aciertos}</span></div>
+              <div class="stat-card"><i data-lucide="x-circle" style="color:var(--error)"></i> <span>Errores: ${errores}</span></div>
+              <div class="stat-card"><i data-lucide="minus-circle" style="color:var(--text-muted)"></i> <span>Blancas: ${blancas}</span></div>
+              <div class="stat-card"><i data-lucide="clock"></i> <span>Tiempo: ${tiempoTotalTexto}</span></div>
+            </div>
+            <div class="final-score-box">
+              <i data-lucide="award" style="width:32px; height:32px; color:var(--primary);"></i>
+              <h3>Nota Final: ${Math.max(0, notaSobre10).toFixed(2)} / 10.00</h3>
             </div>
           `;
         } else {
           const notaSobre10 = (aciertos / questions.length) * 10;
           summaryHTML = `
-            <div style="text-align:left; margin-top:1em;">
-              <p><strong>Aciertos:</strong> ${aciertos} | <strong>Errores:</strong> ${errores} | <strong>En blanco:</strong> ${blancas}</p>
-              <h3 style="text-align:center;">Nota Final: ${notaSobre10.toFixed(2)} / 10.00</h3>
+            <div class="summary-stats-grid">
+              <div class="stat-card"><i data-lucide="check-circle" style="color:var(--success)"></i> <span>Aciertos: ${aciertos}</span></div>
+              <div class="stat-card"><i data-lucide="x-circle" style="color:var(--error)"></i> <span>Errores: ${errores}</span></div>
+              <div class="stat-card"><i data-lucide="minus-circle" style="color:var(--text-muted)"></i> <span>Blancas: ${blancas}</span></div>
+            </div>
+            <div class="final-score-box">
+              <i data-lucide="award" style="width:32px; height:32px; color:var(--primary);"></i>
+              <h3>Nota Final: ${notaSobre10.toFixed(2)} / 10.00</h3>
             </div>
           `;
         }
@@ -1602,7 +3316,9 @@
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
 
+        if (window.lucide) lucide.createIcons();
         saveTestToHistory();
+        syncFailedQuestions();
       }
 
       function renderQuestionsByFilter(filter) {
@@ -1825,7 +3541,12 @@
           temasGuardados.forEach(temaGuardado => {
             try {
               const data = JSON.parse(temaGuardado.contenido);
-              temasCargados.push({ nombre: temaGuardado.nombre, preguntas: data.questions, porcentaje: 0 });
+              temasCargados.push({
+                nombre: temaGuardado.nombre,
+                preguntas: data.questions,
+                porcentaje: 0,
+                categoria: temaGuardado.categoria || 'General'
+              });
               temasSeleccionados.add(temaGuardado.nombre);
             } catch (e) {
               console.error("Error al parsear un tema guardado:", temaGuardado.nombre);
@@ -1835,12 +3556,14 @@
           if (temasCargados.length > 0) {
             menuStatus.textContent = `Se cargaron ${temasCargados.length} temas guardados.`;
 
-            recalcularPorcentajesEquitativamente();
+            distribuirPorcentajesEquitativamente();
 
             renderTemasLista();
           }
         }
 
+        renderPerfiles();
+        renderCategoriasDisponibles();
         quizContainer.style.display = 'none';
       };
       const presetButtons = document.querySelectorAll('.preset-buttons button');
@@ -1968,21 +3691,72 @@
         }
       };
       const modeButtons = document.querySelectorAll('.mode-button');
+      const timerConfig = document.getElementById('timer-config');
+
       modeButtons.forEach(button => {
         button.onclick = () => {
           modeButtons.forEach(btn => btn.classList.remove('active'));
           button.classList.add('active');
-          // No hace falta actualizar currentTestMode aquí porque se lee al dar a Iniciar Test, 
-          // pero lo hacemos por consistencia si se usa en otros sitios.
-          const checkedInput = document.querySelector('input[name="test-mode"]:checked');
-          if (checkedInput) {
-            currentTestMode = checkedInput.value;
-            console.log("Modo de test seleccionado visualmente:", currentTestMode);
+
+          const radioId = button.getAttribute('for');
+          const radio = document.getElementById(radioId);
+          if (radio) radio.checked = true;
+
+          currentTestMode = radio?.value;
+
+          // Mostrar/Ocultar configuración de tiempo
+          if (currentTestMode === 'simulacro') {
+            timerConfig.style.display = 'flex';
+          } else {
+            timerConfig.style.display = 'none';
           }
         };
       });
+      testMistakesGlobalBtn.onclick = () => startMistakesTest();
+
+      resetMenuBtn.onclick = () => {
+        if (confirm('¿Desea quitar TODOS los temas de la lista?')) {
+          temasCargados = [];
+          temasSeleccionados.clear();
+          localStorage.removeItem('temasGuardados');
+          renderTemasLista();
+          menuStatus.textContent = 'Se han quitado todos los temas.';
+        }
+      };
+
+      actualizarContadorFallosGlobal();
+
+      const showHelpBtn = document.getElementById('show-help-btn');
+      const closeHelpBtn = document.getElementById('close-help-btn');
+      showHelpBtn.onclick = () => showView('help-container');
+      closeHelpBtn.onclick = () => showView('main-menu');
+
+      // --- LÓGICA DE TEMAS ---
+      const themeSelector = document.getElementById('theme-selector');
+      const savedTheme = localStorage.getItem('app-theme') || 'light';
+
+      const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (themeSelector) themeSelector.value = theme;
+        localStorage.setItem('app-theme', theme);
+      };
+
+      if (themeSelector) {
+        themeSelector.onchange = (e) => applyTheme(e.target.value);
+      }
+
+      applyTheme(savedTheme);
     });
   </script>
+
+  <footer class="bottom-banner">
+    <h2>TestAPP</h2>
+    <div class="about">
+      <strong>About:</strong> Hecho totalmente en HTML en Gemini.
+      <br>
+      <small>© 2026 Plataforma de Entrenamiento Inteligente</small>
+    </div>
+  </footer>
 
 </body>
 

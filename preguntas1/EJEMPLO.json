@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "¿Quién escribió 'Don Quijote de la Mancha'?",
+      "options": {
+        "A": "Miguel de Cervantes",
+        "B": "García Márquez",
+        "C": "Lope de Vega",
+        "D": "Francisco de Quevedo"
+      },
+      "correct": "A",
+      "comment": "Miguel de Cervantes Saavedra es el autor de esta obra cumbre de la literatura española, publicada en 1605."
+    },
+    {
+      "id": 2,
+      "question": "¿Cuál es el océano más grande del mundo?",
+      "options": {
+        "A": "Atlántico",
+        "B": "Índico",
+        "C": "Pacífico",
+        "D": "Ártico"
+      },
+      "correct": "C",
+      "comment": "El océano Pacífico es el más extenso de la Tierra, ocupando la tercera parte de su superficie."
+    },
+    {
+      "id": 3,
+      "question": "¿Quién pintó la 'Mona Lisa'?",
+      "options": {
+        "A": "Vincent van Gogh",
+        "B": "Pablo Picasso",
+        "C": "Leonardo da Vinci",
+        "D": "Rembrandt"
+      },
+      "correct": "C",
+      "comment": "Leonardo da Vinci, el gran polímata del Renacimiento, pintó este famoso retrato a principios del siglo XVI."
+    },
+    {
+      "id": 4,
+      "question": "¿Cuál es el símbolo químico del oro?",
+      "options": {
+        "A": "Ag",
+        "B": "Au",
+        "C": "Pb",
+        "D": "Fe"
+      },
+      "correct": "B",
+      "comment": "El símbolo 'Au' proviene del latín 'aurum' (amanecer radiante)."
+    },
+    {
+      "id": 5,
+      "question": "¿En qué año terminó la Segunda Guerra Mundial?",
+      "options": {
+        "A": "1945",
+        "B": "1939",
+        "C": "1918",
+        "D": "1950"
+      },
+      "correct": "A",
+      "comment": "La Segunda Guerra Mundial finalizó formalmente en 1945 con la rendición de Alemania y Japón."
+    },
+    {
+      "id": 6,
+      "question": "¿Cuál es la sustancia natural más dura de la Tierra?",
+      "options": {
+        "A": "Cuarzo",
+        "B": "Hierro",
+        "C": "Diamante",
+        "D": "Grafito"
+      },
+      "correct": "C",
+      "comment": "El diamante es un alótropo del carbono cuya estructura cristalina lo convierte en el material más duro conocido."
+    },
+    {
+      "id": 7,
+      "question": "¿Cuántos continentes hay en el mundo?",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct": "C",
+      "comment": "El modelo de los 7 continentes incluye: Asia, África, América del Norte, América del Sur, Antártida, Europa y Oceanía."
+    },
+    {
+      "id": 8,
+      "question": "¿Quién escribió la obra de teatro 'Romeo y Julieta'?",
+      "options": {
+        "A": "Charles Dickens",
+        "B": "William Shakespeare",
+        "C": "Homero",
+        "D": "Oscar Wilde"
+      },
+      "correct": "B",
+      "comment": "William Shakespeare es el dramaturgo inglés responsable de esta tragedia clásica sobre amantes desafortunados."
+    },
+    {
+      "id": 9,
+      "question": "¿Cuál es la capital de Japón?",
+      "options": {
+        "A": "Pekín",
+        "B": "Seúl",
+        "C": "Tokio",
+        "D": "Bangkok"
+      },
+      "correct": "C",
+      "comment": "Tokio es la sede del gobierno y el hogar del Palacio Imperial de Japón."
+    },
+    {
+      "id": 10,
+      "question": "¿Cuál es el gas más abundante en la atmósfera de la Tierra?",
+      "options": {
+        "A": "Oxígeno",
+        "B": "Dióxido de carbono",
+        "C": "Argón",
+        "D": "Nitrógeno"
+      },
+      "correct": "D",
+      "comment": "El nitrógeno constituye aproximadamente el 78% de la atmósfera terrestre, seguido por el oxígeno (21%)."
+    }
+  ]
+}
