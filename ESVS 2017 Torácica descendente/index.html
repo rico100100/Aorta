@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESVS 2017 Manejo de la Patología de Aorta Descendente</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'esvs-blue': '#0056b3',
+                        'esvs-red': '#d32f2f',
+                        'recommendation-i': '#d1fae5', // green-100
+                        'recommendation-i-border': '#10b981', // green-500
+                        'recommendation-iia': '#fef9c3', // yellow-100
+                        'recommendation-iia-border': '#eab308', // yellow-500
+                        'recommendation-iib': '#ffedd5', // orange-100
+                        'recommendation-iib-border': '#f97316', // orange-500
+                        'recommendation-iii': '#fee2e2', // red-100
+                        'recommendation-iii-border': '#ef4444', // red-500
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar for Sidebar */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Floating Abbreviation Window */
+        #abbreviation-window {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Typography sizing for mobile/desktop */
+        body {
+            font-size: 16px;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                font-size: 18px;
+                /* Larger font on mobile as requested */
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 antialiased" id="body-element">
+
+    <!-- Top Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-white dark:bg-gray-900 shadow-md z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn"
+                        class="text-gray-600 dark:text-gray-200 hover:text-gray-900 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Logo / Title -->
+                <div class="flex-shrink-0 flex items-center ml-4 md:ml-0">
+                    <span
+                        class="font-bold text-lg md:text-xl text-esvs-blue dark:text-blue-400 truncate max-w-[200px] md:max-w-none">
+                        ESVS 2017 Aorta Descendente
+                    </span>
+                </div>
+
+                <!-- Abbreviation Search (Permanent & Prominent) -->
+                <div class="flex-1 mx-4 max-w-lg relative">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </span>
+                        <input type="text" id="abbrev-search"
+                            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-full leading-5 bg-gray-100 placeholder-gray-500 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm dark:bg-gray-800 dark:border-gray-700 dark:text-white transition-all"
+                            placeholder="Buscar Abreviaturas (ej. AAA)...">
+                    </div>
+                </div>
+
+                <!-- Desktop Recommendation Filters & Settings -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <!-- Format Filters -->
+                    <div class="flex space-x-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+                        <button
+                            class="filter-btn px-3 py-1 rounded-md text-xs font-medium bg-white dark:bg-gray-700 shadow-sm text-gray-800 dark:text-white"
+                            data-filter="all">Todas</button>
+                        <button
+                            class="filter-btn px-3 py-1 rounded-md text-xs font-medium text-green-700 hover:bg-green-100"
+                            data-filter="I">I</button>
+                        <button
+                            class="filter-btn px-3 py-1 rounded-md text-xs font-medium text-yellow-700 hover:bg-yellow-100"
+                            data-filter="IIa">IIa</button>
+                        <button
+                            class="filter-btn px-3 py-1 rounded-md text-xs font-medium text-orange-700 hover:bg-orange-100"
+                            data-filter="IIb">IIb</button>
+                        <button
+                            class="filter-btn px-3 py-1 rounded-md text-xs font-medium text-red-700 hover:bg-red-100"
+                            data-filter="III">III</button>
+                    </div>
+
+                    <!-- Settings Trigger -->
+                    <button id="settings-btn"
+                        class="text-gray-600 dark:text-gray-200 hover:text-gray-900 focus:outline-none">
+                        <i class="fas fa-cog text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Filter Bar (Visible only on mobile) -->
+        <div
+            class="md:hidden bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-4 py-2 overflow-x-auto whitespace-nowrap">
+            <div class="flex space-x-2">
+                <button
+                    class="filter-btn-mobile px-3 py-1 rounded-full text-xs font-semibold bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white"
+                    data-filter="all">Todas</button>
+                <button
+                    class="filter-btn-mobile px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 border border-green-200"
+                    data-filter="I">I</button>
+                <button
+                    class="filter-btn-mobile px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800 border border-yellow-200"
+                    data-filter="IIa">IIa</button>
+                <button
+                    class="filter-btn-mobile px-3 py-1 rounded-full text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-200"
+                    data-filter="IIb">IIb</button>
+                <button
+                    class="filter-btn-mobile px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800 border border-red-200"
+                    data-filter="III">III</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Settings Modal / Dropdown -->
+    <div id="settings-panel"
+        class="hidden fixed top-16 right-4 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-2xl z-40 border border-gray-200 dark:border-gray-700 transform transition-all p-4">
+        <h3 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Apariencia</h3>
+
+        <!-- Text Size -->
+        <div class="mb-4">
+            <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1">Tamaño de Fuente</label>
+            <div class="flex items-center justify-between bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+                <button id="font-decrease"
+                    class="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded"><i
+                        class="fas fa-minus text-xs"></i></button>
+                <span id="font-size-display" class="text-sm font-semibold text-gray-800 dark:text-white">100%</span>
+                <button id="font-increase"
+                    class="p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 rounded"><i
+                        class="fas fa-plus text-xs"></i></button>
+            </div>
+        </div>
+
+        <!-- Theme Colors -->
+        <div class="mb-2">
+            <label class="block text-xs text-gray-500 dark:text-gray-400 mb-1">Tema</label>
+            <div class="grid grid-cols-3 gap-2">
+                <button class="theme-btn w-full h-8 rounded border border-gray-300 bg-white" data-theme="light"
+                    title="Claro"></button>
+                <button class="theme-btn w-full h-8 rounded border border-gray-600 bg-gray-900" data-theme="dark"
+                    title="Oscuro"></button>
+                <button class="theme-btn w-full h-8 rounded border border-blue-300 bg-blue-50" data-theme="blue"
+                    title="Azul"></button>
+                <button class="theme-btn w-full h-8 rounded border border-red-300 bg-red-50" data-theme="red"
+                    title="Rojo"></button>
+                <button class="theme-btn w-full h-8 rounded border border-green-300 bg-green-50" data-theme="green"
+                    title="Verde"></button>
+                <button class="theme-btn w-full h-8 rounded border border-purple-300 bg-purple-50" data-theme="purple"
+                    title="Morado"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="flex h-screen pt-16">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar"
+            class="bg-white dark:bg-gray-900 w-64 flex-shrink-0 border-r border-gray-200 dark:border-gray-800 fixed md:relative z-30 transform -translate-x-full md:translate-x-0 transition-transform duration-300 h-full overflow-y-auto pb-20">
+            <div class="p-4">
+                <h2 class="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-4">Capítulos
+                </h2>
+                <nav id="chapter-nav" class="space-y-1">
+                    <!-- Links will be injected by JS -->
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Overlay for mobile sidebar -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden md:hidden"></div>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-y-auto p-4 md:p-8 relative scroll-smooth" id="main-content">
+
+            <!-- Abbreviation Result Floating Window -->
+            <div id="abbreviation-window"
+                class="fixed top-20 right-4 md:right-8 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 z-40 max-w-sm hidden w-full md:w-80">
+                <div class="flex justify-between items-start mb-2">
+                    <h4 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase">Resultado</h4>
+                    <button id="close-abbrev" class="text-gray-400 hover:text-gray-600"><i
+                            class="fas fa-times"></i></button>
+                </div>
+                <div id="abbrev-content" class="text-lg font-medium text-gray-800 dark:text-white">
+                    <!-- Content injected here -->
+                </div>
+            </div>
+
+            <!-- Dynamic Content -->
+            <div class="max-w-4xl mx-auto space-y-12 pb-24" id="content-container">
+
+                <!-- Landing / Header -->
+                <header class="text-center py-10 border-b border-gray-200 dark:border-gray-700">
+                    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4">
+                        Manejo de la Patología de Aorta Descendente
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300">
+                        Guía de Práctica Clínica de la Sociedad Europea de Cirugía Vascular (ESVS) 2017
+                    </p>
+                </header>
+
+                <!-- Chapter 1: Introduction -->
+                <section id="capitulo-1" class="mb-16 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        1. Introducción
+                    </h2>
+
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+                        <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">1.1 Propósito</h3>
+                        <p class="mb-4">
+                            La Sociedad Europea de Cirugía Vascular (ESVS) designó al Comité de Redacción (WC) de Aorta
+                            Torácica Descendente (DTA) para producir el presente documento de guía de práctica clínica
+                            para cirujanos y otros médicos involucrados en el cuidado integral de pacientes con
+                            trastornos de la DTA. El objetivo de estas guías es resumir y evaluar toda la evidencia
+                            disponible actual para ayudar a los médicos a seleccionar las mejores estrategias de manejo
+                            para todas las patologías de la DTA. Sin embargo, cada médico respectivo debe tomar la
+                            decisión final con respecto al cuidado particular de un paciente individual.
+                        </p>
+                        <p class="mb-4">
+                            El presente documento de guías tiene como objetivo mejorar la toma de decisiones y disminuir
+                            la variabilidad en la atención quirúrgica vascular de los pacientes que presentan patología
+                            de la DTA. Desafortunadamente, no se dispone de evidencia sólida de estudios prospectivos y
+                            aleatorizados para el manejo de la mayoría de las enfermedades de la DTA. En consecuencia,
+                            las recomendaciones en estas guías se basan enteramente en evidencia de nivel B y C. No
+                            obstante, al manejar la patología de la DTA, es clínicamente útil tener acceso al
+                            conocimiento clínico y experimental más reciente y mejor disponible para determinar el
+                            estándar de atención actual.
+                        </p>
+                        <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border-l-4 border-blue-500 mb-6">
+                            <p class="text-sm italic">
+                                <strong>Nota:</strong> Se excluyó intencionalmente la patología de la aorta ascendente y
+                                el arco aórtico para evitar conflictos entre especialidades. También se excluyeron los
+                                procesos infecciosos o micóticos primarios debido a su baja incidencia.
+                            </p>
+                        </div>
+
+                        <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">1.2 Metodología</h3>
+                        <p class="mb-4">
+                            El Comité realizó una búsqueda sistemática de literatura en inglés en las bases de datos
+                            MEDLINE, EMBASE y COCHRANE. Se adoptó un sistema de clasificación basado en la metodología
+                            de las guías de la Sociedad Europea de Cardiología (ESC).
+                        </p>
+
+                        <!-- Table 1 -->
+                        <div class="my-8 overflow-x-auto">
+                            <h4 class="text-lg font-bold mb-2 text-gray-800 dark:text-gray-200">Tabla 1. Niveles de
+                                Evidencia</h4>
+                            <table
+                                class="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm">
+                                <thead class="bg-gray-100 dark:bg-gray-700">
+                                    <tr>
+                                        <th
+                                            class="py-3 px-4 text-left font-semibold text-gray-700 dark:text-gray-200 w-32">
+                                            Nivel</th>
+                                        <th class="py-3 px-4 text-left font-semibold text-gray-700 dark:text-gray-200">
+                                            Definición</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700 text-sm">
+                                    <tr>
+                                        <td class="py-3 px-4 font-bold text-center">A</td>
+                                        <td class="py-3 px-4">Datos derivados de múltiples ensayos clínicos
+                                            aleatorizados (ECA) o metaanálisis.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-4 font-bold text-center">B</td>
+                                        <td class="py-3 px-4">Datos derivados de un único ECA o de grandes estudios no
+                                            aleatorizados.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-4 font-bold text-center">C</td>
+                                        <td class="py-3 px-4">Consenso de opinión de expertos y/o pequeños estudios,
+                                            estudios retrospectivos o registros.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Table 2: Recommendation Classes -->
+                        <div class="my-8 overflow-x-auto">
+                            <h4 class="text-lg font-bold mb-2 text-gray-800 dark:text-gray-200">Tabla 2. Grados de
+                                Recomendación</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <!-- Class I -->
+                                <div
+                                    class="bg-recommendation-i dark:bg-green-900/40 p-4 rounded-lg border-l-4 border-recommendation-i-border shadow-sm">
+                                    <div class="flex items-center mb-2">
+                                        <span
+                                            class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded mr-2">Clase
+                                            I</span>
+                                        <span class="font-bold text-gray-800 dark:text-gray-100">Recomendado</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">Existe evidencia y/o acuerdo
+                                        general de que un determinado tratamiento o procedimiento es beneficioso, útil y
+                                        eficaz.</p>
+                                </div>
+                                <!-- Class IIa -->
+                                <div
+                                    class="bg-recommendation-iia dark:bg-yellow-900/40 p-4 rounded-lg border-l-4 border-recommendation-iia-border shadow-sm">
+                                    <div class="flex items-center mb-2">
+                                        <span
+                                            class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded mr-2">Clase
+                                            IIa</span>
+                                        <span class="font-bold text-gray-800 dark:text-gray-100">Debe
+                                            considerarse</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">El peso de la evidencia/opinión
+                                        está a favor de la utilidad/eficacia.</p>
+                                </div>
+                                <!-- Class IIb -->
+                                <div
+                                    class="bg-recommendation-iib dark:bg-orange-900/40 p-4 rounded-lg border-l-4 border-recommendation-iib-border shadow-sm">
+                                    <div class="flex items-center mb-2">
+                                        <span
+                                            class="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded mr-2">Clase
+                                            IIb</span>
+                                        <span class="font-bold text-gray-800 dark:text-gray-100">Puede
+                                            considerarse</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">La utilidad/eficacia está menos
+                                        bien establecida por la evidencia/opinión.</p>
+                                </div>
+                                <!-- Class III -->
+                                <div
+                                    class="bg-recommendation-iii dark:bg-red-900/40 p-4 rounded-lg border-l-4 border-recommendation-iii-border shadow-sm">
+                                    <div class="flex items-center mb-2">
+                                        <span
+                                            class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded mr-2">Clase
+                                            III</span>
+                                        <span class="font-bold text-gray-800 dark:text-gray-100">No recomendado</span>
+                                    </div>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300">Existe evidencia o acuerdo
+                                        general de que el tratamiento no es útil/eficaz y en algunos casos puede ser
+                                        perjudicial.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 2: General Aspects -->
+                <section id="capitulo-2" class="mb-16 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        2. Aspectos Generales
+                    </h2>
+
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6">
+
+                        <!-- 2.1 -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">2.1 La Aorta
+                                Torácica Descendente Normal</h3>
+                            <p>
+                                La DTA se origina en el istmo, la región de la aorta torácica entre el origen de la
+                                arteria subclavia izquierda (LSA) y el conducto arterioso. Discurre en una localización
+                                paraespinal izquierda hasta su segmento distal, donde pasa anteriormente a través del
+                                hiato aórtico diafragmático.
+                            </p>
+                            <p class="mt-2">
+                                <strong>Diámetros Normales:</strong> 24-29 mm en hombres y 24-26 mm en mujeres (aorta
+                                media). En el diafragma: 24-27 mm (hombres), 23-24 mm (mujeres).
+                            </p>
+                        </div>
+
+                        <!-- 2.2 -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">2.2 Epidemiología
+                            </h3>
+                            <p>
+                                Las enfermedades de la DTA consisten en un amplio espectro de trastornos degenerativos,
+                                estructurales, adquiridos, genéticos y traumáticos.
+                            </p>
+                            <ul class="list-disc pl-5 space-y-2 mt-2">
+                                <li><strong>Síndromes Aórticos Agudos (AAS):</strong> Disección aórtica, úlcera
+                                    penetrante (PAU) y hematoma intramural (IMH).</li>
+                                <li><strong>Disección Tipo B (TBAD):</strong> Incidencia 2.9 a 4.0 por 100,000
+                                    personas-año. Más común en hombres.</li>
+                                <li><strong>Trauma:</strong> Causa principal de muerte en las primeras cuatro décadas de
+                                    vida.</li>
+                                <li><strong>Aneurismas (DTAA):</strong> Incidencia estimada 6–10.4 por 100,000
+                                    personas-año.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2.3 -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">2.3 Métodos
+                                Diagnósticos</h3>
+                            <p class="mb-4">
+                                El diagnóstico se basa en la imagen. La radiografía simple tiene utilidad limitada. La
+                                Angiografía por TC (CTA) es el "gold standard".
+                            </p>
+
+                            <!-- Table 3 -->
+                            <div class="overflow-x-auto my-6">
+                                <h4 class="text-lg font-bold mb-2 text-gray-800 dark:text-gray-200">Tabla 3. Comparación
+                                    de Modalidades de Imagen</h4>
+                                <table
+                                    class="min-w-full text-sm bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-center rounded-lg">
+                                    <thead
+                                        class="bg-gray-100 dark:bg-gray-700 font-semibold text-gray-700 dark:text-gray-200">
+                                        <tr>
+                                            <th class="py-2 px-3 text-left">Característica</th>
+                                            <th class="py-2 px-3">TTE</th>
+                                            <th class="py-2 px-3">TOE</th>
+                                            <th class="py-2 px-3">CTA</th>
+                                            <th class="py-2 px-3">MRI</th>
+                                            <th class="py-2 px-3">PET</th>
+                                            <th class="py-2 px-3">IVUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                        <tr>
+                                            <td class="py-2 px-3 text-left font-medium">No invasividad</td>
+                                            <td class="text-green-600">+++</td>
+                                            <td class="text-green-600">++</td>
+                                            <td class="text-red-500">-</td>
+                                            <td class="text-green-500">+</td>
+                                            <td class="text-red-500">-</td>
+                                            <td class="text-red-500">-</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-3 text-left font-medium">Facilidad de uso</td>
+                                            <td class="text-green-600">+++</td>
+                                            <td class="text-green-600">++</td>
+                                            <td class="text-green-600">+++</td>
+                                            <td class="text-green-600">++</td>
+                                            <td class="text-green-600">++</td>
+                                            <td class="text-green-500">+</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-3 text-left font-medium">Disponibilidad</td>
+                                            <td class="text-green-600">+++</td>
+                                            <td class="text-green-600">++</td>
+                                            <td class="text-green-600">+++</td>
+                                            <td class="text-green-600">++</td>
+                                            <td class="text-green-500">+</td>
+                                            <td class="text-green-500">+</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-3 text-left font-medium">Portabilidad</td>
+                                            <td class="text-green-600">+++</td>
+                                            <td class="text-green-600">+++</td>
+                                            <td class="text-red-500">-</td>
+                                            <td class="text-red-500">-</td>
+                                            <td class="text-red-500">-</td>
+                                            <td class="text-gray-500">+/-</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-3 text-left font-medium">Guía intervencionista</td>
+                                            <td class="text-green-500">+</td>
+                                            <td class="text-green-600">+++</td>
+                                            <td class="text-red-500">-</td>
+                                            <td class="text-red-500">-</td>
+                                            <td class="text-red-500">-</td>
+                                            <td class="text-green-600">+++</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p class="text-xs text-gray-500 mt-2">
+                                    TTE: Ecocardiografía Transtorácica; TOE: Transesofágica; CTA: Angio-TC; MRI:
+                                    Resonancia; PET: Tomografía Emisión Positrones; IVUS: Ultrasonido Intravascular.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 2.4 -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">2.4 Complicaciones
+                                Neurológicas</h3>
+                            <p>
+                                Las complicaciones más temidas son la isquemia de la médula espinal (SCI), que resulta
+                                en paraparesia o paraplejía, y la embolia cerebral (ictus).
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 3: Acute Thoracic Aortic Syndrome -->
+                <section id="capitulo-3" class="mb-16 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        3. Síndrome Aórtico Agudo
+                    </h2>
+
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6">
+
+                        <!-- 3.1.1 ATBAD -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">3.1 Disección
+                                Aórtica Tipo B Aguda (ATBAD)</h3>
+                            <p>
+                                La disección aórtica tipo B aguda afecta a la aorta torácica descendente distal a la
+                                arteria subclavia izquierda. Puede ser complicada (ruptura, isquemia de órganos, dolor
+                                refractario, hipertensión incontrolable) o no complicada.
+                            </p>
+
+                            <!-- Recommendation Medical Management -->
+                            <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                                data-class="I">
+                                <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">
+                                    Recomendación 1</h4>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span
+                                        class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                        I</span>
+                                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel B</span>
+                                </div>
+                                <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                    El tratamiento médico es el tratamiento de primera línea para pacientes con ATBAD no
+                                    complicada. Se recomienda el control estricto de la presión arterial y la frecuencia
+                                    cardíaca (betabloqueantes como primera elección).
+                                </p>
+                            </div>
+
+                            <p class="mt-4">
+                                En pacientes con complicaciones (ruptura inminente, malperfusión), la intervención es
+                                necesaria.
+                            </p>
+
+                            <!-- Recommendation TEVAR for Complicated -->
+                            <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                                data-class="I">
+                                <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">
+                                    Recomendación 2</h4>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span
+                                        class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                        I</span>
+                                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel B</span>
+                                </div>
+                                <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                    TEVAR es la opción terapéutica de primera línea para pacientes con ATBAD complicada.
+                                </p>
+                            </div>
+
+                            <!-- Recommendation TEVAR for Uncomplicated -->
+                            <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-iia-border bg-recommendation-iia dark:bg-yellow-900/40 dark:border-yellow-500 animate-fadeIn"
+                                data-class="IIa">
+                                <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">
+                                    Recomendación 3</h4>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span
+                                        class="text-xs font-bold uppercase text-yellow-800 dark:text-yellow-200 bg-yellow-200 dark:bg-yellow-800 px-2 py-1 rounded">Clase
+                                        IIa</span>
+                                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel B</span>
+                                </div>
+                                <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                    Se debe considerar TEVAR preventivo en casos seleccionados de ATBAD no complicada
+                                    con alto riesgo de degeneración aneurismática tardía.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 3.1.2 IMH & PAU -->
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">3.2 Hematoma
+                                Intramural (IMH) y Úlcera Penetrante (PAU)</h3>
+                            <p>
+                                El IMH se caracteriza por sangre en la pared aórtica sin un desgarro intimal detectable.
+                                La PAU es una ulceración de una placa aterosclerótica que penetra la lámina elástica
+                                interna. Ambos pueden ser precursores de la disección aórtica clásica.
+                            </p>
+
+                            <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                                data-class="I">
+                                <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">
+                                    Recomendación 4</h4>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span
+                                        class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                        I</span>
+                                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                                </div>
+                                <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                    El tratamiento del IMH tipo B no complicado debe seguir las mismas pautas médicas
+                                    que la disección aórtica clásica. La intervención está indicada en casos
+                                    sintomáticos (dolor refractario), evidencia de expansión o hematoma periaórtico.
+                                </p>
+                            </div>
+
+                            <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                                data-class="I">
+                                <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">
+                                    Recomendación 5</h4>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span
+                                        class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                        I</span>
+                                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                                </div>
+                                <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                    Se recomienda la reparación urgente en pacientes con úlcera penetrante de aorta
+                                    (PAU) sintomática.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 3.1.3 Ruptured -->
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">3.3 Aneurisma de
+                                Aorta Torácica Descendente Roto</h3>
+                            <p>
+                                La rotura del DTAA es una condición aguda con una mortalidad extremadamente alta. La
+                                incidencia es baja (3-4/100.000/año) pero el pronóstico es desfavorable (50-80%
+                                mortalidad). En pacientes con DTAA roto, el tratamiento de elección es TEVAR cuando la
+                                anatomía es favorable.
+                            </p>
+
+                            <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                                data-class="I">
+                                <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">
+                                    Recomendación 6</h4>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span
+                                        class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                        I</span>
+                                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                                </div>
+                                <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                    TEVAR debe ser considerado como el tratamiento de elección para el aneurisma de
+                                    aorta torácica descendente (DTAA) roto cuando la anatomía es adecuada.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 3.1.4 Trauma -->
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-3 text-esvs-blue dark:text-blue-400">3.4 Trauma Aórtico
+                                (TAI)</h3>
+                            <p>
+                                La lesión aórtica traumática cerrada ocurre generalmente en el istmo aórtico tras una
+                                desaceleración brusca. Se clasifica en Tipo I (lesión mínima), Tipo II (IMH), Tipo III
+                                (pseudoaneurisma) y Tipo IV (rotura libre).
+                            </p>
+
+                            <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                                data-class="I">
+                                <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">
+                                    Recomendación 7</h4>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span
+                                        class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                        I</span>
+                                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel B</span>
+                                </div>
+                                <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                    TEVAR es el tratamiento de elección para la lesión aórtica traumática cerrada,
+                                    mostrando menor mortalidad y paraplejía que la cirugía abierta.
+                                </p>
+                            </div>
+
+                            <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-iia-border bg-recommendation-iia dark:bg-yellow-900/40 dark:border-yellow-500 animate-fadeIn"
+                                data-class="IIa">
+                                <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">
+                                    Recomendación 8</h4>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span
+                                        class="text-xs font-bold uppercase text-yellow-800 dark:text-yellow-200 bg-yellow-200 dark:bg-yellow-800 px-2 py-1 rounded">Clase
+                                        IIa</span>
+                                    <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                                </div>
+                                <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                    En pacientes estables con lesiones concomitantes graves, se debe considerar el
+                                    tratamiento diferido (reparación después de 24h) para permitir la estabilización de
+                                    otras lesiones.
+                                </p>
+                            </div>
+
+                            <!-- Table 4: Clinical Presentations -->
+                            <div class="my-8 overflow-x-auto">
+                                <h4 class="text-lg font-bold mb-2 text-gray-800 dark:text-gray-200">Tabla 4.
+                                    Presentaciones Clínicas de la TBAD Aguda</h4>
+                                <table
+                                    class="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm text-sm">
+                                    <thead class="bg-gray-100 dark:bg-gray-700">
+                                        <tr>
+                                            <th
+                                                class="py-2 px-3 text-left font-semibold text-gray-700 dark:text-gray-200">
+                                                Complicación</th>
+                                            <th
+                                                class="py-2 px-3 text-left font-semibold text-gray-700 dark:text-gray-200">
+                                                Hallazgos Clínicos / Diagnósticos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                        <tr>
+                                            <td class="py-2 px-3 font-medium">Dolor</td>
+                                            <td class="py-2 px-3">Súbito, pulsátil, irradiado a espalda/abdomen.
+                                                Refractario indica inestabilidad.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-3 font-medium">Malperfusión Renal</td>
+                                            <td class="py-2 px-3">Elevación de creatinina, hipertensión refractaria.
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-3 font-medium">Malperfusión Visceral</td>
+                                            <td class="py-2 px-3">Dolor abdominal, elevación de lactato sérico. Tercera
+                                                causa de muerte.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-3 font-medium">Isquemia de Extremidades</td>
+                                            <td class="py-2 px-3">Ausencia de pulsos, palidez, frialdad, parálisis.</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-2 px-3 font-medium">Isquemia Medular</td>
+                                            <td class="py-2 px-3">Paraplejía o paraparesia (complicación catastrófica
+                                                pero rara).</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 4: DTAA (Section 3.3 in text) -->
+                <section id="capitulo-4" class="mb-16 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        4. Aneurismas (DTAA)
+                    </h2>
+
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6">
+                        <p>
+                            Los aneurismas de aorta torácica descendente (DTAA) se definen como una dilatación con al
+                            menos un 50% de aumento del diámetro. El riesgo de ruptura se correlaciona con el diámetro.
+                        </p>
+
+                        <!-- Indications -->
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-iia-border bg-recommendation-iia dark:bg-yellow-900/40 dark:border-yellow-500 animate-fadeIn"
+                            data-class="IIa">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                9</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-yellow-800 dark:text-yellow-200 bg-yellow-200 dark:bg-yellow-800 px-2 py-1 rounded">Clase
+                                    IIa</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                Se debe considerar la reparación invasiva en pacientes de bajo riesgo quirúrgico cuando
+                                el diámetro del aneurisma supera los 55-60 mm.
+                            </p>
+                        </div>
+
+                        <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border-l-4 border-blue-500 mb-6">
+                            <p class="text-sm italic">
+                                <strong>Nota:</strong> Este umbral puede reducirse a 50-55 mm en mujeres o en pacientes
+                                con trastornos del tejido conectivo (Marfan, Loeys-Dietz).
+                            </p>
+                        </div>
+
+                        <!-- TEVAR vs OPEN -->
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-iia-border bg-recommendation-iia dark:bg-yellow-900/40 dark:border-yellow-500 animate-fadeIn"
+                            data-class="IIa">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                10</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-yellow-800 dark:text-yellow-200 bg-yellow-200 dark:bg-yellow-800 px-2 py-1 rounded">Clase
+                                    IIa</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel B</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                En pacientes con anatomía adecuada, TEVAR debe considerarse preferible a la cirugía
+                                abierta por su menor mortalidad a 30 días y menor tasa de paraplejía.
+                            </p>
+                        </div>
+
+                        <!-- SCI Protection -->
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                            data-class="I">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                11</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                    I</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                El drenaje de líquido cefalorraquídeo (LCR) se recomienda en pacientes de alto riesgo de
+                                isquemia medular sometidos a TEVAR extenso o cirugía abierta.
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Chapter 5: TAAA -->
+                <section id="capitulo-5" class="mb-16 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        5. Aneurismas Toracoabdominales (TAAA)
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6">
+                        <p>
+                            Los aneurismas toracoabdominales se clasifican según Crawford (Tipos I-V). Involucran la
+                            aorta torácica y abdominal, afectando a menudo las arterias viscerales.
+                        </p>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                            data-class="I">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                12</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                    I</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                Se recomienda la reparación quirúrgica en pacientes con riesgo quirúrgico bajo o
+                                moderado con TAAA mayor de 60 mm, crecimiento rápido (>10 mm/año) o síntomas.
+                            </p>
+                        </div>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-iia-border bg-recommendation-iia dark:bg-yellow-900/40 dark:border-yellow-500 animate-fadeIn"
+                            data-class="IIa">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                13</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-yellow-800 dark:text-yellow-200 bg-yellow-200 dark:bg-yellow-800 px-2 py-1 rounded">Clase
+                                    IIa</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                La reparación endovascular total (con endoprótesis ramificadas/fenestradas) debe
+                                considerarse en pacientes no aptos para cirugía abierta, preferiblemente en centros de
+                                alto volumen.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 6: Inflammatory -->
+                <section id="capitulo-6" class="mb-16 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        6. Enfermedades Inflamatorias
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6">
+                        <p>
+                            Las aortitides inflamatorias son enfermedades raras pero graves que pueden causar
+                            aneurismas, estenosis o disecciones de la aorta torácica descendente.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+                            <div
+                                class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border-l-4 border-esvs-blue shadow-sm">
+                                <h3 class="text-lg font-bold mb-2 text-esvs-blue dark:text-blue-400">6.1 Arteritis de
+                                    Takayasu</h3>
+                                <p class="text-sm mb-2 font-semibold">Criterios diagnósticos (ACR, ≥3 de 6):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1">
+                                    <li>Edad &lt; 40 años al inicio de los síntomas.</li>
+                                    <li>Claudicación de las extremidades.</li>
+                                    <li>Pulso de la arteria braquial disminuido.</li>
+                                    <li>Diferencia de PA sistólica &gt; 10 mmHg entre brazos.</li>
+                                    <li>Soplos sobre las arterias subclavias o la aorta.</li>
+                                    <li>Evidencia angiográfica de estenosis u oclusión.</li>
+                                </ul>
+                            </div>
+                            <div
+                                class="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border-l-4 border-esvs-blue shadow-sm">
+                                <h3 class="text-lg font-bold mb-2 text-esvs-blue dark:text-blue-400">6.2 Arteritis de
+                                    Células Gigantes (GCA)</h3>
+                                <p class="text-sm mb-2 font-semibold">Criterios diagnósticos (ACR, ≥3 de 5):</p>
+                                <ul class="text-xs list-disc pl-4 space-y-1">
+                                    <li>Edad ≥ 50 años.</li>
+                                    <li>Cefalea de nuevo inicio o localizada.</li>
+                                    <li>Sensibilidad o pulso disminuido en la arteria temporal.</li>
+                                    <li>VSG ≥ 50 mm/h.</li>
+                                    <li>Biopsia arterial anormal (inflamación granulomatosa).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h3 class="text-xl font-semibold text-esvs-blue dark:text-blue-400 mb-2">6.3 Enfermedad de
+                                Behçet</h3>
+                            <p>
+                                Se caracteriza por úlceras aftosas recurrentes, úlceras genitales y uveítis. La
+                                fragilidad de las arterias enfermas conlleva un alto riesgo de **pseudoaneurismas
+                                anastomóticos** recurrentes tras la cirugía. Se debe evitar la angiografía diagnóstica
+                                invasiva siempre que sea posible por el riesgo de complicaciones en los sitios de
+                                punción.
+                            </p>
+                        </div>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                            data-class="I">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                14</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                    I</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel B</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                El tratamiento médico con corticosteroides es la primera línea para la fase activa de
+                                arteritis (Takayasu y GCA).
+                            </p>
+                        </div>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-iia-border bg-recommendation-iia dark:bg-yellow-900/40 dark:border-yellow-500 animate-fadeIn"
+                            data-class="IIa">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                15</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-yellow-800 dark:text-yellow-200 bg-yellow-200 dark:bg-yellow-800 px-2 py-1 rounded">Clase
+                                    IIa</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                Las indicaciones para la reparación invasiva deben seguir los mismos criterios que en
+                                trastornos no inflamatorios una vez controlada la inflamación.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 7: Coarctation -->
+                <section id="capitulo-7" class="mb-16 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        7. Coartación de Aorta
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6">
+                        <p>
+                            La coartación aórtica es un defecto congénito caracterizado por el estrechamiento de la luz
+                            aórtica, típicamente en la región del ligamentum arteriosum. En adultos, suele presentarse
+                            con hipertensión en miembros superiores y pulsos femorales débiles o retrasados.
+                        </p>
+
+                        <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border-l-4 border-blue-500 my-6">
+                            <h3 class="text-sm font-bold uppercase mb-2 text-blue-800 dark:text-blue-300">Diagnóstico
+                            </h3>
+                            <p class="text-xs">
+                                La **Angio-TC (CTA)** y la **Resonancia Magnética (MRI)** son las exploraciones de
+                                elección para el diagnóstico definitivo y la planificación del tratamiento. La
+                                ecocardiografía transtorácica (TTE) es útil para evaluar la hipertrofia ventricular
+                                asociada.
+                            </p>
+                        </div>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                            data-class="I">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                16</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                    I</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                La intervención está indicada en pacientes sintomáticos o asintomáticos con un gradiente
+                                trans-coartación >20 mmHg o hipertensión persistente.
+                            </p>
+                        </div>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-iia-border bg-recommendation-iia dark:bg-yellow-900/40 dark:border-yellow-500 animate-fadeIn"
+                            data-class="IIa">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                17</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-yellow-800 dark:text-yellow-200 bg-yellow-200 dark:bg-yellow-800 px-2 py-1 rounded">Clase
+                                    IIa</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                En adultos, la reparación endovascular (stent) debe considerarse una alternativa válida
+                                a la cirugía abierta, con menor morbilidad perioperatoria.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 8: Genetic -->
+                <section id="capitulo-8" class="mb-16 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        8. Enfermedades Genéticas
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6">
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-esvs-blue dark:text-blue-400">8.1 Síndrome de Marfan
+                                (MFS)</h3>
+                            <p>
+                                Trastorno del tejido conectivo causado por mutaciones en el gen de la fibrilina-1
+                                (FBN-1). El diagnóstico se basa en los criterios de Gante ( Ghent nosology), destacando
+                                la dilatación de la raíz aórtica y la ectopia lentis.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-esvs-blue dark:text-blue-400">8.2 Síndrome de
+                                Loeys-Dietz (LDS)</h3>
+                            <p>
+                                Causado por mutaciones en TGFβR1 o 2. Se caracteriza por tortuosidad arterial,
+                                hipertelorismo y úvula bífida. Es una forma agresiva con riesgo de disección a diámetros
+                                menores (incluso &lt;40 mm).
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-esvs-blue dark:text-blue-400">8.3 Síndrome de
+                                Ehlers-Danlos (vEDS)</h3>
+                            <p>
+                                El tipo vascular (tipo IV) es el más grave, con riesgo de rotura espontánea de arterias
+                                (tórax y abdomen en el 50%) y órganos huecos. La fragilidad tisular dificulta la
+                                cirugía.
+                            </p>
+                        </div>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                            data-class="I">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                18</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                    I</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                En pacientes con Síndrome de Marfan, la cirugía profiláctica de la aorta se recomienda
+                                generalmente con una dilatación ≥50 mm.
+                            </p>
+                        </div>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-iia-border bg-recommendation-iia dark:bg-yellow-900/40 dark:border-yellow-500 animate-fadeIn"
+                            data-class="IIa">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                19</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-yellow-800 dark:text-yellow-200 bg-yellow-200 dark:bg-yellow-800 px-2 py-1 rounded">Clase
+                                    IIa</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                Se debe considerar un umbral quirúrgico más bajo en pacientes con Síndrome de
+                                Loeys-Dietz (p. ej. >40 mm en raíz aórtica) debido a la agresividad de la enfermedad
+                                arterial.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 9: Tumors -->
+                <section id="capitulo-9" class="mb-16 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        9. Tumores Aórticos y Trombos Flotantes
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6">
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-esvs-blue dark:text-blue-400">9.1 Tumores Aórticos
+                            </h3>
+                            <p>
+                                Los tumores primarios de la aorta son extremadamente raros y generalmente malignos
+                                (sarcomas). El diagnóstico clínico es difícil ya que pueden mimetizar aneurismas,
+                                disecciones o trombos flotantes. La supervivencia es pobre independientemente del
+                                tratamiento quirúrgico.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-semibold text-esvs-blue dark:text-blue-400">9.2 Trombo Flotante</h3>
+                            <p>
+                                Se define como la presencia de un trombo móvil en la aorta torácica descendente que
+                                puede ser fuente de embolias periféricas graves. La **ecocardiografía transesofágica
+                                (TOE)** es el estudio de elección para descartar fuentes cardioembólicas y visualizar el
+                                arco distal y la aorta descendente. El tratamiento inicial suele basarse en la
+                                anticoagulación.
+                            </p>
+                        </div>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-iii-border bg-recommendation-iii dark:bg-red-900/40 dark:border-red-500 animate-fadeIn"
+                            data-class="III">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                20</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-red-500 text-white px-2 py-1 rounded">Clase
+                                    III</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                No se recomienda la reparación endovascular para tumores aórticos primarios (sarcomas),
+                                ya que las endoprótesis no previenen el crecimiento ni el potencial metastásico de las
+                                lesiones neoplásicas.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chapter 10: Surveillance -->
+                <section id="capitulo-10" class="mb-32 scroll-mt-24">
+                    <h2
+                        class="text-3xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 border-gray-200 dark:border-gray-700">
+                        10. Seguimiento (Vigilancia)
+                    </h2>
+                    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6">
+                        <p>
+                            Todos los pacientes diagnosticados o tratados por enfermedad de la aorta torácica
+                            descendente deben someterse a un programa estricto de vigilancia sistemática para detectar
+                            complicaciones tardías o progresión de la enfermedad.
+                        </p>
+
+                        <div class="recommendation-card my-6 p-4 rounded-lg shadow-lg border-l-4 border-recommendation-i-border bg-recommendation-i dark:bg-green-900/40 dark:border-green-500 animate-fadeIn"
+                            data-class="I">
+                            <h4 class="text-sm font-bold uppercase mb-2 text-gray-800 dark:text-gray-100">Recomendación
+                                21</h4>
+                            <div class="flex justify-between items-center mb-2">
+                                <span
+                                    class="text-xs font-bold uppercase text-green-800 dark:text-green-200 bg-green-200 dark:bg-green-800 px-2 py-1 rounded">Clase
+                                    I</span>
+                                <span class="text-xs font-bold text-gray-500 dark:text-gray-400">Nivel C</span>
+                            </div>
+                            <p class="font-semibold text-gray-800 dark:text-gray-100">
+                                Se recomienda que todos los pacientes con enfermedad de la aorta torácica descendente
+                                sigan un programa de vigilancia sistemática tras el diagnóstico o tratamiento.
+                            </p>
+                        </div>
+
+                        <div class="my-8 overflow-x-auto">
+                            <h4 class="text-lg font-bold mb-4 text-gray-800 dark:text-gray-200">Tabla 5. Protocolos de
+                                Seguimiento Sugeridos (Manejo Conservador)</h4>
+                            <table
+                                class="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm text-sm">
+                                <thead class="bg-gray-100 dark:bg-gray-700">
+                                    <tr>
+                                        <th class="py-2 px-3 text-left font-semibold border-b dark:border-gray-600">
+                                            Patología</th>
+                                        <th class="py-2 px-3 text-left font-semibold border-b dark:border-gray-600">
+                                            Imagen</th>
+                                        <th class="py-2 px-3 text-left font-semibold border-b dark:border-gray-600">
+                                            Intervalo</th>
+                                        <th class="py-2 px-3 text-left font-semibold border-b dark:border-gray-600">
+                                            Indicadores de Intervención</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr>
+                                        <td class="py-2 px-3 font-medium">ATBAD / TAA</td>
+                                        <td class="py-2 px-3">TC o RM</td>
+                                        <td class="py-2 px-3">6 m, 12 m, anual</td>
+                                        <td class="py-2 px-3">Crecimiento >5 mm/año; Diámetro >55 mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 font-medium">IMH / PAU</td>
+                                        <td class="py-2 px-3">TC o RM</td>
+                                        <td class="py-2 px-3">3 m, 6 m, anual</td>
+                                        <td class="py-2 px-3">Úlcera nueva; Hematoma periaórtico; Diámetro >50 mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 font-medium">TAAA</td>
+                                        <td class="py-2 px-3">TC o RM</td>
+                                        <td class="py-2 px-3">6 m, 12 m, anual</td>
+                                        <td class="py-2 px-3">Crecimiento >10 mm/año; Diámetro >60 mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 font-medium">Inflamatoria</td>
+                                        <td class="py-2 px-3">TC/RM + PET</td>
+                                        <td class="py-2 px-3">3 m, 6 m, anual</td>
+                                        <td class="py-2 px-3">Actividad en PET; VSG/PCR elevadas</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 font-medium">Enf. Genética (Marfan/LDS)</td>
+                                        <td class="py-2 px-3">TC o RM</td>
+                                        <td class="py-2 px-3">3 m, 6 m, anual</td>
+                                        <td class="py-2 px-3">Diámetro >45-50 mm; Crecimiento >3 mm/año</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>
+                            La Angio-TC (CTA) es la modalidad más utilizada. La resonancia magnética (MRI) se puede
+                            utilizar para evitar la radiación, especialmente en pacientes jóvenes.
+                        </p>
+                    </div>
+                </section>
+
+                <hr class="my-12 border-gray-200 dark:border-gray-700">
+
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-esvs-blue mb-6">SECCIÓN II: COMPARATIVA Y GUÍA SVS 2021</h2>
+                    <p class="text-lg opacity-80 leading-relaxed mb-8">
+                        En esta sección se presenta una comparativa directa entre las guías europeas (ESVS 2017) y las
+                        americanas (SVS 2021), junto con capítulos adicionales exclusivos de la normativa SVS para el
+                        manejo de TEVAR.
+                    </p>
+
+                    <!-- ANEXO COMPARATIVO -->
+                    <section id="comparativa" class="mb-16 scroll-mt-24">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-esvs-red flex items-center justify-center text-white">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Anexo Comparativo: ESVS 2017 vs SVS 2021</h3>
+                        </div>
+
+                        <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700">
+                            <table class="w-full text-left text-sm">
+                                <thead
+                                    class="bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 uppercase font-bold">
+                                    <tr>
+                                        <th
+                                            class="py-3 px-4 border-b border-gray-200 dark:border-gray-700 text-esvs-blue">
+                                            Parámetro</th>
+                                        <th class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">ESVS 2017
+                                            (Europea)</th>
+                                        <th class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">SVS 2021
+                                            (Americana)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                        <td class="py-4 px-4 font-semibold italic text-esvs-blue">Umbral DTAA (Asinto)
+                                        </td>
+                                        <td class="py-4 px-4">> 55 mm</td>
+                                        <td class="py-4 px-4">> 55 mm</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                        <td class="py-4 px-4 font-semibold italic text-esvs-blue">Manejo Subclavia (LSA)
+                                        </td>
+                                        <td class="py-4 px-4">Recomendada (Clase I) en casos electivos.</td>
+                                        <td class="py-4 px-4">Sugerida preop. o concomitante (Fuerte, B).</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                        <td class="py-4 px-4 font-semibold italic text-esvs-blue">Drenaje LCR
+                                            Profiláctico</td>
+                                        <td class="py-4 px-4">Uso selectivo según riesgo.</td>
+                                        <td class="py-4 px-4">Recomendado en alto riesgo (Fuerte, B).</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                        <td class="py-4 px-4 font-semibold italic text-esvs-blue">Seguimiento (Imagen)
+                                        </td>
+                                        <td class="py-4 px-4">6 m, 12 m, luego anual.</td>
+                                        <td class="py-4 px-4">1 m, 12 m, luego anual.</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                        <td class="py-4 px-4 font-semibold italic text-esvs-blue">Tratamiento de Rotura
+                                        </td>
+                                        <td class="py-4 px-4">TEVAR sugerido sobre Cirugía Abierta.</td>
+                                        <td class="py-4 px-4">TEVAR recomendado (Fuerte, B) si es factible.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- CAPÍTULO 11: SVS PROTECCIÓN RENAL -->
+                    <section id="capitulo-11" class="mb-16 scroll-mt-24">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded-full bg-esvs-blue flex items-center justify-center text-white font-bold">
+                                11
+                            </div>
+                            <h3 class="text-2xl font-bold">Protección Renal y Manejo de Contraste (SVS)</h3>
+                        </div>
+                        <p class="mb-4">
+                            La SVS enfatiza la importancia de minimizar la lesión renal aguda (AKI) mediante estrategias
+                            específicas de planificación y técnica intraoperatoria.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div
+                                class="bg-blue-50 dark:bg-blue-900/20 p-5 rounded-xl border border-blue-100 dark:border-blue-800">
+                                <h4 class="font-bold text-blue-700 dark:text-blue-400 mb-2">Estrategias
+                                    Pre-procedimiento</h4>
+                                <ul class="list-disc ml-5 space-y-1 text-sm">
+                                    <li>Planificación precisa de tamaños (sizing) para reducir inyecciones.</li>
+                                    <li>Uso de IVUS para evaluación de zonas de anclaje.</li>
+                                    <li>Hidratación con solución salina normal.</li>
+                                </ul>
+                            </div>
+                            <div
+                                class="bg-gray-50 dark:bg-gray-800/50 p-5 rounded-xl border border-gray-200 dark:border-gray-700">
+                                <h4 class="font-bold mb-2">Estrategias Intraoperatorias</h4>
+                                <ul class="list-disc ml-5 space-y-1 text-sm">
+                                    <li>Uso de contraste no iónico e hipoosmolar.</li>
+                                    <li>Dilución del contraste (50% o 70%) en inyectores de poder.</li>
+                                    <li>Mapeo mediante software (CT fusion/overlay) y Roadmap.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-card recommendation-i" data-class="I">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">SVS 2021 -
+                                    FUERTE</span>
+                                <span class="text-xs opacity-60">Evidencia: Moderada (B)</span>
+                            </div>
+                            <p class="font-medium text-lg leading-snug">
+                                Se recomienda el uso rutinario de software de reconstrucción 3D (centerline) para una
+                                planificación y ejecución precisa de TEVAR.
+                            </p>
+                            <div
+                                class="mt-4 pt-4 border-t border-green-200 dark:border-green-800 flex justify-between items-center text-sm">
+                                <span class="font-bold">Recomendación SVS 5</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CAPÍTULO 12: SVS TÉCNICAS DE ACCESO -->
+                    <section id="capitulo-12" class="mb-16 scroll-mt-24">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded-full bg-esvs-blue flex items-center justify-center text-white font-bold">
+                                12
+                            </div>
+                            <h3 class="text-2xl font-bold">Técnicas de Acceso y Conductos (SVS)</h3>
+                        </div>
+                        <p class="mb-6">
+                            El acceso vascular sigue siendo una fuente común de morbilidad. La SVS proporciona
+                            directrices específicas sobre el acceso percutáneo y el uso de conductos.
+                        </p>
+
+                        <div class="grid grid-cols-1 gap-6 mb-8">
+                            <div class="recommendation-card recommendation-i" data-class="I">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">SVS 2021 -
+                                        FUERTE</span>
+                                    <span class="text-xs opacity-60">Evidencia: Moderada (B)</span>
+                                </div>
+                                <p class="font-medium text-lg leading-snug">
+                                    Se recomienda el uso de guía por ultrasonido para el acceso percutáneo para mejorar
+                                    el éxito procedimental y disminuir complicaciones mayores.
+                                </p>
+                                <div
+                                    class="mt-4 pt-4 border-t border-green-200 dark:border-green-800 flex justify-between items-center text-sm">
+                                    <span class="font-bold">Recomendación SVS 31</span>
+                                </div>
+                            </div>
+
+                            <div class="recommendation-card recommendation-i" data-class="I">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">SVS 2021 -
+                                        FUERTE</span>
+                                    <span class="text-xs opacity-60">Evidencia: Moderada (B)</span>
+                                </div>
+                                <p class="font-medium text-lg leading-snug">
+                                    Se recomienda el uso de conductos ilíacos o punción directa ilíaca/aórtica en
+                                    pacientes con vasos ilíacos pequeños, tortuosos o calcificados.
+                                </p>
+                                <div
+                                    class="mt-4 pt-4 border-t border-green-200 dark:border-green-800 flex justify-between items-center text-sm">
+                                    <span class="font-bold">Recomendación SVS 33</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="es" class="theme-light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESVS 2020 Guía sobre Infecciones Protésicas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --text-primary: #1a1a1a;
+            --bg-accent: #f3f4f6;
+            --border-color: #e5e7eb;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --font-base-size: 16px;
+        }
+
+        .theme-dark {
+            --bg-primary: #111827;
+            --text-primary: #f9fafb;
+            --bg-accent: #1f2937;
+            --border-color: #374151;
+        }
+
+        .theme-circulatory {
+            --bg-primary: #f8fafc;
+            --text-primary: #0f172a;
+            --bg-accent: #e2e8f0;
+            --border-color: #cbd5e1;
+        }
+
+        .theme-red {
+            --bg-primary: #fef2f2;
+            --text-primary: #7f1d1d;
+            --bg-accent: #fee2e2;
+            --border-color: #fecaca;
+        }
+
+        .theme-blue {
+            --bg-primary: #eff6ff;
+            --text-primary: #1e3a8a;
+            --bg-accent: #dbeafe;
+            --border-color: #bfdbfe;
+        }
+
+        .theme-green {
+            --bg-primary: #f0fdf4;
+            --text-primary: #14532d;
+            --bg-accent: #dcfce7;
+            --border-color: #bbf7d0;
+        }
+
+        .theme-purple {
+            --bg-primary: #faf5ff;
+            --text-primary: #581c87;
+            --bg-accent: #f3e8ff;
+            --border-color: #e9d5ff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: var(--font-base-size);
+            transition: all 0.2s ease;
+        }
+
+        .recommendation-card {
+            border-left-width: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-bottom: 1.5rem;
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--card-shadow);
+            background-color: var(--bg-primary);
+        }
+
+        .class-i {
+            border-color: #10b981;
+            background-color: rgba(209, 250, 229, 0.3);
+        }
+
+        .class-iia {
+            border-color: #f59e0b;
+            background-color: rgba(254, 243, 199, 0.3);
+        }
+
+        .class-iib {
+            border-color: #fb923c;
+            background-color: rgba(255, 237, 213, 0.3);
+        }
+
+        .class-iii {
+            border-color: #ef4444;
+            background-color: rgba(254, 226, 226, 0.3);
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(8px);
+        }
+
+        .floating-window {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 400px;
+            background: var(--bg-primary);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            z-index: 100;
+        }
+
+        .table-pro {
+            width: 100%;
+            margin: 2rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-pro th {
+            background-color: var(--bg-accent);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .chapter-title {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-bottom-width: 1px;
+            padding-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header class="sticky-nav px-4 py-3 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+            <span class="text-xl font-black tracking-tighter text-blue-600">ESVS2020</span>
+            <div class="relative">
+                <input type="text" id="abbr-search" placeholder="🔍 Buscar abreviatura..."
+                    class="border border-gray-300 rounded-lg px-4 py-1.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none w-40 md:w-64 bg-gray-50 bg-opacity-50">
+                <div id="abbr-float" class="floating-window">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="font-bold text-sm">Significado</span>
+                        <button onclick="closeAbbr()" class="text-gray-400 hover:text-red-500 text-xl">&times;</button>
+                    </div>
+                    <div id="abbr-result" class="text-sm space-y-2"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar">
+            <button onclick="filterRecs('all')"
+                class="px-3 py-1 bg-gray-200 rounded-md text-xs font-bold whitespace-nowrap">TODAS</button>
+            <button onclick="filterRecs('class-i')"
+                class="px-3 py-1 bg-green-500 text-white rounded-md text-xs font-bold">I</button>
+            <button onclick="filterRecs('class-iia')"
+                class="px-3 py-1 bg-yellow-400 text-white rounded-md text-xs font-bold">IIa</button>
+            <button onclick="filterRecs('class-iib')"
+                class="px-3 py-1 bg-orange-400 text-white rounded-md text-xs font-bold">IIb</button>
+            <button onclick="filterRecs('class-iii')"
+                class="px-3 py-1 bg-red-500 text-white rounded-md text-xs font-bold">III</button>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <button id="settings-btn" class="p-2 hover:bg-gray-100 rounded-full">
+                ⚙️
+            </button>
+        </div>
+    </header>
+
+    <!-- Settings Overlay (Hidden by default) -->
+    <div id="settings-modal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-6 w-full max-w-sm shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold">Ajustes de Visualización</h3>
+                <button onclick="toggleSettings()" class="text-2xl">&times;</button>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-xs font-bold text-gray-400 uppercase">Tema</label>
+                    <div class="grid grid-cols-4 gap-2 mt-2">
+                        <button onclick="updateTheme('theme-light')" class="w-8 h-8 rounded-full border bg-white"
+                            title="Claro"></button>
+                        <button onclick="updateTheme('theme-dark')" class="w-8 h-8 rounded-full border bg-gray-900"
+                            title="Oscuro"></button>
+                        <button onclick="updateTheme('theme-red')" class="w-8 h-8 rounded-full border bg-red-100"
+                            title="Rojo"></button>
+                        <button onclick="updateTheme('theme-blue')" class="w-8 h-8 rounded-full border bg-blue-100"
+                            title="Azul"></button>
+                        <button onclick="updateTheme('theme-green')" class="w-8 h-8 rounded-full border bg-green-100"
+                            title="Verde"></button>
+                        <button onclick="updateTheme('theme-purple')" class="w-8 h-8 rounded-full border bg-purple-100"
+                            title="Morado"></button>
+                        <button onclick="updateTheme('theme-circulatory')"
+                            class="w-8 h-8 rounded-full border bg-slate-200" title="Circulatorio"></button>
+                    </div>
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-gray-400 uppercase">Tamaño de Fuente</label>
+                    <input type="range" min="14" max="22" value="16" oninput="updateFontSize(this.value + 'px')"
+                        class="w-full mt-2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex">
+        <aside
+            class="w-72 hidden lg:block h-screen sticky top-16 overflow-y-auto p-6 border-r border-gray-100 bg-gray-50 bg-opacity-30">
+            <nav class="space-y-1">
+                <a href="#intro"
+                    class="block py-2 px-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-sm font-medium">1.
+                    Introducción</a>
+                <a href="#considerations"
+                    class="block py-2 px-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-sm font-medium">2.
+                    Consideraciones Generales</a>
+                <a href="#prevention"
+                    class="block py-2 px-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-sm font-medium">3.
+                    Estrategias de Prevención</a>
+                <a href="#therapy"
+                    class="block py-2 px-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-sm font-medium">4.
+                    Estrategias Terapéuticas</a>
+                <a href="#supra"
+                    class="block py-2 px-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-sm font-medium">5.
+                    Troncos Supraaórticos</a>
+                <a href="#thoracic"
+                    class="block py-2 px-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-sm font-medium">6.
+                    Aorta Torácica</a>
+                <a href="#abdominal"
+                    class="block py-2 px-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-sm font-medium">7.
+                    Aorta Abdominal</a>
+                <a href="#peripheral"
+                    class="block py-2 px-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-sm font-medium">8.
+                    Arterias Periféricas</a>
+                <a href="#patient"
+                    class="block py-2 px-3 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all text-sm font-medium">9.
+                    Perspectiva del Paciente</a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 px-4 md:px-12 py-8 max-w-4xl mx-auto">
+            <div class="mb-12 text-center">
+                <h1 class="text-4xl md:text-5xl font-black mb-4 leading-tight">ESVS 2020 Guía sobre Infecciones
+                    Protésicas</h1>
+                <p class="text-gray-500 font-medium">Guías de práctica clínica de la Sociedad Europea de Cirugía
+                    Vascular</p>
+            </div>
+
+            <section id="intro">
+                <h2 class="chapter-title">1. Introducción y Aspectos Generales</h2>
+                <div class="prose prose-slate max-w-none">
+                    <p>Las guías impulsadas por sociedades científicas sobre la infección de injertos o endoinjertos
+                        vasculares (VGEI) no habían sido publicadas previamente. La Sociedad Europea de Cirugía Vascular
+                        (ESVS) ha desarrollado estas guías para el cuidado de pacientes con VGEI, con el objetivo de
+                        asistir a los médicos en la selección de la mejor estrategia de manejo.</p>
+
+                    <h3 class="section-title">1.2 Métodos</h3>
+                    <p>El Comité de Redacción (WC) fue seleccionado por la ESVS, la Asociación Europea de Medicina
+                        Nuclear (EANM) y el Grupo de Investigación sobre Infecciones de Prótesis (GRIP).</p>
+
+                    <div class="my-8 overflow-x-auto">
+                        <table class="table-pro">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-3 border">Clase de Recomendación</th>
+                                    <th class="p-3 border">Definición</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr>
+                                    <td class="p-3 border font-bold text-green-700">Clase I</td>
+                                    <td class="p-3 border">Evidencia y/o acuerdo general de que un tratamiento o
+                                        procedimiento dado es beneficioso, útil y efectivo.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-bold text-blue-700">Clase II</td>
+                                    <td class="p-3 border">Evidencia conflictiva y/o divergencia de opinión sobre la
+                                        utilidad/eficacia.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-bold text-blue-500 pl-6">Clase IIa</td>
+                                    <td class="p-3 border">El peso de la evidencia/opinión está a favor de la
+                                        utilidad/eficacia.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-bold text-orange-500 pl-6">Clase IIb</td>
+                                    <td class="p-3 border">La utilidad/eficacia está menos establecida por
+                                        evidencia/opinión.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-bold text-red-700">Clase III</td>
+                                    <td class="p-3 border">Evidencia o acuerdo general de que el tratamiento o
+                                        procedimiento NO es útil/efectivo y puede ser perjudicial.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="considerations">
+                <h2 class="chapter-title">2. Consideraciones Generales</h2>
+                <div class="prose prose-slate max-w-none">
+                    <h3 class="section-title">2.1 Definición de infección del sitio quirúrgico incisional</h3>
+                    <p>El diagnóstico de VGEI se relaciona generalmente con hallazgos clínicos, estudios de imagen y
+                        exámenes microbiológicos. Los criterios de los CDC para infecciones del sitio quirúrgico (SSI),
+                        que pueden ser tanto superficiales como profundas, se aplican a la descripción de VGEI.</p>
+
+                    <div class="my-6 overflow-x-auto">
+                        <table class="table-pro">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-3 border">Criterios</th>
+                                    <th class="p-3 border">SSI Superficial</th>
+                                    <th class="p-3 border">SSI Profunda</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr>
+                                    <td class="p-3 border font-bold">1</td>
+                                    <td class="p-3 border">Ocurre dentro de los 30 días tras el procedimiento.</td>
+                                    <td class="p-3 border">Ocurre dentro de los 30 días (sin implante) o 1 año (con
+                                        implante).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-bold">2</td>
+                                    <td class="p-3 border">Involucra solo piel y tejido subcutáneo.</td>
+                                    <td class="p-3 border">Involucra tejidos blandos profundos (fascia y capas
+                                        musculares).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border font-bold">3</td>
+                                    <td class="p-3 border font-bold">Al menos uno de:</td>
+                                    <td class="p-3 border font-bold">Al menos uno de:</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border"></td>
+                                    <td class="p-3 border">Drenaje purulento superficial.</td>
+                                    <td class="p-3 border">Drenaje purulento profundo (no órgano/espacio).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border"></td>
+                                    <td class="p-3 border">Organismos aislados de cultivo aseptico.</td>
+                                    <td class="p-3 border">Dehiscencia espontánea o apertura por cirujano + cultivo
+                                        positivo o síntomas (fiebre >38°C, dolor).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border"></td>
+                                    <td class="p-3 border">Signos (dolor, edema, calor) + apertura por cirujano +
+                                        cultivo positivo.</td>
+                                    <td class="p-3 border">Absceso u otra evidencia de infección profunda.</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="p-2 text-[10px] italic text-gray-500 text-center">Tabla 3.
+                                        Criterios del CDC para infecciones del sitio quirúrgico.</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <h3 class="section-title">2.2 Clasificaciones</h3>
+                    <p>Mientras que las definiciones del CDC no enfatizan los injertos vasculares (VG), las
+                        clasificaciones de Szilagyi y Samson sí lo hacen. La extensión de la afectación se describe
+                        mediante la clasificación de Bunt.</p>
+
+                    <div class="grid md:grid-cols-2 gap-4 my-6">
+                        <table class="table-pro">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th colspan="2" class="p-2 border text-center">Clasificación de Szilagyi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs">
+                                <tr>
+                                    <td class="p-2 border font-bold italic">Grado I</td>
+                                    <td class="p-2 border">Celulitis que involucra la herida.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold italic">Grado II</td>
+                                    <td class="p-2 border">Infección que involucra tejido subcutáneo.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold italic">Grado III</td>
+                                    <td class="p-2 border">Infección que involucra la prótesis vascular.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="table-pro">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th colspan="2" class="p-2 border text-center">Clasificación de Samson</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs">
+                                <tr>
+                                    <td class="p-2 border font-bold italic">Grupo 1</td>
+                                    <td class="p-2 border">No más profundo que la dermis.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold italic">Grupo 2</td>
+                                    <td class="p-2 border">Subcutáneo, sin contacto directo con el injerto.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold italic">Grupo 3</td>
+                                    <td class="p-2 border">Cuerpo del injerto, no anastomosis.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold italic">Grupo 4</td>
+                                    <td class="p-2 border">Anastomosis expuesta, sin sangrado ni bacteriemia.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold italic">Grupo 5</td>
+                                    <td class="p-2 border">Anastomosis involucrada, sangrado, bacteriemia.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="my-6">
+                        <table class="table-pro">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th colspan="2" class="p-3 border text-center font-bold">Clasificación de Bunt
+                                        (Modificada)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs">
+                                <tr>
+                                    <td class="p-2 border font-bold uppercase">P0</td>
+                                    <td class="p-2 border">Infección de un injerto cavitario (aorta, aorto-ilíaco,
+                                        etc.).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold uppercase">P1</td>
+                                    <td class="p-2 border">Infección de un injerto totalmente extracavitario
+                                        (axillo-femoral, fémoro-distal, etc.).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold uppercase">P2</td>
+                                    <td class="p-2 border">Infección de la porción extracavitaria de un injerto
+                                        originado en cavidad (ej. segmento inguinal de aortofemoral).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold uppercase">P3</td>
+                                    <td class="p-2 border">Infección que involucra una angioplastia con parche
+                                        protésico.</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2" class="p-2 text-[10px] italic text-gray-500 text-center">Tabla 4.
+                                        Clasificaciones de Szilagyi, Samson y Bunt.</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <h3 class="section-title">2.3 Definición de VGEI: Criterios MAGIC</h3>
+                    <p>Para superar las limitaciones de las clasificaciones actuales, el grupo MAGIC desarrolló una
+                        lista de criterios mayores y menores basados en hallazgos clínicos, radiológicos y de
+                        laboratorio.</p>
+
+                    <div class="my-6 overflow-x-auto">
+                        <table class="table-pro">
+                            <thead>
+                                <tr class="bg-blue-600 text-white">
+                                    <th class="p-3 border">Criterio</th>
+                                    <th class="p-3 border">Clínico / Quirúrgico</th>
+                                    <th class="p-3 border">Radiológico</th>
+                                    <th class="p-3 border">Laboratorio</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs">
+                                <tr class="bg-blue-50">
+                                    <td class="p-2 border font-bold">Mayor</td>
+                                    <td class="p-2 border">Pus periprotésico. Exposición del injerto. Fístula (AEnF,
+                                        ABF).</td>
+                                    <td class="p-2 border">Líquido periprotésico (CT >3 meses). Gas (CT >7 semanas).
+                                    </td>
+                                    <td class="p-2 border">Organismos en injerto explantado, muestra quirúrgica o
+                                        aspirado.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold">Menor</td>
+                                    <td class="p-2 border">Eritema, calor, dolor. Fiebre >38°C (sin otra causa).</td>
+                                    <td class="p-2 border">Pseudoaneurisma, engrosamiento pared digestiva. Actividad en
+                                        PET/CT.</td>
+                                    <td class="p-2 border">Hemocultivos positivos (sin otro foco). Elevación de
+                                        marcadores (PCR, leucos).</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4" class="p-2 text-[10px] italic text-gray-500 text-center">Tabla 5.
+                                        Casificación MAGIC para el diagnóstico de VGEI.</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div class="bg-blue-50 p-4 border-l-4 border-blue-500 text-sm mb-6">
+                        <strong>Diagnóstico:</strong> El VGEI se sospecha con 1 criterio mayor o 2 menores. Se
+                        diagnóstica con al menos 1 criterio mayor y cualquier otro criterio de otra categoría.
+                    </div>
+
+                    <!-- Recommendations 1-10 -->
+                    <div class="space-y-4">
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 1</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda una evaluación exhaustiva del
+                                estado clínico, signos de infección y comorbilidades según los criterios MAGIC ante la
+                                sospecha de VGEI.</p>
+                        </div>
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 2</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda realizar todos los esfuerzos
+                                posibles para obtener evidencia microbiológica de la infección.</p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 3</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se debe considerar la obtención de al menos
+                                tres muestras profundas en lugar de superficiales para la prueba microbiográfica.</p>
+                        </div>
+                        <div class="recommendation-card class-iii" data-class="class-iii">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    III</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 4</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">No se recomienda investigar
+                                microbiológicamente las espumas de terapia de presión negativa (NPWT) para el
+                                diagnóstico de VGEI.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 5</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se puede considerar la sonicación del
+                                material del injerto extraído intraoperatoriamente para mejorar la detección de
+                                microorganismos.</p>
+                        </div>
+                        <div class="recommendation-card class-iii" data-class="class-iii">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    III</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 6</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">No se recomienda el uso de ultrasonido como
+                                única modalidad diagnóstica en pacientes con sospecha de VGEI.</p>
+                        </div>
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 7</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">La angio-TC (CTA) se recomienda como
+                                modalidad diagnóstica de primera línea ante la sospecha de VGEI.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 8</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se puede considerar el uso de angio-RM si
+                                la angio-TC está contraindicada.</p>
+                        </div>
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 9</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda el uso de 18F-FDG-PET/TC como
+                                modalidad adicional ante CTA no concluyente.</p>
+                        </div>
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 10</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">En sospecha de VGEI periférica, se
+                                recomienda el uso de SPECT/TC (si está disponible) como modalidad adicional.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">2.4 Factores de Riesgo</h3>
+                    <p>Múltiples factores contribuyen al VGEI y deben evaluarse pre, intra y postoperatoriamente.</p>
+                    <div class="my-6 overflow-x-auto">
+                        <table class="table-pro">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-2 border">Categoría</th>
+                                    <th class="p-2 border">Factores</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-xs">
+                                <tr>
+                                    <td class="p-2 border font-bold">Preoperatorios</td>
+                                    <td class="p-2 border">Hospitalización prolongada, infección en sitio remoto, acceso
+                                        arterial reciente, emergencia, reintervención, infección extremidad inferior,
+                                        incisión en ingle.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold">Intraoperatorios</td>
+                                    <td class="p-2 border">Rotura de técnica aséptica, tiempo operatorio prolongado,
+                                        procedimiento GI/GU concomitante.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold">Postoperatorios</td>
+                                    <td class="p-2 border">Complicaciones de herida (necrosis, linfocele, hematoma),
+                                        trombosis del injerto.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-bold">Paciente</td>
+                                    <td class="p-2 border">Malignidad, corticoides, quimioterapia, desnutrición,
+                                        diabetes, insuficiencia renal, cirrosis, inmunosupresión.</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2" class="p-2 text-[10px] italic text-gray-500 text-center">Tabla 6.
+                                        Factores de riesgo para VGEI.</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="prevention">
+                <h2 class="chapter-title">3. Estrategias para Prevenir la Infección de Injertos o Endoinjertos</h2>
+                <div class="prose prose-slate max-w-none">
+                    <h3 class="section-title">3.1 Materias Primas</h3>
+                    <p>Actualmente, los dispositivos vasculares están hechos principalmente de dos polímeros diferentes:
+                        PET o politetrafluoroetileno expandido (ePTFE) para materiales blandos, y diferentes aleaciones,
+                        siendo el nitinol el más utilizado para los stents. No existe una fuerte evidencia sobre
+                        diferencias en la susceptibilidad a la infección entre los biomateriales sintéticos vasculares
+                        crudos.</p>
+
+                    <h3 class="section-title">3.2 Logística y Cuidados Perioperatorios</h3>
+                    <h4 class="font-bold mt-4">3.2.1 Portadores nasales de Staphylococcus</h4>
+                    <p>La alta prevalencia de portadores nasales de S. aureus en la población general y su papel en
+                        infecciones potencialmente graves plantea la cuestión del efecto beneficioso de su
+                        descolonización. Estudios han demostrado que el pre-cribado y la terapia de erradicación nasal
+                        pueden prevenir infecciones del sitio quirúrgico por S. aureus en cirugía aorto-ilíaca.</p>
+
+                    <h4 class="font-bold mt-4">3.2.2 Cuidados perioperatorios</h4>
+                    <p>Medidas como la normotermia perioperatoria, la eliminación del vello el día anterior a la cirugía
+                        y la disciplina en los cuidados asépticos en el quirófano reducen el riesgo de SSI.</p>
+
+                    <h4 class="font-bold mt-4">3.2.2.2 Profilaxis antimicrobiana</h4>
+                    <p>La profilaxis antimicrobiana con antibióticos sistémicos de amplio espectro reduce
+                        significativamente el riesgo de infección de la herida e infección temprana del injerto. Se
+                        recomiendan cefalosporinas de primera o segunda generación.</p>
+
+                    <!-- Recommendation 11 -->
+                    <div class="recommendation-card class-i" data-class="class-i">
+                        <div class="flex justify-between items-start mb-2">
+                            <span
+                                class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black italic">CLASE
+                                I</span>
+                            <span class="text-[10px] font-bold text-gray-400">Nivel A</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Recomendación 11</h4>
+                        <p class="text-sm leading-relaxed text-gray-800">En todos los casos en los que se implante un
+                            injerto/endoinjerto vascular, se recomienda la profilaxis antimicrobiana para cubrir las
+                            primeras 24 horas, mediante la administración intravenosa de una cefalosporina de
+                            primera/segunda generación o vancomicina en caso de alergia a la penicilina.</p>
+                    </div>
+
+                    <h3 class="section-title">3.3 Profilaxis antibiótica durante la extracción dental</h3>
+                    <p>Análogo a las válvulas cardíacas protésicas, se propone la profilaxis antibiótica para pacientes
+                        con una prótesis aórtica antes de cualquier procedimiento dental invasivo.</p>
+
+                    <!-- Recommendation 12 & 13 -->
+                    <div class="recommendation-card class-iia" data-class="class-iia">
+                        <div class="flex justify-between items-start mb-2">
+                            <span
+                                class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black italic">CLASE
+                                IIa</span>
+                            <span class="text-[10px] font-bold text-gray-400">Nivel C</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Recomendación 12</h4>
+                        <p class="text-sm leading-relaxed text-gray-800">Antes de la implantación de cualquier
+                            injerto/endoinjerto vascular, se debe considerar la eliminación de cualquier fuente
+                            potencial de sepsis, especialmente de origen dental.</p>
+                    </div>
+
+                    <div class="recommendation-card class-iia" data-class="class-iia">
+                        <div class="flex justify-between items-start mb-2">
+                            <span
+                                class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black italic">CLASE
+                                IIa</span>
+                            <span class="text-[10px] font-bold text-gray-400">Nivel C</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Recomendación 13</h4>
+                        <p class="text-sm leading-relaxed text-gray-800">Se debe considerar la profilaxis antimicrobiana
+                            para prevenir la infección del injerto/endoinjerto vascular antes de cualquier procedimiento
+                            dental que involucre la manipulación de la región gingival o periapical de los dientes o la
+                            perforación de la mucosa oral en pacientes previamente operados con un injerto
+                            vascular/endovascular.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="therapy">
+                <h2 class="chapter-title">4. Estrategias Terapéuticas Generales</h2>
+                <div class="prose prose-slate max-w-none">
+                    <p>Dada la rareza de la VGEI y la complejidad de su diagnóstico y tratamiento, se indica claramente
+                        la centralización de los pacientes en centros especializados de alto volumen con experiencia
+                        multidisciplinaria.</p>
+
+                    <h3 class="section-title">4.1 Terapia Antimicrobiana</h3>
+                    <p>En la fase aguda, está indicada la terapia antimicrobiana intensiva con antibióticos de amplio
+                        espectro. La duración óptima no tiene consenso, pero generalmente se proponen de dos a seis
+                        semanas de terapia intravenosa seguida de un régimen oral.</p>
+
+                    <!-- Recommendation 14 & 15 -->
+                    <div class="recommendation-card class-i" data-class="class-i">
+                        <div class="flex justify-between items-start mb-2">
+                            <span
+                                class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black italic">CLASE
+                                I</span>
+                            <span class="text-[10px] font-bold text-gray-400">Nivel B</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Recomendación 14</h4>
+                        <p class="text-sm leading-relaxed text-gray-800">Se recomienda la terapia antimicrobiana en
+                            todos los pacientes con un injerto/endoinjerto infectado.</p>
+                    </div>
+
+                    <div class="recommendation-card class-i" data-class="class-i">
+                        <div class="flex justify-between items-start mb-2">
+                            <span
+                                class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black italic">CLASE
+                                I</span>
+                            <span class="text-[10px] font-bold text-gray-400">Nivel C</span>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Recomendación 15</h4>
+                        <p class="text-sm leading-relaxed text-gray-800">Para el diagnóstico y tratamiento de la
+                            infección de injerto/endoinjerto vascular, se recomienda que el paciente sea transferido a
+                            un centro especializado de alto volumen con experiencia multidisciplinaria en esta
+                            patología.</p>
+                    </div>
+
+                    <h3 class="section-title">4.2 Principios Quirúrgicos</h3>
+                    <p>Históricamente, el estándar de oro era la eliminación total del injerto infectado y la
+                        reconstrucción extra-anatómica (EAR). Actualmente, muchos autores prefieren la reconstrucción in
+                        situ (ISR) con materiales resistentes a la infección combinada con un desbridamiento agresivo.
+                    </p>
+                </div>
+            </section>
+
+            <section id="supra">
+                <h2 class="chapter-title">5. Infección de Reconstrucciones de los Troncos Supraaórticos</h2>
+                <div class="prose prose-slate max-w-none">
+                    <p>La infección en los troncos supraaórticos es extremadamente rara (0.25% – 0.5%), pero puede ser
+                        catastrófica. Involucra parches, bypasses e infecciones de stent-grafts.</p>
+
+                    <h3 class="section-title">5.1 Presentación Clínica y Diagnóstico</h3>
+                    <p>La presentación varía según el tiempo. Las infecciones tempranas suelen presentarse como abscesos
+                        o hemorragias, mientras que las tardías suelen ser senos de drenaje. El S. aureus es el patógeno
+                        predominante en infecciones tempranas y el S. epidermidis en las tardías.</p>
+
+                    <div class="space-y-4">
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 16</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Cuando se encuentra corrugación del parche
+                                en el seguimiento ecográfico tras una endarterectomía carotídea, se deben considerar
+                                investigaciones adicionales para excluir una infección.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">5.2 Tratamiento</h3>
+                    <p>El manejo agresivo es necesario para evitar roturas y hemorragias masivas. La reconstrucción in
+                        situ con material autólogo es de elección.</p>
+
+                    <div class="space-y-4">
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 17</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda la extirpación total del
+                                material infectado seguida de reconstrucción con material autólogo.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 18</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">La técnica EndoVAC puede considerarse en
+                                pacientes seleccionados cuando no sea factible la extirpación total ni el tratamiento
+                                con VAC convencional.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 19</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">En el entorno de urgencia con sangrado
+                                activo, se puede considerar un enfoque combinado endovascular y quirúrgico.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 20</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">El tratamiento conservador, incluyendo
+                                terapia antimicrobiana sin reconstrucción, puede considerarse para pacientes no aptos
+                                para cirugía.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="thoracic">
+                <h2 class="chapter-title">6. Infección de Injertos o Endoinjertos de la Aorta Torácica y Toracoabdominal
+                </h2>
+                <div class="prose prose-slate max-w-none">
+                    <p>La infección de la aorta torácica tiene una mortalidad de hasta el 75%. Se asocia frecuentemente
+                        con fístulas aortoesofágicas (AEsF), aortobronquiales (ABF) o aortopulmonares (APF).</p>
+
+                    <h3 class="section-title">6.1 Diagnóstico y Estrategia General</h3>
+                    <div class="space-y-4">
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 21</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomiendan investigaciones diagnósticas
+                                adicionales ante fiebre persistente o síntomas inflamatorios tras la implantación de un
+                                injerto torácico.</p>
+                        </div>
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 22</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda la explantación total del
+                                injerto en pacientes aptos con infección probada de la aorta torácica/toracoabdominal.
+                            </p>
+                        </div>
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 23</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda cubrir el nuevo injerto con
+                                tejido autólogo (idealmente vascularizado) en reconstrucciones in situ.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 24</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">El tratamiento conservador puede
+                                considerarse en pacientes con riesgo quirúrgico mayor.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 25</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se puede considerar la terapia
+                                antimicrobiana prolongada con drenaje ante la ausencia de fístulas o sepsis
+                                generalizada.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 26</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">La explantación parcial puede considerarse
+                                si la infección está limitada.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 27</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Los aloinjertos criopreservados pueden
+                                considerarse como el material de primera elección para la reconstrucción.</p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 28</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Tras la reconstrucción extra-anatómica, se
+                                debe considerar el refuerzo del muñón aórtico con tejidos autólogos vascularizados.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">6.2 Manejo de Fístulas Esofágicas y de la Vía Aérea</h3>
+                    <p>Las fístulas requieren un tratamiento complejo que aborde tanto el defecto aórtico como el
+                        digestivo/pulmonar. El tratamiento conservador de una fístula aortoesofágica (AEsF) es casi
+                        invariablemente fatal.</p>
+
+                    <div class="space-y-4">
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 29</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda la explantación, reparación
+                                del esófago y cobertura con tejido viable como tratamiento definitivo de la AEsF.</p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 30</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">En urgencias con sangrado activo por AEsF,
+                                se debe considerar el uso de un endoinjerto como puente al tratamiento definitivo.</p>
+                        </div>
+                        <div class="recommendation-card class-iii" data-class="class-iii">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    III</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 31</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">No se recomienda el tratamiento conservador
+                                en pacientes con AEsF, excepto en cuidados paliativos.</p>
+                        </div>
+                        <div class="recommendation-card class-iii" data-class="class-iii">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-red-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    III</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 32</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">No se recomienda el tratamiento de la AEsF
+                                únicamente con una endoprótesis esofágica.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="abdominal">
+                <h2 class="chapter-title">7. Infección de Injertos o Endoinjertos de la Aorta Abdominal</h2>
+                <div class="prose prose-slate max-w-none">
+                    <p>La incidencia de infección en la aorta abdominal tras cirugía abierta es del 0.19% y tras EVAR
+                        del 0.16%. La fístula aortoentérica (AEnF) es una complicación grave presente en el 1% – 2% de
+                        los casos.</p>
+
+                    <h3 class="section-title">7.1 Tratamiento y Reconstrucción In Situ (ISR)</h3>
+                    <p>La ISR incluye la eliminación completa del material infectado y la reconstrucción en el campo
+                        infectado. Las opciones de injerto incluyen vena autóloga, aloinjertos criopreservados, y
+                        prótesis recubiertas con rifampicina o plata.</p>
+
+                    <!-- Tables for Abdominal -->
+                    <div class="overflow-x-auto my-6">
+                        <table class="min-w-full border border-gray-200 text-xs text-left">
+                            <caption class="text-xs font-bold mb-2 text-slate-500">Tabla 7. Reconstrucción con vena
+                                autóloga en la infección de injerto de aorta abdominal</caption>
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="border p-2">Autor</th>
+                                    <th class="border p-2">n</th>
+                                    <th class="border p-2">Morbilidad/Resultados</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border p-2">Ali et al. (2009)</td>
+                                    <td class="border p-2">165</td>
+                                    <td class="border p-2">Mortalidad temprana 10%, Re-infección 5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Dorweiler et al. (2014)</td>
+                                    <td class="border p-2">67</td>
+                                    <td class="border p-2">Mortalidad temprana 9%, Re-infección 0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Heinola et al. (2016)</td>
+                                    <td class="border p-2">55</td>
+                                    <td class="border p-2">Mortalidad temprana 9%, Re-infección 4%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="overflow-x-auto my-6">
+                        <table class="min-w-full border border-gray-200 text-xs text-left">
+                            <caption class="text-xs font-bold mb-2 text-slate-500">Tabla 8. ISR con aloinjertos
+                                criopreservados para infección de aorta abdominal</caption>
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="border p-2">Autor</th>
+                                    <th class="border p-2">n</th>
+                                    <th class="border p-2">Mortalidad/Complicaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border p-2">Harlander-Locke (2014)</td>
+                                    <td class="border p-2">220</td>
+                                    <td class="border p-2">Mortalidad 9%, Degeneración 2.7%</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Ben Ahmed et al. (2018)</td>
+                                    <td class="border p-2">71</td>
+                                    <td class="border p-2">Mortalidad 2.8%, Re-infección 4%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 37</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">El drenaje percutáneo con o sin irrigación
+                                puede considerarse para identificación microbiológica y reducción de la carga
+                                bacteriana, pero no como tratamiento definitivo.</p>
+                        </div>
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 38</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda la escisión completa de todo
+                                el material del injerto y el tejido infectado como tratamiento definitivo en pacientes
+                                aptos.</p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 39</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">La reconstrucción in situ con vena autóloga
+                                debe considerarse como el método preferido.</p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 40</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Los aloinjertos criopreservados, injertos
+                                recubiertos de plata, poliéster impregnado con rifampicina o pericardio bovino deben
+                                considerarse como soluciones alternativas.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 41</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">La escisión parcial puede considerarse
+                                cuando la infección está limitada y el material restante está bien incorporado.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 42</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se puede considerar la reconstrucción
+                                extra-anatómica en casos de abscesos grandes o microorganismos multirresistentes.</p>
+                        </div>
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 43</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda el seguimiento por imagen de
+                                por vida tras la reconstrucción in situ con aloinjertos criopreservados para detectar su
+                                degeneración.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 44</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Asegurar una zona de pinzamiento
+                                supraceliaco o usar un balón de oclusión aórtica puede considerarse como primer paso
+                                antes de entrar en el área de una fístula aortoentérica.</p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 45</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">En urgencias con sangrado activo, se debe
+                                considerar el tratamiento inicial con un endoinjerto solo como medida temporal.</p>
+                        </div>
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 46</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda la omentoplastia o
+                                transferencia de tejido vascularizado autólogo para cubrir la reconstrucción vascular en
+                                fístulas aortoentéricas.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 47</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">En sangrado activo por fístula
+                                arterio-ureteral, se puede considerar el endoinjerto como medida temporal.</p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 48</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se debe considerar la explantación completa
+                                del injerto combinada con tratamiento urológico ante una fístula arterio-ureteral e
+                                infección.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="peripheral">
+                <h2 class="chapter-title">8. Infección de Injertos en Arterias Periféricas</h2>
+                <div class="prose prose-slate max-w-none">
+                    <p>La ingle es el sitio más común de infección tras reconstrucciones infrainguinales. Los factores
+                        de riesgo incluyen obesidad, diabetes y amputaciones previas.</p>
+
+                    <div class="overflow-x-auto my-6">
+                        <table class="min-w-full border border-gray-200 text-xs text-left">
+                            <caption class="text-xs font-bold mb-2 text-slate-500">Tabla 12. Factores de riesgo de
+                                infección del sitio quirúrgico en extremidades inferiores</caption>
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="border p-2">Factor de Riesgo</th>
+                                    <th class="border p-2">OR Ajustado (IC 95%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border p-2">Obesidad</td>
+                                    <td class="border p-2">2.08 (1.78–2.43)</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Isquemia crítica</td>
+                                    <td class="border p-2">4.35 (3.45–5.47)</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2">Amputación mayor</td>
+                                    <td class="border p-2">12 (4.1–34)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="section-title">8.1 Tratamiento</h3>
+                    <p>La ISR con vena autóloga es de elección. La terapia de presión negativa (NPWT) y el uso de
+                        colgajos musculares son adyuvantes importantes.</p>
+
+                    <div class="space-y-4">
+                        <div class="recommendation-card class-i" data-class="class-i">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-green-600 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    I</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 49</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se recomienda la reconstrucción in situ con
+                                vena autóloga si la extirpación del injerto infectado probablemente conduciría a
+                                isquemia de la extremidad.</p>
+                        </div>
+                        <div class="recommendation-card class-iib" data-class="class-iib">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-orange-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIb</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 50</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">La irrigación local y/o la terapia de
+                                presión negativa pueden considerarse en infecciones limitadas o pacientes no aptos para
+                                cirugía.</p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 51</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se debe considerar la NPWT para promover la
+                                cicatrización tras la eliminación del injerto y desbridamiento.</p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel C</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 52</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Los aloinjertos criopreservados deben
+                                considerarse como alternativa tras la eliminación del injerto si hay riesgo de isquemia.
+                            </p>
+                        </div>
+                        <div class="recommendation-card class-iia" data-class="class-iia">
+                            <div class="flex justify-between items-start mb-2"><span
+                                    class="text-[10px] bg-yellow-500 text-white px-2 py-0.5 rounded font-black">CLASE
+                                    IIa</span><span class="text-[10px] font-bold text-gray-400">Nivel B</span></div>
+                            <h4 class="font-bold text-lg mb-1">Recomendación 53</h4>
+                            <p class="text-sm leading-relaxed text-gray-800">Se deben considerar los colgajos
+                                musculotegumentarios para promover la curación inguinal tras la eliminación del injerto
+                                y desbridamiento.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="patient">
+                <h2 class="chapter-title">9. Perspectivas del Paciente</h2>
+                <div class="prose prose-slate max-w-none">
+                    <p>La VGEI tiene un impacto significativo en la calidad de vida de los pacientes, con estancias
+                        hospitalarias prolongadas, múltiples cirugías y regímenes de antibióticos a largo plazo. Se
+                        recomienda un enfoque centrado en el paciente y el apoyo psicológico.</p>
+                </div>
+            </section>
+
+            <section id="unresolved">
+                <h2 class="chapter-title">10. Temas No Resueltos</h2>
+                <div class="prose prose-slate max-w-none">
+                    <p>A pesar de estas guías, muchos aspectos del manejo de la VGEI carecen de evidencia de alto nivel
+                        (Nivel A). Temas como la duración exacta de la terapia antimicrobiana, el papel de los nuevos
+                        materiales biológicos y las estrategias específicas para endoinjertos complejos requieren más
+                        investigación clínica mediante registros internacionales.</p>
+                </div>
+            </section>
+
+            <footer class="mt-20 pt-8 border-t border-gray-200 text-center text-gray-400 text-xs">
+                <p>&copy; 2020 Sociedad Europea de Cirugía Vascular (ESVS). Traducido para fines educativos.</p>
+                <p>Esta guía debe ser utilizada por profesionales de la salud.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        const abbreviations = {
+            "ABF": "Fístula aortobronquial",
+            "AEsF": "Fístula aortoesofágica",
+            "AEnF": "Fístula aortoentérica",
+            "APF": "Fístula aortopulmonar",
+            "AUF": "Fístula arterio-ureteral",
+            "CDC": "Centros para el Control y la Prevención de Enfermedades",
+            "CTA": "Angiografía por tomografía computarizada",
+            "EAR": "Reconstrucción extra-anatómica",
+            "ePTFE": "Politetrafluoroetileno expandido",
+            "EVAR": "Reparación de aneurisma endovascular",
+            "18F-FDG-PET/CT": "Tomografía por emisión de positrones con 18F-fluoro-D-desoxiglucosa / Tomografía computarizada",
+            "GMF": "Colgajo del músculo Grácilis",
+            "GSV": "Vena safena magna",
+            "ISR": "Reconstrucción in situ",
+            "LACA": "Abordaje lateral de las arterias crurales",
+            "MAGIC": "Criterios para el diagnóstico de infección de injertos vasculares",
+            "MDR": "Multirresistente",
+            "MRA": "Angiografía por resonancia magnética",
+            "MRSA": "Staphylococcus aureus resistente a la meticilina",
+            "NAIS": "Sistema de Arteria Innominada/Vena Safena (o reconstrucción venosa profunda)",
+            "NPWT": "Terapia de heridas por presión negativa",
+            "OR": "Cirugía abierta (Open Repair)",
+            "PET": "Polietileno tereftalato",
+            "PTFE": "Politetrafluoroetileno",
+            "SPECT": "Tomografía computarizada por emisión de fotón único",
+            "SSI": "Infección del sitio quirúrgico",
+            "TEVAR": "Reparación de aneurisma endovascular torácico",
+            "VG": "Injerto vascular",
+            "VGI": "Infección de injerto vascular",
+            "VGEI": "Infección de injerto o endoinjerto vascular",
+            "WBC": "Glóbulos blancos (White Blood Cells)"
+        };
+
+        const searchInput = document.getElementById('abbr-search');
+        const abbrFloat = document.getElementById('abbr-float');
+        const abbrResult = document.getElementById('abbr-result');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toUpperCase();
+            if (query.length > 0) {
+                let items = [];
+                for (let key in abbreviations) {
+                    if (key.includes(query)) {
+                        items.push(`<div><span class="font-black text-blue-600">${key}:</span> ${abbreviations[key]}</div>`);
+                    } else if (abbreviations[key].toUpperCase().includes(query)) {
+                        items.push(`<div><span class="font-black text-blue-600">${key}:</span> ${abbreviations[key]}</div>`);
+                    }
+                }
+                if (items.length > 0) {
+                    abbrResult.innerHTML = items.join('');
+                    abbrFloat.style.display = 'block';
+                } else {
+                    abbrResult.innerHTML = '<div class="text-gray-400 italic">No se encontraron resultados</div>';
+                    abbrFloat.style.display = 'block';
+                }
+            } else {
+                abbrFloat.style.display = 'none';
+            }
+        });
+
+        function closeAbbr() { abbrFloat.style.display = 'none'; }
+        function toggleSettings() { document.getElementById('settings-modal').classList.toggle('hidden'); }
+        document.getElementById('settings-btn').onclick = toggleSettings;
+
+        function filterRecs(cls) {
+            const cards = document.querySelectorAll('.recommendation-card');
+            cards.forEach(card => {
+                card.style.display = (cls === 'all' || card.dataset.class === cls) ? 'block' : 'none';
+            });
+        }
+
+        function updateTheme(theme) {
+            document.body.parentElement.className = theme;
+            localStorage.setItem('esvs-theme', theme);
+        }
+
+        function updateFontSize(size) {
+            document.documentElement.style.setProperty('--font-base-size', size);
+            localStorage.setItem('esvs-font-size', size);
+        }
+
+        // Initialize from storage or defaults
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('esvs-theme') || 'theme-light';
+            const savedSize = localStorage.getItem('esvs-font-size') || '16px';
+            updateTheme(savedTheme);
+            updateFontSize(savedSize);
+        });
+    </script>
+</body>
+
+</html>
