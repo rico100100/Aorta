@@ -1,205 +1,4295 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <link rel="icon" href="/favicon.ico">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aorta · Índice de recursos</title>
-  <meta name="description" content="Índice de módulos y documentos del repositorio Aorta">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Test Interactivo Completo con Historial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <!-- Dependencias Externas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <style>
-    :root{
-      --bg:#0b0f14;--panel:#121821;--panel-2:#0f141b;--text:#e6edf3;--muted:#9fb0c0;
-      --accent:#42a5f5;--radius:18px;--shadow:0 6px 28px rgba(0,0,0,.35);
-      --border:1px solid rgba(255,255,255,.06);--focus:0 0 0 3px rgba(66,165,245,.35)
+    /* --- FONT SIZE SCALING ROOT --- */
+    html {
+      font-size: 16px;
+      /* Base size */
+      transition: font-size 0.3s ease;
     }
-    *{box-sizing:border-box}html,body{height:100%}
-    body{margin:0;background:linear-gradient(180deg,#0b0f14 0%,#0f141b 100%);
-      color:var(--text);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-    .wrap{max-width:1200px;margin:0 auto;padding:28px}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
-    h1{font-size:clamp(22px,3.2vw,32px);margin:0}
-    .sub{color:var(--muted);font-size:14px}
-    .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    .search,.toggle{display:flex;align-items:center;gap:10px;background:var(--panel);border:var(--border);
-      padding:10px 12px;border-radius:12px;box-shadow:var(--shadow)}
-    .search input{all:unset;color:var(--text);width:240px}
-    .grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:14px;margin-top:14px}
-    @media (min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media (min-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-    .card{background:linear-gradient(180deg,var(--panel) 0%,var(--panel-2) 100%);border:var(--border);
-      border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;
-      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease}
-    .card:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,0,0,.45);border-color:rgba(255,255,255,.12)}
-    .badge{align-self:flex-start;font-size:12px;background:#d0e7ff;border-radius:999px;padding:4px 10px;color:#0b2239}
-    .title{font-weight:600;font-size:16px}
-    .desc{color:var(--muted);font-size:13px;min-height:36px}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
-    .btn{appearance:none;border:none;cursor:pointer;text-decoration:none;padding:10px 12px;border-radius:12px;font-weight:600;background:var(--accent);color:#001320;box-shadow:var(--shadow)}
-    .btn.secondary{background:transparent;color:var(--text);border:1px dashed rgba(255,255,255,.18)}
-    .footer{margin-top:22px;color:var(--muted);font-size:12px}
-    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:#0a1118;border:1px solid rgba(255,255,255,.12);padding:2px 6px;border-radius:6px}
-    a{color:inherit}.search:focus-within,.toggle:focus-within,.btn:focus{outline:none;box-shadow:var(--focus)}
+
+    html[data-font-size="medium"] {
+      font-size: 18px;
+    }
+
+    html[data-font-size="large"] {
+      font-size: 20px;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      --surface: rgba(255, 255, 255, 0.9);
+      --surface-border: rgba(255, 255, 255, 0.5);
+      --surface-alt: #f8fafc;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --success: #10b981;
+      --error: #ef4444;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --radius: 12px;
+      --glass: blur(12px);
+      --icon-size: 1.1rem;
+    }
+
+    [data-theme="dark"] {
+      --primary: #60a5fa;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --surface: rgba(30, 41, 59, 0.95);
+      --surface-border: rgba(255, 255, 255, 0.15);
+      --surface-alt: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --glass: blur(20px);
+    }
+
+    [data-theme="midnight"] {
+      --primary: #a5b4fc;
+      --bg-gradient: linear-gradient(135deg, #020617 0%, #1e1b4b 100%);
+      --surface: rgba(30, 27, 75, 0.95);
+      --surface-border: rgba(165, 180, 252, 0.2);
+      --surface-alt: #1e1b4b;
+      --text-main: #f8fafc;
+      --text-muted: #c7d2fe;
+      --glass: blur(20px);
+    }
+
+    [data-theme="emerald"] {
+      --primary: #059669;
+      --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-border: rgba(5, 150, 105, 0.15);
+      --surface-alt: #f0fdf4;
+      --text-main: #064e3b;
+      --text-muted: #059669;
+    }
+
+    [data-theme="sunset"] {
+      --primary: #ea580c;
+      --bg-gradient: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-border: rgba(234, 88, 12, 0.15);
+      --surface-alt: #fff7ed;
+      --text-main: #7c2d12;
+      --text-muted: #ea580c;
+    }
+
+    [data-theme="rose"] {
+      --primary: #e11d48;
+      --bg-gradient: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-border: rgba(225, 29, 72, 0.15);
+      --surface-alt: #fff1f2;
+      --text-main: #881337;
+      --text-muted: #e11d48;
+    }
+
+    [data-theme="amber"] {
+      --primary: #d97706;
+      --bg-gradient: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      --surface: rgba(255, 255, 255, 0.95);
+      --surface-border: rgba(217, 119, 6, 0.15);
+      --surface-alt: #fffbeb;
+      --text-main: #78350f;
+      --text-muted: #b45309;
+    }
+
+    /* Estilos para el selector de temas (Dropdown) */
+    .theme-switcher-container {
+      position: absolute;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    /* Iconos Globales */
+    .lucide {
+      width: var(--icon-size);
+      height: var(--icon-size);
+      vertical-align: middle;
+      display: inline-block;
+      stroke-width: 2px;
+    }
+
+    button .lucide {
+      margin-right: 6px;
+    }
+
+    button.icon-only .lucide {
+      margin-right: 0;
+    }
+
+    .profile-item button {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--surface-border);
+    }
+
+    /* --- ESTILOS MEJORADOS SUMMARY --- */
+    .summary-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin: 1.5rem 0;
+    }
+
+    .stat-card {
+      background: var(--surface-alt);
+      padding: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--surface-border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .final-score-box {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(37, 99, 235, 0.03));
+      border: 2px solid var(--primary);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      margin: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .final-score-box h3 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .theme-select {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      outline: none;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+    }
+
+    .theme-select:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .theme-select option {
+      background: #1e293b;
+      color: white;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem 1rem;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(to right, var(--primary), #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-main);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    #quiz-container,
+    #summary-container,
+    #main-menu,
+    #history-container {
+      background: var(--surface);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2rem;
+      width: 100%;
+      max-width: 700px;
+      box-sizing: border-box;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    button {
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    button:not(.navbar-button):not(.secondary-actions button):not(#skip-btn):not(.toggle-notes-button) {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    }
+
+    button:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+      filter: brightness(1.1);
+    }
+
+    button:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      filter: grayscale(1);
+    }
+
+    .options button {
+      width: 100%;
+      text-align: left;
+      justify-content: flex-start;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      padding: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .options button:hover:not(:disabled) {
+      border-color: var(--primary);
+      background-color: #eff6ff;
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+    }
+
+    #temas-lista {
+      margin-top: 1.5rem;
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 1rem;
+      background-color: var(--surface-alt);
+    }
+
+    .correct {
+      background-color: var(--success) !important;
+      color: white !important;
+      border-color: var(--success) !important;
+    }
+
+    .incorrect {
+      background-color: var(--error) !important;
+      color: white !important;
+      border-color: var(--error) !important;
+      animation: shake 0.3s cubic-bezier(.36, .07, .19, .97) both;
+    }
+
+    nav {
+      margin-top: 1em;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 70px 0.5rem 1rem 0.5rem;
+        /* Ajustado padding superior */
+        overflow-x: hidden;
+        /* IMPORTANTE: No permitir desplazamiento horizontal */
+      }
+
+      /* Bloquear scroll horizontal en contenedores */
+      #quiz-container,
+      #summary-container,
+      #main-menu,
+      #history-container,
+      #creator-container,
+      #help-container,
+      .questions-selector-container,
+      .category-mgmt,
+      #temas-lista,
+      .files-list-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        /* Solo scroll vertical */
+      }
+
+      #temas-lista {
+        overflow-y: auto;
+        /* Asegurar scroll vertical */
+      }
+
+      /* Ajustes de Banner y Título */
+      .top-banner {
+        padding: 0.5rem 1rem;
+        justify-content: space-between;
+      }
+
+      .top-banner h1 {
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
+      }
+
+      .top-banner img {
+        height: 35px;
+        width: 35px;
+      }
+
+      .theme-switcher-container {
+        position: static;
+        /* Ya no absoluto */
+        margin-left: auto;
+      }
+
+      .theme-switcher-container span {
+        display: none;
+        /* Ocultar texto "Tema:" en móvil */
+      }
+
+      /* Aumentar zonas de input y botones para dedo */
+      input[type="text"],
+      input[type="number"],
+      select,
+      textarea,
+      button {
+        font-size: 16px !important;
+        /* Evita zoom automático en iOS */
+        min-height: 44px;
+        /* Tamaño mínimo táctil recomendado */
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.3);
+        /* Checkboxes más grandes */
+        margin: 5px;
+      }
+
+      .cat-item,
+      .profile-item {
+        padding: 10px 14px;
+        /* Más espacio para tocar */
+        margin-bottom: 5px;
+      }
+
+      /* Ajustes específicos de inputs numéricos pequeños */
+      .timer-option input,
+      #total-questions-input {
+        width: 100px;
+        text-align: center;
+      }
+
+      /* Botones de acción principales más grandes */
+      #start-test-btn,
+      .custom-file-upload {
+        padding: 1.2rem;
+        font-size: 1.1rem;
+      }
+
+      /* Ajuste Navbar flotante */
+      .main-navbar {
+        padding: 0.5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      .navbar-title {
+        display: none;
+        /* Ocultar título en barra inf para ahorrar espacio */
+      }
+
+      /* Distribución de botones en selectores */
+      .preset-buttons {
+        gap: 0.8rem;
+      }
+
+      .preset-buttons button {
+        padding: 1rem;
+      }
+    }
+
+    button:active {
+      transform: scale(0.98);
+      opacity: 0.9;
+    }
+
+    #temas-lista div {
+      padding: 0.6rem;
+      border-radius: 6px;
+      transition: background-color 0.2s;
+    }
+
+    #temas-lista div:hover {
+      background-color: transparent;
+      color: inherit;
+    }
+
+    #temas-lista label {
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    #quiz-container,
+    #summary-container,
+    #main-menu,
+    #history-container {
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      position: absolute;
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-5px);
+      }
+
+      75% {
+        transform: translateX(5px);
+      }
+    }
+
+    .incorrect {
+      background-color: #f44336;
+      color: white;
+      animation: shake 0.3s;
+    }
+
+    .questions-selector-container {
+      background: var(--surface-alt);
+      padding: 1.5rem;
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .questions-selector-container label {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .preset-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .preset-buttons button {
+      flex: 1;
+      min-width: 60px;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      padding: 0.6rem;
+      font-size: 0.9rem;
+    }
+
+    .preset-buttons button.selected {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    #total-questions-input {
+      font-size: 1em;
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 70px;
+    }
+
+    .file-uploader {
+      background: var(--surface-alt);
+      padding: 1.5rem;
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .custom-file-upload {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    .custom-file-upload:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .file-names-display {
+      margin: 0;
+      font-style: italic;
+      color: var(--text-muted);
+      max-width: 100%;
+      word-break: break-all;
+    }
+
+    /* --- ESTILOS MEJORADOS PARA LA EXPLICACIÓN DEL JSON (OFICIAL) --- */
+    .static-comment-box {
+      margin-top: 20px;
+      padding: 15px 20px;
+      background-color: var(--surface-alt);
+      border-left: 6px solid var(--primary);
+      border-radius: 8px;
+      color: var(--text-main);
+      font-size: 1em;
+      line-height: 1.6;
+      box-shadow: var(--shadow-sm);
+      animation: fadeIn 0.5s ease-in-out;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .static-comment-title {
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--surface-border);
+      padding-bottom: 5px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .notes-textarea {
+      width: 100%;
+      height: 80px;
+      padding: 10px;
+      border: 1px solid var(--surface-border);
+      border-radius: 5px;
+      margin-top: 0.5em;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    .save-note-button {
+      background-color: #28a745;
+      color: white;
+      margin-top: 0.5em;
+      float: right;
+    }
+
+    .save-note-button:hover:not(:disabled) {
+      background-color: #218838;
+    }
+
+    .toggle-notes-button {
+      width: 100%;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+      text-align: center;
+      font-weight: bold;
+      padding: 1rem;
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: all 0.2s ease;
+    }
+
+    .toggle-notes-button:hover {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .notes-content {
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+      max-height: 200px;
+      opacity: 1;
+    }
+
+    .notes-content.collapsed {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+    }
+
+    /* --- TOOLTIPS / HELP SYSTEM --- */
+    .help-tooltip {
+      position: relative;
+      display: inline-block;
+      margin-left: 6px;
+      cursor: help;
+      color: var(--text-muted);
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    .help-tooltip .tooltip-content {
+      visibility: hidden;
+      width: 250px;
+      background-color: var(--surface-bg, #1e293b);
+      color: var(--text-main, #fff);
+      text-align: left;
+      border: 1px solid var(--primary);
+      border-radius: 8px;
+      padding: 12px;
+      position: absolute;
+      z-index: 1200;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+      box-shadow: var(--shadow-lg);
+      font-size: 0.85rem;
+      font-weight: 400;
+      line-height: 1.4;
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .help-tooltip .tooltip-content,
+    [data-theme="emerald"] .help-tooltip .tooltip-content,
+    [data-theme="sunset"] .help-tooltip .tooltip-content,
+    [data-theme="rose"] .help-tooltip .tooltip-content,
+    [data-theme="amber"] .help-tooltip .tooltip-content {
+      background-color: white;
+      color: #1e293b;
+    }
+
+    .help-tooltip:hover .tooltip-content {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .tooltip-content strong {
+      color: var(--primary);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .tooltip-content em {
+      display: block;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--surface-border);
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .help-tooltip .lucide {
+      width: 16px;
+      height: 16px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .help-tooltip:hover .lucide {
+      opacity: 1;
+      color: var(--primary);
+    }
+
+    .summary-question {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #004080;
+      margin-bottom: 0.5em;
+    }
+
+    .summary-answer {
+      font-size: 0.95em;
+      padding-left: 1em;
+      margin: 0.2em 0;
+      border-left: 3px solid #ccc;
+    }
+
+    .user-answer {
+      border-left-color: #f44336;
+    }
+
+    .user-answer::before {
+      content: '❌ ';
+    }
+
+    .correct-answer {
+      border-left-color: #4caf50;
+      font-weight: bold;
+    }
+
+    .correct-answer::before {
+      content: '✔️ ';
+    }
+
+    #start-test-btn {
+      width: 100%;
+      background-color: var(--primary);
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      padding: 1.25rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    }
+
+    #start-test-btn:hover:not(:disabled) {
+      background-color: var(--primary-hover);
+      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+    }
+
+    .secondary-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 1.5em;
+      justify-content: center;
+    }
+
+    .secondary-actions button {
+      flex: 1;
+      min-width: 140px;
+      background-color: #f0f0f0;
+      color: #333;
+      border: 1px solid #ddd;
+      font-size: 0.85em;
+      white-space: nowrap;
+    }
+
+    .secondary-actions button:hover:not(:disabled) {
+      background-color: #e0e0e0;
+      color: #000;
+    }
+
+    .main-navbar {
+      position: fixed;
+      /* Cambiado a fixed para que siempre se vea al hacer scroll */
+      top: 70px;
+      /* Debajo del banner superior azul */
+      left: 0;
+      width: 100%;
+      background: var(--surface) !important;
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      color: var(--text-main);
+      padding: 0.8rem 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-sizing: border-box;
+      transition: all 0.4s ease;
+    }
+
+    /* Contenedor de opciones de tiempo */
+    .timer-config {
+      margin-top: 1rem;
+      padding: 1.2rem;
+      background: var(--surface-border);
+      border-radius: 10px;
+      display: none;
+      /* Se muestra solo en simulacro */
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .timer-option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .timer-option label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .timer-option input {
+      width: 80px;
+      padding: 0.4rem;
+      border-radius: 6px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface-alt);
+      color: var(--text-main);
+      text-align: center;
+    }
+
+    .navbar-title {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .navbar-button {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .navbar-button:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    button.icon-only {
+      padding: 0.4rem;
+      width: auto;
+      min-width: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* --- CATEGORÍAS --- */
+    .category-group {
+      margin-top: 1rem;
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 1rem;
+      background: var(--surface-border);
+      margin-bottom: 1.5rem;
+    }
+
+    .category-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.4rem;
+    }
+
+    .category-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-mgmt {
+      margin: 1rem 0;
+      padding: 1.2rem;
+      background: var(--surface-alt);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .category-mgmt input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .cat-tag {
+      font-size: 0.7rem;
+      background: var(--primary);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .move-to-cat-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      background: var(--surface-alt);
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--surface-border);
+    }
+
+    .move-to-cat-select {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      border-radius: 4px;
+      padding: 0.2rem;
+      outline: none;
+    }
+
+    /* --- PERFILES DE ESTUDIO --- */
+    .header-checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cat-item,
+    .profile-item {
+      display: flex;
+      align-items: center;
+      gap: 0 !important;
+      /* Force zero gap */
+      background: var(--surface-alt);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--surface-border);
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .cat-item:hover,
+    .profile-item:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cat-item.active,
+    .profile-item.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .cat-item input[type="checkbox"],
+    .profile-item input[type="checkbox"] {
+      margin: 0;
+      padding: 0;
+      margin-right: -5px;
+      /* Pull text closer */
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cat-item span,
+    .profile-item span {
+      margin-left: 0;
+    }
+
+    .del-profile-btn {
+      color: var(--error);
+      margin: 0;
+      margin-right: -10px;
+      /* Aggressively pull checkbox closer */
+      padding: 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      /* Restored size for better UX */
+      height: 24px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .inspect-profile-btn {
+      color: var(--primary);
+      margin: 0;
+      margin-left: -5px;
+      padding: 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Specific adjustment for Profile Delete Button (on the right) */
+    .profile-item .del-profile-btn {
+      margin-right: 0;
+      margin-left: -8px;
+      /* Pull tightly to the left (towards inspect btn) */
+    }
+
+    .profile-item .del-profile-btn:hover {
+      color: #991b1b;
+    }
+
+
+    body {
+      padding-top: 60px;
+    }
+
+    .main-navbar.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    #temas-lista h3 {
+      margin: 0 0 10px 0;
+      text-align: center;
+      color: #333;
+      font-size: 1.1em;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    #skip-btn {
+      background-color: transparent;
+      color: #6c757d;
+      border: 1px solid #6c757d;
+    }
+
+    #skip-btn:hover:not(:disabled) {
+      background-color: #6c757d;
+      color: white;
+    }
+
+    .navbar-timer {
+      font-size: 1.3em;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 5px 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    @media print {
+      body>*:not(#summary-container) {
+        display: none;
+      }
+
+      /* --- ESTILOS DE IMPRESIÓN PROFESIONAL --- */
+      @page {
+        margin: 2cm;
+      }
+
+      body {
+        background: white !important;
+        color: black !important;
+        font-size: 11pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding-top: 0;
+      }
+
+      .main-navbar,
+      .summary-filters,
+      .export-actions,
+      #restart-btn,
+      #home-btn,
+      button {
+        display: none !important;
+      }
+
+      #summary-container {
+        display: block !important;
+        position: static !important;
+        box-shadow: none;
+        width: 100%;
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .chart-container {
+        border: 1px solid #eee;
+        height: 250px !important;
+        margin-bottom: 2rem;
+        page-break-inside: avoid;
+      }
+
+      .summary-item {
+        background: white !important;
+        border: 1px solid #ddd !important;
+        border-left: 10px solid #eee !important;
+        margin-bottom: 1.5rem !important;
+        padding: 1rem !important;
+        page-break-inside: avoid;
+      }
+
+      h2 {
+        color: black;
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px;
+        margin-top: 0;
+      }
+
+      .report-header {
+        display: block !important;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 1rem;
+      }
+
+      .report-header h1 {
+        margin: 0;
+        color: var(--primary);
+        font-size: 24pt;
+      }
+
+      .report-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+        font-size: 10pt;
+        color: #444;
+      }
+
+      .correct-text {
+        color: #065f46 !important;
+        font-weight: bold;
+      }
+
+      .incorrect-text {
+        color: #991b1b !important;
+        font-weight: bold;
+      }
+
+      .hidden {
+        display: block !important;
+        opacity: 1 !important;
+        transform: none !important;
+        position: static !important;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        padding-top: 0;
+      }
+
+      .incorrect-question {
+        page-break-inside: avoid;
+      }
+    }
+
+    .mode-selector-container {
+      background: var(--surface-alt);
+      padding: 1.5rem;
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-label {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: block;
+      color: var(--text-main);
+    }
+
+    .mode-buttons {
+      display: flex;
+      background: var(--surface-border);
+      padding: 4px;
+      border-radius: 10px;
+    }
+
+    .mode-buttons input[type="radio"] {
+      display: none;
+    }
+
+    .mode-buttons .mode-button {
+      flex: 1;
+      text-align: center;
+      padding: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background-color: transparent;
+      color: var(--text-muted);
+      font-weight: 600;
+      border-radius: 8px;
+    }
+
+    .mode-buttons .mode-button.active {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Nuevos estilos para la gestión de archivos */
+    .bulk-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    .bulk-actions button {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+    }
+
+    .bulk-actions button:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .tema-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      padding: 0.5rem;
+      background: var(--surface-alt);
+      border-radius: 8px;
+      border: 1px solid var(--surface-border);
+      transition: all 0.2s;
+    }
+
+    .tema-item:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .remove-tema-btn {
+      background: #fee2e2 !important;
+      color: var(--error) !important;
+      padding: 0.4rem 0.8rem !important;
+      border-radius: 6px;
+      box-shadow: none !important;
+      opacity: 0.8;
+      font-size: 0.8rem !important;
+      margin-left: 0.8rem;
+      flex-shrink: 0;
+      border: 1px solid #fecaca !important;
+    }
+
+    .remove-tema-btn:hover {
+      opacity: 1;
+      background-color: #fca5a5 !important;
+      color: white !important;
+    }
+
+    /* --- ESTILOS CREADOR DE TEMAS --- */
+    #creator-container {
+      background: var(--surface);
+      backdrop-filter: var(--glass);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 800px;
+      box-sizing: border-box;
+      margin-top: 1rem;
+    }
+
+    .creator-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: var(--surface-alt);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--surface-border);
+      margin-bottom: 2rem;
+    }
+
+    .creator-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .creator-field label {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .creator-field input,
+    .creator-field textarea,
+    .creator-field select {
+      padding: 0.7rem;
+      border: 1px solid var(--surface-border);
+      border-radius: 6px;
+      font-family: inherit;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+    }
+
+    .creator-bulk-area {
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      tab-size: 4;
+      background-color: var(--surface-alt);
+      color: var(--text-main);
+      border: 1px solid var(--surface-border);
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .collapsible-panel {
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out, margin 0.3s ease;
+      max-height: 5000px;
+      /* Default open state */
+      opacity: 1;
+    }
+
+    .collapsible-panel.collapsed {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      pointer-events: none;
+    }
+
+    .creator-q-list {
+      margin-top: 1rem;
+      border-top: 2px solid #eee;
+      padding-top: 1rem;
+    }
+
+    .creator-q-item {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      border-left: 4px solid var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .creator-q-item button {
+      background: #fee2e2 !important;
+      color: #b91c1c !important;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .tab {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* --- ESTILOS BANNERS PROFESIONALES --- */
+    .top-banner {
+      width: 100%;
+      background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      box-shadow: var(--shadow-md);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1100;
+      height: 70px;
+      box-sizing: border-box;
+    }
+
+    .top-banner img {
+      height: 50px;
+      width: 50px;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .top-banner h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: white;
+      background: none;
+      filter: none;
+    }
+
+    .bottom-banner {
+      width: 100%;
+      background: #1e293b;
+      color: #94a3b8;
+      padding: 2rem;
+      margin-top: 4rem;
+      text-align: center;
+      border-top: 4px solid var(--primary);
+      box-sizing: border-box;
+    }
+
+    .bottom-banner h2 {
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+
+    .bottom-banner .about {
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin: 0 auto;
+      border-top: 1px solid #334155;
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+
+    body {
+      padding-top: 90px;
+      padding-bottom: 0;
+    }
+
+    /* Ajuste para el navbar sticky que ya existía */
+    .main-navbar {
+      top: 70px;
+    }
+
+    /* --- ESTILOS VISTA DE AYUDA --- */
+    #help-container {
+      background: var(--surface);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      border: 1px solid var(--surface-border);
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 700px;
+      margin-top: 2rem;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+
+    #help-container h2 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    #help-container h3 {
+      color: var(--primary);
+      margin-top: 1.2rem;
+    }
+
+    #help-container ul {
+      padding-left: 1.5rem;
+    }
+
+    #help-container li {
+      margin-bottom: 0.5rem;
+    }
+
+    #help-container code {
+      background: #f1f5f9;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .font-size-controls {
+      display: flex;
+      gap: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .font-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 0 8px;
+      cursor: pointer;
+      font-weight: bold;
+      opacity: 0.7;
+      min-width: unset !important;
+      /* Override mobile generic styles */
+      min-height: unset !important;
+      border-radius: 4px;
+    }
+
+    .font-btn:hover,
+    .font-btn.active {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 600px) {
+      .font-size-controls {
+        margin-right: 8px;
+      }
+    }
   </style>
+
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>Aorta · Índice</h1>
-        <div class="sub">Guías, técnicas y herramientas. Escribe para filtrar o pulsa <span class="kbd">Ctrl</span>+<span class="kbd">K</span>.</div>
+  <div class="top-banner">
+    <img src="app_icon.png" alt="TestAPP Icon">
+    <h1>TestAPP</h1>
+    <div class="theme-switcher-container">
+      <div class="font-size-controls">
+        <button class="font-btn" data-size="normal" title="Letra Normal" style="font-size: 0.8rem;">A</button>
+        <button class="font-btn" data-size="medium" title="Letra Mediana" style="font-size: 1rem;">A</button>
+        <button class="font-btn" data-size="large" title="Letra Grande" style="font-size: 1.2rem;">A</button>
       </div>
-      <div class="controls" role="region" aria-label="Controles">
-        <label class="search" aria-label="Buscar módulos">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 20.3 16.7 16a8 8 0 1 0-1.7 1.7L20.3 22 21 20.3zM10.5 17a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"/></svg>
-          <input id="q" type="search" placeholder="Buscar (ESVS, REBOA, vasculitis…)" autocomplete="off" />
+      <span style="font-size: 0.8rem; opacity: 0.9;">🎨 Tema:</span>
+      <select id="theme-selector" class="theme-select">
+        <option value="light">Claro</option>
+        <option value="dark">Oscuro</option>
+        <option value="midnight">Medianoche</option>
+        <option value="emerald">Esmeralda</option>
+        <option value="sunset">Atardecer</option>
+        <option value="rose">Rosa Premium</option>
+        <option value="amber">Ámbar</option>
+      </select>
+    </div>
+  </div>
+
+  <header id="main-navbar" class="main-navbar hidden">
+    <span class="navbar-title">Panel de Control</span>
+    <span id="timer" class="navbar-timer">00:00</span>
+    <button id="home-btn" class="navbar-button">
+      <i data-lucide="home"></i> Volver al Menú
+    </button>
+  </header>
+
+  <div id="main-menu">
+    <h2>Menú Principal</h2>
+    <!-- 1. SELECTOR DE MODO (Ahora arriba) -->
+    <div class="mode-selector-container">
+      <label class="mode-label">
+        Modo de Test:
+        <span class="help-tooltip">
+          <i data-lucide="help-circle"></i>
+          <span class="tooltip-content">
+            <strong>Modos de Test</strong>
+            Elige entre 'Estudio' para ver respuestas y apuntes al momento, o 'Simulacro' para un examen real con tiempo
+            limitado.
+            <em>Ejemplo: Modo Estudio para repasar fallos con calma.</em>
+          </span>
+        </span>
+      </label>
+      <div class="mode-buttons">
+        <input type="radio" id="mode-estudio" name="test-mode" value="estudio" checked>
+        <label for="mode-estudio" class="mode-button active">
+          <i data-lucide="book-open"></i> Estudio
         </label>
-        <label class="toggle" title="Abrir enlaces en pestaña nueva">
-          <input id="newtab" type="checkbox" />
-          <span>Abrir en pestaña nueva</span>
+        <input type="radio" id="mode-simulacro" name="test-mode" value="simulacro">
+        <label for="mode-simulacro" class="mode-button">
+          <i data-lucide="timer"></i> Simulacro
         </label>
       </div>
-    </header>
 
-    <section id="grid" class="grid" aria-live="polite"></section>
+      <div id="timer-config" class="timer-config">
+        <div class="timer-option">
+          <label>
+            ⏱️ Tiempo total (min):
+            <span class="help-tooltip">
+              <i data-lucide="help-circle"></i>
+              <span class="tooltip-content">
+                <strong>Tiempo Total</strong>
+                Define la duración máxima de todo el test. Al agotarse, el test finalizará automáticamente.
+                <em>Ejemplo: 60 minutos para un simulacro oficial.</em>
+              </span>
+            </span>
+          </label>
+          <input type="number" id="total-time-input" value="60" min="1">
+        </div>
+        <div class="timer-option">
+          <label>
+            ⏳ Tiempo/Pregunta (seg):
+            <span class="help-tooltip">
+              <i data-lucide="help-circle"></i>
+              <span class="tooltip-content">
+                <strong>Tiempo por Pregunta</strong>
+                Limita el tiempo para cada pregunta individual. Si llega a 0, pasará a la siguiente. (0 = sin límite).
+                <em>Ejemplo: 30 segundos para entrenar agilidad mental.</em>
+              </span>
+            </span>
+          </label>
+          <input type="number" id="q-time-input" value="0" min="0" title="Pon 0 para no limitar por pregunta">
+        </div>
+        <small style="font-size: 0.75rem; color: var(--text-muted);">* Pon 0 en tiempo por pregunta para usar solo el
+          tiempo total.</small>
+      </div>
+    </div>
 
-    <p class="footer">Consejo: pulsa <span class="kbd">Enter</span> sobre una tarjeta para abrirla.</p>
+    <div class="file-uploader">
+      <input type="file" id="file-multiple" accept=".json" multiple style="display: none;" />
+      <label for="file-multiple" class="custom-file-upload">
+        Cargar Temas (JSON)
+      </label>
+      <span id="file-names" class="file-names-display"></span>
+    </div>
+
+    <!-- BOTÓN COLAPSABLE -->
+    <button id="toggle-options-btn" class="toggle-notes-button">
+      <i data-lucide="settings-2"></i> ⚙️ Opciones Avanzadas (Categorías, Perfiles, Pesos) ▼
+    </button>
+
+    <!-- WRAPPER COLAPSABLE -->
+    <div id="setup-options-wrapper" class="collapsible-panel collapsed">
+
+      <div class="category-mgmt">
+        <h4
+          style="margin:0 0 8px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="folder-cog"></i> Gestión de Categorías
+          <span class="help-tooltip">
+            <i data-lucide="help-circle"></i>
+            <span class="tooltip-content" style="bottom: auto; top: 125%;">
+              <strong>Categorías</strong>
+              Agrupa tus archivos JSON para tenerlos organizados. Puedes filtrar temas activando o desactivando la
+              categoría completa.
+              <em>Ejemplo: Categoría 'Cardiología' para todos los temas de corazón.</em>
+            </span>
+          </span>
+        </h4>
+        <div style="display: flex; gap: 8px; width: 100%; align-items: center;">
+          <input type="text" id="new-cat-input" placeholder="Nombre de nueva categoría..."
+            style="flex: 1; min-width: 0;">
+          <button id="add-cat-btn" style="background: var(--success) !important; padding: 0.5rem 1rem; flex-shrink: 0;">
+            <i data-lucide="plus"></i> Añadir
+          </button>
+        </div>
+        <div id="available-categories-list"
+          style="width: 100%; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;">
+          <!-- Etiquetas de categorías -->
+        </div>
+      </div>
+
+      <!-- Perfiles existentes (Vista rápida) -->
+      <div id="profiles-selection-container" style="margin-bottom: 1.5rem;">
+        <h4
+          style="margin:0 0 8px 0; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="bookmark"></i> Perfiles Guardados
+          <span class="help-tooltip">
+            <i data-lucide="help-circle"></i>
+            <span class="tooltip-content">
+              <strong>Perfiles de Pesos</strong>
+              Carga configuraciones guardadas de selección de temas y sus porcentajes (%) de aparición.
+              <em>Ejemplo: Perfil 'Examen Final' con 50% Ley y 50% Medicina.</em>
+            </span>
+          </span>
+        </h4>
+        <div id="profiles-list" style="width: 100%; display: flex; flex-wrap: wrap; gap: 8px;">
+          <!-- Perfiles -->
+        </div>
+      </div>
+
+      <div id="temas-lista-section">
+        <h4
+          style="margin:0 0 10px 0; color:var(--primary); font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="list"></i> Selección de Temas y Pesos
+          <span class="help-tooltip">
+            <i data-lucide="help-circle"></i>
+            <span class="tooltip-content">
+              <strong>Temas y Pesos %</strong>
+              Selecciona qué temas quieres incluir y qué porcentaje del total de preguntas tendrá cada uno.
+              <em>Ejemplo: Tema A al 80% y Tema B al 20% para priorizar estudio.</em>
+            </span>
+          </span>
+        </h4>
+        <div id="temas-lista"><em>No hay temas cargados.</em></div>
+        <p id="menu-status" style="margin: 10px 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Cargue uno o varios
+          archivos JSON con temas.</p>
+      </div>
+
+      <!-- Mover seleccionados a Categoría -->
+      <div id="move-to-cat-mgmt"
+        style="margin-top: 1.5rem; padding: 1.2rem; background: var(--surface-alt); border: 1px solid var(--surface-border); border-radius: 12px; display: none;">
+        <h4
+          style="margin:0 0 10px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="folder-output"></i> Mover seleccionados a Categoría
+          <span class="help-tooltip">
+            <i data-lucide="help-circle"></i>
+            <span class="tooltip-content">
+              <strong>Mover en Bloque</strong>
+              Cambia de categoría todos los temas que tengas marcados actualmente. Ideal para organizar archivos recién
+              cargados.
+              <em>Ejemplo: Mover 10 temas sueltos a la categoría 'Urgencias'.</em>
+            </span>
+          </span>
+        </h4>
+        <div style="display: flex; gap: 8px; width: 100%; flex-wrap: wrap;">
+          <select id="bulk-cat-selector"
+            style="flex: 1; min-width: 150px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--surface-border); background: var(--surface-bg); color: var(--text-main);">
+            <option value="">-- Elegir existente --</option>
+          </select>
+          <input type="text" id="bulk-new-cat-input" placeholder="O nueva categoría..."
+            style="flex: 1; min-width: 150px;">
+          <button id="bulk-move-btn" style="background: var(--primary) !important; flex: 1; min-width: 150px;">
+            <i data-lucide="folder-plus"></i> Mover
+          </button>
+        </div>
+      </div>
+
+      <!-- Guardar nueva configuración como perfil -->
+      <div class="profiles-mgmt"
+        style="margin-top: 1.5rem; padding: 1.2rem; background: var(--surface-alt); border: 1px solid var(--surface-border); border-radius: 12px;">
+        <h4
+          style="margin:0 0 10px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="save"></i> Guardar esta selección como Perfil
+        </h4>
+        <div style="display: flex; gap: 8px; width: 100%; flex-wrap: wrap;">
+          <input type="text" id="profile-name-input" placeholder="Nombre del perfil..."
+            style="flex: 1; min-width: 200px;">
+          <button id="save-profile-btn" style="background: #0ea5e9 !important; flex: 1; min-width: 150px;">
+            <i data-lucide="download"></i> Guardar Perfil
+          </button>
+        </div>
+      </div>
+
+    </div> <!-- FIN WRAPPER COLAPSABLE -->
+
+    <div style="margin-bottom: 1rem;">
+      <button id="pick-random-theme-btn"
+        style="width: 100%; background: var(--surface-alt); color: var(--text-main); border: 1px solid var(--primary); padding: 1rem; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;">
+        <i data-lucide="dices"></i> 🎲 Escoger Tema Aleatorio
+      </button>
+    </div>
+
+    <div class="questions-selector-container">
+      <label>
+        Nº de preguntas:
+        <span id="total-available-activator"
+          style="font-weight: normal; font-size: 0.85rem; color: var(--primary); margin-left: 10px;">
+          (Disponibles: <span id="total-available-display">0</span>)
+        </span>
+      </label>
+      <div class="preset-buttons">
+        <button data-value="10">10</button>
+        <button data-value="20">20</button>
+        <button data-value="110">OPE</button>
+        <button id="btn-max-selection" title="Todas las de la selección manual"
+          style="background-color: var(--primary); color: white; border-color: var(--primary);">Max Selec.</button>
+        <button id="btn-max-profile" title="Todas las del perfil activo" disabled style="opacity: 0.5;">Max
+          Perfil</button>
+        <button id="btn-max-category" title="Todas las de la categoría actual" disabled style="opacity: 0.5;">Max
+          Categ.</button>
+      </div>
+      <input type="number" id="total-questions-input" min="1" value="110" placeholder="Otro...">
+    </div>
+
+    <button id="start-test-btn" disabled style="width: 100%; margin-top: 2rem;">
+      <i data-lucide="play"></i> Iniciar Test
+    </button>
+
+    <div class="secondary-actions">
+      <button id="reset-menu-btn" style="background: var(--text-muted) !important; color: white !important;">
+        <i data-lucide="refresh-ccw"></i> Limpiar Temas
+      </button>
+      <button id="show-history-btn">
+        <i data-lucide="history"></i> Ver Historial
+      </button>
+      <button id="show-creator-btn" style="background-color: #0ea5e9 !important; color: white !important;">
+        <i data-lucide="hammer"></i> Crear Tema
+      </button>
+
+      <button id="test-mistakes-global-btn" style="background-color: #f59e0b !important; color: white !important;">
+        <i data-lucide="flame"></i> Repasar Fallos (<span id="global-mistakes-count">0</span>)
+      </button>
+      <button id="show-help-btn" style="background-color: #64748b !important; color: white !important;">
+        <i data-lucide="book-open"></i> Manual
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR DE AYUDA -->
+  <div id="help-container" style="display:none;">
+    <h2><i data-lucide="library"></i> Manual de Usuario - TestAPP</h2>
+    <p>Bienvenido a <strong>TestAPP</strong>, tu plataforma de entrenamiento profesional.</p>
+
+    <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+      <section>
+        <h3><i data-lucide="play-circle"></i> Modos de Entrenamiento</h3>
+        <ul>
+          <li><strong>Modo Estudio:</strong> Aprende con feedback inmediato, explicaciones automáticas (IA) y añade tus
+            propios apuntes.</li>
+          <li><strong>Modo Simulacro:</strong> Configura un temporizador total o por pregunta para entrenar bajo
+            presión.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><i data-lucide="folder-tree"></i> Organización Avanzada</h3>
+        <ul>
+          <li><strong>Categorías:</strong> Agrupa tus temas para mantener el orden. Usa las etiquetas para filtrar y
+            seleccionar rápidamente.</li>
+          <li><strong>Perfiles de Estudio:</strong> Guarda tus configuraciones de porcentajes (%) favoritas para
+            cargarlas en un clic.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><i data-lucide="bar-chart-3"></i> Análisis y Progreso</h3>
+        <ul>
+          <li><strong>Repaso de Fallos:</strong> Los errores se guardan automáticamente. Úsalos para pulir tus puntos
+            débiles.</li>
+          <li><strong>Historial:</strong> Accede a tus intentos pasados para ver tu evolución y revisar preguntas
+            específicas.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3><i data-lucide="external-link"></i> Exportación y Creación</h3>
+        <ul>
+          <li>Genera informes en <strong>Excel, CSV o PDF</strong> profesionales al finalizar cada test.</li>
+          <li>Crea tus propios temas con el editor manual o carga masiva (Bulk) desde el menú principal.</li>
+        </ul>
+      </section>
+    </div>
+
+    <button id="close-help-btn" style="width: 100%; margin-top: 2rem; background: var(--primary) !important;">
+      <i data-lucide="check-circle"></i> Entendido, Volver al Menú
+    </button>
+  </div>
+
+  <!-- CONTENEDOR CREADOR DE TEMAS -->
+  <div id="creator-container" style="display:none;">
+    <h2><i data-lucide="hammer"></i> Creador de Temas JSON</h2>
+
+    <div class="creator-form">
+      <div class="creator-field">
+        <label>Nombre del Tema:</label>
+        <input type="text" id="creator-theme-name" placeholder="Ej: Mi Examen de Medicina">
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" id="tab-manual">Manual</div>
+        <div class="tab" id="tab-bulk">Carga Masiva (Bulk)</div>
+      </div>
+
+      <!-- Entrada Manual -->
+      <div id="creator-manual-section">
+        <div class="creator-field">
+          <label>Pregunta:</label>
+          <textarea id="creator-q-text" rows="2"></textarea>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="creator-field">
+            <label>Opción A:</label>
+            <input type="text" id="creator-opt-a">
+          </div>
+          <div class="creator-field">
+            <label>Opción B:</label>
+            <input type="text" id="creator-opt-b">
+          </div>
+          <div class="creator-field">
+            <label>Opción C:</label>
+            <input type="text" id="creator-opt-c">
+          </div>
+          <div class="creator-field">
+            <label>Opción D:</label>
+            <input type="text" id="creator-opt-d">
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 10px; margin-top: 10px;">
+          <div class="creator-field">
+            <label>Correcta:</label>
+            <select id="creator-opt-correct">
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="c">C</option>
+              <option value="d">D</option>
+            </select>
+          </div>
+          <div class="creator-field">
+            <label>Explicación (opcional):</label>
+            <input type="text" id="creator-q-comment">
+          </div>
+        </div>
+        <button id="creator-add-btn" style="width: 100%; margin-top: 15px; background: #10b981 !important;">➕ Añadir
+          Pregunta</button>
+      </div>
+
+      <!-- Entrada Masiva -->
+      <div id="creator-bulk-section" style="display:none;">
+        <p style="font-size: 0.8rem; color: #666; margin-bottom: 5px;">Formato:
+          <code>Pregunta | A | B | C | D | Correcta (A, B, C o D) | Comentario</code>
+        </p>
+        <textarea id="creator-bulk-text" class="creator-bulk-area"
+          placeholder="Ej: ¿2+2? | 3 | 4 | 5 | 6 | B | Es aritmética simple"></textarea>
+        <button id="creator-parse-btn" style="width: 100%; margin-top: 10px; background: #6366f1 !important;">📥
+          Procesar Lista</button>
+      </div>
+    </div>
+
+    <div class="creator-q-list">
+      <h3>Preguntas añadidas: <span id="creator-q-count">0</span></h3>
+      <div id="creator-questions-preview" style="max-height: 200px; overflow-y: auto;"></div>
+    </div>
+
+    <div style="display: flex; gap: 10px; margin-top: 2rem;">
+      <button id="creator-save-btn" style="flex:2; background: #059669 !important;">💾 Guardar e Integrar en la
+        App</button>
+      <button id="creator-download-btn" style="flex:1;">📥 Descargar JSON</button>
+    </div>
+    <button id="creator-cancel-btn" style="width: 100%; margin-top: 10px; background: #64748b !important;">Cerrar y
+      Volver</button>
+  </div>
+
+  <div id="quiz-container" style="display:none;">
+    <div id="progress-bar-container"
+      style="width: 100%; background-color: #eee; border-radius: 5px; margin-bottom: 1em;">
+      <div id="progress-bar"
+        style="width: 0%; height: 10px; background-color: #004080; border-radius: 5px; transition: width 0.3s ease-in-out;">
+      </div>
+    </div>
+    <div id="reserve-notice"
+      style="display:none; background: #fef3c7; color: #92400e; padding: 0.5rem; text-align: center; border-radius: 8px; margin-bottom: 1rem; font-weight: 700; border: 1px solid #fde68a;">
+      <i data-lucide="info"></i> Preguntas de reserva
+    </div>
+    <div class="question" id="question-text"></div>
+    <div class="options" id="options-container"></div>
+    <p id="feedback"></p>
+
+    <div id="static-comment-container" class="static-comment-box" style="display:none;"></div>
+
+    <button id="explain-btn" style="display:none; margin-top: 10px;">Explicar Respuesta (IA)</button>
+    <div id="explanation-container" class="explanation-box"></div>
+    <div id="notes-section" style="margin-top: 1.5em;">
+      <button id="toggle-notes-btn" class="toggle-notes-button">
+        <i data-lucide="chevron-down"></i> Mis Apuntes
+      </button>
+      <div id="notes-content" class="notes-content collapsed">
+        <textarea id="personal-note" class="notes-textarea"
+          placeholder="Escribe aquí tus apuntes personales sobre esta pregunta..."></textarea>
+        <button id="save-note-btn" class="save-note-button">Guardar Nota</button>
+      </div>
+    </div>
+    <nav>
+      <button id="prev-btn" disabled>Anterior</button>
+      <button id="pending-btn" style="display:none; background: #f59e0b !important;">Pendientes</button>
+      <button id="skip-btn">Pasar Pregunta</button>
+      <button id="next-btn" disabled>Siguiente</button>
+    </nav>
+    <p>Puntuación actual: <span id="score">0</span></p>
+  </div>
+
+  <div id="summary-container" style="display:none;">
+    <!-- Encabezado exclusivo para el informe impreso -->
+    <div class="report-header">
+      <h1>Informe de Rendimiento</h1>
+      <div class="report-meta">
+        <div><strong>Candidato:</strong> Usuario - Quiz App</div>
+        <div><strong>Fecha:</strong> <span id="report-date"></span></div>
+        <div id="report-themes"><strong>Temas:</strong> </div>
+        <div><strong>Modo:</strong> <span id="report-mode"></span></div>
+      </div>
+    </div>
+
+    <h2>Resumen Final</h2>
+
+    <!-- Gráfico de rendimiento -->
+    <div class="chart-container">
+      <canvas id="performanceChart"></canvas>
+    </div>
+
+    <div id="final-score"></div>
+
+    <!-- Filtros de preguntas -->
+    <div class="summary-filters">
+      <button class="filter-btn active" data-filter="all">Todas las Preguntas</button>
+      <button class="filter-btn" data-filter="correct">Solo Correctas</button>
+      <button class="filter-btn" data-filter="incorrect">Solo Incorrectas</button>
+    </div>
+
+    <!-- Lista de preguntas filtrada -->
+    <div id="filtered-questions-list"></div>
+
+    <hr>
+
+    <!-- Acciones de Exportación -->
+    <div class="export-actions">
+      <button id="export-xlsx-btn" class="export-btn">
+        <i data-lucide="file-spreadsheet"></i> Excel (XLSX)
+      </button>
+      <button id="export-csv-btn" class="export-btn csv">
+        <i data-lucide="file-text"></i> CSV
+      </button>
+      <button id="export-pdf-btn">
+        <i data-lucide="printer"></i> Imprimir / PDF
+      </button>
+    </div>
+
+    <button id="restart-btn" style="width: 100%; margin-top: 10px;">
+      <i data-lucide="home"></i> Volver al Menú Principal
+    </button>
+  </div>
+
+  <div id="history-container" style="display:none; margin-top: 1em;">
+    <h2><i data-lucide="history"></i> Historial de Tests</h2>
+    <div id="history-list"></div>
+    <div style="display:flex; gap:10px; margin-top:1em;">
+      <button id="close-history-btn" style="flex:1; background:var(--text-muted) !important;">
+        <i data-lucide="x-circle"></i> Cerrar Historial
+      </button>
+      <button id="clear-history-btn" style="flex:1; background:var(--error) !important;">
+        <i data-lucide="trash-2"></i> Limpiar Historial
+      </button>
+    </div>
+    <div id="history-detail" style="margin-top: 1em;"></div>
   </div>
 
   <script>
-    // === Configuración manual de carpetas -> index.html ===
-    // Puedes editar títulos/descripciones a tu gusto.
-    const modules = [
-      { folder:"2025-esvs-reparacion-ao-asc", title:"2025 ESVS · Reparación Aorta Ascendente", tag:"guía", desc:"Resumen / material relacionado." },
-      { folder:"2025-esvs-trauma-vascular", title:"2025 ESVS · Trauma Vascular", tag:"guía", desc:"Pautas y recursos." },
-      { folder:"2024 ESVS Manejo Aneurismas Aorto-Ilíacos", title:"2024 ESVS · Aneurismas Aorto-Ilíacos", tag:"guía", desc:"Manejo y recomendaciones." },
-      { folder:"2020-esvs-infeccion-protesis-resumen-de-recomendaciones", title:"2020 ESVS · Infección de Prótesis", tag:"guía", desc:"Resumen de recomendaciones." },
-      { folder:"ESVS 2017 Torácica descendente", title:"2017 ESVS · Guía de Aorta toracica descendente", tag:"guía", desc:"Resumen de recomendaciones." },
-      { folder:"ESVS 2020 Infecciones protésicas", title:"2020 ESVS · Infección de Prótesis", tag:"guía", desc:"Resumen de recomendaciones." },
+    // --- FONT SIZE SELECTOR LOGIC ---
+    const htmlRoot = document.documentElement;
+    const fontBtns = document.querySelectorAll('.font-btn');
 
-      { folder:"REBOA-ECMO-Guide", title:"REBOA / ECMO · Guía", tag:"técnica", desc:"Guía y flujo de actuación." },
-      { folder:"WSACS2013", title:"WSACS 2013", tag:"guía", desc:"Síndrome compartimental abdominal." },
-      { folder:"tecnicas-remocion-endoprotesis-infrarrenal-abierto", title:"Técnicas · Remoción endoprótesis infrarrenal (abierto)", tag:"técnica", desc:"Abordaje abierto." },
-      { folder:"ifu-endoprotesis", title:"IFU · Endoprótesis", tag:"IFU", desc:"Información de uso (fabricante)." },
+    // Load saved font size
+    const savedFontSize = localStorage.getItem('quizAppFontSize') || 'normal';
+    setFontSize(savedFontSize);
 
-      { folder:"embriologia-del-sistema-vascular", title:"Embriología del Sistema Vascular", tag:"fundamentos", desc:"Bases y desarrollo." },
-      { folder:"comparacion-farmacos-hipolipemiantes", title:"Comparación de Fármacos Hipolipemiantes", tag:"fármacos", desc:"Tablas comparativas." },
-      { folder:"trastornos-del-tejido-conectivo-con-compromiso-vascular", title:"Trastornos del Tejido Conectivo (compromiso vascular)", tag:"fundamentos", desc:"Resumen y criterios." },
-      { folder:"trastornos-del-tejido-conectivo-asociados-a-aneurismas-y-sindrome-aortico-agudo", title:"Tejido conectivo y Síndrome Aórtico Agudo", tag:"fundamentos", desc:"Asociaciones y manejo." },
-      { folder:"vasculitis y aorta", title:"Vasculitis y Aorta", tag:"vasculitis", desc:"Relación y manejo." },
-      { folder:"vasculitis", title:"Vasculitis · General", tag:"vasculitis", desc:"Resumen y enlaces." },
+    fontBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const size = btn.getAttribute('data-size');
+        setFontSize(size);
+        localStorage.setItem('quizAppFontSize', size);
+      });
+    });
 
-      { folder:"sistemas-de-clasificacion-de-infeccion-de-protesis-vasculares", title:"Clasificación · Infección de prótesis vasculares", tag:"clasificación", desc:"Sistemas y criterios." },
-      { folder:"analisis-exhaustivo-de-la-infeccion-de-endoprotesis-aortica-abdominal", title:"Infección de Endoprótesis Aórtica Abdominal", tag:"análisis", desc:"Revisión en profundidad." },
-      { folder:"Perlas-antibiotico", title:"Análisis de perlas de Antibiótico", tag:"análisis PMMA, perlas", desc:"Revisión en profundidad de Perlas de Antibiótico." },
-      
-      { folder:"calculadora_riesgo_vasc", title:"Calculadora de Riesgo Vascular", tag:"herramienta", desc:"Estimación de riesgo." },
-      { folder:"Calculadora de Riesgo VQI-CRI", title:"Calculadora de Riesgo VQI-CRI", tag:"Score, Riesgos", desc:"Score de Riesgo VQI-CRI." },
-      { folder:"scorefragil", title:"Score de Fragilidad", tag:"herramienta", desc:"Valoración de fragilidad." },
-
-      { folder:"tto-medico-SCA", title:"Tratamiento Médico · SCA", tag:"fármacos", desc:"Esquemas terapéuticos." },
-      { folder:"Proglide", title:"ProGlide · Dispositivo", tag:"dispositivo", desc:"Notas y procedimiento." },
-      { folder:"tumores", title:"Tumores (vascular)", tag:"apuntes", desc:"Notas y referencias." },
-      { folder:"preguntas1", title:"Preguntas (banco 1)", tag:"preguntas", desc:"Autoevaluación." },
-    ];
-
-    // === Utilidades ===
-    const $ = sel => document.querySelector(sel);
-    const grid = $("#grid"), q = $("#q"), newtab = $("#newtab");
-
-    // Render de tarjetas
-    function render(items){
-      grid.innerHTML = "";
-      if(!items.length){
-        grid.innerHTML = `<article class="card"><div class="title">Sin resultados</div><div class="desc">Prueba con otros términos (p. ej. “ESVS”, “REBOA”).</div></article>`;
-        return;
+    function setFontSize(size) {
+      // Set attribute on HTML tag for CSS scaling
+      if (size === 'normal') {
+        htmlRoot.removeAttribute('data-font-size');
+      } else {
+        htmlRoot.setAttribute('data-font-size', size);
       }
-      for(const m of items){
-        const folderPath = (m.folder||"").replace(/\/+$/,"");
-        const href = m.href ?? `${encodeURIComponent(folderPath)}/index.html`;
-        const pathLabel = m.href ? m.href : `${m.folder}/index.html`;
-        const isPDF = /\.pdf$/i.test(href);
-        const target = (newtab.checked || isPDF) ? 'target="_blank" rel="noopener"' : "";
 
-        const card = document.createElement("article");
-        card.className = "card";
-        card.tabIndex = 0;
-        card.setAttribute("role","button");
-        card.setAttribute("aria-label", `Abrir ${m.title}`);
+      // Update Active State
+      fontBtns.forEach(btn => {
+        if (btn.getAttribute('data-size') === size) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
 
-        card.innerHTML = `
-          <span class="badge">${m.tag || "módulo"}</span>
-          <div class="title">${m.title || m.folder}</div>
-          <div class="desc">${m.desc || ""}</div>
-          <div class="actions">
-            <a class="btn" href="${href}" ${target}>Abrir</a>
-            <a class="btn secondary" href="${href}" ${target} aria-label="Abrir ${pathLabel}">
-              ${pathLabel}
-            </a>
-          </div>
-        `;
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentTestMode = 'estudio';
+      const timerElem = document.getElementById('timer');
+      let timerInterval = null;
+      let startTime = 0;
+      const skipBtn = document.getElementById('skip-btn');
+      const mainNavbar = document.getElementById('main-navbar');
+      const homeBtn = document.getElementById('home-btn');
+      const toggleNotesBtn = document.getElementById('toggle-notes-btn');
+      const notesContent = document.getElementById('notes-content');
+      const personalNoteInput = document.getElementById('personal-note');
+      const saveNoteBtn = document.getElementById('save-note-btn');
+      const fileMultipleInput = document.getElementById('file-multiple');
+      const temasLista = document.getElementById('temas-lista');
+      const menuStatus = document.getElementById('menu-status');
+      const startTestBtn = document.getElementById('start-test-btn');
+      const resetMenuBtn = document.getElementById('reset-menu-btn');
+      const totalQuestionsInput = document.getElementById('total-questions-input');
+      const showHistoryBtn = document.getElementById('show-history-btn');
+      const addCatBtn = document.getElementById('add-cat-btn');
+      const newCatInput = document.getElementById('new-cat-input');
+      const saveProfileBtn = document.getElementById('save-profile-btn');
+      const profileNameInput = document.getElementById('profile-name-input');
+      const profilesList = document.getElementById('profiles-list');
 
-        // Click/Enter abre
-        card.addEventListener("click", e=>{
-          if(e.target.closest("a")) return;
-          if(newtab.checked || isPDF){ window.open(href, "_blank","noopener"); }
-          else{ window.location.href = href; }
+      const quizContainer = document.getElementById('quiz-container');
+      const questionText = document.getElementById('question-text');
+      const optionsContainer = document.getElementById('options-container');
+      const feedback = document.getElementById('feedback');
+      // NUEVO: Referencia al contenedor del comentario estático
+      const staticCommentContainer = document.getElementById('static-comment-container');
+      const reserveNotice = document.getElementById('reserve-notice');
+
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const scoreElem = document.getElementById('score');
+
+      const summaryContainer = document.getElementById('summary-container');
+      const finalScoreElem = document.getElementById('final-score');
+      const filteredQuestionsList = document.getElementById('filtered-questions-list');
+      const restartBtn = document.getElementById('restart-btn');
+      const exportPdfBtn = document.getElementById('export-pdf-btn');
+      const exportXlsxBtn = document.getElementById('export-xlsx-btn');
+      const exportCsvBtn = document.getElementById('export-csv-btn');
+      const pendingBtn = document.getElementById('pending-btn');
+
+      const historyContainer = document.getElementById('history-container');
+      const historyList = document.getElementById('history-list');
+      const closeHistoryBtn = document.getElementById('close-history-btn');
+      const clearHistoryBtn = document.getElementById('clear-history-btn');
+      const historyDetail = document.getElementById('history-detail');
+      const explainBtn = document.getElementById('explain-btn');
+      const explanationContainer = document.getElementById('explanation-container');
+      const testMistakesGlobalBtn = document.getElementById('test-mistakes-global-btn');
+      const showCreatorBtn = document.getElementById('show-creator-btn');
+
+      // Elementos del Creador
+      const creatorContainer = document.getElementById('creator-container');
+      function pickRandomTheme() {
+        if (temasCargados.length === 0) {
+          alert("Primero carga algún archivo JSON.");
+          return;
+        }
+
+        // 1. Limpiar selección actual
+        temasSeleccionados.clear();
+        temasCargados.forEach(t => t.porcentaje = 0);
+
+        // 2. Elegir uno al azar
+        const randomIndex = Math.floor(Math.random() * temasCargados.length);
+        const winners = [temasCargados[randomIndex]];
+
+        // 3. Setearlo
+        winners.forEach(w => {
+          temasSeleccionados.add(w.nombre);
+          w.porcentaje = 100;
         });
-        card.addEventListener("keydown", e=>{
-          if(e.key === "Enter"){
-            if(newtab.checked || isPDF){ window.open(href, "_blank","noopener"); }
-            else{ window.location.href = href; }
+
+        // 4. Actualizar UI
+        activeProfileName = null; // Limpiar perfil activo si hubiera
+        renderPerfiles(); // Para quitar highlight
+        renderCategoriasDisponibles();
+        renderTemasLista();
+
+        // Feedback
+        // alert(`¡Tema aleatorio escogido: ${winners[0].nombre}!`); // Opcional, mejor visual
+
+        // Auto setear cantidad maxima si disponible
+        updateTotalAvailableQuestions();
+        const maxBtn = document.getElementById('btn-max-selection');
+        if (maxBtn && !maxBtn.disabled) {
+          maxBtn.click(); // Auto click max? El usuario no lo pidió explicitamente pero tiene sentido.
+        }
+      }
+
+      const pickRandomThemeBtn = document.getElementById('pick-random-theme-btn');
+      if (pickRandomThemeBtn) {
+        pickRandomThemeBtn.onclick = pickRandomTheme;
+      }
+      const creatorThemeName = document.getElementById('creator-theme-name');
+      const creatorQuestionsPreview = document.getElementById('creator-questions-preview');
+      const creatorQCount = document.getElementById('creator-q-count');
+      const creatorSaveBtn = document.getElementById('creator-save-btn');
+      const creatorDownloadBtn = document.getElementById('creator-download-btn');
+      const creatorCancelBtn = document.getElementById('creator-cancel-btn');
+
+      // Formulario Manual
+      const creatorAddBtn = document.getElementById('creator-add-btn');
+      const creatorQText = document.getElementById('creator-q-text');
+      const creatorOptA = document.getElementById('creator-opt-a');
+      const creatorOptB = document.getElementById('creator-opt-b');
+      const creatorOptC = document.getElementById('creator-opt-c');
+      const creatorOptD = document.getElementById('creator-opt-d');
+      const creatorOptCorrect = document.getElementById('creator-opt-correct');
+      const creatorQComment = document.getElementById('creator-q-comment');
+
+      // Bulk Cat
+      const moveToCatMgmt = document.getElementById('move-to-cat-mgmt');
+      const bulkCatSelector = document.getElementById('bulk-cat-selector');
+      const bulkNewCatInput = document.getElementById('bulk-new-cat-input');
+      const bulkMoveBtn = document.getElementById('bulk-move-btn');
+
+      // Theme Creator Bulk
+      const creatorBulkText = document.getElementById('creator-bulk-text');
+      const creatorParseBtn = document.getElementById('creator-parse-btn');
+
+      // --- ESTADO DEL CREADOR ---
+      let creatorQuestions = [];
+
+      // ⚠️ USA TU NUEVA CLAVE DE OPENROUTER AQUÍ.
+      const OPENROUTER_API_KEY = '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';
+
+      const YOUR_SITE_URL = 'http://localhost/test';
+
+      let categorias = JSON.parse(localStorage.getItem('quizCategorias')) || ['General'];
+      let perfilesEstudio = JSON.parse(localStorage.getItem('quizPerfilesPesos')) || {};
+      let activeProfileName = null;
+      let temasCargados = [];
+      try {
+        const savedThemes = localStorage.getItem('temasGuardados');
+        if (savedThemes) {
+          temasCargados = JSON.parse(savedThemes).map(t => ({
+            nombre: t.nombre,
+            preguntas: JSON.parse(t.contenido).questions,
+            categoria: t.categoria || 'General',
+            porcentaje: 0
+          }));
+        }
+      } catch (e) {
+        console.error("Error loading saved themes:", e);
+        temasCargados = [];
+      }
+      let temasSeleccionados = new Set();
+
+      let questions = [];
+      let currentIndex = 0;
+      let answers = {};
+      let score = 0;
+
+      // --- LÓGICA DE AUTOCÁLCULO PROACTIVO ---
+      function distribuirPorcentajesEquitativamente() {
+        const seleccionados = temasCargados.filter(t => temasSeleccionados.has(t.nombre));
+        const num = seleccionados.length;
+
+        if (num === 0) {
+          temasCargados.forEach(t => t.porcentaje = 0);
+        } else {
+          const basePercent = Math.floor(100 / num);
+          let remainder = 100 % num;
+          temasCargados.forEach(t => {
+            if (temasSeleccionados.has(t.nombre)) {
+              let extra = (remainder > 0) ? 1 : 0;
+              if (extra > 0) remainder--;
+              t.porcentaje = basePercent + extra;
+            } else {
+              t.porcentaje = 0;
+            }
+          });
+        }
+        sincronizarInputsUI();
+        actualizarTextoEstado();
+      }
+
+      function guardarTemasCargadosEnStorage() {
+        const temasParaGuardar = temasCargados.map(t => ({
+          nombre: t.nombre,
+          contenido: JSON.stringify({ questions: t.preguntas }),
+          categoria: t.categoria || 'General'
+        }));
+        localStorage.setItem('temasGuardados', JSON.stringify(temasParaGuardar));
+      }
+
+      // --- LÓGICA DE CATEGORÍAS ---
+      addCatBtn.onclick = () => {
+        const name = newCatInput.value.trim();
+        if (!name) return;
+        if (categorias.includes(name)) {
+          alert('La categoría ya existe.');
+          return;
+        }
+        categorias.push(name);
+        localStorage.setItem('quizCategorias', JSON.stringify(categorias));
+        newCatInput.value = '';
+        renderCategoriasDisponibles();
+        renderTemasLista();
+      };
+
+      function renderCategoriasDisponibles() {
+        const listDiv = document.getElementById('available-categories-list');
+        if (!listDiv) return;
+        listDiv.innerHTML = '';
+
+        // Actualizar también el selector masivo
+        bulkCatSelector.innerHTML = '<option value="">-- Elegir existente --</option>';
+
+        categorias.forEach(cat => {
+          // Opción para el selector masivo
+          const opt = document.createElement('option');
+          opt.value = cat;
+          opt.textContent = cat;
+          bulkCatSelector.appendChild(opt);
+
+          const div = document.createElement('div');
+          div.className = 'cat-item';
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+
+          // Verificar si todos los temas de esta categoría están seleccionados
+          const temasDeEstaCat = temasCargados.filter(t => (t.categoria || 'General') === cat);
+          checkbox.checked = temasDeEstaCat.length > 0 && temasDeEstaCat.every(t => temasSeleccionados.has(t.nombre));
+
+          checkbox.onchange = (e) => {
+            e.stopPropagation();
+            const themesInCat = temasCargados.filter(t => (t.categoria || 'General') === cat);
+            if (checkbox.checked) {
+              themesInCat.forEach(t => temasSeleccionados.add(t.nombre));
+            } else {
+              themesInCat.forEach(t => temasSeleccionados.delete(t.nombre));
+            }
+            distribuirPorcentajesEquitativamente();
+            renderTemasLista();
+            renderCategoriasDisponibles(); // Actualizar estado visual
+          };
+
+          const span = document.createElement('span');
+          span.textContent = cat;
+
+          const delBtn = document.createElement('button');
+          delBtn.className = 'del-profile-btn';
+          delBtn.innerHTML = '<i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>';
+
+          if (cat === 'General') {
+            // Placeholder invisible para mantener alineación perfecta
+            delBtn.style.visibility = 'hidden';
+            delBtn.style.pointerEvents = 'none';
+          } else {
+            delBtn.title = 'Borrar categoría';
+            delBtn.onclick = (e) => {
+              e.stopPropagation();
+              if (confirm(`¿Borrar la categoría "${cat}"? Los temas pasarán a "General".`)) {
+                const index = categorias.indexOf(cat);
+                if (index > -1) {
+                  categorias.splice(index, 1);
+                  temasCargados.forEach(t => {
+                    if (t.categoria === cat) t.categoria = 'General';
+                  });
+                  localStorage.setItem('quizCategorias', JSON.stringify(categorias));
+                  guardarTemasCargadosEnStorage();
+                  renderCategoriasDisponibles();
+                  renderTemasLista();
+                }
+              }
+            };
+          }
+
+          div.appendChild(delBtn);
+          div.appendChild(checkbox);
+          div.appendChild(span);
+
+          listDiv.appendChild(div);
+        });
+        if (window.lucide) lucide.createIcons();
+      }
+
+      // Eliminar el manejador antiguo del botón global (ya no existe en HTML)
+
+
+      // Lógica de borrar categoría integrada en los items (renderCategoriasDisponibles)
+
+      // --- LÓGICA DE PERFILES DE ESTUDIO ---
+      function renderPerfiles() {
+        profilesList.innerHTML = '';
+        Object.keys(perfilesEstudio).forEach(name => {
+          const div = document.createElement('div');
+          div.className = 'profile-item';
+          if (activeProfileName === name) div.classList.add('active');
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.checked = (activeProfileName === name);
+          checkbox.onchange = (e) => {
+            e.stopPropagation();
+            if (checkbox.checked) {
+              cargarPerfil(name);
+            } else {
+              activeProfileName = null;
+              renderPerfiles();
+            }
+          };
+
+          const span = document.createElement('span');
+          span.innerHTML = `<i data-lucide="bookmark" style="width:12px; height:12px; margin-right:4px; vertical-align: middle;"></i> ${name}`;
+          span.style.flexGrow = "1";
+          span.style.marginLeft = "8px"; // Spacing from checkbox
+          span.style.color = "var(--text-main)"; // Force color
+          span.style.display = "inline-flex";
+          span.style.alignItems = "center";
+          span.style.overflow = "hidden";
+          span.style.textOverflow = "ellipsis";
+          span.style.whiteSpace = "nowrap";
+
+          const inspectBtn = document.createElement('button');
+          inspectBtn.className = 'inspect-profile-btn';
+          inspectBtn.innerHTML = '<i data-lucide="eye" style="width:14px; height:14px;"></i>';
+          inspectBtn.title = 'Ver contenido del perfil';
+          inspectBtn.onclick = (e) => {
+            e.stopPropagation();
+            const confi = perfilesEstudio[name];
+            let msg = `Perfil: ${name}\n\n`;
+            for (const [tema, peso] of Object.entries(confi)) {
+              if (peso > 0) msg += `- ${tema}: ${peso}%\n`;
+            }
+            alert(msg);
+          };
+
+          const delBtn = document.createElement('button');
+          delBtn.className = 'del-profile-btn';
+          delBtn.innerHTML = '<i data-lucide="x" style="width:14px; height:14px;"></i>';
+          delBtn.title = 'Borrar este perfil';
+          delBtn.onclick = (e) => {
+            e.stopPropagation();
+            if (confirm(`¿Borrar perfil "${name}"?`)) {
+              delete perfilesEstudio[name];
+              if (activeProfileName === name) activeProfileName = null;
+              localStorage.setItem('quizPerfilesPesos', JSON.stringify(perfilesEstudio));
+              renderPerfiles();
+            }
+          };
+
+          div.appendChild(checkbox);
+          div.appendChild(span);
+          div.appendChild(inspectBtn);
+          div.appendChild(delBtn);
+          profilesList.appendChild(div);
+        });
+        if (window.lucide) lucide.createIcons();
+      }
+
+      saveProfileBtn.onclick = () => {
+        const name = profileNameInput.value.trim();
+        if (!name) {
+          alert("Escribe un nombre para el perfil.");
+          return;
+        }
+
+        const config = {};
+        temasCargados.forEach(t => {
+          if (temasSeleccionados.has(t.nombre)) {
+            config[t.nombre] = t.porcentaje;
           }
         });
 
-        grid.appendChild(card);
+        if (Object.keys(config).length === 0) {
+          alert("Selecciona al menos un tema con peso antes de guardar.");
+          return;
+        }
+
+        perfilesEstudio[name] = config;
+        localStorage.setItem('quizPerfilesPesos', JSON.stringify(perfilesEstudio));
+        profileNameInput.value = '';
+        renderPerfiles();
+        alert(`Perfil "${name}" guardado.`);
+      };
+
+      function cargarPerfil(name) {
+        const config = perfilesEstudio[name];
+        if (!config) return;
+
+        temasSeleccionados.clear();
+        temasCargados.forEach(t => {
+          if (config.hasOwnProperty(t.nombre)) {
+            temasSeleccionados.add(t.nombre);
+            t.porcentaje = config[t.nombre];
+          } else {
+            t.porcentaje = 0;
+          }
+        });
+
+        renderTemasLista();
+        renderCategoriasDisponibles(); // Sincronizar checkboxes de categorías
+        activeProfileName = name;
+        renderPerfiles();
+        // alert(`Perfil "${name}" cargado con éxito.`); // SILENTE
       }
-    }
 
-    // Filtro
-    function filter(){
-      const term = (q.value || "").trim().toLowerCase();
-      const out = !term ? modules : modules.filter(m=>{
-        const hay = [m.title,m.folder,m.tag,m.desc].join(" ").toLowerCase();
-        return hay.includes(term);
-      });
-      render(out);
-    }
 
-    // Atajos y eventos
-    q.addEventListener("input", filter);
-    newtab.addEventListener("change", ()=>render(modules));
-    document.addEventListener("keydown", e=>{
-      if((e.ctrlKey || e.metaKey) && e.key.toLowerCase()==="k"){ e.preventDefault(); q.focus(); q.select(); }
-    });
+      function ajustarPorcentajeDinamicamente(idxEditado, nuevoValor) {
+        if (nuevoValor > 100) nuevoValor = 100;
+        if (nuevoValor < 0) nuevoValor = 0;
 
-    // === Descubrimiento automático de PDFs en la raíz ===
-    const OWNER = "rico100100";
-    const REPO  = "Aorta";
-    async function fetchRootPDFs(){
-      try{
-        const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/`);
-        if(!res.ok) throw new Error("No se pudo listar contenidos");
-        const items = await res.json();
-        return items
-          .filter(it => it.type === "file" && /\.pdf$/i.test(it.name))
-          .map(it => ({
-            href: it.name,
-            title: it.name.replace(/_/g," "),
-            tag: "PDF",
-            desc: "Archivo PDF en la raíz."
+        const temaEditado = temasCargados[idxEditado];
+        const otrosArr = temasCargados.filter((t, i) => temasSeleccionados.has(t.nombre) && i !== idxEditado);
+
+        if (otrosArr.length === 0) {
+          temaEditado.porcentaje = 100;
+        } else {
+          temaEditado.porcentaje = nuevoValor;
+          let sumaTotal = temasCargados.reduce((acc, t) => acc + (temasSeleccionados.has(t.nombre) ? t.porcentaje : 0), 0);
+          let diff = 100 - sumaTotal;
+
+          if (diff !== 0) {
+            let step = diff > 0 ? 1 : -1;
+            let absDiff = Math.abs(diff);
+
+            while (absDiff > 0) {
+              let cambios = 0;
+              for (let t of otrosArr) {
+                if (absDiff === 0) break;
+                if (step === -1 && t.porcentaje <= 0) continue;
+                if (step === 1 && t.porcentaje >= 100) continue;
+                t.porcentaje += step;
+                absDiff--;
+                cambios++;
+              }
+              if (cambios === 0) {
+                temaEditado.porcentaje += (step === 1 ? -absDiff : absDiff);
+                break;
+              }
+            }
+          }
+        }
+        sincronizarInputsUI();
+        actualizarTextoEstado();
+      }
+
+      function sincronizarInputsUI() {
+        temasCargados.forEach((t, idx) => {
+          const input = document.getElementById('input-porcentaje-' + idx);
+          if (input) {
+            input.value = t.porcentaje;
+            input.disabled = !temasSeleccionados.has(t.nombre);
+          }
+          const spanPercent = document.getElementById('span-percent-' + idx);
+          if (spanPercent) spanPercent.textContent = t.porcentaje + '%';
+        });
+      }
+
+      function actualizarTextoEstado() {
+        const sumaTotal = temasCargados.reduce((acc, t) => {
+          if (temasSeleccionados.has(t.nombre)) {
+            return acc + (t.porcentaje || 0);
+          }
+          return acc;
+        }, 0);
+
+        const numSel = temasSeleccionados.size;
+        menuStatus.style.color = 'var(--text-main)';
+
+        menuStatus.innerHTML = `Temas seleccionados: <b>${numSel}</b>. Suma total de peso: <b>${sumaTotal}%</b>.`;
+
+        const algunTemaConPeso = Array.from(temasSeleccionados).some(name => {
+          const t = temasCargados.find(tc => tc.nombre === name);
+          return t && (t.porcentaje || 0) > 0;
+        });
+
+        startTestBtn.disabled = temasSeleccionados.size === 0 || !algunTemaConPeso || sumaTotal !== 100;
+        startTestBtn.title = (sumaTotal !== 100 && numSel > 0) ? "La suma debe ser exactamente 100%" : "";
+
+        // Actualizar contador de disponibles
+        updateTotalAvailableQuestions();
+      }
+
+      function updateTotalAvailableQuestions() {
+        const totalSpan = document.getElementById('total-available-display');
+        const btnMaxSelection = document.getElementById('btn-max-selection');
+        const btnMaxProfile = document.getElementById('btn-max-profile');
+        const btnMaxCategory = document.getElementById('btn-max-category');
+
+        if (!totalSpan) {
+          // Fallback si por alguna razón no existen (aunque deberían)
+          return;
+        }
+
+        // 1. Calculo Selección Manual
+        let countSelection = 0;
+        let selectedThemesArray = [];
+        temasCargados.forEach(t => {
+          if (temasSeleccionados.has(t.nombre)) {
+            countSelection += t.preguntas.length;
+            selectedThemesArray.push(t);
+          }
+        });
+
+        // 2. Calculo Perfil Activo
+        let countProfile = 0;
+        let profileActive = false;
+        if (activeProfileName && perfilesEstudio[activeProfileName]) {
+          profileActive = true;
+          const config = perfilesEstudio[activeProfileName];
+          temasCargados.forEach(t => {
+            if (config.hasOwnProperty(t.nombre)) {
+              countProfile += t.preguntas.length;
+            }
+          });
+        }
+
+        // 3. Calculo Categoría Logic
+        let countCategory = 0;
+        let detectedCategory = null;
+        let mixedCategories = false;
+
+        if (selectedThemesArray.length > 0) {
+          const firstCat = selectedThemesArray[0].categoria;
+          const allSame = selectedThemesArray.every(t => t.categoria === firstCat);
+          if (allSame) {
+            detectedCategory = firstCat;
+            temasCargados.forEach(t => {
+              if (t.categoria === detectedCategory) {
+                countCategory += t.preguntas.length;
+              }
+            });
+          } else {
+            mixedCategories = true;
+          }
+        }
+
+        // Display del total DE LA SELECCIÓN ACTUAL en el texto informativo
+        totalSpan.textContent = countSelection;
+
+        // --- Botón Selección ---
+        if (btnMaxSelection) {
+          btnMaxSelection.onclick = () => totalQuestionsInput.value = countSelection;
+          btnMaxSelection.disabled = countSelection === 0;
+          btnMaxSelection.style.opacity = countSelection === 0 ? '0.5' : '1';
+          btnMaxSelection.title = `Selección Manual: ${countSelection} preguntas`;
+        }
+
+        // --- Botón Perfil ---
+        if (btnMaxProfile) {
+          if (profileActive && countProfile > 0) {
+            btnMaxProfile.disabled = false;
+            btnMaxProfile.style.opacity = '1';
+            btnMaxProfile.style.backgroundColor = 'var(--primary)';
+            btnMaxProfile.style.color = 'white';
+            btnMaxProfile.style.cursor = 'pointer';
+            btnMaxProfile.onclick = () => {
+              totalQuestionsInput.value = countProfile;
+            };
+            btnMaxProfile.title = `Perfil '${activeProfileName}': ${countProfile} preguntas`;
+          } else {
+            btnMaxProfile.disabled = true;
+            btnMaxProfile.style.opacity = '0.5';
+            btnMaxProfile.style.backgroundColor = '';
+            btnMaxProfile.style.color = '';
+            btnMaxProfile.style.cursor = 'not-allowed';
+            btnMaxProfile.onclick = null;
+            btnMaxProfile.title = "Ningún perfil activo";
+          }
+        }
+
+        // --- Botón Categoría ---
+        if (btnMaxCategory) {
+          if (detectedCategory && countCategory > 0) {
+            btnMaxCategory.disabled = false;
+            btnMaxCategory.style.opacity = '1';
+            btnMaxCategory.style.backgroundColor = 'var(--primary)';
+            btnMaxCategory.style.color = 'white';
+            btnMaxCategory.style.cursor = 'pointer';
+            btnMaxCategory.textContent = `Max Cat.`;
+            btnMaxCategory.onclick = () => {
+              // Opción extra: ¿Queremos que seleccione también los temas visualmente?
+              // El usuario pidió "Todas las preguntas de la categoría". 
+              // Lo sensato es setear el número y quizas avisar.
+              totalQuestionsInput.value = countCategory;
+            };
+            btnMaxCategory.title = `Categoría '${detectedCategory}': ${countCategory} preguntas`;
+          } else {
+            btnMaxCategory.disabled = true;
+            btnMaxCategory.style.opacity = '0.5';
+            btnMaxCategory.style.backgroundColor = '';
+            btnMaxCategory.style.color = '';
+            btnMaxCategory.style.cursor = 'not-allowed';
+            btnMaxCategory.onclick = null;
+            btnMaxCategory.title = mixedCategories ? "Múltiples categorías seleccionadas" : "Selecciona un tema para detectar categoría";
+          }
+        }
+      }
+
+      function renderTemasLista() {
+        temasLista.innerHTML = '';
+        actualizarTextoEstado();
+        if (temasCargados.length === 0) {
+          temasLista.innerHTML = '<em>No hay temas cargados.</em>';
+          startTestBtn.disabled = true;
+          return;
+        }
+
+        const headerContainer = document.createElement('div');
+        headerContainer.className = 'bulk-actions';
+
+        const selAllBtn = document.createElement('button');
+        selAllBtn.innerHTML = '<i data-lucide="check-square"></i> Todos';
+        selAllBtn.onclick = () => {
+          temasCargados.forEach(t => temasSeleccionados.add(t.nombre));
+          distribuirPorcentajesEquitativamente();
+          renderTemasLista();
+        };
+
+        const deselAllBtn = document.createElement('button');
+        deselAllBtn.innerHTML = '<i data-lucide="square"></i> Ninguno';
+        deselAllBtn.onclick = () => {
+          temasSeleccionados.clear();
+          distribuirPorcentajesEquitativamente();
+          renderTemasLista();
+        };
+
+        const moveContainer = document.createElement('div');
+        moveContainer.className = 'move-to-cat-container';
+        moveContainer.innerHTML = `<i data-lucide="share-2" style="width:16px; height:16px;"></i> <span style="font-weight:600;">Mover a:</span>`;
+        const catSelect = document.createElement('select');
+        catSelect.className = 'move-to-cat-select';
+        categorias.forEach(cat => {
+          const opt = document.createElement('option');
+          opt.value = cat;
+          opt.textContent = cat;
+          catSelect.appendChild(opt);
+        });
+        const moveBtn = document.createElement('button');
+        moveBtn.innerHTML = '<i data-lucide="chevron-right"></i> Mover';
+        moveBtn.style.padding = '0.3rem 0.8rem';
+        moveBtn.onclick = () => {
+          const targetCat = catSelect.value;
+          let count = 0;
+          temasCargados.forEach(t => {
+            if (temasSeleccionados.has(t.nombre)) {
+              t.categoria = targetCat;
+              count++;
+            }
+          });
+          if (count > 0) {
+            guardarTemasCargadosEnStorage();
+            renderTemasLista();
+          } else {
+            alert("Selecciona al menos un tema para mover.");
+          }
+        };
+        moveContainer.appendChild(catSelect);
+        moveContainer.appendChild(moveBtn);
+
+        headerContainer.appendChild(selAllBtn);
+        headerContainer.appendChild(deselAllBtn);
+        headerContainer.appendChild(moveContainer);
+        temasLista.appendChild(headerContainer);
+
+        // Renderizado por Categorías
+        categorias.forEach(catName => {
+          const temasDeEstaCat = temasCargados.filter(t => (t.categoria || 'General') === catName);
+          if (temasDeEstaCat.length === 0) return;
+
+          const catDiv = document.createElement('div');
+          catDiv.className = 'category-group';
+
+          // Header con checkbox para selección masiva
+          const headerDiv = document.createElement('div');
+          headerDiv.className = 'category-header';
+
+          const titleSpan = document.createElement('span');
+          titleSpan.className = 'category-title';
+          titleSpan.innerHTML = `<i data-lucide="folder"></i> ${catName}`;
+
+          const headerCheckContainer = document.createElement('div');
+          headerCheckContainer.className = 'header-checkbox-container';
+          headerCheckContainer.style.fontSize = '0.85rem';
+          headerCheckContainer.style.fontWeight = '600';
+
+          const headerCheck = document.createElement('input');
+          headerCheck.type = 'checkbox';
+          headerCheck.title = 'Seleccionar/Deseleccionar toda la categoría';
+
+          // Si todos los temas de la categoría están seleccionados, marcar el header
+          headerCheck.checked = temasDeEstaCat.every(t => temasSeleccionados.has(t.nombre));
+
+          headerCheck.onchange = () => {
+            temasDeEstaCat.forEach(t => {
+              if (headerCheck.checked) temasSeleccionados.add(t.nombre);
+              else temasSeleccionados.delete(t.nombre);
+            });
+            distribuirPorcentajesEquitativamente();
+            renderTemasLista();
+          };
+
+          headerCheckContainer.appendChild(headerCheck);
+          headerCheckContainer.appendChild(document.createTextNode(' SELECCIONAR TODO'));
+
+          headerDiv.appendChild(titleSpan);
+          headerDiv.appendChild(headerCheckContainer);
+          catDiv.appendChild(headerDiv);
+
+          temasDeEstaCat.forEach((tema) => {
+            const idx = temasCargados.findIndex(t => t.nombre === tema.nombre);
+            const div = document.createElement('div');
+            div.className = 'tema-item';
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = 'tema-checkbox-' + idx;
+            checkbox.checked = temasSeleccionados.has(tema.nombre);
+
+            checkbox.onchange = () => {
+              if (checkbox.checked) {
+                temasSeleccionados.add(tema.nombre);
+              } else {
+                temasSeleccionados.delete(tema.nombre);
+              }
+              distribuirPorcentajesEquitativamente();
+              renderTemasLista(); // Redibujar para actualizar el check de categoría
+            };
+            div.appendChild(checkbox);
+
+            const label = document.createElement('label');
+            label.htmlFor = 'tema-checkbox-' + idx;
+            label.textContent = tema.nombre;
+            label.style.marginLeft = '0.5em';
+            label.style.flexGrow = '1';
+            label.style.fontWeight = '500';
+            div.appendChild(label);
+
+            const inputPorcentaje = document.createElement('input');
+            inputPorcentaje.type = 'number';
+            inputPorcentaje.id = 'input-porcentaje-' + idx;
+            inputPorcentaje.min = 0;
+            inputPorcentaje.max = 100;
+            inputPorcentaje.value = tema.porcentaje || 0;
+            inputPorcentaje.style.width = '55px';
+            inputPorcentaje.disabled = !temasSeleccionados.has(tema.nombre);
+
+            inputPorcentaje.oninput = () => {
+              let val = parseInt(inputPorcentaje.value);
+              if (isNaN(val) || val < 0) val = 0;
+              ajustarPorcentajeDinamicamente(idx, val);
+            };
+
+            div.appendChild(inputPorcentaje);
+            div.appendChild(document.createTextNode('%'));
+
+            const actionsDiv = document.createElement('div');
+            actionsDiv.style.display = 'flex';
+            actionsDiv.style.gap = '5px';
+            actionsDiv.style.marginLeft = '10px';
+
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'remove-tema-btn icon-only';
+            removeBtn.innerHTML = '<i data-lucide="trash-2"></i>';
+            removeBtn.title = 'Retirar tema';
+            removeBtn.onclick = () => {
+              if (confirm(`¿Retirar definitivamente "${tema.nombre}"?`)) {
+                retirarTema(tema.nombre);
+              }
+            };
+            actionsDiv.appendChild(removeBtn);
+
+            const failedStore = JSON.parse(localStorage.getItem('failedQuestions')) || {};
+            const themeMistakes = Object.values(failedStore).filter(m => m.temaNombre === tema.nombre);
+
+            if (themeMistakes.length > 0) {
+              const reviewMistakesBtn = document.createElement('button');
+              reviewMistakesBtn.innerHTML = `<i data-lucide="flame"></i> ${themeMistakes.length}`;
+              reviewMistakesBtn.className = 'test-mistakes-btn';
+              reviewMistakesBtn.style.padding = '0.3rem 0.6rem';
+              reviewMistakesBtn.style.fontSize = '0.8rem';
+              reviewMistakesBtn.onclick = () => startMistakesTest(tema.nombre);
+              actionsDiv.appendChild(reviewMistakesBtn);
+            }
+
+            div.appendChild(actionsDiv);
+            catDiv.appendChild(div);
+          });
+          temasLista.appendChild(catDiv);
+        });
+
+        if (window.lucide) lucide.createIcons();
+        distribuirPorcentajesEquitativamente();
+        renderCategoriasDisponibles(); // Sincronizar checkboxes de categorías superiores
+
+        // Mostrar sección de mover masivo si hay temas
+        moveToCatMgmt.style.display = temasCargados.length > 0 ? 'block' : 'none';
+
+        actualizarContadorFallosGlobal();
+      }
+
+      bulkMoveBtn.onclick = () => {
+        const selectedThemesNames = Array.from(temasSeleccionados);
+        if (selectedThemesNames.length === 0) {
+          alert("Selecciona al menos un tema para mover.");
+          return;
+        }
+
+        let catName = bulkNewCatInput.value.trim();
+        if (!catName) {
+          catName = bulkCatSelector.value;
+        }
+
+        if (!catName) {
+          alert("Selecciona o escribe el nombre de una categoría.");
+          return;
+        }
+
+        // Si es nueva, añadirla
+        if (!categorias.includes(catName)) {
+          categorias.push(catName);
+          localStorage.setItem('quizCategorias', JSON.stringify(categorias));
+        }
+
+        // Mover temas
+        temasCargados.forEach(t => {
+          if (temasSeleccionados.has(t.nombre)) {
+            t.categoria = catName;
+          }
+        });
+
+        bulkNewCatInput.value = '';
+        bulkCatSelector.value = '';
+        guardarTemasCargadosEnStorage();
+        renderCategoriasDisponibles();
+        renderTemasLista();
+        alert(`Movidos ${selectedThemesNames.length} temas a "${catName}"`);
+      };
+
+      function actualizarContadorFallosGlobal() {
+        const failedStore = JSON.parse(localStorage.getItem('failedQuestions')) || {};
+        const count = Object.keys(failedStore).length;
+        const globalBtn = document.getElementById('test-mistakes-global-btn');
+        const countSpan = document.getElementById('global-mistakes-count');
+
+        if (countSpan) countSpan.textContent = count;
+        if (globalBtn) globalBtn.disabled = (count === 0);
+      }
+
+      function syncFailedQuestions() {
+        let store = JSON.parse(localStorage.getItem('failedQuestions')) || {};
+
+        questions.forEach(q => {
+          const key = `${q.temaNombre}:::${q.id}`;
+          const userAnswer = answers[q.id];
+
+          if (answers.hasOwnProperty(q.id)) {
+            if (userAnswer === q.correct) {
+              // Si la responde bien, sale de la lista de fallos
+              delete store[key];
+            } else if (userAnswer !== null) {
+              // Si falla (no blanco), entra/sigue en la lista
+              store[key] = {
+                ...q,
+                originalIndex: q.originalIndex || '?',
+                lastAttempt: new Date().toISOString()
+              };
+            }
+          }
+        });
+
+        localStorage.setItem('failedQuestions', JSON.stringify(store));
+        actualizarContadorFallosGlobal();
+      }
+
+      function startMistakesTest(temaNombre = null) {
+        const failedStore = JSON.parse(localStorage.getItem('failedQuestions')) || {};
+        let mistakes = Object.values(failedStore);
+
+        if (temaNombre) {
+          mistakes = mistakes.filter(m => m.temaNombre === temaNombre);
+        }
+
+        if (mistakes.length === 0) {
+          alert("No hay preguntas fallidas para repasar.");
+          return;
+        }
+
+        // --- Configuración previa para el modo fallos ---
+        // Detener timer de tests anteriores si existen
+        if (timerInterval) clearInterval(timerInterval);
+        timerElem.style.display = 'none';
+
+        // Barajamos errores
+        questions = mistakes.sort(() => Math.random() - 0.5);
+
+        currentIndex = 0;
+        answers = {};
+        score = 0;
+
+        // El modo de repaso de fallos siempre es "estudio" por defecto para ayudar al aprendizaje
+        currentTestMode = 'estudio';
+
+        showView('quiz-container');
+        renderQuestion(currentIndex);
+        saveState();
+        menuStatus.style.color = '#f59e0b';
+        menuStatus.textContent = `Repasando ${questions.length} errores ${temaNombre ? `de "${temaNombre}"` : 'globales'}.`;
+      }
+
+      // Initial Render if themes exist
+      if (temasCargados.length > 0) {
+        renderCategoriasDisponibles();
+        renderTemasLista();
+      }
+
+      function retirarTema(nombre) {
+        // Eliminar del array cargado
+        temasCargados = temasCargados.filter(t => t.nombre !== nombre);
+        // Eliminar de seleccionados
+        temasSeleccionados.delete(nombre);
+
+        guardarTemasCargadosEnStorage();
+
+        distribuirPorcentajesEquitativamente();
+        renderTemasLista();
+        menuStatus.textContent = `Se ha retirado el tema: ${nombre}`;
+      }
+
+      // --- LÓGICA DEL CREADOR ---
+      function updateCreatorPreview() {
+        creatorQuestionsPreview.innerHTML = '';
+        creatorQCount.textContent = creatorQuestions.length;
+
+        creatorQuestions.forEach((q, idx) => {
+          const div = document.createElement('div');
+          div.className = 'creator-q-item';
+          div.innerHTML = `
+            <div style="font-size: 0.9rem;">
+              <strong>#${idx + 1}:</strong> ${q.question.substring(0, 50)}${q.question.length > 50 ? '...' : ''}
+              <br><small>Resp correct: ${q.correct.toUpperCase()}</small>
+            </div>
+          `;
+          const delBtn = document.createElement('button');
+          delBtn.textContent = 'X';
+          delBtn.onclick = () => {
+            creatorQuestions.splice(idx, 1);
+            updateCreatorPreview();
+          };
+          div.appendChild(delBtn);
+          creatorQuestionsPreview.appendChild(div);
+        });
+      }
+
+      function cleanManualForm() {
+        creatorQText.value = '';
+        creatorOptA.value = '';
+        creatorOptB.value = '';
+        creatorOptC.value = '';
+        creatorOptD.value = '';
+        creatorQComment.value = '';
+      }
+
+      creatorAddBtn.onclick = () => {
+        const qText = creatorQText.value.trim();
+        const a = creatorOptA.value.trim();
+        const b = creatorOptB.value.trim();
+        const c = creatorOptC.value.trim();
+        const d = creatorOptD.value.trim();
+
+        if (!qText || !a || !b) {
+          alert("La pregunta y al menos dos opciones (A y B) son obligatorias.");
+          return;
+        }
+
+        const newQ = {
+          id: 'custom-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9),
+          question: qText,
+          options: { a, b, c, d },
+          correct: creatorOptCorrect.value,
+          comment: creatorQComment.value.trim()
+        };
+
+        creatorQuestions.push(newQ);
+        updateCreatorPreview();
+        cleanManualForm();
+      };
+
+      creatorParseBtn.onclick = () => {
+        const text = creatorBulkText.value.trim();
+        if (!text) return;
+
+        const lines = text.split('\n');
+        let count = 0;
+        lines.forEach(line => {
+          const parts = line.split('|').map(p => p.trim());
+          if (parts.length >= 6) {
+            const newQ = {
+              id: 'bulk-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9),
+              question: parts[0],
+              options: {
+                a: parts[1],
+                b: parts[2],
+                c: parts[3] || '',
+                d: parts[4] || ''
+              },
+              correct: parts[5].toLowerCase(),
+              comment: parts[6] || ''
+            };
+            creatorQuestions.push(newQ);
+            count++;
+          }
+        });
+
+        if (count > 0) {
+          alert(`Se han parseado ${count} preguntas.`);
+          updateCreatorPreview();
+          creatorBulkText.value = '';
+        } else {
+          alert("No se encontró ninguna línea válida. Asegúrate de usar el formato: Pregunta | A | B | C | D | Correcta | Comentario");
+        }
+      };
+
+      creatorSaveBtn.onclick = () => {
+        const name = creatorThemeName.value.trim();
+        if (!name) {
+          alert("Asigna un nombre al tema antes de guardar.");
+          return;
+        }
+        if (creatorQuestions.length === 0) {
+          alert("Añade al menos una pregunta.");
+          return;
+        }
+
+        const themeContent = JSON.stringify({ questions: creatorQuestions });
+
+        // Integrar en la App
+        temasCargados.push({ nombre: name, preguntas: creatorQuestions, porcentaje: 0, categoria: 'General' });
+        temasSeleccionados.add(name);
+
+        // Guardar en localStorage para persistencia
+        guardarTemasCargadosEnStorage();
+
+        alert("¡Tema guardado con éxito! Ya puedes seleccionarlo en el menú.");
+        creatorCancelBtn.onclick();
+        distribuirPorcentajesEquitativamente();
+        renderTemasLista();
+      };
+
+      creatorDownloadBtn.onclick = () => {
+        const name = creatorThemeName.value.trim() || 'nuevo-tema';
+        if (creatorQuestions.length === 0) {
+          alert("Añade al menos una pregunta.");
+          return;
+        }
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ questions: creatorQuestions }, null, 2));
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", name.replace(/\s+/g, '_') + ".json");
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+      };
+
+      showCreatorBtn.onclick = () => {
+        creatorQuestions = [];
+        creatorThemeName.value = '';
+        updateCreatorPreview();
+        showView('creator-container');
+      };
+
+      creatorCancelBtn.onclick = () => {
+        showView('main-menu');
+      };
+
+      // Tabs
+      document.getElementById('tab-manual').onclick = () => {
+        document.getElementById('tab-manual').classList.add('active');
+        document.getElementById('tab-bulk').classList.remove('active');
+        document.getElementById('creator-manual-section').style.display = 'block';
+        document.getElementById('creator-bulk-section').style.display = 'none';
+      };
+
+      document.getElementById('tab-bulk').onclick = () => {
+        document.getElementById('tab-bulk').classList.add('active');
+        document.getElementById('tab-manual').classList.remove('active');
+        document.getElementById('creator-bulk-section').style.display = 'block';
+        document.getElementById('creator-manual-section').style.display = 'none';
+      };
+
+      if (fileMultipleInput) {
+        fileMultipleInput.onchange = e => {
+          const files = e.target.files;
+          if (!files || !files.length) {
+            console.log("No files selected");
+            return;
+          }
+
+          const fileNamesSpan = document.getElementById('file-names');
+          if (files.length > 0) {
+            fileNamesSpan.textContent = Array.from(files).map(f => f.name).join(', ');
+          } else {
+            fileNamesSpan.textContent = '';
+          }
+
+          // Variable 'temasGuardados' no se usa aquí, eliminada.
+
+          let cargados = 0;
+          menuStatus.textContent = "Procesando archivos..."; // Feedback inmediato
+
+          for (let file of files) {
+            const reader = new FileReader();
+            reader.onload = ev => {
+              try {
+                const fileContent = ev.target.result;
+                const data = JSON.parse(fileContent);
+
+                if (!data.questions || typeof data.questions !== 'object') {
+                  menuStatus.textContent = `Archivo ${file.name} sin "questions" o formato inválido`;
+                  alert(`Error: El archivo ${file.name} no tiene el formato correcto (falta key 'questions').`);
+                  return;
+                }
+
+                // --- NUEVO: NORMALIZACIÓN DE PREGUNTAS ---
+                const preguntasNormalizadas = data.questions.map((q, idx) => {
+                  const rawComment = q.comment || q.Comment || q.explanation || q.explicacion || q.justificacion || q.retroalimentacion || "";
+                  return {
+                    ...q,
+                    originalIndex: idx + 1,
+                    comment: rawComment
+                  };
+                });
+                // -----------------------------------------
+
+                const nuevoTema = { nombre: file.name, preguntas: preguntasNormalizadas, porcentaje: 0, categoria: 'General' };
+                temasCargados.push(nuevoTema);
+
+                temasSeleccionados.add(file.name);
+                cargados++;
+
+                if (cargados === files.length) {
+                  guardarTemasCargadosEnStorage();
+                  menuStatus.textContent = `Cargados ${cargados} archivos de temas`;
+                  // alert(`¡Éxito! Se han cargado ${cargados} archivos.`);
+
+                  distribuirPorcentajesEquitativamente();
+                  renderTemasLista();
+                }
+              } catch (e) {
+                console.error(e);
+                menuStatus.textContent = `Error al leer archivo ${file.name}: ${e.message}`;
+                alert(`Error fatal leyendo ${file.name}: ${e.message}`);
+              }
+            };
+            reader.readAsText(file);
+          }
+        };
+      } else {
+        console.error("Critical Error: element #file-multiple not found in DOM.");
+        alert("Error interno: No se encuentra el elemento de carga de archivos. Por favor recarga la página.");
+      }
+
+      resetMenuBtn.onclick = () => {
+        temasCargados = [];
+        temasSeleccionados.clear();
+        temasLista.innerHTML = '<em>No hay temas cargados.</em>';
+        menuStatus.textContent = 'Menú reseteado. Cargue uno o varios archivos JSON con temas.';
+        startTestBtn.disabled = true;
+        quizContainer.style.display = 'none';
+        fileMultipleInput.value = null;
+
+        localStorage.removeItem('temasGuardados');
+        localStorage.removeItem('explanationCache');
+        localStorage.removeItem('notesCache');
+      };
+
+      let questionRemaining = 0; // Variable compartida
+
+      startTestBtn.onclick = () => {
+        currentTestMode = document.querySelector('input[name="test-mode"]:checked')?.value || 'estudio';
+
+        if (currentTestMode === 'simulacro') {
+          timerElem.style.display = 'block';
+          if (timerInterval) clearInterval(timerInterval);
+
+          const totalTimeLimit = parseInt(document.getElementById('total-time-input').value) * 60;
+          const qTimeLimit = parseInt(document.getElementById('q-time-input').value);
+
+          let currentRemaining = totalTimeLimit;
+          questionRemaining = qTimeLimit;
+          startTime = Date.now();
+
+          timerInterval = setInterval(() => {
+            currentRemaining--;
+            if (currentRemaining <= 0) {
+              clearInterval(timerInterval);
+              showSummary();
+              return;
+            }
+
+            if (qTimeLimit > 0) {
+              questionRemaining--;
+              if (questionRemaining < 0) {
+                if (currentIndex < questions.length - 1) {
+                  skipBtn.click();
+                  questionRemaining = qTimeLimit;
+                } else {
+                  clearInterval(timerInterval);
+                  showSummary();
+                }
+              }
+              timerElem.textContent = `Global: ${formatTime(currentRemaining)} | Pregunta: ${questionRemaining}s`;
+            } else {
+              timerElem.textContent = formatTime(currentRemaining);
+            }
+          }, 1000);
+        } else {
+          timerElem.style.display = 'none';
+        }
+
+        function formatTime(seconds) {
+          const m = Math.floor(seconds / 60);
+          const s = seconds % 60;
+          return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        }
+
+        const totalPreguntas = parseInt(totalQuestionsInput.value);
+        if (isNaN(totalPreguntas) || totalPreguntas <= 0) {
+          menuStatus.style.color = 'red';
+          menuStatus.textContent = 'Ingresa un número válido de preguntas.';
+          return;
+        }
+
+        let preguntasSeleccionadas = [];
+        let sumaPesosSeleccionados = 0;
+
+        temasSeleccionados.forEach(name => {
+          const t = temasCargados.find(tc => tc.nombre === name);
+          if (t) sumaPesosSeleccionados += t.porcentaje || 0;
+        });
+
+        if (sumaPesosSeleccionados === 0) {
+          menuStatus.style.color = 'red';
+          menuStatus.textContent = 'Por favor, asigna un peso mayor a 0 al menos a un tema seleccionado.';
+          return;
+        }
+
+        questions = [];
+        let asignadas = 0;
+        const preguntasPorTema = [];
+
+        temasSeleccionados.forEach(name => {
+          const tema = temasCargados.find(tc => tc.nombre === name);
+          if (!tema) return;
+          const peso = tema.porcentaje || 0;
+          let n = Math.floor((peso * totalPreguntas) / sumaPesosSeleccionados);
+
+          if (n > tema.preguntas.length) n = tema.preguntas.length;
+          preguntasPorTema.push({ tema, n });
+          asignadas += n;
+        });
+
+        let faltante = totalPreguntas - asignadas;
+        if (faltante > 0 && preguntasPorTema.length > 0) {
+          let i = 0;
+          while (faltante > 0) {
+            if (preguntasPorTema[i].n < preguntasPorTema[i].tema.preguntas.length) {
+              preguntasPorTema[i].n++;
+              faltante--;
+            }
+            if (i === preguntasPorTema.length - 1 && faltante > 0) {
+              const totalAsignable = preguntasPorTema.reduce((acc, p) => acc + (p.tema.preguntas.length - p.n), 0);
+              if (totalAsignable === 0) break;
+            }
+            i = (i + 1) % preguntasPorTema.length;
+          }
+        }
+
+        preguntasPorTema.forEach(({ tema, n }) => {
+          const shuffled = tema.preguntas.slice().sort(() => Math.random() - 0.5);
+
+          const preguntasEtiquetadas = shuffled.slice(0, n).map(q => ({
+            ...q,
+            temaNombre: tema.nombre
           }));
-      }catch(e){
-        console.warn("No se pudieron descubrir PDFs:", e);
-        return [];
-      }
-    }
 
-    // Inicio
-    (async ()=>{
-      render(modules);                   // pinta rápido
-      const pdfs = await fetchRootPDFs();// intenta añadir PDFs del raíz
-      if(pdfs.length){ modules.push(...pdfs); filter(); }
-    })();
+          questions = questions.concat(preguntasEtiquetadas);
+        });
+
+        if (questions.length === 0) {
+          menuStatus.style.color = 'red';
+          menuStatus.textContent = 'No se pudieron generar preguntas con los pesos indicados.';
+          return;
+        }
+        currentIndex = 0;
+        answers = {};
+        score = 0;
+        showView('quiz-container');
+        renderQuestion(currentIndex);
+        saveState();
+        menuStatus.style.color = 'black';
+        menuStatus.textContent = `Test iniciado con ${questions.length} preguntas.`;
+      };
+
+      skipBtn.onclick = () => {
+        const q = questions[currentIndex];
+
+        answers[q.id] = null;
+
+        feedback.textContent = 'Pregunta omitida.';
+        feedback.style.color = '#6c757d';
+
+        Array.from(optionsContainer.children).forEach(b => b.disabled = true);
+        skipBtn.disabled = true;
+
+        nextBtn.disabled = false;
+        actualizarBotonPendientes();
+        nextBtn.onclick();
+      };
+
+      function actualizarBotonPendientes() {
+        if (!questions || questions.length === 0) {
+          pendingBtn.style.display = 'none';
+          return;
+        }
+        const hasUnanswered = questions.some(q => !answers.hasOwnProperty(q.id));
+        pendingBtn.style.display = hasUnanswered ? 'inline-flex' : 'none';
+      }
+
+      pendingBtn.onclick = () => {
+        const firstUnanswered = questions.findIndex(q => !answers.hasOwnProperty(q.id));
+        if (firstUnanswered !== -1) {
+          currentIndex = firstUnanswered;
+          renderQuestion(currentIndex);
+          saveState();
+        }
+      };
+
+      // --- ATAJOS DE TECLADO ---
+      document.addEventListener('keydown', (e) => {
+        // Ignorar si el usuario está escribiendo en un input o textarea
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        if (e.code === 'Space') {
+          e.preventDefault();
+          if (!nextBtn.disabled) {
+            nextBtn.click();
+          }
+        } else if (e.code === 'Backspace') {
+          if (!prevBtn.disabled) {
+            e.preventDefault();
+            prevBtn.click();
+          }
+        }
+      });
+
+      function renderQuestion(index) {
+        explainBtn.style.display = 'none';
+        explanationContainer.innerHTML = '';
+
+        // --- RESETEO DE LA CAJA DE COMENTARIOS ---
+        staticCommentContainer.style.display = 'none';
+        staticCommentContainer.innerHTML = '';
+        staticCommentContainer.className = 'static-comment-box'; // Aseguramos que tenga la clase base
+        // NUEVO: RESETEO DE RESERVA
+        reserveNotice.style.display = 'none';
+
+        const progressBar = document.getElementById('progress-bar');
+        const progress = ((index + 1) / questions.length) * 100;
+        progressBar.style.width = `${progress}%`;
+
+        const q = questions[index];
+
+        // --- DIAGNÓSTICO (Mira la consola F12 si sigue fallando) ---
+        console.log("Datos de la pregunta actual:", q);
+
+        // --- BÚSQUEDA INTELIGENTE DEL COMENTARIO ---
+        // Buscamos cualquier campo que contenga la explicación, sin importar cómo se llame en el JSON
+        const posibleKeys = ['comment', 'Comment', 'explicacion', 'explicación', 'explanation', 'justificacion', 'justificación', 'retroalimentacion', 'feedback'];
+        let foundComment = "";
+
+        for (let key of posibleKeys) {
+          if (q[key] && typeof q[key] === 'string' && q[key].trim() !== "") {
+            foundComment = q[key];
+            break; // Encontrado, dejamos de buscar
+          }
+        }
+        // ---------------------------------------------
+
+        // --- MOSTRAR AVISO DE RESERVA ---
+        if (index >= 100) {
+          reserveNotice.style.display = 'block';
+        }
+
+        questionText.textContent = `Pregunta ${index + 1}: ${q.question}`;
+        optionsContainer.innerHTML = '';
+        feedback.textContent = '';
+
+        const questionAnswered = answers.hasOwnProperty(q.id);
+        skipBtn.disabled = questionAnswered;
+
+        Object.entries(q.options).forEach(([key, text]) => {
+          const btn = document.createElement('button');
+          btn.textContent = `${key}. ${text}`;
+          btn.dataset.key = key;
+
+          if (questionAnswered) {
+            btn.disabled = true;
+            const userAnswer = answers[q.id];
+
+            if (key === q.correct) {
+              btn.classList.add('correct');
+            } else if (key === userAnswer) {
+              btn.classList.add('incorrect');
+            }
+          }
+
+          btn.onclick = (e) => {
+            if (answers.hasOwnProperty(q.id)) return;
+
+            const userChoiceKey = e.currentTarget.dataset.key;
+            answers[q.id] = userChoiceKey;
+
+            Array.from(optionsContainer.children).forEach(button => button.disabled = true);
+            skipBtn.disabled = true;
+
+            if (userChoiceKey === q.correct) {
+              score++;
+              feedback.textContent = '¡Correcto!';
+              feedback.style.color = '#4caf50';
+            } else {
+              feedback.textContent = `Incorrecto. La respuesta correcta era: ${q.correct}`;
+              feedback.style.color = '#f44336';
+            }
+
+            // SIEMPRE resaltamos los botones (Estudio o Simulacro)
+            Array.from(optionsContainer.children).forEach(button => {
+              if (button.dataset.key === q.correct) button.classList.add('correct');
+              else if (button.dataset.key === userChoiceKey) button.classList.add('incorrect');
+            });
+
+            // SIEMPRE mostramos explicación si existe y estamos en estudio (o si el usuario lo prefiere así)
+            if (currentTestMode === 'estudio' || foundComment) {
+              if (foundComment) {
+                staticCommentContainer.style.display = 'block';
+                staticCommentContainer.innerHTML = `<span class="static-comment-title">📖 Explicación Oficial / Fundamento:</span> ${foundComment}`;
+
+                setTimeout(() => {
+                  staticCommentContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 100);
+              }
+              if (currentTestMode === 'estudio') explainBtn.style.display = 'inline-block';
+            }
+
+            scoreElem.textContent = score;
+            nextBtn.disabled = false;
+            saveState();
+          };
+
+          optionsContainer.appendChild(btn);
+        });
+
+        // --- LÓGICA SI YA ESTABA RESPONDIDA (AL VOLVER ATRÁS) ---
+        if (questionAnswered) {
+          if (currentTestMode === 'estudio') {
+            if (foundComment) {
+              staticCommentContainer.style.display = 'block';
+              staticCommentContainer.innerHTML = `<span class="static-comment-title">📖 Explicación Oficial / Fundamento:</span> ${foundComment}`;
+            }
+            explainBtn.style.display = 'inline-block';
+          }
+        }
+
+        // Recuperar nota personal si existe
+        const notesCache = JSON.parse(localStorage.getItem('notesCache')) || {};
+        personalNoteInput.value = notesCache[q.id] || '';
+
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = !questionAnswered;
+        scoreElem.textContent = score;
+        actualizarBotonPendientes();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function showView(viewId) {
+        if (viewId === 'main-menu') {
+          mainNavbar.classList.add('hidden');
+        } else {
+          mainNavbar.classList.remove('hidden');
+        }
+        const views = ['main-menu', 'quiz-container', 'summary-container', 'history-container', 'creator-container', 'help-container'];
+        views.forEach(id => {
+          const el = document.getElementById(id);
+          if (id === viewId) {
+            el.style.display = 'block';
+            setTimeout(() => el.classList.remove('hidden'), 20);
+          } else {
+            el.classList.add('hidden');
+            setTimeout(() => { if (el.id !== viewId) el.style.display = 'none'; }, 500);
+          }
+        });
+      }
+
+      nextBtn.onclick = () => {
+        if (currentIndex < questions.length - 1) {
+          currentIndex++;
+          renderQuestion(currentIndex);
+          saveState();
+          // Resetear tiempo por pregunta si aplica
+          const qTimeLimit = parseInt(document.getElementById('q-time-input').value);
+          if (currentTestMode === 'simulacro' && qTimeLimit > 0) {
+            questionRemaining = qTimeLimit;
+          }
+        } else {
+          showSummary();
+        }
+      };
+
+      prevBtn.onclick = () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          renderQuestion(currentIndex);
+          saveState();
+        }
+      };
+
+      let myChart = null; // Variable global para el gráfico
+
+      function showSummary() {
+        if (timerInterval) clearInterval(timerInterval);
+        timerElem.style.display = 'none';
+        const totalTime = Date.now() - startTime;
+        const totalMinutes = Math.floor(totalTime / (1000 * 60));
+        const totalSeconds = Math.floor(totalTime / 1000) % 60;
+        const tiempoTotalTexto = `${totalMinutes} min y ${totalSeconds} seg`;
+
+        let aciertos = 0, errores = 0, blancas = 0;
+        const resultadosPorTema = {};
+
+        questions.forEach(q => {
+          if (!resultadosPorTema[q.temaNombre]) {
+            resultadosPorTema[q.temaNombre] = { aciertos: 0, errores: 0, blancas: 0, total: 0 };
+          }
+          resultadosPorTema[q.temaNombre].total++;
+
+          const userAnswer = answers[q.id];
+          if (answers.hasOwnProperty(q.id)) {
+            if (userAnswer === q.correct) {
+              aciertos++;
+              resultadosPorTema[q.temaNombre].aciertos++;
+            } else if (userAnswer === null) {
+              blancas++;
+              resultadosPorTema[q.temaNombre].blancas++;
+            } else {
+              errores++;
+              resultadosPorTema[q.temaNombre].errores++;
+            }
+          } else {
+            blancas++;
+            resultadosPorTema[q.temaNombre].blancas++;
+          }
+        });
+
+        showView('summary-container');
+
+        // --- DATOS DEL INFORME (PARA IMPRESIÓN) ---
+        document.getElementById('report-date').textContent = new Date().toLocaleString();
+        document.getElementById('report-mode').textContent = currentTestMode === 'estudio' ? 'Modo Estudio' : 'Modo Simulacro';
+        const themesNames = Array.from(new Set(questions.map(q => q.temaNombre))).join(', ');
+        document.getElementById('report-themes').innerHTML = `<strong>Temas:</strong> ${themesNames}`;
+
+        // --- PUNTUACIÓN ---
+        let summaryHTML;
+        if (currentTestMode === 'simulacro') {
+          const notaNeta = aciertos - (errores / 3);
+          const notaSobre10 = (notaNeta / questions.length) * 10;
+          summaryHTML = `
+            <div class="summary-stats-grid">
+              <div class="stat-card"><i data-lucide="check-circle" style="color:var(--success)"></i> <span>Aciertos: ${aciertos}</span></div>
+              <div class="stat-card"><i data-lucide="x-circle" style="color:var(--error)"></i> <span>Errores: ${errores}</span></div>
+              <div class="stat-card"><i data-lucide="minus-circle" style="color:var(--text-muted)"></i> <span>Blancas: ${blancas}</span></div>
+              <div class="stat-card"><i data-lucide="clock"></i> <span>Tiempo: ${tiempoTotalTexto}</span></div>
+            </div>
+            <div class="final-score-box">
+              <i data-lucide="award" style="width:32px; height:32px; color:var(--primary);"></i>
+              <h3>Nota Final: ${Math.max(0, notaSobre10).toFixed(2)} / 10.00</h3>
+            </div>
+          `;
+        } else {
+          const notaSobre10 = (aciertos / questions.length) * 10;
+          summaryHTML = `
+            <div class="summary-stats-grid">
+              <div class="stat-card"><i data-lucide="check-circle" style="color:var(--success)"></i> <span>Aciertos: ${aciertos}</span></div>
+              <div class="stat-card"><i data-lucide="x-circle" style="color:var(--error)"></i> <span>Errores: ${errores}</span></div>
+              <div class="stat-card"><i data-lucide="minus-circle" style="color:var(--text-muted)"></i> <span>Blancas: ${blancas}</span></div>
+            </div>
+            <div class="final-score-box">
+              <i data-lucide="award" style="width:32px; height:32px; color:var(--primary);"></i>
+              <h3>Nota Final: ${notaSobre10.toFixed(2)} / 10.00</h3>
+            </div>
+          `;
+        }
+        document.getElementById('final-score').innerHTML = summaryHTML;
+
+        // --- GRÁFICO ---
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        if (myChart) myChart.destroy();
+
+        const labels = Object.keys(resultadosPorTema);
+        const dataAciertos = labels.map(l => resultadosPorTema[l].aciertos);
+        const dataErrores = labels.map(l => resultadosPorTema[l].errores);
+
+        myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [
+              { label: 'Aciertos', data: dataAciertos, backgroundColor: '#10b981' },
+              { label: 'Errores', data: dataErrores, backgroundColor: '#f43f5e' }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } },
+            plugins: { title: { display: true, text: 'Rendimiento por Tema' } }
+          }
+        });
+
+        // --- FILTROS POR DEFECTO ---
+        renderQuestionsByFilter('all');
+
+        // Activar botón 'Todas'
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+
+        if (window.lucide) lucide.createIcons();
+        saveTestToHistory();
+        syncFailedQuestions();
+      }
+
+      function renderQuestionsByFilter(filter) {
+        const listDiv = document.getElementById('filtered-questions-list');
+        listDiv.innerHTML = '';
+
+        let filtered = questions;
+        if (filter === 'correct') {
+          filtered = questions.filter(q => answers[q.id] === q.correct);
+        } else if (filter === 'incorrect') {
+          filtered = questions.filter(q => answers.hasOwnProperty(q.id) && answers[q.id] !== q.correct);
+        }
+
+        if (filtered.length === 0) {
+          listDiv.innerHTML = '<p style="text-align:center; padding: 1rem; color: #64748b;">No hay preguntas en esta categoría.</p>';
+          return;
+        }
+
+        filtered.forEach(q => {
+          const userAnswer = answers[q.id] || 'Sin responder';
+          const isCorrect = (userAnswer === q.correct);
+
+          const div = document.createElement('div');
+          div.className = 'summary-item';
+          div.style.marginBottom = '1.5rem';
+          div.style.padding = '1rem';
+          div.style.borderLeft = `5px solid ${isCorrect ? '#10b981' : '#f43f5e'}`;
+          div.style.background = '#f8fafc';
+          div.style.borderRadius = '0 8px 8px 0';
+
+          div.innerHTML = `
+            <p><strong>Pregunta:</strong> ${q.question}</p>
+            <p><span class="${isCorrect ? 'correct-text' : 'incorrect-text'}">
+              <strong>Tu respuesta:</strong> ${userAnswer}. ${q.options[userAnswer] || '(Sin responder)'}
+            </span></p>
+            <p><strong>Correcta:</strong> ${q.correct}. ${q.options[q.correct]}</p>
+            ${q.comment ? `<p style="font-size:0.9em; font-style:italic; color:#64748b; margin-top:0.5rem;"><strong>Explicación:</strong> ${q.comment}</p>` : ''}
+          `;
+          listDiv.appendChild(div);
+        });
+      }
+
+      // --- LÓGICA DE EXPORTACIÓN ---
+      function getResultsData() {
+        return questions.map(q => {
+          const userAnswer = answers[q.id] || '(Sin responder)';
+          const isCorrect = userAnswer === q.correct;
+          return {
+            Tema: q.temaNombre,
+            Pregunta: q.question,
+            'Opción Elegida': `${userAnswer}. ${q.options[userAnswer] || ''}`,
+            'Respuesta Correcta': `${q.correct}. ${q.options[q.correct]}`,
+            Resultado: isCorrect ? 'ACIERTO' : (userAnswer === '(Sin responder)' ? 'BLANCO' : 'ERROR')
+          };
+        });
+      }
+
+      function exportToXLSX() {
+        const data = getResultsData();
+        const ws = XLSX.utils.json_to_sheet(data);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "ResultadosTest");
+        XLSX.writeFile(wb, `Resultado_Test_${new Date().toLocaleDateString()}.xlsx`);
+      }
+
+      function exportToCSV() {
+        const data = getResultsData();
+        const ws = XLSX.utils.json_to_sheet(data);
+        const csv = XLSX.utils.sheet_to_csv(ws);
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.setAttribute("download", `Resultado_Test_${new Date().toLocaleDateString()}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      // Event Listeners de Resumen
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.onclick = () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderQuestionsByFilter(btn.dataset.filter);
+        };
+      });
+
+      document.getElementById('export-xlsx-btn').onclick = exportToXLSX;
+      document.getElementById('export-csv-btn').onclick = exportToCSV;
+      document.getElementById('export-pdf-btn').onclick = () => window.print();
+
+      function saveTestToHistory() {
+        const historyKey = 'testHistory';
+
+        const now = new Date();
+        const testRecord = {
+          id: now.getTime(),
+          date: now.toLocaleString(),
+          totalQuestions: questions.length,
+          score: score,
+          temas: Array.from(temasSeleccionados),
+          questions: questions.map(q => ({
+            id: q.id,
+            question: q.question,
+            options: q.options,
+            correct: q.correct,
+            userAnswer: answers[q.id] || null
+          }))
+        };
+
+        let history = [];
+        const savedHistory = localStorage.getItem(historyKey);
+        if (savedHistory) {
+          try {
+            history = JSON.parse(savedHistory);
+          } catch (e) {
+            history = [];
+          }
+        }
+        history.push(testRecord);
+        localStorage.setItem(historyKey, JSON.stringify(history));
+      }
+
+      restartBtn.onclick = () => {
+        if (timerInterval) clearInterval(timerInterval);
+        timerElem.textContent = '00:00';
+        timerElem.style.display = 'none';
+        questions = [];
+        answers = {};
+        currentIndex = 0;
+        score = 0;
+        showView('main-menu');
+        menuStatus.textContent = 'Cargue uno o varios archivos JSON con temas para comenzar.';
+        fileMultipleInput.value = null;
+      };
+
+
+
+      showHistoryBtn.onclick = () => {
+        showHistory();
+      };
+
+      closeHistoryBtn.onclick = () => {
+        showView('main-menu');
+      };
+
+      clearHistoryBtn.onclick = () => {
+        if (confirm('¿Está seguro que desea limpiar todo el historial?')) {
+          localStorage.removeItem('testHistory');
+          showHistory();
+        }
+      };
+      homeBtn.onclick = () => {
+        restartBtn.onclick();
+      };
+
+      function showHistory() {
+        const historyKey = 'testHistory';
+        historyList.innerHTML = '';
+        historyDetail.innerHTML = '';
+        let history = [];
+        const savedHistory = localStorage.getItem(historyKey);
+        if (savedHistory) {
+          try {
+            history = JSON.parse(savedHistory);
+          } catch { }
+        }
+        if (history.length === 0) {
+          historyList.innerHTML = '<p>No hay tests guardados.</p>';
+        } else {
+          history.forEach((test, idx) => {
+            const div = document.createElement('div');
+            div.style.borderBottom = '1px solid #ccc';
+            div.style.padding = '0.5em';
+            div.style.cursor = 'pointer';
+            div.textContent = `${test.date} - Puntuación: ${test.score} / ${test.totalQuestions} - Temas: ${test.temas.join(', ')}`;
+            div.onclick = () => showHistoryDetail(idx);
+            historyList.appendChild(div);
+          });
+        }
+        showView('history-container');
+        summaryContainer.style.display = 'none';
+      }
+
+      function showHistoryDetail(index) {
+        const historyKey = 'testHistory';
+        const savedHistory = localStorage.getItem(historyKey);
+        if (!savedHistory) return;
+        const history = JSON.parse(savedHistory);
+        const test = history[index];
+        if (!test) return;
+
+        historyDetail.innerHTML = `<h3>Detalle Test - ${test.date}</h3>
+      <p>Puntuación: ${test.score} / ${test.totalQuestions}</p>
+      <div>
+        ${test.questions.map(q => `
+          <div style="margin-bottom:1em">
+            <p><strong>Pregunta:</strong> ${q.question}</p>
+            <p><strong>Tu respuesta:</strong> ${q.userAnswer}. ${q.options[q.userAnswer] || 'Sin responder'}</p>
+            <p><strong>Respuesta correcta:</strong> ${q.correct}. ${q.options[q.correct]}</p>
+          </div>
+        `).join('')}
+      </div>`;
+      }
+
+      function saveState() {
+        localStorage.setItem('quizAnswers', JSON.stringify(answers));
+        localStorage.setItem('quizIndex', currentIndex);
+        localStorage.setItem('quizScore', score);
+      }
+
+      window.onload = () => {
+        menuStatus.textContent = 'Cargue uno o varios archivos JSON con temas para comenzar.';
+
+        const temasGuardadosJSON = localStorage.getItem('temasGuardados');
+
+        if (temasGuardadosJSON) {
+          const temasGuardados = JSON.parse(temasGuardadosJSON);
+
+          temasGuardados.forEach(temaGuardado => {
+            try {
+              const data = JSON.parse(temaGuardado.contenido);
+              temasCargados.push({
+                nombre: temaGuardado.nombre,
+                preguntas: data.questions,
+                porcentaje: 0,
+                categoria: temaGuardado.categoria || 'General'
+              });
+              temasSeleccionados.add(temaGuardado.nombre);
+            } catch (e) {
+              console.error("Error al parsear un tema guardado:", temaGuardado.nombre);
+            }
+          });
+
+          if (temasCargados.length > 0) {
+            menuStatus.textContent = `Se cargaron ${temasCargados.length} temas guardados.`;
+
+            distribuirPorcentajesEquitativamente();
+
+            renderTemasLista();
+          }
+        }
+
+        renderPerfiles();
+        renderCategoriasDisponibles();
+        quizContainer.style.display = 'none';
+      };
+      const presetButtons = document.querySelectorAll('.preset-buttons button');
+
+      function updatePresetButtonSelection() {
+        const currentValue = totalQuestionsInput.value;
+        presetButtons.forEach(btn => {
+          if (btn.dataset.value === currentValue) {
+            btn.classList.add('selected');
+          } else {
+            btn.classList.remove('selected');
+          }
+        });
+      }
+
+      presetButtons.forEach(button => {
+        button.onclick = () => {
+          totalQuestionsInput.value = button.dataset.value;
+          updatePresetButtonSelection();
+        };
+      });
+
+      totalQuestionsInput.oninput = () => {
+        updatePresetButtonSelection();
+      };
+
+      updatePresetButtonSelection();
+
+      explainBtn.onclick = async () => {
+        const currentQuestion = questions[currentIndex];
+        const questionId = currentQuestion.id;
+
+        const explanationCache = JSON.parse(localStorage.getItem('explanationCache')) || {};
+        if (explanationCache[questionId]) {
+          explanationContainer.innerText = explanationCache[questionId];
+          console.log("Explicación cargada desde la caché local.");
+          return;
+        }
+
+        explainBtn.disabled = true;
+        explanationContainer.innerHTML = '<div class="loader"></div>';
+
+        const modelsToTry = [
+          'x-ai/grok-4-fast',
+          'meta-llama/llama-3-8b-instruct:free',
+          'mistralai/mistral-7b-instruct:free'
+        ];
+
+        let explanationText = '';
+        let lastError = null;
+
+        for (const model of modelsToTry) {
+          try {
+            console.log(`Intentando obtener explicación con el modelo: ${model}`);
+
+            const prompt = `Pregunta: "${currentQuestion.question}"\nRespuesta correcta: "${currentQuestion.correct}. ${currentQuestion.options[currentQuestion.correct]}"`;
+            const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+                'Content-Type': 'application/json',
+                'HTTP-Referer': YOUR_SITE_URL,
+              },
+              body: JSON.stringify({
+                "model": model,
+                "messages": [
+                  { "role": "system", "content": "Eres un tutor experto. Explica de forma clara y concisa por qué la respuesta proporcionada es la correcta para la pregunta. Ve directo a la explicación del concepto, sin frases introductorias." },
+                  { "role": "user", "content": prompt }
+                ]
+              })
+            });
+
+            if (!response.ok) {
+              const errorData = await response.json();
+              throw new Error(errorData.error.message || `Error HTTP ${response.status}`);
+            }
+
+            const data = await response.json();
+            explanationText = data.choices[0].message.content;
+            console.log(`Éxito con el modelo: ${model}`);
+            break;
+
+          } catch (error) {
+            console.warn(`Falló el modelo ${model}:`, error.message);
+            lastError = error;
+          }
+        }
+
+        if (explanationText) {
+          explanationContainer.innerText = explanationText;
+          explanationCache[questionId] = explanationText;
+          localStorage.setItem('explanationCache', JSON.stringify(explanationCache));
+        } else {
+          console.error("Todos los modelos de la API fallaron.", lastError);
+          explanationContainer.innerText = 'Lo siento, no se pudo obtener la explicación en este momento. Todos los servicios de respaldo fallaron.';
+        }
+
+        explainBtn.disabled = false;
+      };
+
+      saveNoteBtn.onclick = () => {
+        const currentQuestion = questions[currentIndex];
+        const questionId = currentQuestion.id;
+        const noteText = personalNoteInput.value;
+
+        const notesCache = JSON.parse(localStorage.getItem('notesCache')) || {};
+
+        notesCache[questionId] = noteText;
+
+        localStorage.setItem('notesCache', JSON.stringify(notesCache));
+
+        saveNoteBtn.textContent = '¡Guardado!';
+        setTimeout(() => {
+          saveNoteBtn.textContent = 'Guardar Nota';
+        }, 1500);
+      };
+      toggleNotesBtn.onclick = () => {
+        notesContent.classList.toggle('collapsed');
+
+        const isCollapsed = notesContent.classList.contains('collapsed');
+        if (isCollapsed) {
+          toggleNotesBtn.textContent = 'Mis Apuntes ▼';
+        } else {
+          toggleNotesBtn.textContent = 'Mis Apuntes ▲';
+        }
+      };
+      const modeButtons = document.querySelectorAll('.mode-button');
+      const timerConfig = document.getElementById('timer-config');
+
+      modeButtons.forEach(button => {
+        button.onclick = () => {
+          modeButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const radioId = button.getAttribute('for');
+          const radio = document.getElementById(radioId);
+          if (radio) radio.checked = true;
+
+          currentTestMode = radio?.value;
+
+          // Mostrar/Ocultar configuración de tiempo
+          if (currentTestMode === 'simulacro') {
+            timerConfig.style.display = 'flex';
+          } else {
+            timerConfig.style.display = 'none';
+          }
+        };
+      });
+      testMistakesGlobalBtn.onclick = () => startMistakesTest();
+
+      resetMenuBtn.onclick = () => {
+        if (confirm('¿Desea quitar TODOS los temas de la lista?')) {
+          temasCargados = [];
+          temasSeleccionados.clear();
+          localStorage.removeItem('temasGuardados');
+          renderTemasLista();
+          menuStatus.textContent = 'Se han quitado todos los temas.';
+        }
+      };
+
+      actualizarContadorFallosGlobal();
+
+      const showHelpBtn = document.getElementById('show-help-btn');
+      const closeHelpBtn = document.getElementById('close-help-btn');
+      showHelpBtn.onclick = () => showView('help-container');
+      closeHelpBtn.onclick = () => showView('main-menu');
+
+      // Init
+      renderTemasLista();
+      if (typeof renderPerfiles === 'function') renderPerfiles(); // Call this to show profiles!
+
+      // --- LÓGICA DE TEMAS ---
+      const themeSelector = document.getElementById('theme-selector');
+      const savedTheme = localStorage.getItem('app-theme') || 'light';
+
+      const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (themeSelector) themeSelector.value = theme;
+        localStorage.setItem('app-theme', theme);
+      };
+
+      if (themeSelector) {
+        themeSelector.onchange = (e) => applyTheme(e.target.value);
+      }
+
+      applyTheme(savedTheme);
+
+      // --- LÓGICA DE COLAPSAR OPCIONES ---
+      const toggleOptionsBtn = document.getElementById('toggle-options-btn');
+      const setupOptionsWrapper = document.getElementById('setup-options-wrapper');
+
+      if (toggleOptionsBtn && setupOptionsWrapper) {
+        toggleOptionsBtn.onclick = () => {
+          const isCollapsed = setupOptionsWrapper.classList.contains('collapsed');
+          if (isCollapsed) {
+            setupOptionsWrapper.classList.remove('collapsed');
+            setupOptionsWrapper.style.maxHeight = '2000px'; // Suficiente para contenido
+            setupOptionsWrapper.style.opacity = '1';
+            setupOptionsWrapper.style.marginTop = '0';
+            setupOptionsWrapper.style.overflow = 'visible';
+            toggleOptionsBtn.innerHTML = '<i data-lucide="settings-2"></i> ⚙️ Opciones Avanzadas (Categorías, Perfiles, Pesos) ▲';
+          } else {
+            setupOptionsWrapper.classList.add('collapsed');
+            setupOptionsWrapper.style.maxHeight = '0';
+            setupOptionsWrapper.style.opacity = '0';
+            setupOptionsWrapper.style.marginTop = '0'; // Evitar espacio extra
+            setupOptionsWrapper.style.overflow = 'hidden';
+            toggleOptionsBtn.innerHTML = '<i data-lucide="settings-2"></i> ⚙️ Opciones Avanzadas (Categorías, Perfiles, Pesos) ▼';
+          }
+        };
+      }
+
+
+    });
   </script>
+
+  <footer class="bottom-banner">
+    <h2>TestAPP</h2>
+    <div class="about">
+      <strong></strong> Hecho totalmente en HTML.
+      <br>
+      <small>© 2026 TestAPP</small>
+    </div>
+  </footer>
+
 </body>
+
 </html>
