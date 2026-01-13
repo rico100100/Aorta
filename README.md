@@ -1,139 +1,51 @@
-# 🩺 Aorta - Portal de Recursos Médicos Vasculares
+# 🚀 TestAPP - Manual de Usuario
 
-Una plataforma web completa y profesional dedicada a la medicina vascular, con énfasis en patologías aórticas y temas relacionados. Este repositorio contiene recursos académicos especializados para profesionales de la salud, estudiantes de medicina y especialistas en cirugía vascular.
-
-## 🌟 Características Principales
-
-- **Interfaz Moderna**: Diseño profesional con sistema de tarjetas numeradas y navegación intuitiva
-- **Contenido Especializado**: 18 módulos temáticos sobre medicina vascular
-- **Responsive Design**: Optimizado para todos los dispositivos
-- **Accesibilidad**: Navegación por teclado y estándares WCAG
-- **Modo Claro/Oscuro**: Soporte automático según preferencias del usuario
-
-## 📋 Contenido Académico
-
-### Guías Clínicas Actualizadas
-- **2025 ESVS** - Reparación Aorta Ascendente
-- **2025 ESVS** - Trauma Vascular
-- **2024 ESVS** - Manejo Aneurismas Aorto-Ilíacos
-- **2020 ESVS** - Infección de Prótesis (Resumen de Recomendaciones)
-
-### Fundamentos Médicos
-- Embriología del Sistema Vascular
-- Comparación de Fármacos Hipolipemiantes
-- Trastornos del Tejido Conectivo con Compromiso Vascular
-- Vasculitis y Enfermedades Vasculares
-
-### Herramientas Clínicas
-- Calculadoras de Riesgo Vascular
-- Score de Fragilidad
-- Sistemas de Clasificación de Infección de Prótesis Vasculares
-
-### Técnicas Quirúrgicas
-- Técnicas de Remoción de Endoprótesis Infrarrenal (Abordaje Abierto)
-- Análisis Exhaustivo de Infección de Endoprótesis Aórtica Abdominal
-
-## 🛠️ Tecnologías Utilizadas
-
-- **HTML5**: Estructura semántica y accesible
-- **CSS3**: Sistema de diseño moderno con variables CSS
-- **JavaScript**: Interactividad y navegación dinámica
-- **GitHub Pages**: Hosting y despliegue automático
-
-## 🚀 Instalación y Uso
-
-### Acceso Web Directo
-Visita la plataforma en línea: [Aorta Portal](https://rico100100.github.io/Aorta/)
-
-### Desarrollo Local
-```bash
-# Clonar el repositorio
-git clone https://github.com/rico100100/Aorta.git
-
-# Navegar al directorio
-cd Aorta
-
-# Abrir index.html en tu navegador
-open index.html
-```
-
-## 📁 Estructura del Proyecto
-
-```
-Aorta/
-├── index.html                 # Página principal con índice numerado
-├── style.css                  # Estilos principales con sistema de diseño
-├── app.js                     # Lógica de navegación y modal
-├── index.html.bak            # Respaldo de versión anterior
-└── [módulos-temáticos]/       # Directorios de contenido especializado
-    ├── embriologia-del-sistema-vascular/
-    ├── comparacion-farmacos-hipolipemiantes/
-    ├── 2025-esvs-reparacion-ao-asc/
-    ├── 2025-esvs-trauma-vascular/
-    ├── 2024 ESVS Manejo Aneurismas Aorto-Ilíacos/
-    ├── WSACS2013/
-    ├── analisis-exhaustivo-de-la-infeccion-de-endoprotesis-aortica-abdominal/
-    ├── 2020-esvs-infeccion-protesis-resumen-de-recomendaciones/
-    ├── sistemas-de-clasificacion-de-infeccion-de-protesis-vasculares/
-    ├── tecnicas-remocion-endoprotesis-infrarrenal-abierto/
-    ├── vasculitis y aorta/
-    ├── vasculitis/
-    ├── trastornos-del-tejido-conectivo-asociados-a-aneurismas-y-sindrome-aortico-agudo/
-    ├── trastornos-del-tejido-conectivo-con-compromiso-vascular/
-    ├── tumores/
-    ├── calculadora_riesgo_vasc/
-    ├── scorefragil/
-    └── preguntas1/
-```
-
-## ✨ Características Técnicas
-
-### Sistema de Diseño Profesional
-- **Variables CSS**: Sistema coherente de colores, tipografía y espaciado
-- **Tokens de Color**: Paleta profesional con soporte para modo oscuro
-- **Componentes Reutilizables**: Botones, tarjetas, formularios estandarizados
-
-### Interactividad Avanzada
-- **Navegación Modal**: Confirmación antes de acceder a contenido
-- **Numeración Automática**: Sistema de índice numerado generado dinámicamente
-- **Efectos Hover**: Transiciones suaves y feedback visual
-
-### Optimización y Rendimiento
-- **Carga Asíncrona**: JavaScript optimizado para rendimiento
-- **CSS Grid**: Layout responsive moderno
-- **Compresión de Assets**: Archivos optimizados para carga rápida
-
-## 🎯 Público Objetivo
-
-- **Residentes de Cirugía Vascular**
-- **Cirujanos Vasculares Certificados**
-- **Estudiantes de Medicina** (4to-6to año)
-- **Especialistas en Cardiología Intervencionista**
-- **Profesionales en Medicina de Urgencias**
-
-### Áreas de Contribución
-- Contenido médico actualizado
-- Mejoras de UX/UI
-- Optimización de rendimiento
-- Traducción a otros idiomas
-- Nuevas herramientas de cálculo
-
-## 📝 Licencia y Uso Académico
-
-Este proyecto está destinado exclusivamente para **uso académico y educativo**. El contenido médico debe ser utilizado como referencia complementaria y no sustituye el juicio clínico profesional.
-
-## 📧 Contacto
-
-- **GitHub**: [@rico100100](https://github.com/rico100100)
-- **Proyecto**: [Aorta Repository](https://github.com/rico100100/Aorta)
-- **Website**: [https://rico100100.github.io/Aorta/](https://rico100100.github.io/Aorta/)
+Bienvenido a **TestAPP**, la plataforma de entrenamiento inteligente diseñada para optimizar tu estudio mediante tests interactivos, análisis de rendimiento y personalización total.
 
 ---
 
-**⚠️ Aviso Médico**: Este contenido es solo para fines educativos. Consulte siempre las guías clínicas más actuales y el criterio médico profesional para la toma de decisiones clínicas.
+## 🌟 Características Principales
 
-**🔄 Última Actualización**: Octubre 2025
+### 1. 📚 Modos de Entrenamiento
+- **Modo Estudio**: Feedback inmediato tras cada pregunta. Incluye explicaciones detalladas y soporte de **IA (Gemini/OpenRouter)** para resolver tus dudas al instante.
+- **Modo OPE**: Evalúa tus conocimientos en condiciones reales de oposición. Incluye un **Temporizador de Precisión** configurable (tiempo total o por pregunta) y corrección diferida al finalizar.
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Active-green)](https://rico100100.github.io/Aorta/)
-[![Medical Content](https://img.shields.io/badge/Medical-Content-blue)](https://github.com/rico100100/Aorta)
-[![Responsive](https://img.shields.io/badge/Responsive-Design-orange)](https://github.com/rico100100/Aorta)
+### 2. 📂 Gestión Avanzada de Temas
+- **Carga Inteligente**: Soporte para múltiples archivos JSON.
+- **Organización por Categorías**: Agrupa tus temas en carpetas lógicas.
+- **Pesos y Perfiles Persistentes**:
+    - Ajusta el **% de relevancia** de cada tema para equilibrar tus tests.
+    - **Guardado Automático**: Tus configuraciones (temas seleccionados, pesos, perfiles) se guardan en el navegador para que retomes tu estudio exactamente donde lo dejaste.
+    - **Perfiles de Estudio**: Crea y carga presets (ej: "Examen Final", "Repaso Semanal") al instante.
+
+### 3. 🛠️ Ecosistema de Creación
+- **Creador Integrado**: Crea preguntas una a una o usa el modo **Bulk (Carga Masiva)** pegando texto desde Excel o Word.
+- **Notas Personales**: Añade tus propios apuntes y recordatorios a cada pregunta durante el estudio.
+- **Sincronización**: Exporta tus creaciones como archivos `.json` para compartirlas o guardarlas externamente.
+
+### 4. 🔥 Supervivencia y Repaso
+- **Historial de Tests**: Revisa sesiones pasadas con detalle de cada acierto y error.
+- **Repaso de Fallos**: Localización de fallos por tema y contador **Global de Fallos** para pulir tus puntos débiles.
+- **Auto-Limpieza**: Las preguntas se eliminan de la lista de fallos conforme las vas acertando.
+
+### 5. 📊 Inteligencia de Datos
+- **Análisis Visual**: Gráficos de rendimiento por categorías y temas.
+- **Exportación Profesional**:
+    - **Excel (XLSX)** y **CSV**: Datos estructurados para análisis profundo.
+    - **PDF/Impresión**: Formato profesional optimizado para informes físicos.
+
+---
+
+## 🛠️ Cómo empezar
+1. **Carga tus archivos**: Usa el botón "Cargar" o arrastra tus archivos `.json`.
+2. **Organiza**: Crea categorías para tus temas si tienes muchos cargados.
+3. **Configura**: Elige los temas, ajusta los porcentajes (o carga un **Perfil** existente) y define si quieres límite de tiempo.
+4. **¡Lánzate!**: Pulsa "Iniciar Test" y domina tu materia.
+
+---
+
+## 📝 Notas del Desarrollador
+*TestAPP es una SPA (Single Page Application) moderna, privada y ultrarrápida. Todos tus datos permanecen en tu dispositivo.*
+
+---
+© 2026 TestAPP - Plataforma de Entrenamiento Inteligente
