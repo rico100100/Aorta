@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Test Interactivo Completo con Historial</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,21 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    /* --- FONT SIZE SCALING ROOT --- */
+    html {
+      font-size: 16px;
+      /* Base size */
+      transition: font-size 0.3s ease;
+    }
+
+    html[data-font-size="medium"] {
+      font-size: 18px;
+    }
+
+    html[data-font-size="large"] {
+      font-size: 20px;
+    }
+
     :root {
       --primary: #2563eb;
       --primary-hover: #1d4ed8;
@@ -332,33 +347,120 @@
 
     @media (max-width: 600px) {
       body {
-        padding: 80px 0.8rem 1rem 0.8rem;
+        padding: 70px 0.5rem 1rem 0.5rem;
+        /* Ajustado padding superior */
+        overflow-x: hidden;
+        /* IMPORTANTE: No permitir desplazamiento horizontal */
       }
 
+      /* Bloquear scroll horizontal en contenedores */
       #quiz-container,
       #summary-container,
       #main-menu,
       #history-container,
       #creator-container,
-      #help-container {
-        padding: 1.2rem;
-        border-radius: 8px;
-        width: 100%;
+      #help-container,
+      .questions-selector-container,
+      .category-mgmt,
+      #temas-lista,
+      .files-list-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        /* Solo scroll vertical */
       }
 
-      h1 {
-        font-size: 1.8rem;
+      #temas-lista {
+        overflow-y: auto;
+        /* Asegurar scroll vertical */
+      }
+
+      /* Ajustes de Banner y Título */
+      .top-banner {
+        padding: 0.5rem 1rem;
+        justify-content: space-between;
       }
 
       .top-banner h1 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
+      }
+
+      .top-banner img {
+        height: 35px;
+        width: 35px;
       }
 
       .theme-switcher-container {
-        right: 1rem;
+        position: static;
+        /* Ya no absoluto */
+        margin-left: auto;
       }
 
-      .top-banner {
+      .theme-switcher-container span {
+        display: none;
+        /* Ocultar texto "Tema:" en móvil */
+      }
+
+      /* Aumentar zonas de input y botones para dedo */
+      input[type="text"],
+      input[type="number"],
+      select,
+      textarea,
+      button {
+        font-size: 16px !important;
+        /* Evita zoom automático en iOS */
+        min-height: 44px;
+        /* Tamaño mínimo táctil recomendado */
+      }
+
+      input[type="checkbox"] {
+        transform: scale(1.3);
+        /* Checkboxes más grandes */
+        margin: 5px;
+      }
+
+      .cat-item,
+      .profile-item {
+        padding: 10px 14px;
+        /* Más espacio para tocar */
+        margin-bottom: 5px;
+      }
+
+      /* Ajustes específicos de inputs numéricos pequeños */
+      .timer-option input,
+      #total-questions-input {
+        width: 100px;
+        text-align: center;
+      }
+
+      /* Botones de acción principales más grandes */
+      #start-test-btn,
+      .custom-file-upload {
+        padding: 1.2rem;
+        font-size: 1.1rem;
+      }
+
+      /* Ajuste Navbar flotante */
+      .main-navbar {
+        padding: 0.5rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+
+      .navbar-title {
+        display: none;
+        /* Ocultar título en barra inf para ahorrar espacio */
+      }
+
+      /* Distribución de botones en selectores */
+      .preset-buttons {
+        gap: 0.8rem;
+      }
+
+      .preset-buttons button {
         padding: 1rem;
       }
     }
@@ -576,13 +678,20 @@
       width: 100%;
       background-color: var(--surface-alt);
       color: var(--text-main);
-      text-align: left;
+      text-align: center;
+      font-weight: bold;
+      padding: 1rem;
       border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: all 0.2s ease;
     }
 
     .toggle-notes-button:hover {
       background-color: var(--primary);
       color: white;
+      border-color: var(--primary);
+      cursor: pointer;
     }
 
     .notes-content {
@@ -917,7 +1026,8 @@
     .profile-item {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 0 !important;
+      /* Force zero gap */
       background: var(--surface-alt);
       padding: 6px 12px;
       border-radius: 20px;
@@ -943,13 +1053,62 @@
     .cat-item input[type="checkbox"],
     .profile-item input[type="checkbox"] {
       margin: 0;
+      padding: 0;
+      margin-right: -5px;
+      /* Pull text closer */
       cursor: pointer;
+      position: relative;
+      z-index: 2;
     }
 
-    .profile-item .del-profile-btn {
+    .cat-item span,
+    .profile-item span {
+      margin-left: 0;
+    }
+
+    .del-profile-btn {
       color: var(--error);
-      margin-left: 4px;
-      padding: 2px;
+      margin: 0;
+      margin-right: -10px;
+      /* Aggressively pull checkbox closer */
+      padding: 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      /* Restored size for better UX */
+      height: 24px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .inspect-profile-btn {
+      color: var(--primary);
+      margin: 0;
+      margin-left: -5px;
+      padding: 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Specific adjustment for Profile Delete Button (on the right) */
+    .profile-item .del-profile-btn {
+      margin-right: 0;
+      margin-left: -8px;
+      /* Pull tightly to the left (towards inspect btn) */
     }
 
     .profile-item .del-profile-btn:hover {
@@ -1268,6 +1427,22 @@
       border-radius: 8px;
     }
 
+    .collapsible-panel {
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out, margin 0.3s ease;
+      max-height: 5000px;
+      /* Default open state */
+      opacity: 1;
+    }
+
+    .collapsible-panel.collapsed {
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      pointer-events: none;
+    }
+
     .creator-q-list {
       margin-top: 1rem;
       border-top: 2px solid #eee;
@@ -1423,6 +1598,41 @@
       border-radius: 4px;
       font-family: monospace;
     }
+
+    .font-size-controls {
+      display: flex;
+      gap: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .font-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      padding: 0 8px;
+      cursor: pointer;
+      font-weight: bold;
+      opacity: 0.7;
+      min-width: unset !important;
+      /* Override mobile generic styles */
+      min-height: unset !important;
+      border-radius: 4px;
+    }
+
+    .font-btn:hover,
+    .font-btn.active {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 600px) {
+      .font-size-controls {
+        margin-right: 8px;
+      }
+    }
   </style>
 
 </head>
@@ -1432,6 +1642,11 @@
     <img src="app_icon.png" alt="TestAPP Icon">
     <h1>TestAPP</h1>
     <div class="theme-switcher-container">
+      <div class="font-size-controls">
+        <button class="font-btn" data-size="normal" title="Letra Normal" style="font-size: 0.8rem;">A</button>
+        <button class="font-btn" data-size="medium" title="Letra Mediana" style="font-size: 1rem;">A</button>
+        <button class="font-btn" data-size="large" title="Letra Grande" style="font-size: 1.2rem;">A</button>
+      </div>
       <span style="font-size: 0.8rem; opacity: 0.9;">🎨 Tema:</span>
       <select id="theme-selector" class="theme-select">
         <option value="light">Claro</option>
@@ -1455,14 +1670,7 @@
 
   <div id="main-menu">
     <h2>Menú Principal</h2>
-    <div class="file-uploader">
-      <input type="file" id="file-multiple" accept=".json" multiple style="display: none;" />
-      <label for="file-multiple" class="custom-file-upload">
-        Cargar Temas (JSON)
-      </label>
-      <span id="file-names" class="file-names-display"></span>
-    </div>
-    <p id="menu-status">Cargue uno o varios archivos JSON con temas.</p>
+    <!-- 1. SELECTOR DE MODO (Ahora arriba) -->
     <div class="mode-selector-container">
       <label class="mode-label">
         Modo de Test:
@@ -1520,119 +1728,161 @@
           tiempo total.</small>
       </div>
     </div>
+
+    <div class="file-uploader">
+      <input type="file" id="file-multiple" accept=".json" multiple style="display: none;" />
+      <label for="file-multiple" class="custom-file-upload">
+        Cargar Temas (JSON)
+      </label>
+      <span id="file-names" class="file-names-display"></span>
+    </div>
+
+    <!-- BOTÓN COLAPSABLE -->
+    <button id="toggle-options-btn" class="toggle-notes-button">
+      <i data-lucide="settings-2"></i> ⚙️ Opciones Avanzadas (Categorías, Perfiles, Pesos) ▼
+    </button>
+
+    <!-- WRAPPER COLAPSABLE -->
+    <div id="setup-options-wrapper" class="collapsible-panel collapsed">
+
+      <div class="category-mgmt">
+        <h4
+          style="margin:0 0 8px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="folder-cog"></i> Gestión de Categorías
+          <span class="help-tooltip">
+            <i data-lucide="help-circle"></i>
+            <span class="tooltip-content" style="bottom: auto; top: 125%;">
+              <strong>Categorías</strong>
+              Agrupa tus archivos JSON para tenerlos organizados. Puedes filtrar temas activando o desactivando la
+              categoría completa.
+              <em>Ejemplo: Categoría 'Cardiología' para todos los temas de corazón.</em>
+            </span>
+          </span>
+        </h4>
+        <div style="display: flex; gap: 8px; width: 100%; align-items: center;">
+          <input type="text" id="new-cat-input" placeholder="Nombre de nueva categoría..."
+            style="flex: 1; min-width: 0;">
+          <button id="add-cat-btn" style="background: var(--success) !important; padding: 0.5rem 1rem; flex-shrink: 0;">
+            <i data-lucide="plus"></i> Añadir
+          </button>
+        </div>
+        <div id="available-categories-list"
+          style="width: 100%; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;">
+          <!-- Etiquetas de categorías -->
+        </div>
+      </div>
+
+      <!-- Perfiles existentes (Vista rápida) -->
+      <div id="profiles-selection-container" style="margin-bottom: 1.5rem;">
+        <h4
+          style="margin:0 0 8px 0; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="bookmark"></i> Perfiles Guardados
+          <span class="help-tooltip">
+            <i data-lucide="help-circle"></i>
+            <span class="tooltip-content">
+              <strong>Perfiles de Pesos</strong>
+              Carga configuraciones guardadas de selección de temas y sus porcentajes (%) de aparición.
+              <em>Ejemplo: Perfil 'Examen Final' con 50% Ley y 50% Medicina.</em>
+            </span>
+          </span>
+        </h4>
+        <div id="profiles-list" style="width: 100%; display: flex; flex-wrap: wrap; gap: 8px;">
+          <!-- Perfiles -->
+        </div>
+      </div>
+
+      <div id="temas-lista-section">
+        <h4
+          style="margin:0 0 10px 0; color:var(--primary); font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="list"></i> Selección de Temas y Pesos
+          <span class="help-tooltip">
+            <i data-lucide="help-circle"></i>
+            <span class="tooltip-content">
+              <strong>Temas y Pesos %</strong>
+              Selecciona qué temas quieres incluir y qué porcentaje del total de preguntas tendrá cada uno.
+              <em>Ejemplo: Tema A al 80% y Tema B al 20% para priorizar estudio.</em>
+            </span>
+          </span>
+        </h4>
+        <div id="temas-lista"><em>No hay temas cargados.</em></div>
+        <p id="menu-status" style="margin: 10px 0 0 0; font-size: 0.9rem; color: var(--text-muted);">Cargue uno o varios
+          archivos JSON con temas.</p>
+      </div>
+
+      <!-- Mover seleccionados a Categoría -->
+      <div id="move-to-cat-mgmt"
+        style="margin-top: 1.5rem; padding: 1.2rem; background: var(--surface-alt); border: 1px solid var(--surface-border); border-radius: 12px; display: none;">
+        <h4
+          style="margin:0 0 10px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="folder-output"></i> Mover seleccionados a Categoría
+          <span class="help-tooltip">
+            <i data-lucide="help-circle"></i>
+            <span class="tooltip-content">
+              <strong>Mover en Bloque</strong>
+              Cambia de categoría todos los temas que tengas marcados actualmente. Ideal para organizar archivos recién
+              cargados.
+              <em>Ejemplo: Mover 10 temas sueltos a la categoría 'Urgencias'.</em>
+            </span>
+          </span>
+        </h4>
+        <div style="display: flex; gap: 8px; width: 100%; flex-wrap: wrap;">
+          <select id="bulk-cat-selector"
+            style="flex: 1; min-width: 150px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--surface-border); background: var(--surface-bg); color: var(--text-main);">
+            <option value="">-- Elegir existente --</option>
+          </select>
+          <input type="text" id="bulk-new-cat-input" placeholder="O nueva categoría..."
+            style="flex: 1; min-width: 150px;">
+          <button id="bulk-move-btn" style="background: var(--primary) !important; flex: 1; min-width: 150px;">
+            <i data-lucide="folder-plus"></i> Mover
+          </button>
+        </div>
+      </div>
+
+      <!-- Guardar nueva configuración como perfil -->
+      <div class="profiles-mgmt"
+        style="margin-top: 1.5rem; padding: 1.2rem; background: var(--surface-alt); border: 1px solid var(--surface-border); border-radius: 12px;">
+        <h4
+          style="margin:0 0 10px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="save"></i> Guardar esta selección como Perfil
+        </h4>
+        <div style="display: flex; gap: 8px; width: 100%; flex-wrap: wrap;">
+          <input type="text" id="profile-name-input" placeholder="Nombre del perfil..."
+            style="flex: 1; min-width: 200px;">
+          <button id="save-profile-btn" style="background: #0ea5e9 !important; flex: 1; min-width: 150px;">
+            <i data-lucide="download"></i> Guardar Perfil
+          </button>
+        </div>
+      </div>
+
+    </div> <!-- FIN WRAPPER COLAPSABLE -->
+
+    <div style="margin-bottom: 1rem;">
+      <button id="pick-random-theme-btn"
+        style="width: 100%; background: var(--surface-alt); color: var(--text-main); border: 1px solid var(--primary); padding: 1rem; border-radius: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s;">
+        <i data-lucide="dices"></i> 🎲 Escoger Tema Aleatorio
+      </button>
+    </div>
+
     <div class="questions-selector-container">
-      <label>Nº de preguntas:</label>
+      <label>
+        Nº de preguntas:
+        <span id="total-available-activator"
+          style="font-weight: normal; font-size: 0.85rem; color: var(--primary); margin-left: 10px;">
+          (Disponibles: <span id="total-available-display">0</span>)
+        </span>
+      </label>
       <div class="preset-buttons">
         <button data-value="10">10</button>
         <button data-value="20">20</button>
-        <button data-value="110">Simulacro</button>
+        <button data-value="110">OPE</button>
+        <button id="btn-max-selection" title="Todas las de la selección manual"
+          style="background-color: var(--primary); color: white; border-color: var(--primary);">Max Selec.</button>
+        <button id="btn-max-profile" title="Todas las del perfil activo" disabled style="opacity: 0.5;">Max
+          Perfil</button>
+        <button id="btn-max-category" title="Todas las de la categoría actual" disabled style="opacity: 0.5;">Max
+          Categ.</button>
       </div>
       <input type="number" id="total-questions-input" min="1" value="110" placeholder="Otro...">
-    </div>
-    <div class="category-mgmt">
-      <h4
-        style="margin:0 0 8px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
-        <i data-lucide="folder-cog"></i> Gestión de Categorías
-        <span class="help-tooltip">
-          <i data-lucide="help-circle"></i>
-          <span class="tooltip-content" style="bottom: auto; top: 125%;">
-            <strong>Categorías</strong>
-            Agrupa tus archivos JSON para tenerlos organizados. Puedes filtrar temas activando o desactivando la
-            categoría completa.
-            <em>Ejemplo: Categoría 'Cardiología' para todos los temas de corazón.</em>
-          </span>
-        </span>
-      </h4>
-      <div style="display: flex; gap: 8px; width: 100%;">
-        <input type="text" id="new-cat-input" placeholder="Nombre de nueva categoría..." style="flex: 1;">
-        <button id="add-cat-btn" style="background: var(--success) !important; padding: 0.5rem 1rem;">
-          <i data-lucide="plus"></i> Añadir
-        </button>
-      </div>
-      <div id="available-categories-list"
-        style="width: 100%; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;">
-        <!-- Etiquetas de categorías -->
-      </div>
-    </div>
-
-    <!-- Perfiles existentes (Vista rápida) -->
-    <div id="profiles-selection-container" style="margin-bottom: 1.5rem;">
-      <h4
-        style="margin:0 0 8px 0; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
-        <i data-lucide="bookmark"></i> Perfiles Guardados
-        <span class="help-tooltip">
-          <i data-lucide="help-circle"></i>
-          <span class="tooltip-content">
-            <strong>Perfiles de Pesos</strong>
-            Carga configuraciones guardadas de selección de temas y sus porcentajes (%) de aparición.
-            <em>Ejemplo: Perfil 'Examen Final' con 50% Ley y 50% Medicina.</em>
-          </span>
-        </span>
-      </h4>
-      <div id="profiles-list" style="width: 100%; display: flex; flex-wrap: wrap; gap: 8px;">
-        <!-- Perfiles -->
-      </div>
-    </div>
-
-    <div id="temas-lista-section">
-      <h4
-        style="margin:0 0 10px 0; color:var(--primary); font-size: 1rem; display: flex; align-items: center; gap: 8px;">
-        <i data-lucide="list"></i> Selección de Temas y Pesos
-        <span class="help-tooltip">
-          <i data-lucide="help-circle"></i>
-          <span class="tooltip-content">
-            <strong>Temas y Pesos %</strong>
-            Selecciona qué temas quieres incluir y qué porcentaje del total de preguntas tendrá cada uno.
-            <em>Ejemplo: Tema A al 80% y Tema B al 20% para priorizar estudio.</em>
-          </span>
-        </span>
-      </h4>
-      <div id="temas-lista"><em>No hay temas cargados.</em></div>
-    </div>
-
-    <!-- Mover seleccionados a Categoría -->
-    <div id="move-to-cat-mgmt"
-      style="margin-top: 1.5rem; padding: 1.2rem; background: var(--surface-alt); border: 1px solid var(--surface-border); border-radius: 12px; display: none;">
-      <h4
-        style="margin:0 0 10px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
-        <i data-lucide="folder-output"></i> Mover seleccionados a Categoría
-        <span class="help-tooltip">
-          <i data-lucide="help-circle"></i>
-          <span class="tooltip-content">
-            <strong>Mover en Bloque</strong>
-            Cambia de categoría todos los temas que tengas marcados actualmente. Ideal para organizar archivos recién
-            cargados.
-            <em>Ejemplo: Mover 10 temas sueltos a la categoría 'Urgencias'.</em>
-          </span>
-        </span>
-      </h4>
-      <div style="display: flex; gap: 8px; width: 100%; flex-wrap: wrap;">
-        <select id="bulk-cat-selector"
-          style="flex: 1; min-width: 150px; padding: 0.5rem; border-radius: 6px; border: 1px solid var(--surface-border); background: var(--surface-bg); color: var(--text-main);">
-          <option value="">-- Elegir existente --</option>
-        </select>
-        <input type="text" id="bulk-new-cat-input" placeholder="O nueva categoría..."
-          style="flex: 1; min-width: 150px;">
-        <button id="bulk-move-btn" style="background: var(--primary) !important; flex: 1; min-width: 150px;">
-          <i data-lucide="folder-plus"></i> Mover
-        </button>
-      </div>
-    </div>
-
-    <!-- Guardar nueva configuración como perfil -->
-    <div class="profiles-mgmt"
-      style="margin-top: 1.5rem; padding: 1.2rem; background: var(--surface-alt); border: 1px solid var(--surface-border); border-radius: 12px;">
-      <h4
-        style="margin:0 0 10px 0; width:100%; color:var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
-        <i data-lucide="save"></i> Guardar esta selección como Perfil
-      </h4>
-      <div style="display: flex; gap: 8px; width: 100%; flex-wrap: wrap;">
-        <input type="text" id="profile-name-input" placeholder="Nombre del perfil..."
-          style="flex: 1; min-width: 200px;">
-        <button id="save-profile-btn" style="background: #0ea5e9 !important; flex: 1; min-width: 150px;">
-          <i data-lucide="download"></i> Guardar Perfil
-        </button>
-      </div>
     </div>
 
     <button id="start-test-btn" disabled style="width: 100%; margin-top: 2rem;">
@@ -1649,6 +1899,7 @@
       <button id="show-creator-btn" style="background-color: #0ea5e9 !important; color: white !important;">
         <i data-lucide="hammer"></i> Crear Tema
       </button>
+
       <button id="test-mistakes-global-btn" style="background-color: #f59e0b !important; color: white !important;">
         <i data-lucide="flame"></i> Repasar Fallos (<span id="global-mistakes-count">0</span>)
       </button>
@@ -1896,6 +2147,40 @@
   </div>
 
   <script>
+    // --- FONT SIZE SELECTOR LOGIC ---
+    const htmlRoot = document.documentElement;
+    const fontBtns = document.querySelectorAll('.font-btn');
+
+    // Load saved font size
+    const savedFontSize = localStorage.getItem('quizAppFontSize') || 'normal';
+    setFontSize(savedFontSize);
+
+    fontBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const size = btn.getAttribute('data-size');
+        setFontSize(size);
+        localStorage.setItem('quizAppFontSize', size);
+      });
+    });
+
+    function setFontSize(size) {
+      // Set attribute on HTML tag for CSS scaling
+      if (size === 'normal') {
+        htmlRoot.removeAttribute('data-font-size');
+      } else {
+        htmlRoot.setAttribute('data-font-size', size);
+      }
+
+      // Update Active State
+      fontBtns.forEach(btn => {
+        if (btn.getAttribute('data-size') === size) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       let currentTestMode = 'estudio';
       const timerElem = document.getElementById('timer');
@@ -1954,6 +2239,47 @@
 
       // Elementos del Creador
       const creatorContainer = document.getElementById('creator-container');
+      function pickRandomTheme() {
+        if (temasCargados.length === 0) {
+          alert("Primero carga algún archivo JSON.");
+          return;
+        }
+
+        // 1. Limpiar selección actual
+        temasSeleccionados.clear();
+        temasCargados.forEach(t => t.porcentaje = 0);
+
+        // 2. Elegir uno al azar
+        const randomIndex = Math.floor(Math.random() * temasCargados.length);
+        const winners = [temasCargados[randomIndex]];
+
+        // 3. Setearlo
+        winners.forEach(w => {
+          temasSeleccionados.add(w.nombre);
+          w.porcentaje = 100;
+        });
+
+        // 4. Actualizar UI
+        activeProfileName = null; // Limpiar perfil activo si hubiera
+        renderPerfiles(); // Para quitar highlight
+        renderCategoriasDisponibles();
+        renderTemasLista();
+
+        // Feedback
+        // alert(`¡Tema aleatorio escogido: ${winners[0].nombre}!`); // Opcional, mejor visual
+
+        // Auto setear cantidad maxima si disponible
+        updateTotalAvailableQuestions();
+        const maxBtn = document.getElementById('btn-max-selection');
+        if (maxBtn && !maxBtn.disabled) {
+          maxBtn.click(); // Auto click max? El usuario no lo pidió explicitamente pero tiene sentido.
+        }
+      }
+
+      const pickRandomThemeBtn = document.getElementById('pick-random-theme-btn');
+      if (pickRandomThemeBtn) {
+        pickRandomThemeBtn.onclick = pickRandomTheme;
+      }
       const creatorThemeName = document.getElementById('creator-theme-name');
       const creatorQuestionsPreview = document.getElementById('creator-questions-preview');
       const creatorQCount = document.getElementById('creator-q-count');
@@ -1993,6 +2319,20 @@
       let perfilesEstudio = JSON.parse(localStorage.getItem('quizPerfilesPesos')) || {};
       let activeProfileName = null;
       let temasCargados = [];
+      try {
+        const savedThemes = localStorage.getItem('temasGuardados');
+        if (savedThemes) {
+          temasCargados = JSON.parse(savedThemes).map(t => ({
+            nombre: t.nombre,
+            preguntas: JSON.parse(t.contenido).questions,
+            categoria: t.categoria || 'General',
+            porcentaje: 0
+          }));
+        }
+      } catch (e) {
+        console.error("Error loading saved themes:", e);
+        temasCargados = [];
+      }
       let temasSeleccionados = new Set();
 
       let questions = [];
@@ -2089,17 +2429,15 @@
           const span = document.createElement('span');
           span.textContent = cat;
 
-          div.onclick = () => {
-            newCatInput.value = cat;
-          };
+          const delBtn = document.createElement('button');
+          delBtn.className = 'del-profile-btn';
+          delBtn.innerHTML = '<i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>';
 
-          div.appendChild(checkbox);
-          div.appendChild(span);
-
-          if (cat !== 'General') {
-            const delBtn = document.createElement('button');
-            delBtn.className = 'del-profile-btn'; // Reusing existing CSS
-            delBtn.innerHTML = '<i data-lucide="trash-2"></i>';
+          if (cat === 'General') {
+            // Placeholder invisible para mantener alineación perfecta
+            delBtn.style.visibility = 'hidden';
+            delBtn.style.pointerEvents = 'none';
+          } else {
             delBtn.title = 'Borrar categoría';
             delBtn.onclick = (e) => {
               e.stopPropagation();
@@ -2117,8 +2455,11 @@
                 }
               }
             };
-            div.appendChild(delBtn);
           }
+
+          div.appendChild(delBtn);
+          div.appendChild(checkbox);
+          div.appendChild(span);
 
           listDiv.appendChild(div);
         });
@@ -2152,7 +2493,29 @@
           };
 
           const span = document.createElement('span');
-          span.innerHTML = `<i data-lucide="bookmark" style="width:12px; height:12px; margin-right:4px;"></i> ${name}`;
+          span.innerHTML = `<i data-lucide="bookmark" style="width:12px; height:12px; margin-right:4px; vertical-align: middle;"></i> ${name}`;
+          span.style.flexGrow = "1";
+          span.style.marginLeft = "8px"; // Spacing from checkbox
+          span.style.color = "var(--text-main)"; // Force color
+          span.style.display = "inline-flex";
+          span.style.alignItems = "center";
+          span.style.overflow = "hidden";
+          span.style.textOverflow = "ellipsis";
+          span.style.whiteSpace = "nowrap";
+
+          const inspectBtn = document.createElement('button');
+          inspectBtn.className = 'inspect-profile-btn';
+          inspectBtn.innerHTML = '<i data-lucide="eye" style="width:14px; height:14px;"></i>';
+          inspectBtn.title = 'Ver contenido del perfil';
+          inspectBtn.onclick = (e) => {
+            e.stopPropagation();
+            const confi = perfilesEstudio[name];
+            let msg = `Perfil: ${name}\n\n`;
+            for (const [tema, peso] of Object.entries(confi)) {
+              if (peso > 0) msg += `- ${tema}: ${peso}%\n`;
+            }
+            alert(msg);
+          };
 
           const delBtn = document.createElement('button');
           delBtn.className = 'del-profile-btn';
@@ -2170,6 +2533,7 @@
 
           div.appendChild(checkbox);
           div.appendChild(span);
+          div.appendChild(inspectBtn);
           div.appendChild(delBtn);
           profilesList.appendChild(div);
         });
@@ -2220,7 +2584,7 @@
         renderCategoriasDisponibles(); // Sincronizar checkboxes de categorías
         activeProfileName = name;
         renderPerfiles();
-        alert(`Perfil "${name}" cargado con éxito.`);
+        // alert(`Perfil "${name}" cargado con éxito.`); // SILENTE
       }
 
 
@@ -2295,6 +2659,125 @@
 
         startTestBtn.disabled = temasSeleccionados.size === 0 || !algunTemaConPeso || sumaTotal !== 100;
         startTestBtn.title = (sumaTotal !== 100 && numSel > 0) ? "La suma debe ser exactamente 100%" : "";
+
+        // Actualizar contador de disponibles
+        updateTotalAvailableQuestions();
+      }
+
+      function updateTotalAvailableQuestions() {
+        const totalSpan = document.getElementById('total-available-display');
+        const btnMaxSelection = document.getElementById('btn-max-selection');
+        const btnMaxProfile = document.getElementById('btn-max-profile');
+        const btnMaxCategory = document.getElementById('btn-max-category');
+
+        if (!totalSpan) {
+          // Fallback si por alguna razón no existen (aunque deberían)
+          return;
+        }
+
+        // 1. Calculo Selección Manual
+        let countSelection = 0;
+        let selectedThemesArray = [];
+        temasCargados.forEach(t => {
+          if (temasSeleccionados.has(t.nombre)) {
+            countSelection += t.preguntas.length;
+            selectedThemesArray.push(t);
+          }
+        });
+
+        // 2. Calculo Perfil Activo
+        let countProfile = 0;
+        let profileActive = false;
+        if (activeProfileName && perfilesEstudio[activeProfileName]) {
+          profileActive = true;
+          const config = perfilesEstudio[activeProfileName];
+          temasCargados.forEach(t => {
+            if (config.hasOwnProperty(t.nombre)) {
+              countProfile += t.preguntas.length;
+            }
+          });
+        }
+
+        // 3. Calculo Categoría Logic
+        let countCategory = 0;
+        let detectedCategory = null;
+        let mixedCategories = false;
+
+        if (selectedThemesArray.length > 0) {
+          const firstCat = selectedThemesArray[0].categoria;
+          const allSame = selectedThemesArray.every(t => t.categoria === firstCat);
+          if (allSame) {
+            detectedCategory = firstCat;
+            temasCargados.forEach(t => {
+              if (t.categoria === detectedCategory) {
+                countCategory += t.preguntas.length;
+              }
+            });
+          } else {
+            mixedCategories = true;
+          }
+        }
+
+        // Display del total DE LA SELECCIÓN ACTUAL en el texto informativo
+        totalSpan.textContent = countSelection;
+
+        // --- Botón Selección ---
+        if (btnMaxSelection) {
+          btnMaxSelection.onclick = () => totalQuestionsInput.value = countSelection;
+          btnMaxSelection.disabled = countSelection === 0;
+          btnMaxSelection.style.opacity = countSelection === 0 ? '0.5' : '1';
+          btnMaxSelection.title = `Selección Manual: ${countSelection} preguntas`;
+        }
+
+        // --- Botón Perfil ---
+        if (btnMaxProfile) {
+          if (profileActive && countProfile > 0) {
+            btnMaxProfile.disabled = false;
+            btnMaxProfile.style.opacity = '1';
+            btnMaxProfile.style.backgroundColor = 'var(--primary)';
+            btnMaxProfile.style.color = 'white';
+            btnMaxProfile.style.cursor = 'pointer';
+            btnMaxProfile.onclick = () => {
+              totalQuestionsInput.value = countProfile;
+            };
+            btnMaxProfile.title = `Perfil '${activeProfileName}': ${countProfile} preguntas`;
+          } else {
+            btnMaxProfile.disabled = true;
+            btnMaxProfile.style.opacity = '0.5';
+            btnMaxProfile.style.backgroundColor = '';
+            btnMaxProfile.style.color = '';
+            btnMaxProfile.style.cursor = 'not-allowed';
+            btnMaxProfile.onclick = null;
+            btnMaxProfile.title = "Ningún perfil activo";
+          }
+        }
+
+        // --- Botón Categoría ---
+        if (btnMaxCategory) {
+          if (detectedCategory && countCategory > 0) {
+            btnMaxCategory.disabled = false;
+            btnMaxCategory.style.opacity = '1';
+            btnMaxCategory.style.backgroundColor = 'var(--primary)';
+            btnMaxCategory.style.color = 'white';
+            btnMaxCategory.style.cursor = 'pointer';
+            btnMaxCategory.textContent = `Max Cat.`;
+            btnMaxCategory.onclick = () => {
+              // Opción extra: ¿Queremos que seleccione también los temas visualmente?
+              // El usuario pidió "Todas las preguntas de la categoría". 
+              // Lo sensato es setear el número y quizas avisar.
+              totalQuestionsInput.value = countCategory;
+            };
+            btnMaxCategory.title = `Categoría '${detectedCategory}': ${countCategory} preguntas`;
+          } else {
+            btnMaxCategory.disabled = true;
+            btnMaxCategory.style.opacity = '0.5';
+            btnMaxCategory.style.backgroundColor = '';
+            btnMaxCategory.style.color = '';
+            btnMaxCategory.style.cursor = 'not-allowed';
+            btnMaxCategory.onclick = null;
+            btnMaxCategory.title = mixedCategories ? "Múltiples categorías seleccionadas" : "Selecciona un tema para detectar categoría";
+          }
+        }
       }
 
       function renderTemasLista() {
@@ -2562,6 +3045,7 @@
               // Si falla (no blanco), entra/sigue en la lista
               store[key] = {
                 ...q,
+                originalIndex: q.originalIndex || '?',
                 lastAttempt: new Date().toISOString()
               };
             }
@@ -2605,6 +3089,12 @@
         saveState();
         menuStatus.style.color = '#f59e0b';
         menuStatus.textContent = `Repasando ${questions.length} errores ${temaNombre ? `de "${temaNombre}"` : 'globales'}.`;
+      }
+
+      // Initial Render if themes exist
+      if (temasCargados.length > 0) {
+        renderCategoriasDisponibles();
+        renderTemasLista();
       }
 
       function retirarTema(nombre) {
@@ -2781,66 +3271,77 @@
         document.getElementById('creator-manual-section').style.display = 'none';
       };
 
-      fileMultipleInput.onchange = e => {
-        const files = e.target.files;
-        if (!files.length) return;
+      if (fileMultipleInput) {
+        fileMultipleInput.onchange = e => {
+          const files = e.target.files;
+          if (!files || !files.length) {
+            console.log("No files selected");
+            return;
+          }
 
-        const fileNamesSpan = document.getElementById('file-names');
-        if (files.length > 0) {
-          fileNamesSpan.textContent = Array.from(files).map(f => f.name).join(', ');
-        } else {
-          fileNamesSpan.textContent = '';
-        }
+          const fileNamesSpan = document.getElementById('file-names');
+          if (files.length > 0) {
+            fileNamesSpan.textContent = Array.from(files).map(f => f.name).join(', ');
+          } else {
+            fileNamesSpan.textContent = '';
+          }
 
-        let temasGuardados = JSON.parse(localStorage.getItem('temasGuardados')) || [];
+          // Variable 'temasGuardados' no se usa aquí, eliminada.
 
-        let cargados = 0;
-        for (let file of files) {
-          const reader = new FileReader();
-          reader.onload = ev => {
-            try {
-              const fileContent = ev.target.result;
-              const data = JSON.parse(fileContent);
+          let cargados = 0;
+          menuStatus.textContent = "Procesando archivos..."; // Feedback inmediato
 
-              if (!data.questions || typeof data.questions !== 'object') {
-                menuStatus.textContent = `Archivo ${file.name} sin "questions" o formato inválido`;
-                return;
+          for (let file of files) {
+            const reader = new FileReader();
+            reader.onload = ev => {
+              try {
+                const fileContent = ev.target.result;
+                const data = JSON.parse(fileContent);
+
+                if (!data.questions || typeof data.questions !== 'object') {
+                  menuStatus.textContent = `Archivo ${file.name} sin "questions" o formato inválido`;
+                  alert(`Error: El archivo ${file.name} no tiene el formato correcto (falta key 'questions').`);
+                  return;
+                }
+
+                // --- NUEVO: NORMALIZACIÓN DE PREGUNTAS ---
+                const preguntasNormalizadas = data.questions.map((q, idx) => {
+                  const rawComment = q.comment || q.Comment || q.explanation || q.explicacion || q.justificacion || q.retroalimentacion || "";
+                  return {
+                    ...q,
+                    originalIndex: idx + 1,
+                    comment: rawComment
+                  };
+                });
+                // -----------------------------------------
+
+                const nuevoTema = { nombre: file.name, preguntas: preguntasNormalizadas, porcentaje: 0, categoria: 'General' };
+                temasCargados.push(nuevoTema);
+
+                temasSeleccionados.add(file.name);
+                cargados++;
+
+                if (cargados === files.length) {
+                  guardarTemasCargadosEnStorage();
+                  menuStatus.textContent = `Cargados ${cargados} archivos de temas`;
+                  // alert(`¡Éxito! Se han cargado ${cargados} archivos.`);
+
+                  distribuirPorcentajesEquitativamente();
+                  renderTemasLista();
+                }
+              } catch (e) {
+                console.error(e);
+                menuStatus.textContent = `Error al leer archivo ${file.name}: ${e.message}`;
+                alert(`Error fatal leyendo ${file.name}: ${e.message}`);
               }
-
-              // --- NUEVO: NORMALIZACIÓN DE PREGUNTAS ---
-              // Esto asegura que si el JSON trae "explicacion", "justificacion" o "Comment",
-              // se guarde unificadamente como "comment" para que el test lo reconozca siempre.
-              const preguntasNormalizadas = data.questions.map(q => {
-                // Buscamos cualquier campo que parezca una explicación
-                const rawComment = q.comment || q.Comment || q.explanation || q.explicacion || q.justificacion || q.retroalimentacion || "";
-                return {
-                  ...q,
-                  comment: rawComment // Forzamos a que siempre se llame 'comment' internamente
-                };
-              });
-              // -----------------------------------------
-
-              const nuevoTema = { nombre: file.name, preguntas: preguntasNormalizadas, porcentaje: 0, categoria: 'General' };
-              temasCargados.push(nuevoTema);
-
-              temasSeleccionados.add(file.name);
-              cargados++;
-
-              if (cargados === files.length) {
-                guardarTemasCargadosEnStorage();
-                menuStatus.textContent = `Cargados ${cargados} archivos de temas`;
-
-                distribuirPorcentajesEquitativamente();
-                renderTemasLista();
-              }
-            } catch (e) { // Capturamos 'e' para ver el error en consola si hace falta
-              console.error(e);
-              menuStatus.textContent = `Error al leer archivo ${file.name}`;
-            }
-          };
-          reader.readAsText(file);
-        }
-      };
+            };
+            reader.readAsText(file);
+          }
+        };
+      } else {
+        console.error("Critical Error: element #file-multiple not found in DOM.");
+        alert("Error interno: No se encuentra el elemento de carga de archivos. Por favor recarga la página.");
+      }
 
       resetMenuBtn.onclick = () => {
         temasCargados = [];
@@ -3731,6 +4232,10 @@
       showHelpBtn.onclick = () => showView('help-container');
       closeHelpBtn.onclick = () => showView('main-menu');
 
+      // Init
+      renderTemasLista();
+      if (typeof renderPerfiles === 'function') renderPerfiles(); // Call this to show profiles!
+
       // --- LÓGICA DE TEMAS ---
       const themeSelector = document.getElementById('theme-selector');
       const savedTheme = localStorage.getItem('app-theme') || 'light';
@@ -3746,15 +4251,42 @@
       }
 
       applyTheme(savedTheme);
+
+      // --- LÓGICA DE COLAPSAR OPCIONES ---
+      const toggleOptionsBtn = document.getElementById('toggle-options-btn');
+      const setupOptionsWrapper = document.getElementById('setup-options-wrapper');
+
+      if (toggleOptionsBtn && setupOptionsWrapper) {
+        toggleOptionsBtn.onclick = () => {
+          const isCollapsed = setupOptionsWrapper.classList.contains('collapsed');
+          if (isCollapsed) {
+            setupOptionsWrapper.classList.remove('collapsed');
+            setupOptionsWrapper.style.maxHeight = '2000px'; // Suficiente para contenido
+            setupOptionsWrapper.style.opacity = '1';
+            setupOptionsWrapper.style.marginTop = '0';
+            setupOptionsWrapper.style.overflow = 'visible';
+            toggleOptionsBtn.innerHTML = '<i data-lucide="settings-2"></i> ⚙️ Opciones Avanzadas (Categorías, Perfiles, Pesos) ▲';
+          } else {
+            setupOptionsWrapper.classList.add('collapsed');
+            setupOptionsWrapper.style.maxHeight = '0';
+            setupOptionsWrapper.style.opacity = '0';
+            setupOptionsWrapper.style.marginTop = '0'; // Evitar espacio extra
+            setupOptionsWrapper.style.overflow = 'hidden';
+            toggleOptionsBtn.innerHTML = '<i data-lucide="settings-2"></i> ⚙️ Opciones Avanzadas (Categorías, Perfiles, Pesos) ▼';
+          }
+        };
+      }
+
+
     });
   </script>
 
   <footer class="bottom-banner">
     <h2>TestAPP</h2>
     <div class="about">
-      <strong>About:</strong> Hecho totalmente en HTML en Gemini.
+      <strong></strong> Hecho totalmente en HTML.
       <br>
-      <small>© 2026 Plataforma de Entrenamiento Inteligente</small>
+      <small>© 2026 TestAPP</small>
     </div>
   </footer>
 
