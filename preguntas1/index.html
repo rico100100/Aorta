@@ -1310,6 +1310,20 @@
       box-shadow: var(--shadow-sm);
     }
 
+    /* Acciones de Exportación */
+    .export-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .export-actions button {
+      flex: 0 1 auto;
+      min-width: 180px;
+    }
+
     /* Nuevos estilos para la gestión de archivos */
     .bulk-actions {
       display: flex;
@@ -3307,8 +3321,12 @@
                 // --- NUEVO: NORMALIZACIÓN DE PREGUNTAS ---
                 const preguntasNormalizadas = data.questions.map((q, idx) => {
                   const rawComment = q.comment || q.Comment || q.explanation || q.explicacion || q.justificacion || q.retroalimentacion || "";
+                  // Usar el nombre del archivo como prefijo para unicidad
+                  const uniqueId = `${file.name}:::${q.id || idx}`;
                   return {
                     ...q,
+                    id: uniqueId,
+                    originalId: q.id,
                     originalIndex: idx + 1,
                     comment: rawComment
                   };
@@ -3460,9 +3478,33 @@
         }
 
         preguntasPorTema.forEach(({ tema, n }) => {
-          const shuffled = tema.preguntas.slice().sort(() => Math.random() - 0.5);
+          // --- LÓGICA DE PREGUNTAS VISTAS ---
+          const seenHistory = JSON.parse(localStorage.getItem('seenQuestions')) || {};
+          const seenIds = seenHistory[tema.nombre] || [];
 
-          const preguntasEtiquetadas = shuffled.slice(0, n).map(q => ({
+          const unseen = tema.preguntas.filter(q => !seenIds.includes(q.id));
+          const seen = tema.preguntas.filter(q => seenIds.includes(q.id));
+
+          let selected = [];
+          if (unseen.length >= n) {
+            // Si hay suficientes no vistas, barajamos y cogemos n
+            selected = unseen.sort(() => Math.random() - 0.5).slice(0, n);
+          } else {
+            // Si no hay suficientes, cogemos todas las no vistas y barajamos las vistas para rellenar
+            selected = [...unseen];
+            const needed = n - unseen.length;
+            const extra = seen.sort(() => Math.random() - 0.5).slice(0, needed);
+            selected = selected.concat(extra);
+
+            // Si hemos agotado las no vistas, reseteamos el historial de este tema para la próxima vez
+            if (unseen.length > 0) {
+              // Dejamos que se marquen como vistas al final antes de resetear? 
+              // Mejor simplemente vaciarlo si hemos tenido que recurrir a las vistas.
+              // Pero esperaremos a que termine el test para marcarlas.
+            }
+          }
+
+          const preguntasEtiquetadas = selected.map(q => ({
             ...q,
             temaNombre: tema.nombre
           }));
@@ -3637,6 +3679,10 @@
 
             scoreElem.textContent = score;
             nextBtn.disabled = false;
+
+            // MARCAR COMO VISTA
+            markQuestionAsSeen(q.temaNombre, q.id);
+
             saveState();
           };
 
@@ -3820,6 +3866,24 @@
         if (window.lucide) lucide.createIcons();
         saveTestToHistory();
         syncFailedQuestions();
+      }
+
+      function markQuestionAsSeen(temaNombre, questionId) {
+        const seenHistory = JSON.parse(localStorage.getItem('seenQuestions')) || {};
+        if (!seenHistory[temaNombre]) seenHistory[temaNombre] = [];
+
+        if (!seenHistory[temaNombre].includes(questionId)) {
+          seenHistory[temaNombre].push(questionId);
+
+          // Verificar si hemos visto todas las preguntas del tema
+          const tema = temasCargados.find(t => t.nombre === temaNombre);
+          if (tema && seenHistory[temaNombre].length >= tema.preguntas.length) {
+            // Opcional: reiniciar si se desea rotar infinitamente sin marcar "vistas"
+            // seenHistory[temaNombre] = []; 
+          }
+
+          localStorage.setItem('seenQuestions', JSON.stringify(seenHistory));
+        }
       }
 
       function renderQuestionsByFilter(filter) {
@@ -4042,9 +4106,22 @@
           temasGuardados.forEach(temaGuardado => {
             try {
               const data = JSON.parse(temaGuardado.contenido);
+
+              const preguntasNormalizadas = data.questions.map((q, idx) => {
+                const rawComment = q.comment || q.Comment || q.explanation || q.explicacion || q.justificacion || q.retroalimentacion || "";
+                const uniqueId = `${temaGuardado.nombre}:::${q.id || idx}`;
+                return {
+                  ...q,
+                  id: uniqueId,
+                  originalId: q.id,
+                  originalIndex: idx + 1,
+                  comment: rawComment
+                };
+              });
+
               temasCargados.push({
                 nombre: temaGuardado.nombre,
-                preguntas: data.questions,
+                preguntas: preguntasNormalizadas,
                 porcentaje: 0,
                 categoria: temaGuardado.categoria || 'General'
               });
