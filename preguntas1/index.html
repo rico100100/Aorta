@@ -2631,27 +2631,23 @@
       let perfilesEstudio = JSON.parse(localStorage.getItem('quizPerfilesPesos')) || {};
       let activeProfileName = null;
       let temasCargados = [];
-      try {
-        const savedThemes = localStorage.getItem('temasGuardados');
-        if (savedThemes) {
-          const rawThemes = JSON.parse(savedThemes);
-          // Deduplicación proactiva por nombre
-          const uniqueMap = new Map();
-          rawThemes.forEach(t => {
-            uniqueMap.set(t.nombre, {
-              nombre: t.nombre,
-              preguntas: JSON.parse(t.contenido).questions,
-              categoria: t.categoria || 'General',
-              porcentaje: 0
-            });
-          });
-          temasCargados = Array.from(uniqueMap.values());
-        }
-      } catch (e) {
-        console.error("Error loading saved themes:", e);
-        temasCargados = [];
-      }
       let temasSeleccionados = new Set();
+
+      function registrarTema(nombre, preguntas, categoria = 'General') {
+        const indexExistente = temasCargados.findIndex(t => t.nombre === nombre);
+        if (indexExistente !== -1) {
+          temasCargados[indexExistente].preguntas = preguntas;
+          temasCargados[indexExistente].categoria = categoria;
+        } else {
+          temasCargados.push({
+            nombre: nombre,
+            preguntas: preguntas,
+            porcentaje: 0,
+            categoria: categoria
+          });
+          temasSeleccionados.add(nombre);
+        }
+      }
 
       let questions = [];
       let currentIndex = 0;
@@ -3623,16 +3619,14 @@
                 const fileContent = ev.target.result;
                 const data = JSON.parse(fileContent);
 
-                if (!data.questions || typeof data.questions !== 'object') {
+                if (!data.questions || (typeof data.questions !== 'object')) {
                   menuStatus.textContent = `Archivo ${file.name} sin "questions" o formato inválido`;
                   alert(`Error: El archivo ${file.name} no tiene el formato correcto (falta key 'questions').`);
                   return;
                 }
 
-                // --- NUEVO: NORMALIZACIÓN DE PREGUNTAS ---
                 const preguntasNormalizadas = data.questions.map((q, idx) => {
                   const rawComment = q.comment || q.Comment || q.explanation || q.explicacion || q.justificacion || q.retroalimentacion || "";
-                  // Usar el nombre del archivo como prefijo para unicidad
                   const uniqueId = `${file.name}:::${q.id || idx}`;
                   return {
                     ...q,
@@ -3642,17 +3636,8 @@
                     comment: rawComment
                   };
                 });
-                // -----------------------------------------
 
-                const indexExistente = temasCargados.findIndex(t => t.nombre === file.name);
-                if (indexExistente !== -1) {
-                  // Actualizar tema existente
-                  temasCargados[indexExistente].preguntas = preguntasNormalizadas;
-                } else {
-                  const nuevoTema = { nombre: file.name, preguntas: preguntasNormalizadas, porcentaje: 0, categoria: 'General' };
-                  temasCargados.push(nuevoTema);
-                  temasSeleccionados.add(file.name);
-                }
+                registrarTema(file.name, preguntasNormalizadas, 'General');
 
                 processedCount++;
 
@@ -4458,47 +4443,35 @@
         const temasGuardadosJSON = localStorage.getItem('temasGuardados');
 
         if (temasGuardadosJSON) {
-          const temasGuardados = JSON.parse(temasGuardadosJSON);
-
-          temasGuardados.forEach(temaGuardado => {
-            try {
-              const data = JSON.parse(temaGuardado.contenido);
-
-              const preguntasNormalizadas = data.questions.map((q, idx) => {
-                const rawComment = q.comment || q.Comment || q.explanation || q.explicacion || q.justificacion || q.retroalimentacion || "";
-                const uniqueId = `${temaGuardado.nombre}:::${q.id || idx}`;
-                return {
-                  ...q,
-                  id: uniqueId,
-                  originalId: q.id,
-                  originalIndex: idx + 1,
-                  comment: rawComment
-                };
-              });
-
-              const indexExistente = temasCargados.findIndex(t => t.nombre === temaGuardado.nombre);
-              if (indexExistente !== -1) {
-                temasCargados[indexExistente].preguntas = preguntasNormalizadas;
-              } else {
-                temasCargados.push({
-                  nombre: temaGuardado.nombre,
-                  preguntas: preguntasNormalizadas,
-                  porcentaje: 0,
-                  categoria: temaGuardado.categoria || 'General'
+          try {
+            const temasGuardados = JSON.parse(temasGuardadosJSON);
+            temasGuardados.forEach(temaGuardado => {
+              try {
+                const data = JSON.parse(temaGuardado.contenido);
+                const preguntasNormalizadas = data.questions.map((q, idx) => {
+                  const rawComment = q.comment || q.Comment || q.explanation || q.explicacion || q.justificacion || q.retroalimentacion || "";
+                  const uniqueId = `${temaGuardado.nombre}:::${q.id || idx}`;
+                  return {
+                    ...q,
+                    id: uniqueId,
+                    originalId: q.id,
+                    originalIndex: idx + 1,
+                    comment: rawComment
+                  };
                 });
-                temasSeleccionados.add(temaGuardado.nombre);
+                registrarTema(temaGuardado.nombre, preguntasNormalizadas, temaGuardado.categoria || 'General');
+              } catch (e) {
+                console.error("Error al parsear un tema guardado:", temaGuardado.nombre);
               }
-            } catch (e) {
-              console.error("Error al parsear un tema guardado:", temaGuardado.nombre);
+            });
+
+            if (temasCargados.length > 0) {
+              menuStatus.textContent = `Se cargaron ${temasCargados.length} temas guardados.`;
+              distribuirPorcentajesEquitativamente();
+              renderTemasLista();
             }
-          });
-
-          if (temasCargados.length > 0) {
-            menuStatus.textContent = `Se cargaron ${temasCargados.length} temas guardados.`;
-
-            distribuirPorcentajesEquitativamente();
-
-            renderTemasLista();
+          } catch (e) {
+            console.error("Error al cargar temas guardados del localStorage:", e);
           }
         }
 
