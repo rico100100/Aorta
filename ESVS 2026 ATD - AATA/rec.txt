@@ -1,0 +1,259 @@
+Aquí tienes las 129 recomendaciones con el formato solicitado, sin markdown y con la clasificación resumida entre paréntesis:
+
+Rec 1: Se recomienda que el manejo de la patología de aorta torácica descendente se organice en redes definidas con vías de derivación establecidas. (IC)
+
+Rec 2: Se debería considerar la transferencia inmediata de pacientes con enfermedad aguda de la aorta torácica descendente a centros aórticos para una evaluación y manejo integral. (IIaC)
+
+Rec 3: Se recomienda que los centros aórticos que tratan la enfermedad de la aorta torácica descendente tengan un volumen anual de ≥ 20 reparaciones. (IC)
+
+Rec 4: Se recomienda una vía de atención quirúrgica vascular rápida ("fast track") para pacientes con patología de aorta torácica descendente que cumplan con los criterios de tamaño para reparación electiva. (IC)
+
+Rec 5: Se recomienda que los centros aórticos que realizan reparación de aorta torácica descendente inscriban los casos en registros de calidad prospectivos validados. (IC)
+
+Rec 6: Se recomienda la angiografía por tomografía computarizada (angio-TC) multifásica de cortes finos como la modalidad de imagen de primera línea para diagnóstico, vigilancia, planificación y seguimiento. (IC)
+
+Rec 7: Se recomienda que la imagen aórtica abarque toda la aorta, desde los vasos supraaórticos hasta las arterias femorales comunes. (IC)
+
+Rec 8: Se debería considerar la resonancia magnética como modalidad de imagen alternativa para reducir la exposición a la radiación, especialmente en pacientes jóvenes. (IIaC)
+
+Rec 9: Se debería considerar la 18F-FDG-PET/TC como modalidad adjunta en la evaluación diagnóstica de aortitis infectada y no infectada. (IIaC)
+
+Rec 10: Se debería considerar la fusión de imágenes intraoperatoria durante la reparación endovascular para reducir la radiación y el contraste. (IIaC)
+
+Rec 11: Podría considerarse el uso de ecocardiografía transesofágica como modalidad de imagen intraoperatoria adjunta. (IIbC)
+
+Rec 12: Podría considerarse el uso de ecografía intravascular (IVUS) como modalidad adjunta para guía durante TEVAR. (IIbC)
+
+Rec 13: Se recomienda la evaluación preoperatoria de la función cardíaca, pulmonar y renal antes de la reparación electiva abierta o endovascular compleja. (IC)
+
+Rec 14: Podría considerarse la revascularización preoperatoria de enfermedad coronaria sintomática o asintomática significativa en casos seleccionados. (IIbC)
+
+Rec 15: Se debería considerar la evaluación multidisciplinaria de la fragilidad del paciente para candidatos a reparación electiva. (IIaC)
+
+Rec 16: Se recomienda la evaluación y optimización de factores de riesgo cardiovascular, mejor tratamiento médico y estilo de vida saludable. (IC)
+
+Rec 17: Podría considerarse una terapia médica intensificada con estatinas para estabilizar las lesiones trombóticas en "aorta shaggy" antes de la reparación. (IIbC)
+
+Rec 18: Se recomienda informar completamente a los pacientes sobre todas las opciones de tratamiento y sus riesgos para apoyar la toma de decisiones compartida. (IC)
+
+Rec 19: No se recomienda la reparación endovascular o abierta en pacientes considerados no aptos o con pocas probabilidades de beneficiarse debido a comorbilidades graves o fragilidad. (IIIbC)
+
+Rec 20: Se recomienda derivar a las mujeres embarazadas con aneurisma o disección a centros aórticos experimentados para manejo multidisciplinario. (IC)
+
+Rec 21: Se debería considerar la revascularización de la arteria subclavia izquierda en pacientes sometidos a TEVAR electivo con cobertura intencional. (IIaB)
+
+Rec 22: Se debería considerar la elección entre revascularización abierta o endovascular de la subclavia izquierda caso por caso. (IIaC)
+
+Rec 23: Se recomiendan estrategias protocolizadas para la prevención, detección temprana y manejo de la isquemia de la médula espinal. (IC)
+
+Rec 24: Se debería considerar la reparación en etapas (estadio) para pacientes sometidos a reparación aórtica endovascular extensa. (IIaC)
+
+Rec 25: Se recomienda el drenaje profiláctico de líquido cefalorraquídeo para pacientes sometidos a reparación abierta torácica o toracoabdominal. (IA)
+
+Rec 26: Podría considerarse preferible una estrategia de drenaje de líquido cefalorraquídeo reactiva (rescate) frente al drenaje profiláctico rutinario en TEVAR extenso. (IIbC)
+
+Rec 27: Se debería considerar la reimplantación de arterias intercostales mayores durante la reparación abierta toracoabdominal. (IIaC)
+
+Rec 28: Se debería considerar la preservación del flujo a las arterias ilíacas internas durante la reparación endovascular toracoabdominal. (IIaC)
+
+Rec 29: Se recomienda una evaluación neurológica clínica temprana tras la reparación para permitir la detección y tratamiento de la isquemia medular. (IC)
+
+Rec 30: Se debería considerar la monitorización perioperatoria de potenciales evocados motores durante la reparación abierta toracoabdominal. (IIaC)
+
+Rec 31: Podría considerarse el lavado previo del sistema de entrega del endoinjerto torácico para reducir el riesgo de embolia gaseosa cerebral. (IIbC)
+
+Rec 32: Se recomienda la evaluación preoperatoria de los vasos de acceso iliofemorales antes de TEVAR. (IC)
+
+Rec 33: Se debería considerar la optimización quirúrgica o endovascular para accesos comprometidos. (IIaC)
+
+Rec 34: Se debería considerar el acceso percutáneo como el método preferido para el acceso femoral común en TEVAR. (IIaA)
+
+Rec 35: Se recomienda la guía por ultrasonido para el acceso percutáneo de la arteria femoral común en TEVAR. (IA)
+
+Rec 36: Se recomienda terapia médica inmediata (control del dolor y anti-impulso) y monitorización hemodinámica invasiva como tratamiento inicial para disección aórtica tipo B aguda. (IC)
+
+Rec 37: No está indicado el TEVAR rutinario para disecciones tipo B agudas no complicadas fuera de ensayos clínicos. (IIIaB)
+
+Rec 38: Se debería considerar el manejo conservador continuo para disección tipo B aguda no complicada, con vigilancia por imagen. (IIaC)
+
+Rec 39: Podría considerarse TEVAR en pacientes seleccionados con disección tipo B aguda no complicada y anatomía adecuada con expansión aórtica temprana o diámetro inicial grande (>4.0 cm). (IIbC)
+
+Rec 40: Se recomienda TEVAR inmediato para pacientes con disección aórtica tipo B aguda complicada. (IC)
+
+Rec 41: Se debería considerar la extensión distal con un endoinjerto de tamaño adecuado para asegurar el sellado distal en disección tipo B aguda rota. (IIaC)
+
+Rec 42: Se recomienda la revascularización endovascular selectiva inmediata de vasos diana afectados en pacientes con malperfusión residual post-TEVAR. (IC)
+
+Rec 43: Se debería considerar el aterrizaje proximal del endoinjerto en aorta no disecada. (IIaC)
+
+Rec 44: No se recomienda el modelado con balón o el sobredimensionamiento excesivo en disección aguda debido al riesgo de nueva entrada inducida por el stent (SINE). (IIIbC)
+
+Rec 45: Se debería considerar la reparación quirúrgica abierta de disección tipo B aguda complicada en pacientes no aptos para reparación endovascular. (IIaC)
+
+Rec 46: Se recomienda seguimiento clínico e imagenológico a largo plazo individualizado tras el tratamiento de disección tipo B aguda. (IC)
+
+Rec 47: Se recomienda manejo conservador para úlcera aórtica penetrante o hematoma intramural no complicados. (IC)
+
+Rec 48: Se debería considerar TEVAR para pacientes con úlcera penetrante o hematoma intramural complicados. (IIaC)
+
+Rec 49: Se recomienda terapia antihipertensiva de por vida y vigilancia con imagen seriada para disección tipo B crónica. (IC)
+
+Rec 50: Se recomiendan betabloqueantes, inhibidores de la ECA, ARA II o bloqueadores de canales de calcio para el tratamiento antihipertensivo a largo plazo en disección crónica. (IB)
+
+Rec 51: Se debería considerar terapia con estatinas a largo plazo en pacientes con disección tipo B. (IIaC)
+
+Rec 52: Se debería considerar la reparación en pacientes con disección tipo B crónica y diámetro aórtico ≥ 6.0 cm. (IIaC)
+
+Rec 53: Podría considerarse un umbral de diámetro menor (≥ 5.5 cm) para reparación en pacientes seleccionados con disección tipo B crónica. (IIbC)
+
+Rec 54: Se debería considerar TEVAR como opción primaria si la formación de aneurisma se confina a la aorta torácica. (IIaC)
+
+Rec 55: Se debería considerar el aterrizaje proximal del endoinjerto en aorta no disecada o injerto quirúrgico en disección crónica. (IIaC)
+
+Rec 56: Se debería considerar la reparación endovascular con tecnologías fenestradas y ramificadas como terapia de primera línea si involucra la aorta toracoabdominal. (IIaC)
+
+Rec 57: Podría considerarse la oclusión distal de la falsa luz como adjunto a TEVAR en disección crónica con aneurisma. (IIbC)
+
+Rec 58: Podría considerarse la reparación abierta en pacientes seleccionados de bajo riesgo con disección crónica y aneurisma toracoabdominal. (IIbC)
+
+Rec 59: Se recomienda seguimiento clínico e imagenológico a largo plazo individualizado tras el tratamiento de disección tipo B crónica. (IC)
+
+Rec 60: Se recomienda vigilancia con imagen transversal seriada para monitorizar el crecimiento en pacientes con aneurisma pequeño aptos para reparación. (IC)
+
+Rec 61: Se debería considerar la reparación en pacientes con aneurismas torácicos o toracoabdominales con diámetro ≥ 6.0 cm. (IIaC)
+
+Rec 62: Podría considerarse un umbral de diámetro menor (≥ 5.5 cm) en pacientes seleccionados. (IIbC)
+
+Rec 63: Podría considerarse el tratamiento quirúrgico temprano con un umbral de diámetro menor para aneurismas saculares no infectados. (IIbC)
+
+Rec 64: Se recomienda TEVAR como la opción de tratamiento quirúrgico de primera línea en pacientes con aneurismas de aorta torácica descendente. (IB)
+
+Rec 65: Se debería considerar la reparación endovascular con tecnologías fenestradas y ramificadas como primera línea en aneurismas toracoabdominales. (IIaC)
+
+Rec 66: Podría considerarse la reparación abierta en pacientes seleccionados de bajo riesgo quirúrgico. (IIbC)
+
+Rec 67: Se debería considerar la revascularización de la arteria celíaca si su cobertura es necesaria y el flujo colateral es insuficiente. (IIaC)
+
+Rec 68: Podría considerarse preferir fenestraciones sobre ramas para las arterias renales cuando el endoinjerto es adyacente a la pared aórtica. (IIbC)
+
+Rec 69: Se debería considerar el diseño de stent cubierto expandible por balón como primera opción para fenestraciones. (IIaC)
+
+Rec 70: Podrían considerarse diseños de stents puente expandibles por balón, autoexpandibles o combinados para ramas. (IIbC)
+
+Rec 71: Se recomienda la perfusión aórtica distal durante la reparación abierta para mantener la perfusión de órganos finales. (IC)
+
+Rec 72: Se debería considerar la perfusión renal con soluciones cristaloides frías (como HTK) durante la reparación abierta. (IIaB)
+
+Rec 73: Se debería considerar pruebas viscoelásticas para guiar el manejo hemostático durante la reparación abierta. (IIaC)
+
+Rec 74: Se recomienda la administración intraoperatoria de heparina intravenosa durante la reparación endovascular electiva. (IC)
+
+Rec 75: Se debería considerar la monitorización del tiempo de coagulación activado (ACT) durante la reparación. (IIaC)
+
+Rec 76: Podría considerarse la terapia antiplaquetaria dual temporal tras reparación endovascular toracoabdominal fenestrada o ramificada. (IIbC)
+
+Rec 77: Se debería considerar la preservación de arterias renales accesorias grandes (≥ 4 mm) o significativas. (IIaC)
+
+Rec 78: Podría considerarse la embolización preventiva de arterias renales accesorias en casos seleccionados. (IIbC)
+
+Rec 79: Se recomienda seguimiento clínico e imagenológico a largo plazo individualizado tras la reparación de aneurisma. (IC)
+
+Rec 80: Se debería considerar una política de hipotensión permisiva preoperatoria en pacientes con aneurisma roto. (IIaC)
+
+Rec 81: Se recomienda TEVAR como la modalidad de tratamiento preferida para aneurisma de aorta torácica descendente roto. (IC)
+
+Rec 82: Se debería considerar un mayor sobredimensionamiento del endoinjerto en reparación de emergencia por ruptura si la imagen fue en hipotensión. (IIaC)
+
+Rec 83: Se debería considerar la reparación endovascular (off-the-shelf, modificado por médico o in situ) como preferida para aneurisma toracoabdominal roto. (IIaC)
+
+Rec 84: Podría considerarse la compartimentalización de un aneurisma posdisección roto para permitir la exclusión endovascular de una ruptura torácica aislada. (IIbC)
+
+Rec 85: Podría considerarse la reparación abierta en pacientes seleccionados con ruptura cuando la reparación endovascular no es factible. (IIbC)
+
+Rec 86: Podría considerarse el drenaje del hemotórax tras TEVAR por ruptura una vez estabilizado el paciente. (IIbC)
+
+Rec 87: Se debería considerar la descompresión toracoscópica asistida por video para hematoma organizado o drenaje inadecuado. (IIaC)
+
+Rec 88: Se recomienda manejo no operatorio para lesión aórtica traumática cerrada (BTAI) grado 1 sin lesión cerebral traumática concomitante. (IC)
+
+Rec 89: Podría considerarse TEVAR para BTAI grado 1 con lesión cerebral traumática concomitante para permitir presiones de perfusión cerebral más altas. (IIbC)
+
+Rec 90: Se debería considerar TEVAR diferido (> 24 horas) para BTAI grado 2 sin características de alto riesgo. (IIaC)
+
+Rec 91: Se recomienda TEVAR urgente (< 24 horas) para BTAI grado 2 con características de alto riesgo. (IC)
+
+Rec 92: Se recomienda TEVAR inmediato para BTAI grado 3. (IC)
+
+Rec 93: Se recomienda TEVAR como tratamiento de primera línea para lesión aórtica traumática cerrada. (IC)
+
+Rec 94: Se debería considerar la heparinización sistémica individualizada durante TEVAR por trauma. (IIaC)
+
+Rec 95: Se debería considerar un sobredimensionamiento moderado del stent en reparación de emergencia de BTAI si la imagen fue en hipotensión. (IIaC)
+
+Rec 96: Se recomienda terapia médica continua y vigilancia seriada para pacientes con BTAI manejados no operativamente. (IC)
+
+Rec 97: Se recomienda seguimiento por imagen al mes, año y luego anualmente tras reparación endovascular de BTAI. (IC)
+
+Rec 98: Se debería considerar la angiografía por resonancia magnética como modalidad preferida para vigilancia a largo plazo tras BTAI. (IIaC)
+
+Rec 99: Se debería considerar la reintervención para endofugas directas (tipo I y III). (IIaC)
+
+Rec 100: Podría considerarse la reintervención para zonas de aterrizaje comprometidas o inadecuadas sin endofuga visible. (IIbC)
+
+Rec 101: Podría considerarse la reintervención para endofuga tipo II en presencia de crecimiento significativo del saco (≥ 1.0 cm). (IIbC)
+
+Rec 102: Se debería considerar la reintervención para nueva entrada distal inducida por stent (dSINE). (IIaC)
+
+Rec 103: Se recomienda asesoramiento y pruebas genéticas en pacientes < 60 años o con historia familiar/signos sindrómicos. (IC)
+
+Rec 104: Se recomienda manejo multidisciplinario en centros altamente especializados para aortopatías genéticas. (IC)
+
+Rec 105: Se debería considerar vigilancia seriada de la aorta y ramas principales en pacientes con aortopatías genéticas. (IIaC)
+
+Rec 106: Se debería considerar la reparación en pacientes con síndrome de Marfan con diámetro aórtico ≥ 5.0 cm. (IIaC)
+
+Rec 107: Se debería considerar la reparación en Loeys-Dietz con diámetro > 4.5–5.0 cm. (IIaC)
+
+Rec 108: Se debería considerar la toma de decisiones individualizada en pacientes con Ehlers-Danlos vascular. (IIaC)
+
+Rec 109: Se debería considerar preferentemente la reparación abierta para tratamiento electivo en aortopatías genéticas. (IIaC)
+
+Rec 110: Se debería considerar la reparación endovascular en aortopatías genéticas cuando la cirugía abierta está contraindicada o en agudos/redo. (IIaC)
+
+Rec 111: No está indicada la escalada de terapia antitrombótica para trombo mural asintomático. (IIIaC)
+
+Rec 112: Se debería considerar terapia antitrombótica para trombo sintomático o "flotante" asintomático. (IIaC)
+
+Rec 113: Podría considerarse intervención endovascular para trombo sintomático/flotante si falla el manejo médico. (IIbC)
+
+Rec 114: Se recomienda manejo por equipo multidisciplinario para enfermedad inflamatoria activa. (IC)
+
+Rec 115: Se recomiendan glucocorticoides a dosis altas combinados con fármaco antirreumático modificador de enfermedad como primera línea. (IC)
+
+Rec 116: Se debería considerar tratamiento quirúrgico en pacientes seleccionados con arteritis inflamatoria. (IIaC)
+
+Rec 117: Se debería considerar la reparación endovascular electiva como primera línea para arteritis inflamatoria toracoabdominal. (IIaC)
+
+Rec 118: Se recomienda vigilancia postoperatoria a largo plazo para pacientes tratados por aortitis inflamatoria. (IC)
+
+Rec 119: Se recomienda manejo multidisciplinario en centros especializados para aneurismas micóticos. (IC)
+
+Rec 120: Se debería considerar reparación quirúrgica urgente de aneurismas micóticos independientemente del tamaño. (IIaC)
+
+Rec 121: Se debería considerar una estrategia de tratamiento individualizada para aneurismas micóticos. (IIaC)
+
+Rec 122: Se debería considerar terapia antibiótica individualizada para aneurismas micóticos. (IIaC)
+
+Rec 123: Se recomienda tratamiento quirúrgico o endovascular de coartación aórtica en adultos con hipertensión o gradiente ≥ 20 mmHg. (IB)
+
+Rec 124: Se debería considerar el tratamiento endovascular como terapia de primera línea para pacientes adultos con coartación. (IIaC)
+
+Rec 125: Se debería considerar la evaluación de anomalías estructurales asociadas en pacientes con arteria subclavia aberrante/divertículo de Kommerell. (IIaC)
+
+Rec 126: Podría considerarse vigilancia seriada cada cinco años para arteria subclavia aberrante asintomática no aneurismática. (IIbC)
+
+Rec 127: Se debería considerar tratamiento quirúrgico en pacientes sintomáticos con arteria subclavia aberrante/divertículo de Kommerell. (IIaC)
+
+Rec 128: Podría considerarse tratamiento quirúrgico para asintomáticos con diámetro del vaso ≥ 3.0 cm o divertículo ≥ 5.5 cm. (IIbC)
+
+Rec 129: Se debería considerar individualizar la técnica de reparación (abierta, híbrida, endovascular) de arteria subclavia aberrante. (IIaC)
